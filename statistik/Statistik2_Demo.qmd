@@ -43,7 +43,7 @@ summary.lm( aov(size ~ cultivar, data = blume))
 
 ```{r}
 # Ein weiterer Cultivar hinzufügen
-Messwerte_c <-c(30, 19, 31, 23, 18, 25, 26, 24, 17, 20)
+Messwerte_c <- c(30, 19, 31, 23, 18, 25, 26, 24, 17, 20)
 cultivar <- as.factor( c(rep("a", 10), rep("b", 10), rep("c", 10))) # Bezeichnug der Cultivare in der Tabelle
 blume2 <- data.frame("cultivar" = cultivar, "size" = c(Messwerte_a, Messwerte_b, Messwerte_c)) # Data frame erstellen
 
