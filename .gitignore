@@ -24,7 +24,7 @@ _book/
 /fallstudien/**/Results/
 /site_libs/
 purl
-
+**/.~lock.*
 
 datasets/raw
 
