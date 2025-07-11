@@ -1,23 +1,4 @@
 
-## TODOS 2024
-- Generell:
-  - Pacman für die Instalattion von Packges? Siehe CEM / DAMO
-  - Wickham 2017 ersetzen mit Wickham 2023 
-- Vorbereitungen: Link zu RStudio Desktop einfügen
-- Prepro:
-  - vereinfachen, anpassen analog DAMO
-  -  
-- Infovis 1: 
-  - Lief dieses Jahr etwas aus dem Ruder, weil einerseits der Theorie Input sehr lange war, aber dann auch die Demo aus sehr ausführlich. 
-  - Zudem hat verwirrt, das wir in der Theorie mit ggplot begonnen haben aber in der Übung mit base-R
-  - Weiter haben wir mit Qmd Files gearbeitet, was für die Studenten sehr verwirrend war und zeit kostete
-  - InfoVis1 war an einem Montag, da können wir kaum erwarten, dass die studis auf dienstag nenneswert viel zuhause machen können
-  - Vorschlag:
-    - Quarto: verschieben in InfoVis2. Zudem in der 1. Lektion von InfoVis2 mit R-Scripts arbeiten, und erst in der zweiten Lektion demonstrieren, wie aus diesem R-Script ein Quarto-File erstellt werden kann
-    - InfoVis1: base-R nach hinten schieben. Viele Details entfernen, wie z.b. date_breaks, limits usw.
-    - InfoVis2: 
-
-
 ## Abstract
 
 Im Kurs Research Methods verwenden wir seit einigen Jahren RMarkdown um die R Unterlagen für die Studenten bereit zu stellen. 
@@ -74,12 +55,6 @@ Um die ganzen \*.Qmd Files lokal bearbeiten zu können, muss das Repository gekl
 Je nach gewählter "Clone"-Methode, muss das Git*Hub* Repo als *upstream* gesetzt werden. Dafür gibt es mehrere Möglichkeiten. Beispielsweise mit dem folgenden Befehl im Terminal
 
     git branch -u origin/main
-
-### Submodule initialisieren
-
-Nun solltet ihr fast das ganze Repo lokal auf eurem Computer haben und die einzelnen Files bearbeiten können. Es gibt noch eine Ausnahme: Der `datasets` folder. Hierbei handelt es sich um einen einzelnen Ordner mit sämtlichen Datensätzen (csvs, tiffs, txts usw.) welche im Modul gebraucht werden. *Dieser Ordner ist ein separates, verschachteltes Git-Repo*. Dafür gibt es verschiedene Gründe (siehe FAQ). Wichtig ist jetzt, dass der Inhalt diess Ordners noch nicht auf euerem Computer gelandet ist. Dazu braucht es noch folgenden Befehl im Terminal:
-
-    git submodule update --init --recursive
 
 
 
@@ -169,8 +144,5 @@ Dies soll bewirken, dass bei allen Files im Ordner _freeze bei merge conflicts d
 
 TBD
 
-### Warum ist `datasets` ein separates Git-Repo?
-1. Die Datensätze sind häufig ein paar megabyte gross. In der Vergangenheit haben kleine Änderungen an diesen Files das Repo extrem ge-bloatet (vergrössert)
-2. Die Datenstäze sind teilweise vertraulich und sollten nicht öffentlich geteilt werden (das entsprechende Repo ist *private*) → dies sollte sich in Zukunft hoffentlich ändern (OER!)
 
 
