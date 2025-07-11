@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 7c0019ed-7218-414b-bbff-87237b00be10
+      url: 'https://researchmethods-zhaw.quarto.pub/hs24'

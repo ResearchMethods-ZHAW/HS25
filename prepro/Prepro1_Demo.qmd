@@ -1,0 +1,295 @@
+---
+lesson: PrePro1
+knitr:
+  opts_chunk: 
+    collapse: true
+---
+
+# Prepro 1: Demo
+
+
+
+Diese Demo kann [hier](Prepro1_Demo.R) heruntergeladen werden (Rechtsklick → speichern unter).
+
+
+### Datentypen
+
+#### Numerics
+
+Unter die Kategorie `numeric` fallen in R zwei Datentypen:
+
+-   `double`: Gleitkommazahl (z.B. 10.3, 7.3)
+-   `integer`: Ganzzahl (z.B. 10, 7)
+
+##### Doubles
+
+Folgendermassen wird eine Gleitkommazahl einer Variabel zuweisen:
+
+```{r}
+x <- 10.3
+
+x
+
+typeof(x)
+```
+
+Statt `<-` kann auch `=` verwendet werden. Dies funktioniert aber nicht in allen Situationen, und ist zudem leicht mit `==` zu verwechseln.
+
+```{r}
+y = 7.3
+y
+```
+
+Ohne explizite Zuweisung nimmt R immer den Datentyp `double` an:
+
+```{r}
+z <- 42
+typeof(z)
+is.integer(z)
+is.numeric(z)
+is.double(z)
+```
+
+#### Ganzzahl / Integer
+
+Erst wenn man eine Zahl explizit als `integer` definiert (mit `as.integer()` oder `L`), wird sie auch als solches abgespeichert.
+
+```{r}
+a <- as.integer(z)
+is.numeric(a)
+is.integer(a)
+
+c <- 8L
+is.numeric(c)
+is.integer(c)
+```
+
+```{r}
+typeof(a)
+
+is.numeric(a)
+is.integer(a)
+```
+
+
+
+#### Logische Abfragen
+
+Wird auch auch als boolesch (Eng. **boolean**) bezeichnet.
+
+```{r}
+e <- 3
+f <- 6
+
+e > f
+
+
+sonnig <- TRUE
+trocken <- FALSE
+
+sonnig & !trocken
+```
+
+
+
+#### Zeichenketten
+
+Zeichenketten (Eng. **character**) stellen Text dar
+
+```{r}
+s <- as.character(3.14)
+s
+typeof(s)
+```
+
+Zeichenketten verbinden / zusammenfügen (Eng. **concatenate**)
+
+```{r}
+fname <- "Andrea"
+lname <- "Muster"
+paste(fname, lname)
+
+fname2 <- "Simon"
+fname == fname2
+```
+
+#### Factors
+
+Mit Factors wird in R eine Sammlung von Zeichenketten bezeichnet, die sich wiederholen, z.B. Wochentage (es gibt nur 7 unterschiedliche Werte für "Wochentage").
+
+```{r}
+wochentage <- c("Montag", "Dienstag", "Mittwoch")
+
+typeof(wochentage)
+
+wochentage_fac <- as.factor(wochentage)
+
+wochentage
+wochentage_fac
+```
+
+Wie man oben sieht, unterscheiden sich `character vectors` und `factors` v.a. dadurch, dass letztere über sogenannte `levels` verfügt. Diese `levels` entsprechen den eindeutigen Werten.
+
+Zudem fällt auf, dass die Reihenfolge der Wohentag alphabetisch sortiert ist. Eine Ordnung kann man mit dem Befehl `ordered = T` festlegen, dabei muss die Reihenfolge der Werte im Argument `levels =` explizit festgehalten werden[^ordered].
+
+[^ordered]: `ordered = T` kann nur bei der Funktion `factor()` spezifiziert werden, nicht bei `as.factor()`. Ansonsten sind `factor()` und `as.factor()` sehr ähnlich.
+
+```{r}
+factor(wochentage, levels = c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"), ordered = TRUE)
+```
+
+Beachtet das `<`-Zeichen zwischen den Levels!
+
+
+#### Zeit/Datum
+
+Um in R mit Datum/Zeit Datentypen umzugehen, müssen sie als `POSIXct` eingelesen werden. Anders als beispielsweise bei Excel sollten in R Datum und Uhrzeit immer **zusammen** gespeichert werden (in *einem* Objekt oder *einem* Vektor).
+
+```{r}
+datum <- "2017-10-01 13:45:10"
+
+# konvertiert character in POSIXct:
+as.POSIXct(datum)
+```
+
+Wenn die Zeichenkette in dem obigen Format (`Jahr-Monat-Tag Stunde:Minute:Sekunde`) daher kommt, braucht `as.POSIXct` keine weiteren Informationen. 
+
+Sollte das Format davon aber abweichen, muss man der Funktion das genaue Schema jedoch mitteilen. Der Syntax dafür kann via `?strptime` nachgeschlagen werden.
+
+```{r}
+datum <- "01.10.2017 13:45"
+
+# konvertiert character in POSIXct:
+as.POSIXct(datum, format = "%d.%m.%Y %H:%M")
+
+datum2 <- as.POSIXct(datum, format = "%d.%m.%Y %H:%M")
+```
+
+Beachtet, dass im obigen Beispiel R automatisch eine Zeitzone angenommen hat (`CEST`). R geht davon aus, dass die Zeitzone der **System Timezone** (`Sys.timezone()`) entspricht.
+
+Um nun aus dem Datum wieder spezifische Bestandteile zu extrahieren, kann man theoretisch die gleichen Codes nochmal verwenden.
+
+```{r}
+strftime(datum2, format = "%m") # extrahiert den Monat als Zahl
+strftime(datum2, format = "%b") # extrahiert den Monat mit Namen (abgekürzt)
+strftime(datum2, format = "%B") # extrahiert den Monat mit Namen (ausgeschrieben)
+```
+
+Einfacher sind an dieser Stelle aber die Functions aus lubridate:
+
+```{r}
+library("lubridate")
+
+month(datum2) # extrahiert den Monat als Zahl
+month(datum2, label = TRUE, abbr = TRUE) # extrahiert den Monat mit Namen (abgekürzt)
+month(datum2, label = TRUE, abbr = FALSE) # extrahiert den Monat mit Namen (ausgeschrieben)
+```
+
+
+### Vectors
+
+Mit `c()` können eine Reihe von Werten vom gleichen Datentyp einer Variabel zugewiesen werden (als `vector`). 
+
+```{r}
+vec <- c(10, 20, 33, 42, 54, 66, 77)
+vec
+vec[5]
+vec[2:4]
+
+vec2 <- vec[2:4]
+```
+
+### Lists
+
+Eine `list` ist eine Sammlung von Objekten, die nicht unbedingt vom gleichen Datentyp sein müssen.
+
+```{r}
+
+mylist <- list("q", TRUE, 3.14)
+```
+
+Den einzelnen Elementen einer Liste können auch Namen zugewiesen werden.
+
+```{r}
+
+mylist2 <- list(fav_letter = "q", fav_boolean = TRUE, fav_number = 3.14)
+
+mylist2
+
+```
+
+
+### Data Frames und Conveniance Variabeln
+
+Wenn jeder Eintrag einer Liste gleich lang ist, kann diese Liste auch als Tabelle verstanden werden. Idealerweise sind die Elemente benannt, welche dann als Spaltennamen verwendet werden können.
+
+```{r}
+as.data.frame(mylist2)
+```
+
+Mit der Funktion `data.frame` kann direkt eine Tabelle erstellt werden, ohne zuerst eine Liste zu erstellen.
+
+```{r}
+df <- data.frame(
+  Stadt = c("Zürich", "Genf", "Basel", "Bern", "Lausanne"),
+  Ankunft = c(
+    "1.1.2017 10:00", "1.1.2017 14:00",
+    "1.1.2017 13:00", "1.1.2017 18:00", "1.1.2017 21:00"
+  )
+)
+
+str(df)
+```
+
+Um Daten abzufragen, nutzt man das `$` Symbol:
+
+```{r}
+df$Stadt
+```
+
+So können auch neue Spalten hinzugefügt oder bestehende verändert werden:
+
+```{r}
+df$Einwohner <- c(400000, 200000, 175000, 14000, 130000)
+
+df$Einwohner <- as.integer(df$Einwohner)
+```
+
+In der obigen `data.frame` wurde die Spalte `Einwohner` als Fliesskommazahl abgespeichert. Dies ist zwar nicht tragisch, aber da wir wissen, dass es sich hier sicher um Ganzzahlen handelt, können wir das korrigieren. Wichtiger ist aber, dass wir die Ankunftszeit (Spalte `Ankunft`) von einem `Factor` in ein Zeitformat (`POSIXct`) umwandeln.
+
+```{r}
+
+df$Ankunft <- as.POSIXct(df$Ankunft, format = "%d.%m.%Y %H:%M")
+
+df$Ankunft
+```
+
+
+Diese Spalten können nun helfen, um Hilfsvariablen (**convenience variables**) zu erstellen. Z.B. kann die Ankunftszeit von der Spalte `Ankunft` abgeleitet werden. 
+
+```{r}
+df$Ankunft_stunde <- hour(df$Ankunft)
+
+df$Ankunft_stunde
+```
+
+
+Oder aber, wir teilen die Städte in gross, mittel und klein ein.
+
+```{r}
+df$Groesse <- "keine Angabe"
+
+df$Groesse[df$Einwohner > 300000] <- "gross"
+df$Groesse[df$Einwohner <= 300000 & df$Einwohner > 150000] <- "mittel"
+df$Groesse[df$Einwohner <= 150000] <- "klein"
+
+df$Groesse
+```
+
+```{r}
+#| purl: false
+#| echo: false
+#| output: false
+
+knitr::purl("prepro/Prepro1_Demo.qmd", "prepro/Prepro1_Demo.R", documentation = 0)
+```

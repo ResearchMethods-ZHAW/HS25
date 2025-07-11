@@ -1,0 +1,215 @@
+---
+lesson: Statistik2
+knitr:
+  opts_chunk: 
+    collapse: false 
+---
+
+# Statistik 2: Demo
+
+[Demoscript herunterladen (.R)](../purl/Statistik2_Demo.R){.dld}
+
+[Demoscript herunterladen (.qmd)](../purl/Statistik2_Demo.qmd){.dld}
+
+
+## ANOVA
+
+### t-test als ANOVA
+
+```{r}
+# Dieselben Daten wie für die t-Tests in Statistik 1
+Messwerte_a <- c(20, 19, 25, 10, 8, 15, 13, 18, 11, 14) # Messwerte von Cultivar a
+Messwerte_b <- c(12, 15, 16, 7, 8, 10, 12, 11, 13, 10) # Messwerte von Cultivar b
+cultivar <- as.factor( c(rep("a", 10), rep("b", 10))) # Bezeichnug der Cultivare in der Tabelle
+blume <- data.frame("cultivar" = cultivar, "size" = c(Messwerte_a, Messwerte_b)) # Data frame erstellen
+
+# Daten anschauen
+library(ggplot2)
+
+ggplot(blume, aes(x = cultivar, y = size, fill = cultivar)) +
+  geom_boxplot() + # Boxplots
+  geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.5) # Datenpunkte darstellen
+
+# Klassischer t-Test ausführen
+t.test(size ~ cultivar, var.equal = TRUE, data = blume)
+
+# ANOVA ausführen
+aov(size ~ cultivar, data = blume)
+summary( aov(size ~ cultivar, data = blume))
+summary.lm( aov(size ~ cultivar, data = blume))
+```
+
+### Echte ANOVA
+
+```{r}
+# Ein weiterer Cultivar hinzufügen
+Messwerte_c <-c(30, 19, 31, 23, 18, 25, 26, 24, 17, 20)
+cultivar <- as.factor( c(rep("a", 10), rep("b", 10), rep("c", 10))) # Bezeichnug der Cultivare in der Tabelle
+blume2 <- data.frame("cultivar" = cultivar, "size" = c(Messwerte_a, Messwerte_b, Messwerte_c)) # Data frame erstellen
+
+
+# Daten als Boxplots anschauen
+ggplot(blume2, aes(x = cultivar, y = size, fill = cultivar)) +
+  geom_boxplot()  + # Boxplots
+  geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.5) # Datenpunkte darstellen
+
+# Kennzahlen der Daten anschauen
+
+library("dplyr")
+
+blume2 |> 
+  group_by(cultivar) |>
+  summarise(
+    Mean = mean(size), 
+    SD = sd(size),
+    Min = min(size),
+    Max = max(size)
+  )
+
+# ANOVA durchführen
+aov1 <- aov(size ~ cultivar, data = blume2)
+aov1
+summary(aov1)
+summary.lm(aov1)
+
+# Direkt als lineares Modell
+lm1 <- lm(size ~ cultivar, data = blume2)
+summary(lm1)
+```
+
+### Tukeys Posthoc-Test
+
+```{r}
+# Load library
+library("agricolae")
+
+# Sorten mit ihren Namen bezeichnen, damit keine Verwechslung mit den Post-Hoc-Labels entsteht
+blume2n <- blume2 
+blume2n$cultivar <- recode(blume2n$cultivar, "a" = "Andro", "b" = "Bulli", "c" = "Chroma")
+
+# ANOVA und Posthoc-Test durchführen
+aov1 <- aov(size ~ cultivar, data = blume2n)
+posthoc <- HSD.test(aov1, "cultivar", console = TRUE)
+posthoc
+
+# Darstellung der Ergebnisse mit Post-Hoc-Labels über Boxplots
+
+# Labels des Posthoc-Tests extrahieren
+labels <- posthoc$groups
+labels$cultivar <- rownames(labels)
+
+#In Plot darstellen
+ggplot(blume2n, aes(x = cultivar, y = size, fill = cultivar)) +
+  geom_boxplot() +
+  geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.5) +
+  geom_text(data = labels, aes(x = cultivar, y = 33, label = groups)) 
+
+
+```
+
+### 2-faktorielle ANOVA
+
+```{r}
+# Daten generieren
+Messwerte_d <- c(10, 12, 11, 13, 10, 25, 12, 30, 26, 13)
+Messwerte_e <- c(15, 13, 18, 11, 14, 25, 39, 38, 28, 24)
+Messwerte_f <- c(10, 12, 11, 13, 10, 9, 2, 4, 7, 13)
+
+
+blume3 <- data.frame(
+    cultivar = c(rep("a", 20), rep("b", 20), rep("c", 20)),
+    house = as.factor( c(rep(c(rep("yes", 10), rep("no", 10)), 3))),
+    size = c(Messwerte_a, Messwerte_b, Messwerte_c, Messwerte_d, Messwerte_e, Messwerte_f)
+)
+
+blume3
+```
+
+```{r}
+
+# Daten mit Boxplots anschauen
+# Base-R-Variante wäre: boxplot(size ~ cultivar + house, data = blume3)
+ggplot(blume3, aes(x = interaction(cultivar, house), y = size, fill = cultivar)) +
+  geom_boxplot() +
+  geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.5)
+
+
+summary( aov(size ~ cultivar + house, data = blume3))
+summary( aov(size ~ cultivar + house + cultivar:house, data = blume3))
+# Kurzschreibweise: "*" bedeutet, dass Interaktion zwischen cultivar und house eingeschlossen wird
+summary( aov(size ~ cultivar * house, data = blume3))
+
+summary.lm( aov(size ~ cultivar + house, data = blume3))
+
+# Interaktionsplots
+
+interaction.plot(blume3$cultivar, blume3$house, blume3$size)
+interaction.plot(blume3$house, blume3$cultivar, blume3$size)
+
+```
+
+
+
+## Modelldiagnostik
+
+### Beispiel Modelldiagnostik
+```{r}
+# Beispiel mit den blume Daten
+par(mfrow = c(2, 2)) # 4 Plots in einem Fenster
+plot( lm(Messwerte_b ~ Messwerte_a))
+```
+
+### Beispiel Modelldiagnostik nicht ok
+```{r}
+
+# Daten erstellen
+g <- c(20, 19, 25, 10, 8, 15, 13, 18, 11, 14, 25, 39, 38, 28, 24)
+h <- c(12, 15, 10, 7, 8, 10, 12, 11, 13, 10, 25, 12, 30, 26, 13)
+Bsp <- data.frame(g, h)
+
+# Daten betrachten
+ggplot(Bsp, aes(x = g, y = h)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
+
+
+par(mfrow = c(2, 2))
+plot(lm(h ~ g))
+
+```
+
+
+## Nicht-parametrische Alternativen, wenn Modellannahmen der ANVOA massiv verletzt sind
+
+```{r}
+# Nicht-parametrische Alternative zu t-Test
+wilcox.test(Messwerte_a, Messwerte_b)
+```
+
+
+## Kruskal-Wallis-Test bei starken Abweichungen von der Normalverteilung, aber ähnlichen Varianzen
+
+```{r}
+
+# Zum Vergleich normale ANOVA noch mal
+summary(aov(size ~ cultivar, data = blume2))
+
+# Kruskal-Wallis-Test
+kruskal.test(size ~ cultivar, data = blume2)
+```
+
+```{r}
+# Load library
+library("FSA")
+
+# Post-Hoc mit korrigierten p-Werte nach Bejamini-Hochberg
+dunnTest(size ~ cultivar, method = "bh", data = blume2)
+```
+
+##  Welch-Test bei erheblicher Heteroskedastizität, aber relative normal/symmetrisch verteilten Residuen
+
+```{r}
+# Welch-Test
+oneway.test(size ~ cultivar, var.equal = F, data = blume2)
+```
+

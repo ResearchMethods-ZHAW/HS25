@@ -1,0 +1,306 @@
+---
+execute:
+  echo: true  # set to true to show musterlösung
+  output: true # set to true to show musterlösung
+code-fold: true
+code-summary: "Musterlösung"
+knitr:
+  opts_chunk: 
+    collapse: true
+---
+
+# Variablenselektion Multivariate Modelle
+
+## Libraries laden
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+library("sf")
+library("terra")
+library("dplyr")
+library("readr")
+library("ggplot2")
+library("PerformanceAnalytics")
+library("pastecs")
+library("lme4")
+library("bbmle")
+library("MuMIn")
+library("MASS")
+```
+
+## Variablenselektion
+
+→ Vorgehen analog @coppes2017
+
+## Aufgabe 1
+
+Mit dem folgenden Code kann eine simple Korrelationsmatrix aufgebaut werden, vergl. Aufgabe 5 vorangehende Woche 
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+DF_mod <- read_delim("datasets/fallstudie_n/Aufgabe4_Datensatz_Habitatnutzung_Modelle_241028.csv", delim = ";")
+
+DF_mod_day <- DF_mod |>
+  filter(time_of_day == "day")
+
+round(cor(DF_mod_day[, 5:12], method = "pearson"), 2)
+
+# hier kann die Schwelle für die Korrelation gesetzt werden, 0.7 ist eher liberal /
+# 0.5 konservativ
+
+cor <- round(cor(DF_mod_day[, 5:12], method = "pearson"), 2)
+cor[abs(cor) < 0.7] <- 0
+cor
+```
+
+## Aufgabe 2
+
+Skalieren der Variablen, damit ihr Einfluss vergleichbar wird (Befehl scale(); Problem verschiedene Skalen der Variablen (bspw. Neigung in Grad, Distanz in Metern));
+Umwandeln der Reh-ID in einen Faktor, damit dieser als Random Factor ins Model eingespiesen werden kann.
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+DF_mod_day <- DF_mod_day |>
+  mutate(
+    slope_scaled = scale(slope),
+    topo_pos_scaled = scale(topo_pos),
+    us_scaled = scale(us_2014),
+    os_scaled = scale(os_2014),
+    forest_prop_scaled = scale(forest_prop),
+    dist_road_trails_scaled = scale(dist_road_trails),
+    dist_road_only_scaled = scale(dist_road_only),
+    dist_sett_scaled = scale(dist_sett),
+    id = as.factor(id)
+  )
+```
+
+## Aufgabe 3
+
+**Selektion der Variablen in einem univariaten Model**
+
+Ein erstes GLMM (Generalized Linear Mixed Effects Modell) aufbauen: Funktion und Modelformel
+
+> wichtige [Seite](https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html) auf der man viele Hilfestellungen zu GLMM’s finden kann.
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+# wir werden das package lme4 mit der Funktion glmer verwenden
+
+# die Hilfe von glmer aufrufen: ?glmer
+
+# glmer(formula, data = , family = binomial)
+
+# 1) formula:
+# Abhängige Variable ~ Erklärende Variable + Random Factor
+# In unseren Modellen kontrollieren wir für individuelle Unterschiede bei den Rehen
+# indem wir einen Random Factor definieren => (1 | id)
+
+# 2) data:
+# euer Datensatz
+
+# 3) family:
+# hier binomial
+
+# warum binomial? Verteilung Daten der abhängigen Variable Präsenz/Absenz
+
+ggplot(DF_mod_day, aes(pres_abs)) +
+  geom_histogram()
+
+# --> Binäre Verteilung => Binomiale Verteilung mit n = 1
+
+# und wie schaut die Verteilung der Daten der abhängigen Variable Nutzungsintensität
+# (nmb, werden wir in diesem Kurs aber nicht genauer anschauen) aus?
+```
+
+## Aufgabe 4
+
+Mit der GLMM Formel bauen wir in einem ersten Schritt eine univariate Variablenselektion auf.
+
+***Als abhängige Variable verwenden wir die Präsenz/Absenz der Rehe in den Kreisen***
+
+```{r}
+#| eval: false
+#| error: true
+#| echo: true
+#| code-fold: false
+
+# Die erklärende Variable in m1 ist die erste Variable der korrelierenden Variablen
+# Die erklärende Variable in m2 ist die zweite Variable der korrelierenden Variablen
+
+modell_1 <- glmer(Abhaengige_Variable ~ Erklaerende_Variable + (1 | id),
+  data = DF_mod_day,
+  family = binomial
+)
+
+modell_2 <- glmer(Abhaengige_Variable ~ Erklaerende_Variable + (1 | id),
+  data = DF_mod_day,
+  family = binomial
+)
+
+# mit dieser Funktion können die Modellergebnisse inspiziert werden
+summary(modell_1)
+summary(modell_2)
+
+# Mit dieser Funktion kann der Informationgehalt der beiden Modelle gegeneinander
+# abgeschätzt werden
+bbmle::AICtab(modell_1, modell_2)
+
+# tieferer AIC -> besser (AIC = Akaike information criterion)
+
+# ==> dieses Vorgehen muss nun für alle korrelierten Variablen für jeden Teildatensatz
+# (Tag/Nacht) durchgeführt werden, um nur noch nicht (R < 0.7) korrelierte Variablen
+# in das Modell einfliessen zu lassen
+```
+
+```{r}
+
+modell_1 <- glmer(pres_abs ~ dist_road_trails_scaled + (1 | id), data = DF_mod_day, family = binomial)
+modell_2 <- glmer(pres_abs ~ dist_road_only_scaled + (1 | id), data = DF_mod_day, family = binomial)
+
+summary(modell_1)
+summary(modell_2)
+
+bbmle::AICtab(modell_1, modell_2)
+
+# tieferer AIC -> besser (AIC = Akaike information criterion) -> als deltaAIC ausgewiesen 
+# Distanz zu Strassen (dist_road_only) = besser
+
+
+modell_3 <- glmer(pres_abs ~ forest_prop_scaled + (1 | id), data = DF_mod_day, family = binomial)
+modell_4 <- glmer(pres_abs ~ os_scaled + (1 | id), data = DF_mod_day, family = binomial)
+
+summary(modell_3)
+summary(modell_4)
+
+bbmle::AICtab(modell_3, modell_4)
+
+# tieferer AIC -> besser (AIC = Akaike information criterion) -> als deltaAIC ausgewiesen 
+# Distanz zu Strassen (dist_road_only) = besser
+
+```
+
+## Aufgabe 5
+
+**Selektion der Variablen in einem multivariaten Model**
+
+Mit folgendem Code kann eine automatisierte Variablenselektion (dredge-Funktion) und ein Modelaveraging aufgebaut werden (siehe auch Stats-Skript von J.Dengler & Team)
+
+```{r }
+#| eval: false
+#| error: true
+#| echo: true
+#| code-fold: false
+
+# hier wird die Formel für die dredge-Funktion vorbereitet (die Variablen V1-V6
+# sind jene welche nach der univariaten Variablenselektion noch übrig bleiben)
+
+f <- pres_abs ~
+  V1 +
+  V2 +
+  V3 +
+  V4 +
+  V5 +
+  V6 
+
+# in diesem Befehl kommt der Random-Factor (das Reh) hinzu und es wird eine Formel
+# daraus gemacht
+
+f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
+
+# Das Modell mit dieser Formel ausführen
+
+m <- glmer(f_dredge, data = DF_mod_day, family = binomial, na.action = "na.fail")
+
+# Das Modell in die dredge-Funktion einfügen (siehe auch unbedingt ?dredge)
+
+all_m <- dredge(m)
+all_m
+
+# Importance values der einzelnen Variablen (Gibt an, wie bedeutsam eine bestimmte
+# Variable ist, wenn man viele verschiedene Modelle vergleicht (multimodel inference))
+
+sw(all_m)
+
+# Schlussendlich wird ein Modelaverage durchgeführt (Schwellenwert für das delta-AIC = 2)
+
+avgmodel <- model.avg(all_m, rank = "AICc", subset = delta < 2)
+summary(avgmodel)
+
+# ==> für den Nachtdatensatz muss der gleiche Prozess der Variablenselektion
+# durchgespielt werden.
+```
+
+```{r}
+# hier wird die Formel für die dredge-Funktion vorbereitet (die Variablen V1-V6
+# sind jene welche nach der univariaten Variablenselektion noch übrig bleiben)
+
+f <- pres_abs ~
+  slope_scaled +
+  topo_pos_scaled +
+  us_scaled +
+  forest_prop_scaled +
+  dist_road_only_scaled +
+  dist_sett_scaled 
+
+# in diesem Befehl kommt der Random-Factor (das Reh) hinzu und es wird eine Formel
+# daraus gemacht
+
+f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
+
+# Das Modell mit dieser Formel ausführen
+
+m <- glmer(f_dredge, data = DF_mod_day, family = binomial, na.action = "na.fail")
+
+# Das Modell in die dredge-Funktion einfügen (siehe auch unbedingt ?dredge)
+
+all_m <- dredge(m)
+
+# Importance values der einzelnen Variablen (Gibt an, wie bedeutsam eine bestimmte
+# Variable ist, wenn man viele verschiedene Modelle vergleicht (multimodel inference))
+
+sw(all_m)
+
+# Schlussendlich wird ein Modelaverage durchgeführt (Schwellenwert für das delta-AIC = 2)
+
+avgmodel <- model.avg(all_m, rank = "AICc", subset = delta < 2)
+summary(avgmodel)
+```
+```{r}
+
+#| eval: false
+#| error: true
+#| echo: false
+
+# hier wird die Formel für die dredge-Funktion vorbereitet (die Variablen V1-V8
+# sind jene welche nach der univariaten Variablenselektion noch übrig bleiben)
+
+f <- pres_abs ~
+  slope_scaled +
+  topo_pos_scaled +
+  us_scaled +
+  os_scaled +
+  forest_prop_scaled +
+  dist_road_only_scaled +
+  dist_road_trails_scaled +
+  dist_sett_scaled 
+
+# inn diesem Befehl kommt der Random-Factor (das Reh) hinzu und es wird eine Formel
+# daraus gemacht
+
+f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
+
+# Das Modell mit dieser Formel ausführen
+
+m <- glmer(f_dredge, data = DF_mod_day, family = binomial, na.action = "na.fail")
+
+car::vif(m)
+mean(car::vif(m))
+```
