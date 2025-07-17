@@ -3,6 +3,9 @@ lesson: PrePro1
 knitr:
   opts_chunk: 
     collapse: true
+format: 
+  html: default
+  pdf: default
 ---
 
 ## Vorbereitung {#sec-prepro-vorbereitung}
