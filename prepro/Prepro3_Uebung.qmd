@@ -2,8 +2,8 @@
 lesson: PrePro3
 thema: Split-Apply-Combine
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true
+  echo: false   # set to true to show musterlösung
+  output: false
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -83,6 +83,50 @@ sensors_long |>
 
 ## Aufgabe 5
 
+Importiere die Datei *sensor_fail.csv* in `R`.
+
+`sensor_fail.csv` hat eine Variabel `SensorStatus`: `1` bedeutet der Sensor misst, `0` bedeutet der Sensor misst nicht. Fälschlicherweise wurde auch dann der Messwert `Temp = 0` erfasst, wenn `Sensorstatus = 0`. Richtig wäre hier `NA` (not available). Korrigiere den Datensatz entsprechend.
+
+
+```{r}
+sensor_fail <- read_delim("datasets/prepro/sensor_fail.csv")
+
+# mit base-R:
+sensor_fail$Temp_correct[sensor_fail$SensorStatus == 0] <- NA
+sensor_fail$Temp_correct[sensor_fail$SensorStatus != 0] <- sensor_fail$Temp #Warnmeldung kann ignoriert werden.
+
+# das gleiche mit dplyr:
+sensor_fail <- sensor_fail |>
+  mutate(Temp_correct = ifelse(SensorStatus == 0, NA, Temp))
+```
+
+
+```{r}
+#| echo: false
+#| output: true
+
+knitr::kable(sensor_fail)
+```
+
+
+## Aufgabe 6
+
+Warum spielt es eine Rolle, ob `0` oder `NA` erfasst wird? Berechne die Mittlere der Temperatur / Feuchtigkeit nach der Korrektur. 
+
+
+```{r}
+# Mittelwerte der falschen Sensordaten: 0 fliesst in die Berechnung
+# ein und verfälscht den Mittelwert
+mean(sensor_fail$Temp)
+
+# Mittelwerte der korrigierten Sensordaten: mit na.rm = TRUE werden
+# NA-Werte aus der Berechnung entfernt.
+mean(sensor_fail$Temp_correct, na.rm = TRUE)
+```
+
+
+## Aufgabe 7
+
 Lade jetzt nochmal den Datensatz *weather.csv* (Quelle MeteoSchweiz) herunter und importiere ihn als CSV mit den korrekten Spaltentypen (`stn` als `factor`, `time` als `POSIXct`, `tre200h0` als `double`).
 
 ```{r}
@@ -94,7 +138,7 @@ weather$time <- as.POSIXct(as.character(weather$time), format = "%Y%m%d%H")
 ```
 
 
-## Aufgabe 6
+## Aufgabe 8
 
 Erstelle nun eine *convenience Variable* für die Kalenderwoche pro Messung (`lubridate::week`). Berechne im Anschluss den Mittelwert der Temperatur pro Kalenderwoche.
 
@@ -120,7 +164,7 @@ plot(weather_summary$week, weather_summary$temp_mean, type = "l")
 ```
 
 
-## Aufgabe 7
+## Aufgabe 9
 
 In der vorherigen Aufgabe haben wir den Mittelwert der Temperatur pro Kalenderwoche über *alle Jahre* (2000 und 2001) berechnet. Wenn wir die Jahre aber miteinander vergleichen wollen, müssen wir das Jahr als zusätzliche *convenience Variable* erstellen und danach gruppieren. Versuche dies mit den Wetterdaten und visualisiere den Output anschliessend.
 
@@ -147,7 +191,7 @@ plot(weather_summary2$week, weather_summary2$temp_mean, type = "l")
 ```
 
 
-## Aufgabe 8
+## Aufgabe 10
 
 Überführe den Output aus der letzten Übung in eine *wide table*. Nun lassen sich die beiden Jahre viel besser miteinander vergleichen.
 

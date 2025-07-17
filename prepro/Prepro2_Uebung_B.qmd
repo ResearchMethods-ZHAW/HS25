@@ -5,8 +5,8 @@ knitr:
   opts_chunk: 
     collapse: true
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true
+  echo: false   # set to true to show musterlösung
+  output: false
 code-fold: true
 code-summary: "Musterlösung"
 ---
@@ -62,45 +62,4 @@ sensor_all <- rename(sensor_all, sensor3 = Temp)
 knitr::kable(head(sensor_all))
 ```
 
-## Aufgabe 3
-
-Importiere die Datei *sensor_fail.csv* in `R`.
-
-`sensor_fail.csv` hat eine Variabel `SensorStatus`: `1` bedeutet der Sensor misst, `0` bedeutet der Sensor misst nicht. Fälschlicherweise wurde auch dann der Messwert `Temp = 0` erfasst, wenn `Sensorstatus = 0`. Richtig wäre hier `NA` (not available). Korrigiere den Datensatz entsprechend.
-
-
-```{r}
-sensor_fail <- read_delim("datasets/prepro/sensor_fail.csv")
-
-# mit base-R:
-sensor_fail$Temp_correct[sensor_fail$SensorStatus == 0] <- NA
-sensor_fail$Temp_correct[sensor_fail$SensorStatus != 0] <- sensor_fail$Temp #Warnmeldung kann ignoriert werden.
-
-# das gleiche mit dplyr:
-sensor_fail <- sensor_fail |>
-  mutate(Temp_correct = ifelse(SensorStatus == 0, NA, Temp))
-```
-
-
-```{r}
-#| echo: false
-#| output: true
-
-knitr::kable(sensor_fail)
-```
-
-## Aufgabe 4
-
-Warum spielt es eine Rolle, ob `0` oder `NA` erfasst wird? Berechne die Mittlere der Temperatur / Feuchtigkeit nach der Korrektur. 
-
-
-```{r}
-# Mittelwerte der falschen Sensordaten: 0 fliesst in die Berechnung
-# ein und verfälscht den Mittelwert
-mean(sensor_fail$Temp)
-
-# Mittelwerte der korrigierten Sensordaten: mit na.rm = TRUE werden
-# NA-Werte aus der Berechnung entfernt.
-mean(sensor_fail$Temp_correct, na.rm = TRUE)
-```
 
