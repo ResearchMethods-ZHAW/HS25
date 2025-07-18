@@ -76,19 +76,18 @@ cd datasets
 # aktuellen status ermitteln (optional)
 git status
 
-# Änderungen stagen
+# Änderungen stagen, committen und nach github.com/researchmethods-zhaw/datasets
+# pushen
 git add myfile.csv   # oder git add .
-
-# Änderungen committen
 git commit -m  "changed column names"
-
-# Änderungen pushen (nach github.com/researchmethods-zhaw/datasets)
 git push
 
 # das working directory zurück in HS25 wechseln
 cd ..
 
 # die neue Version von datasets ins HS25 stagen / committen / pushen
+# Note: bei dieserm Schritt wird nur die Versionsnummer aktualisiert, die Änderungen
+# selbst werden im datasets-repo getracked.
 git add datasets
 git commit -m "update submodule"
 git push
@@ -122,7 +121,7 @@ Statt auf den Preview button in RStudio zu klicken empfehlen wir, quarto von der
 
 ### Änderungen veröffentlichen
 
-Hier müssen wir unterscheiden zwischen den Änderungen an den Source Files (Qmd) und Änderungen an den Output Files (pdf).
+Hier müssen wir unterscheiden zwischen den Änderungen an den Source Files (Qmd) und Änderungen an den Output Files (html).
 
 #### Source Files (Qmd)
 
@@ -133,7 +132,7 @@ Um die Änderungen an den Source Files zu veröffentlichen müsst ihr diese via 
 - `pull`: Klick auf den Button "Pull" (im Terminal mit `git pull`)
 - `push`: Klick auf den button "Push" (im Terminal mit `git push`)
 
-#### Output Files (pdf)
+#### Output Files (html)
 
 Um Änderungen an den Output Files zu veröffentlichen muss folgender Befehl ausgeführt werden:
 
