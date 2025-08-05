@@ -29,5 +29,849 @@
       "Pre-Processing",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Vorbereitung</span>"
     ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Demo.html",
+    "href": "prepro/Prepro1_Demo.html",
+    "title": "Prepro 1: Demo",
+    "section": "",
+    "text": "Datentypen\nDiese Demo kann hier heruntergeladen werden (Rechtsklick → speichern unter).",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Prepro 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Demo.html#footnotes",
+    "href": "prepro/Prepro1_Demo.html#footnotes",
+    "title": "Prepro 1: Demo",
+    "section": "",
+    "text": "ordered = T kann nur bei der Funktion factor() spezifiziert werden, nicht bei as.factor(). Ansonsten sind factor() und as.factor() sehr ähnlich.↩︎",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Prepro 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html",
+    "href": "prepro/Prepro1_Uebung.html",
+    "title": "PrePro 1: Übung",
+    "section": "",
+    "text": "Arbeiten mit RStudio “Project”\nWir empfehlen die Verwendung von “Projects” innerhalb von RStudio. RStudio legt für jedes Projekt dann einen Ordner an, in welches die Projekt-Datei abgelegt wird (Dateiendung .Rproj). Sollen innerhalb des Projekts dann R-Skripts geladen oder erzeugt werden, werden diese dann auch im angelegten Ordner abgelegt. Mehr zu RStudio Projects findet ihr hier.\nDas Verwenden von Projects bringt verschiedene Vorteile, wie zum Beispiel:",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#arbeiten-mit-rstudio-project",
+    "href": "prepro/Prepro1_Uebung.html#arbeiten-mit-rstudio-project",
+    "title": "PrePro 1: Übung",
+    "section": "",
+    "text": "Festlegen der Working Directory ohne die Verwendung des expliziten Pfades (setwd()). Das ist sinnvoll, da sich dieser Pfad ändern kann (Zusammenarbeit mit anderen Usern, Ausführung des Scripts zu einem späteren Zeitpunkt)\nAutomatisches Zwischenspeichern geöffneter Scripts und Wiederherstellung der geöffneten Scripts bei der nächsten Session\nFestlegen verschiedener projektspezifischer Optionen\nVerwendung von Versionsverwaltungssystemen (z.B. git)\n\n\n\n\n\n\n\nWichtig 3.1: Prüfungsrelevant\n\n\n\nDie korrekte Verwendung von RStudio Projects und relativen Pfaden wird an der praktischen Prüfung vorausgesetzt!",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-1",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-1",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 1",
+    "text": "Aufgabe 1\nErstelle eine data.frame mit nachstehenden Daten.\n\n\n\n\n\nTierart\nAnzahl\nGewicht\nGeschlecht\nBeschreibung\n\n\n\n\nFuchs\n2\n4.4\nm\nRötlich\n\n\nBär\n5\n40.3\nf\nBraun, gross\n\n\nHase\n1\n1.1\nm\nklein, mit langen Ohren\n\n\nElch\n3\n120.0\nm\nLange Beine, Schaufelgeweih",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-2",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-2",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 2",
+    "text": "Aufgabe 2\nWas für Datentypen wurden in der letzten Aufgabe automatisch angenommen? Ermittle diese mit str() und prüfe, ob diese sinnvoll sind und wandle um wo nötig.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-3",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-3",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 3",
+    "text": "Aufgabe 3\nNutze die Spalte Gewicht, um die Tiere in 3 Gewichtskategorien einzuteilen:\n\nleicht: &lt; 5kg\nmittel: 5 - 100 kg\nschwer: &gt; 100kg\n\nDas Resultat:\n\n\n\n\n\n\n\n\n\n\n\n\n\nTierart\nAnzahl\nGewicht\nGeschlecht\nBeschreibung\nGewichtsklasse\n\n\n\n\nFuchs\n2\n4.4\nm\nRötlich\nleicht\n\n\nBär\n5\n40.3\nf\nBraun, gross\nmittel\n\n\nHase\n1\n1.1\nm\nklein, mit langen Ohren\nleicht\n\n\nElch\n3\n120.0\nm\nLange Beine, Schaufelgeweih\nschwer",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-4",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-4",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 4",
+    "text": "Aufgabe 4\nAuf Moodle findest du ein Zip-File mit dem Namen prepro.zip. Lade das File herunter und entpacke es in deinem Projektordner. Importiere die Datei weather.csv. Falls du dafür das RStudio GUI verwendest, speichere den Import-Befehl in deinem R-Script ab. Bitte verwende einen relativen Pfad (also kein Pfad, der mit C:/, ~/ o.ä. beginnt).)\n\n\n\n\n\n\nHinweis 3.1\n\n\n\nWir nutzen readr, um csvs zu importieren, und verwenden die Funktion read_delim (mit underscore) als alternative zu read.csv oder read.delim (mit Punkt). Das ist eine persönliche Präferenz1, es ist euch überlassen, welche Funktion ihr verwendet. Beachtet, dass die beiden Funktionen leicht andere Parameter erwarten.\n\n\n\n\n\n\n\nstn\ntime\ntre200h0\n\n\n\n\nABO\n2000010100\n-2.6\n\n\nABO\n2000010101\n-2.5\n\n\nABO\n2000010102\n-3.1\n\n\nABO\n2000010103\n-2.4\n\n\nABO\n2000010104\n-2.5\n\n\nABO\n2000010105\n-3.0\n\n\nABO\n2000010106\n-3.7\n\n\nABO\n2000010107\n-4.4\n\n\nABO\n2000010108\n-4.1\n\n\nABO\n2000010109\n-4.1",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-5",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-5",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 5",
+    "text": "Aufgabe 5\nSchau dir die Rückmeldung von read_delim() an. Sind die Daten korrekt interpretiert worden?",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-6",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-6",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 6",
+    "text": "Aufgabe 6\nDie Spalte time ist eine Datum/Zeitangabe im Format JJJJMMTTHH (siehe meta.txt). Damit R dies als Datum-/Zeitangabe erkennt, müssen wir die Spalte in einem R-Format (POSIXct) einlesen und dabei R mitteilen, wie sie aktuell formatiert ist. Lies die Spalte mit as.POSIXct() ein und spezifiziere sowohl format wie auch tz.\n\n\n\n\n\n\nTipp\n\n\n\n\nWenn keine Zeitzone festgelegt wird, trifft as.POSIXct() eine Annahme (basierend auf Sys.timezone()). In unserem Fall handelt es sich aber um Werte in UTC (siehe metadata.csv)\nas.POSIXct erwartet character: Wenn du eine Fehlermeldung hast die 'origin' must be supplied (o.ä) heisst, hast du der Funktion vermutlich einen Numeric übergeben.\n\n\n\n\n\n\nDie neue Tabelle sollte so aussehen\n\n\nstn\ntime\ntre200h0\n\n\n\n\nABO\n2000-01-01 00:00:00\n-2.6\n\n\nABO\n2000-01-01 01:00:00\n-2.5\n\n\nABO\n2000-01-01 02:00:00\n-3.1\n\n\nABO\n2000-01-01 03:00:00\n-2.4\n\n\nABO\n2000-01-01 04:00:00\n-2.5\n\n\nABO\n2000-01-01 05:00:00\n-3.0\n\n\nABO\n2000-01-01 06:00:00\n-3.7\n\n\nABO\n2000-01-01 07:00:00\n-4.4\n\n\nABO\n2000-01-01 08:00:00\n-4.1\n\n\nABO\n2000-01-01 09:00:00\n-4.1",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-7",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-7",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 7",
+    "text": "Aufgabe 7\nErstelle zwei neue Spalten mit Wochentag (Montag, Dienstag, etc) und Kalenderwoche. Verwende dazu die neu erstellte POSIXct-Spalte sowie eine geeignete Funktion aus lubridate.\n\n\n\n\n\nstn\ntime\ntre200h0\nwochentag\nkw\n\n\n\n\nABO\n2000-01-01 00:00:00\n-2.6\nSa\n1\n\n\nABO\n2000-01-01 01:00:00\n-2.5\nSa\n1\n\n\nABO\n2000-01-01 02:00:00\n-3.1\nSa\n1\n\n\nABO\n2000-01-01 03:00:00\n-2.4\nSa\n1\n\n\nABO\n2000-01-01 04:00:00\n-2.5\nSa\n1\n\n\nABO\n2000-01-01 05:00:00\n-3.0\nSa\n1\n\n\nABO\n2000-01-01 06:00:00\n-3.7\nSa\n1\n\n\nABO\n2000-01-01 07:00:00\n-4.4\nSa\n1\n\n\nABO\n2000-01-01 08:00:00\n-4.1\nSa\n1\n\n\nABO\n2000-01-01 09:00:00\n-4.1\nSa\n1",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#aufgabe-8",
+    "href": "prepro/Prepro1_Uebung.html#aufgabe-8",
+    "title": "PrePro 1: Übung",
+    "section": "Aufgabe 8",
+    "text": "Aufgabe 8\nErstelle eine neue Spalte basierend auf den Temperaturwerten mit der Einteilung “kalt” (unter Null Grad) und “warm” (über Null Grad)\n\n\n\n\n\nstn\ntime\ntre200h0\nwochentag\nkw\ntemp_kat\n\n\n\n\nABO\n2000-01-01 00:00:00\n-2.6\nSa\n1\nkalt\n\n\nABO\n2000-01-01 01:00:00\n-2.5\nSa\n1\nkalt\n\n\nABO\n2000-01-01 02:00:00\n-3.1\nSa\n1\nkalt\n\n\nABO\n2000-01-01 03:00:00\n-2.4\nSa\n1\nkalt\n\n\nABO\n2000-01-01 04:00:00\n-2.5\nSa\n1\nkalt\n\n\nABO\n2000-01-01 05:00:00\n-3.0\nSa\n1\nkalt\n\n\nABO\n2000-01-01 06:00:00\n-3.7\nSa\n1\nkalt\n\n\nABO\n2000-01-01 07:00:00\n-4.4\nSa\n1\nkalt\n\n\nABO\n2000-01-01 08:00:00\n-4.1\nSa\n1\nkalt\n\n\nABO\n2000-01-01 09:00:00\n-4.1\nSa\n1\nkalt",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro1_Uebung.html#footnotes",
+    "href": "prepro/Prepro1_Uebung.html#footnotes",
+    "title": "PrePro 1: Übung",
+    "section": "",
+    "text": "Vorteile von read_delim gegenüber read.csv: https://stackoverflow.com/a/60374974/4139249↩︎",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>PrePro 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Demo.html",
+    "href": "prepro/Prepro2_Demo.html",
+    "title": "Prepro 2: Demo",
+    "section": "",
+    "text": "Piping\nGegeben ist ein character string (diary). Wir wollen aus diesem Text die Temperaturangabe aus dem String extrahieren, danach den Wert von Kelvin in Celsius nach der folgenden Formel umwandeln und zum Schluss den Mittelwert über all diese Werte berechnen.\n\\[°C = K - 273.15\\]\ndiary &lt;- c(\n  \"The temperature is 310° Kelvin\",\n  \"The temperature is 322° Kelvin\",\n  \"The temperature is 410° Kelvin\"\n)\n\ndiary\n## [1] \"The temperature is 310° Kelvin\" \"The temperature is 322° Kelvin\"\n## [3] \"The temperature is 410° Kelvin\"\nDazu brauchen wir die Funktion substr(), welche aus einem character einen Teil “raus schnipseln” kann.\n# Wenn die Buchstaben einzelne _Elemente_ eines Vektors wären, würden wir diese\n# folgendermassen subsetten:\n\ncharvec1 &lt;- c(\"a\", \"b\", \"c\", \"d\", \"e\", \"f\", \"g\", \"h\")\ncharvec1[4:6]\n## [1] \"d\" \"e\" \"f\"\n\n# Aber wenn diese in einem einzigen character gespeichert sind, brauchen wir substr:\ncharvec2 &lt;- \"abcdefgh\"\nsubstr(charvec2, 4, 6)\n## [1] \"def\"\nZudem nutzen wir eine Hilfsfunktion subtrahieren, welche zwei Werte annimmt, den minuend und den subtrahend:\nsubtrahieren &lt;- function(minuend, subtrahend) {\n  minuend - subtrahend\n}\n\nsubtrahieren(10, 4)\n## [1] 6\nÜbersetzt in R-Code entsteht folgende Operation:\noutput &lt;- mean(subtrahieren(as.numeric(substr(diary, 20, 22)), 273.15))\n#                                             \\_1_/\n#                                      \\________2__________/\n#                           \\___________________3___________/\n#              \\________________________________4__________________/\n#         \\_____________________________________5____________________/\n\n# 1. Nimm diary\n# 2. Extrahiere auf jeder Zeile die Werte 20 bis 22\n# 3. Konvertiere \"character\" zu \"numeric\"\n# 4. Subtrahiere 273.15\n# 5. Berechne den Mittlwert\nDie ganze Operation liest sich etwas leichter, wenn diese sequentiell notiert wird:\ntemp &lt;- substr(diary, 20, 22)      # 2\ntemp &lt;- as.numeric(temp)           # 3\ntemp &lt;- subtrahieren(temp, 273.15) # 4\noutput &lt;- mean(temp)               # 5\nUmständlich ist dabei einfach, dass die Zwischenresultate immer abgespeichert und in der darauf folgenden Operation wieder abgerufen werden müssen. Hier kommt “piping” ins Spiel: Mit “piping” wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.\ndiary |&gt;                  # 1\n  substr(20, 22) |&gt;       # 2\n  as.numeric() |&gt;         # 3\n  subtrahieren(273.15) |&gt; # 4\n  mean()                  # 5\n## [1] 74.18333",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Prepro 2: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Demo.html#piping",
+    "href": "prepro/Prepro2_Demo.html#piping",
+    "title": "Prepro 2: Demo",
+    "section": "",
+    "text": "Wichtig\n\n\n\n\nder |&gt; Pipe Operator wurde erst in R 4.1 eingeführt\nNeben dem base R Pipe Operator existiert im Package magrittr ein sehr ähnlicher1 Pipe Operator: %&gt;%\nDie Tastenkombination Ctrl+Shift+M in RStudio fügt einen Pipe Operator ein.\nWelcher Pipe Operator |&gt; oder %&gt;% mit der obigen Tastenkombination eingeführt wird, kann über die RStudio Settings Tools → Global Options → Code → Häckchen setzen bei Use nativ pipe operator\nWir empfehlen die base-R Pipe |&gt; zu verwenden",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Prepro 2: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Demo.html#joins",
+    "href": "prepro/Prepro2_Demo.html#joins",
+    "title": "Prepro 2: Demo",
+    "section": "Joins",
+    "text": "Joins\n\nstudierende &lt;- data.frame(\n  Matrikel_Nr = c(100002, 100003, 200003),\n  Studi = c(\"Patrick\", \"Manuela\", \"Eva\"),\n  PLZ = c(8006, 8001, 8820)\n)\n\nstudierende\n##   Matrikel_Nr   Studi  PLZ\n## 1      100002 Patrick 8006\n## 2      100003 Manuela 8001\n## 3      200003     Eva 8820\n\nortschaften &lt;- data.frame(\n  PLZ = c(8003, 8006, 8810, 8820),\n  Ortsname = c(\"Zürich\", \"Zürich\", \"Horgen\", \"Wädenswil\")\n)\n\nortschaften\n##    PLZ  Ortsname\n## 1 8003    Zürich\n## 2 8006    Zürich\n## 3 8810    Horgen\n## 4 8820 Wädenswil\n\n\n# Load library\nlibrary(\"dplyr\")\n\ninner_join(studierende, ortschaften, by = \"PLZ\")\n##   Matrikel_Nr   Studi  PLZ  Ortsname\n## 1      100002 Patrick 8006    Zürich\n## 2      200003     Eva 8820 Wädenswil\n\nleft_join(studierende, ortschaften, by = \"PLZ\")\n##   Matrikel_Nr   Studi  PLZ  Ortsname\n## 1      100002 Patrick 8006    Zürich\n## 2      100003 Manuela 8001      &lt;NA&gt;\n## 3      200003     Eva 8820 Wädenswil\n\nright_join(studierende, ortschaften, by = \"PLZ\")\n##   Matrikel_Nr   Studi  PLZ  Ortsname\n## 1      100002 Patrick 8006    Zürich\n## 2      200003     Eva 8820 Wädenswil\n## 3          NA    &lt;NA&gt; 8003    Zürich\n## 4          NA    &lt;NA&gt; 8810    Horgen\n\nfull_join(studierende, ortschaften, by = \"PLZ\")\n##   Matrikel_Nr   Studi  PLZ  Ortsname\n## 1      100002 Patrick 8006    Zürich\n## 2      100003 Manuela 8001      &lt;NA&gt;\n## 3      200003     Eva 8820 Wädenswil\n## 4          NA    &lt;NA&gt; 8003    Zürich\n## 5          NA    &lt;NA&gt; 8810    Horgen\n\n\nstudierende &lt;- data.frame(\n  Matrikel_Nr = c(100002, 100003, 200003),\n  Studi = c(\"Patrick\", \"Manuela\", \"Pascal\"),\n  Wohnort = c(8006, 8001, 8006)\n)\n\nleft_join(studierende, ortschaften, by = c(\"Wohnort\" = \"PLZ\"))\n##   Matrikel_Nr   Studi Wohnort Ortsname\n## 1      100002 Patrick    8006   Zürich\n## 2      100003 Manuela    8001     &lt;NA&gt;\n## 3      200003  Pascal    8006   Zürich",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Prepro 2: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Demo.html#footnotes",
+    "href": "prepro/Prepro2_Demo.html#footnotes",
+    "title": "Prepro 2: Demo",
+    "section": "",
+    "text": "siehe https://stackoverflow.com/q/67633022/4139249↩︎",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Prepro 2: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Uebung_A.html",
+    "href": "prepro/Prepro2_Uebung_A.html",
+    "title": "Prepro 2: Übung",
+    "section": "",
+    "text": "Aufgabe 1\nLese die Wetterdaten von letzer Woche weather.csv (Quelle MeteoSchweiz) in R ein. Sorge dafür, dass die Spalten korrekt formatiert sind (stn als factor, time als POSIXct, tre200h0 als numeric.)",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Prepro 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Uebung_A.html#aufgabe-2",
+    "href": "prepro/Prepro2_Uebung_A.html#aufgabe-2",
+    "title": "Prepro 2: Übung",
+    "section": "Aufgabe 2",
+    "text": "Aufgabe 2\nLese den Datensatz metadata.csv ebenfalls als csv ein.\n\n\n\n\n\n\nTipp\n\n\n\nWenn Umlaute und Sonderzeichen nicht korrekt dargestellt werden (z.B. das è in Genève), hat das vermutlich mit der Zeichencodierung zu tun. Das File ist aktuell in UTF-8 codiert. Wenn Umlaute nicht korrekt dargestellt werden, hat R diese Codierung nicht erkannt und sie muss in der Import-Funktion spezifitiert werden. Dies wird je nach verwendete import Funktion unterschiedlich gemacht:\n\nFunktionen aus dem Package readr: locale = locale(encoding = \"UTF-8\")\nBase-R Funktionen: fileEncoding = \"UTF-8\"\n\nWenn ihr die Codierung eines Files nicht kennt, könnt ihr wie folgt vorgehen: Anleitung für Windows, für Mac und für Linux.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Prepro 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Uebung_A.html#aufgabe-3",
+    "href": "prepro/Prepro2_Uebung_A.html#aufgabe-3",
+    "title": "Prepro 2: Übung",
+    "section": "Aufgabe 3",
+    "text": "Aufgabe 3\nNun wollen wir den Datensatz wetter mit den Informationen aus metadata anreichern. Uns interessiert aber nur das Stationskürzel, der Name, die x/y Koordinaten sowie die Meereshöhe. Selektiere diese Spalten.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Prepro 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Uebung_A.html#aufgabe-4",
+    "href": "prepro/Prepro2_Uebung_A.html#aufgabe-4",
+    "title": "Prepro 2: Übung",
+    "section": "Aufgabe 4",
+    "text": "Aufgabe 4\nJetzt kann metadata mit dem Datensatz wetter verbunden werden. Überlege dir, welcher Join dafür sinnvoll ist und mit welchem Attribut wir “joinen” können.\nNutze die Join-Möglichkeiten von dplyr (Hilfe via ?dplyr::join), um die Datensätze wetter und metadata zu verbinden.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Prepro 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Uebung_A.html#aufgabe-5",
+    "href": "prepro/Prepro2_Uebung_A.html#aufgabe-5",
+    "title": "Prepro 2: Übung",
+    "section": "Aufgabe 5",
+    "text": "Aufgabe 5\nErstelle eine neue Spalte month, welche den jeweiligen Monat (aus time) beinhaltet. Nutze dafür die Funktion lubridate::month().",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Prepro 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro2_Uebung_A.html#aufgabe-6",
+    "href": "prepro/Prepro2_Uebung_A.html#aufgabe-6",
+    "title": "Prepro 2: Übung",
+    "section": "Aufgabe 6",
+    "text": "Aufgabe 6\nBerechne mit der Spalte month die Durchschnittstemperatur pro Monat.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Prepro 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Demo.html",
+    "href": "prepro/Prepro3_Demo.html",
+    "title": "Prepro 3: Demo",
+    "section": "",
+    "text": "Split-Apply-Combine\nIn dieser Demo möchten wir weitere Werkzeuge aus dem Tidyverse vorstellen und mit Beispielen illustrieren. Die tidyverse-Tools erleichtern den Umgang mit Daten ungeheuer und haben sich mittlerweile zu einem “must have” im Umgang mit Daten in R entwickelt.\nWir können Euch nicht sämtliche Möglichkeiten von tidyverse zeigen. Wir fokussieren uns deshalb auf weitere wichtige Komponenten und zeigen zusätzliche Funktionalitäten, die wir oft verwenden und Euch ggf. noch nicht bekannt sind. Wer sich vertieft mit dem Thema auseinandersetzen möchte, der sollte sich unbedingt das Buch Wickham und Grolemund (2017) beschaffen. Eine umfangreiche, aber nicht ganz vollständige Version gibt es online1 , das vollständige eBook kann über die Bibliothek bezogen werden2.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Prepro 3: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Demo.html#split-apply-combine",
+    "href": "prepro/Prepro3_Demo.html#split-apply-combine",
+    "title": "Prepro 3: Demo",
+    "section": "",
+    "text": "Daten laden\nWir laden die Wetterdaten (Quelle MeteoSchweiz) der letzten Übung.\n\nlibrary(\"readr\")\n\nwetter &lt;- read_delim(\"datasets/prepro/weather.csv\", \",\")\n\n\n\nwetter$stn &lt;- as.factor(wetter$stn)\nwetter$time &lt;- as.POSIXct(as.character(wetter$time), format = \"%Y%m%d%H\")\n\n\n\nKennwerte berechnen\nWir möchten den Mittelwert aller gemessenen Temperaturwerten berechnen. Dazu könnten wir folgenden Befehl verwenden:\n\nmean(wetter$tre200h0, na.rm = TRUE)\n## [1] 6.324744\n\nDie Option na.rm = T bedeutet, dass NA Werte von der Berechnung ausgeschlossen werden sollen.\nMit derselben Herangehensweise können diverse Werte berechnet werden (z.B. das Maximum (max()), Minimum (min()), Median (median()) u.v.m.).\nDiese Herangehensweise funktioniert nur dann gut, wenn wir die Kennwerte über alle Beobachtungen für eine Variable (Spalte) berechnen wollen. Sobald wir die Beobachtungen gruppieren wollen, wird es schwierig. Zum Beispiel, wenn wir die durchschnittliche Temperatur pro Monat berechnen wollen.\n\n\nConvenience Variablen\nUm diese Aufgabe zu lösen, muss zuerst der Monat extrahiert werden (der Monat ist die convenience variable). Hierfür brauchen wir die Funktion lubridate::month().\nNun kann kann die convenience Variable “Month” erstellt werden. Ohne dpylr wird eine neue Spalte folgendermassen hinzugefügt.\n\nlibrary(\"lubridate\")\n\nwetter$month &lt;- month(wetter$time)\n\nMit dplyr (siehe 3) sieht der gleiche Befehl folgendermassen aus:\n\nlibrary(\"dplyr\")\n\nwetter &lt;- mutate(wetter, month = month(time))\n\nDer grosse Vorteil von dplyr ist an dieser Stelle noch nicht ersichtlich. Dieser wird aber später klar.\n\n\nKennwerte nach Gruppen berechnen\nUm mit base R den Mittelwert pro Monat zu berechnen, kann man zuerst ein Subset mit [] erstellen und davon den Mittelwert berechnen, z.B. folgendermassen:\n\nmean(wetter$tre200h0[wetter$month == 1], na.rm = TRUE)\n## [1] -1.963239\n\nDies müssen wir pro Monat wiederholen, was natürlich sehr umständlich ist. Deshalb nutzen wir das package dplyr. Damit geht die Aufgabe (Temperaturmittel pro Monat berechnen) folgendermassen:\n\nsummarise(group_by(wetter, month), temp_mittel = mean(tre200h0, na.rm = TRUE))\n## # A tibble: 13 × 2\n##    month temp_mittel\n##    &lt;dbl&gt;       &lt;dbl&gt;\n##  1     1      -1.96 \n##  2     2       0.355\n##  3     3       2.97 \n##  4     4       4.20 \n##  5     5      11.0  \n##  6     6      12.4  \n##  7     7      13.0  \n##  8     8      15.0  \n##  9     9       9.49 \n## 10    10       8.79 \n## 11    11       1.21 \n## 12    12      -0.898\n## 13    NA       2.95\n\n\n\nVerketten vs. verschachteln\nAuf Deutsch übersetzt heisst die obige Operation folgendermassen:\n\nnimm den Datensatz wetter\nBilde Gruppen pro Jahr (group_by(wetter,year))\nBerechne das Temperaturmittel (mean(tre200h0))\n\nDiese Übersetzung R -&gt; Deutsch unterscheidet sich vor allem darin, dass die Operation auf Deutsch verkettet ausgesprochen wird (Operation 1-&gt;2-&gt;3) während der Computer verschachtelt liest 3(2(1)). Um R näher an die gesprochene Sprache zu bringen, kann man den |&gt;-Operator verwenden (siehe 4).\n\n# 1 nimm den Datensatz \"wetter\"\n# 2 Bilde Gruppen pro Monat\n# 3 berechne das Temperaturmittel\n\nsummarise(group_by(wetter, month), temp_mittel = mean(tre200h0))\n#                  \\_1_/\n#         \\__________2_________/\n# \\__________________3_______________________________________/\n\n# wird zu:\n\nwetter |&gt;                                 # 1\n  group_by(month) |&gt;                      # 2\n  summarise(temp_mittel = mean(tre200h0)) # 3\n\nDieses Verketten mittels |&gt; (genannt “pipe”) macht den Code einiges schreib- und leserfreundlicher, und wir werden ihn in den nachfolgenden Übungen verwenden. Die “pipe” wird mit dem package magrittr bereitgestellt und mit dplyr mitinstalliert.\nZu dplyr gibt es etliche Tutorials online (siehe5), deshalb werden wir diese Tools nicht in allen Details erläutern. Nur noch folgenden wichtigen Unterschied zu zwei wichtigen Funktionen in dpylr: mutate() und summarise().\n\nsummarise() fasst einen Datensatz zusammen. Dabei reduziert sich die Anzahl Beobachtungen (Zeilen) auf die Anzahl Gruppen (z.B. eine zusammengefasste Beobachtung (Zeile) pro Jahr). Zudem reduziert sich die Anzahl Variablen (Spalten) auf diejenigen, die in der “summarise” Funktion spezifiziert wurde (z.B. temp_mittel).\nmit mutate wird ein data.frame vom Umfang her belassen, es werden lediglich zusätzliche Variablen (Spalten) hinzugefügt (siehe Beispiel unten).\n\n\n# Maximal und minimal Temperatur pro Kalenderwoche\nweather_summary &lt;- wetter |&gt;                # 1) nimm den Datensatz \"wetter\"\n  filter(month == 1) |&gt;                     # 2) filter auf den Monat Januar\n  mutate(day = day(time)) |&gt;                # 3) erstelle eine neue Spalte \"day\"\n  group_by(day) |&gt;                          # 4) Nutze die neue Spalte um Gruppen zu bilden\n  summarise(\n    temp_max = max(tre200h0, na.rm = TRUE), # 5) Berechne das Maximum\n    temp_min = min(tre200h0, na.rm = TRUE)  # 6) Berechne das Minimum\n  )\n\nweather_summary\n## # A tibble: 31 × 3\n##      day temp_max temp_min\n##    &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n##  1     1      5.8     -4.4\n##  2     2      2.8     -4.3\n##  3     3      4.2     -3.1\n##  4     4      4.7     -2.8\n##  5     5     11.4     -0.6\n##  6     6      6.7     -1.6\n##  7     7      2.9     -2.8\n##  8     8      0.2     -3.6\n##  9     9      2.1     -8.8\n## 10    10      1.6     -2.4\n## # ℹ 21 more rows",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Prepro 3: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Demo.html#reshaping-data",
+    "href": "prepro/Prepro3_Demo.html#reshaping-data",
+    "title": "Prepro 3: Demo",
+    "section": "Reshaping data",
+    "text": "Reshaping data\n\nBreit → lang\nDie Umformung von Tabellen breit→lang erfolgt mittels tidyr(siehe 6). Auch dieses Package funktioniert wunderbar mit piping (|&gt;).\n\nlibrary(\"tidyr\")\nweather_summary |&gt;\n  pivot_longer(c(temp_max, temp_min))\n## # A tibble: 62 × 3\n##      day name     value\n##    &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt;\n##  1     1 temp_max   5.8\n##  2     1 temp_min  -4.4\n##  3     2 temp_max   2.8\n##  4     2 temp_min  -4.3\n##  5     3 temp_max   4.2\n##  6     3 temp_min  -3.1\n##  7     4 temp_max   4.7\n##  8     4 temp_min  -2.8\n##  9     5 temp_max  11.4\n## 10     5 temp_min  -0.6\n## # ℹ 52 more rows\n\nIm Befehl pivot_longer() müssen wir festlegen, welche Spalten zusammengefasst werden sollen (hier: temp_max,temp_min,temp_mean). Alternativ können wir angeben, welche Spalten wir nicht zusammenfassen wollen:\n\nweather_summary |&gt;\n  pivot_longer(-day)\n## # A tibble: 62 × 3\n##      day name     value\n##    &lt;int&gt; &lt;chr&gt;    &lt;dbl&gt;\n##  1     1 temp_max   5.8\n##  2     1 temp_min  -4.4\n##  3     2 temp_max   2.8\n##  4     2 temp_min  -4.3\n##  5     3 temp_max   4.2\n##  6     3 temp_min  -3.1\n##  7     4 temp_max   4.7\n##  8     4 temp_min  -2.8\n##  9     5 temp_max  11.4\n## 10     5 temp_min  -0.6\n## # ℹ 52 more rows\n\nWenn wir die Namen neuen Spalten festlegen wollen (anstelle von name und value) erreichen wir dies mit names_to bzw. values_to:\n\nweather_summary_long &lt;- weather_summary |&gt;\n  pivot_longer(-day, names_to = \"Messtyp\", values_to = \"Messwert\")\n\nDie ersten 6 Zeilen von weather_summary_long:\n\n\n\n\n\nday\nMesstyp\nMesswert\n\n\n\n\n1\ntemp_max\n5.8\n\n\n1\ntemp_min\n-4.4\n\n\n2\ntemp_max\n2.8\n\n\n2\ntemp_min\n-4.3\n\n\n3\ntemp_max\n4.2\n\n\n3\ntemp_min\n-3.1\n\n\n\n\n\nDie ersten 6 Zeilen von wetter_sry:\n\n\n\n\n\nday\ntemp_max\ntemp_min\n\n\n\n\n1\n5.8\n-4.4\n\n\n2\n2.8\n-4.3\n\n\n3\n4.2\n-3.1\n\n\n4\n4.7\n-2.8\n\n\n5\n11.4\n-0.6\n\n\n6\n6.7\n-1.6\n\n\n\n\n\nBeachte: weather_summary_long umfasst 62 Beobachtungen (Zeilen), das sind doppelt soviel wie weather_summary, da wir ja zwei Spalten zusammengefasst haben.\n\nnrow(weather_summary)\n## [1] 31\nnrow(weather_summary_long)\n## [1] 62\n\nLange Tabellen sind in verschiedenen Situationen praktischer. Beispielsweise ist das Visualisieren mittels ggplot2 (dieses Package werdet ihr im Block “InfoVis” kennenlernen) mit long tables wesentlich einfacher.\n\n\nlibrary(\"ggplot2\")\nggplot(weather_summary_long, aes(day, Messwert, colour = Messtyp)) +\n  geom_line()\n\n\n\n\n\n\n\n\n\n\nLang → breit\nDas Gegenstück zu pivot_longer ist pivot_wider. Mit dieser Funktion können wir eine lange Tabelle in eine breite überführen. Dazu müssen wir in names_from angeben, aus welcher Spalte die neuen Spaltennamen erstellt werden sollen (names_from) und aus welcher Spalte die Werte entstammen sollen (values_from):\n\nweather_summary_long |&gt;\n  pivot_wider(names_from = Messtyp, values_from = Messwert)\n## # A tibble: 31 × 3\n##      day temp_max temp_min\n##    &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n##  1     1      5.8     -4.4\n##  2     2      2.8     -4.3\n##  3     3      4.2     -3.1\n##  4     4      4.7     -2.8\n##  5     5     11.4     -0.6\n##  6     6      6.7     -1.6\n##  7     7      2.9     -2.8\n##  8     8      0.2     -3.6\n##  9     9      2.1     -8.8\n## 10    10      1.6     -2.4\n## # ℹ 21 more rows\n\nZum Vergleich: mit einer wide table müssen wir in ggplot2 jede Spalte einzeln plotten. Dies ist bei wenigen Variabeln wie hier noch nicht problematisch, aber bei einer hohen Anzahl wird dies schnell mühsam.\n\nggplot(weather_summary) +\n  geom_line(aes(day, temp_max)) +\n  geom_line(aes(day, temp_min))\n\n\n\n\n\n\n\n\n\n\n\n\nWickham, Hadley, und Garrett Grolemund. 2017. R for Data Science. O’Reilly. https://ebookcentral.proquest.com/lib/zhaw/detail.action?docID=4770093.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Prepro 3: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Demo.html#footnotes",
+    "href": "prepro/Prepro3_Demo.html#footnotes",
+    "title": "Prepro 3: Demo",
+    "section": "",
+    "text": "http://r4ds.had.co.nz/↩︎\nhttps://ebookcentral.proquest.com/lib/zhaw/detail.action?docID=4770093↩︎\nWickham und Grolemund (2017), Kapitel 10 / http://r4ds.had.co.nz/transform.html↩︎\nWickham und Grolemund (2017), Kapitel 14 / http://r4ds.had.co.nz/pipes.html↩︎\nWickham und Grolemund (2017), Kapitel 10 / http://r4ds.had.co.nz/transform.html, oder Hands-on dplyr tutorial..↩︎\nhttps://r4ds.had.co.nz/tidy-data.html#pivoting↩︎",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Prepro 3: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html",
+    "href": "prepro/Prepro3_Uebung.html",
+    "title": "Prepro 3: Übung",
+    "section": "",
+    "text": "Aufgabe 1\nGegeben sei ein Datensatz sensors_combined.csv mit den Temperaturwerten von drei verschiedenen Sensoren. Importiere ihn als csv in R (als sensors_combined).\nFormatiere die Datetime Spalte in POSIXct um. Verwende dazu die Funktion as.POSIXct (lies mit ?strftime() nochmal nach, wie du das spezifische Format (die “Schablone”) festlegen kannst).",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-2",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-2",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 2",
+    "text": "Aufgabe 2\nÜberführe die Tabelle in ein langes Format (verwende dazu die Funktion pivot_longer aus tidyr) und speichere den output als sensors_long.\nTipp:\n\nim Argument cols kannst du entweder die Spalten auflisten, die “pivotiert” werden sollen.\nAlternativ kannst du (mit vorangestelltem Minuszeichen, -) die Spalte bezeichnen, die nicht pivotiert werden soll.\nIn beiden Fällen musst du die Spalten weder mit Anführungs- und Schlusszeichen noch mit dem $-Zeichen versehen.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-3",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-3",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 3",
+    "text": "Aufgabe 3\nGruppiere sensors_long nach der neuen Spalte, wo die Sensor-Information enthalten ist (default: name) mit group_by und berechne den Mittelwert der Temperatur pro Sensor (summarise). Hinweis: Beide Funktionen sind Teil des Packages dplyr.\nDer Output sieht folgendermassen aus:\n\n## # A tibble: 3 × 2\n##   name    temp_mean\n##   &lt;chr&gt;       &lt;dbl&gt;\n## 1 sensor1      14.7\n## 2 sensor2      12.0\n## 3 sensor3      14.4",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-4",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-4",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 4",
+    "text": "Aufgabe 4\nErstelle für sensors_long eine neue convenience Variabel month, welche den Monat beinhaltet (Tipp: verwende dazu die Funktion month aus lubridate). Gruppiere nun nach month und Sensor und berechne den Mittelwert der Temperatur.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-5",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-5",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 5",
+    "text": "Aufgabe 5\nImportiere die Datei sensor_fail.csv in R.\nsensor_fail.csv hat eine Variabel SensorStatus: 1 bedeutet der Sensor misst, 0 bedeutet der Sensor misst nicht. Fälschlicherweise wurde auch dann der Messwert Temp = 0 erfasst, wenn Sensorstatus = 0. Richtig wäre hier NA (not available). Korrigiere den Datensatz entsprechend.\n\n\n\n\n\nSensor\nTemp\nHum_%\nDatetime\nSensorStatus\nTemp_correct\n\n\n\n\nSen102\n0.6\n98\n16102017_1800\n1\n0.6\n\n\nSen102\n0.3\n96\n17102017_1800\n1\n0.3\n\n\nSen102\n0.0\n87\n18102017_1800\n1\n0.0\n\n\nSen102\n0.0\n86\n19102017_1800\n0\nNA\n\n\nSen102\n0.0\n98\n23102017_1800\n0\nNA\n\n\nSen102\n0.0\n98\n24102017_1800\n0\nNA\n\n\nSen102\n0.0\n96\n25102017_1800\n1\n0.0\n\n\nSen103\n-0.3\n87\n26102017_1800\n1\n-0.3\n\n\nSen103\n-0.7\n98\n27102017_1800\n1\n-0.7\n\n\nSen103\n-1.2\n98\n28102017_1800\n1\n-1.2",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-6",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-6",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 6",
+    "text": "Aufgabe 6\nWarum spielt es eine Rolle, ob 0 oder NA erfasst wird? Berechne den Mittelwert der Temperatur / Feuchtigkeit nach der Korrektur.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-7",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-7",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 7",
+    "text": "Aufgabe 7\nLade jetzt nochmal den Datensatz weather.csv (Quelle MeteoSchweiz) herunter und importiere ihn als CSV mit den korrekten Spaltentypen (stn als factor, time als POSIXct, tre200h0 als double).",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-8",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-8",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 8",
+    "text": "Aufgabe 8\nErstelle nun eine convenience Variable für die Kalenderwoche pro Messung (lubridate::week). Berechne im Anschluss den Mittelwert der Temperatur pro Kalenderwoche.\nVisualisiere im Anschluss das Resultat:",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-9",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-9",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 9",
+    "text": "Aufgabe 9\nIn der vorherigen Aufgabe haben wir den Mittelwert der Temperatur pro Kalenderwoche über alle Jahre (2000 und 2001) berechnet. Wenn wir die Jahre aber miteinander vergleichen wollen, müssen wir das Jahr als zusätzliche convenience Variable erstellen und danach gruppieren. Versuche dies mit den Wetterdaten und visualisiere den Output anschliessend.\n\n\n\n\n\n\n\n\nAbbildung 7.1: baseplot mag keine long tables und macht aus den beiden Jahren eine kontinuierliche Linie",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "prepro/Prepro3_Uebung.html#aufgabe-10",
+    "href": "prepro/Prepro3_Uebung.html#aufgabe-10",
+    "title": "Prepro 3: Übung",
+    "section": "Aufgabe 10",
+    "text": "Aufgabe 10\nÜberführe den Output aus der letzten Übung in eine wide table. Nun lassen sich die beiden Jahre viel besser miteinander vergleichen.",
+    "crumbs": [
+      "Pre-Processing",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "InfoVis.html",
+    "href": "InfoVis.html",
+    "title": "InfoVis",
+    "section": "",
+    "text": "Infovis 1\nDie konventionelle schliessende Statistik arbeitet in der Regel konfirmatorisch, sprich aus der bestehenden Theorie heraus werden Hypothesen formuliert, welche sodann durch Experimente geprüft und akzeptiert oder verworfen werden. Die Explorative Datenanalyse (EDA) nimmt dazu eine antagonistische Analyseperspektive ein und will in den Daten zunächst Zusammenhänge aufdecken, welche dann wiederum zur Formulierung von prüfbaren Hypothesen führen kann. Die Einheit stellt dazu den klassischen 5-stufigen EDA-Prozess nach Tukey (1980!) vor. Abschliessend wird dann noch die Brücke geschlagen zur modernen Umsetzung der EDA in Form von Visual Analytics.",
+    "crumbs": [
+      "InfoVis"
+    ]
+  },
+  {
+    "objectID": "InfoVis.html#infovis-2",
+    "href": "InfoVis.html#infovis-2",
+    "title": "InfoVis",
+    "section": "Infovis 2",
+    "text": "Infovis 2",
+    "crumbs": [
+      "InfoVis"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Vorbereitung.html",
+    "href": "infovis/Infovis1_Vorbereitung.html",
+    "title": "Vorbereitung",
+    "section": "",
+    "text": "Im Rahmen von InfoVis 1 - 2 werden wir einige R Packages brauchen. Wir empfehlen, diese bereits vor der ersten Lektion zu installieren. Analog Vorbereitung könnt ihr mit nachstehendem Code alle noch nicht installierten packages automatisch installieren.\n\nipak &lt;- function(pkg) {\n  new.pkg &lt;- pkg[!(pkg %in% installed.packages()[, \"Package\"])]\n  if (length(new.pkg)) {\n    install.packages(new.pkg, dependencies = TRUE)\n  }\n}\n\npackages &lt;- c(\"dplyr\", \"ggplot2\", \"lubridate\", \"readr\", \n  \"scales\", \"tidyr\")\n\nipak(packages)\n\nZudem könnt ihr die Daten für die Übungen auf Moodle herunterladen.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Vorbereitung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Demo.html",
+    "href": "infovis/Infovis1_Demo.html",
+    "title": "Infovis 1: Demo",
+    "section": "",
+    "text": "Ggplot2\nAls erstes laden wir den Datensatz temperature_SHA_ZER.csv ein. Es handelt sich dabei um eine leicht modifizierte Variante der Daten aus PrePro1 und PrePro2.\nIn ggplot wird durch den Befehl ggplot() initiiert. Hier wird einerseits der Datensatz festgelegt, auf dem der Plot beruht (data =), sowie die Variablen innerhalb des Datensatzes, die Einfluss auf den Plot ausüben (mapping = aes()).\n# Datensatz: \"temperature\" | Beeinflussende Variabeln: \"time\" und \"temp\"\nggplot(data = temperature, mapping = aes(time, SHA))\nWeiter braucht es mindestens ein “Layer”, der beschreibt, wie die Daten dargestellt werden sollen (z.B. geom_point()). Anders als bei “Piping” (|&gt;) wird ein Layer mit + hinzugefügt.\nggplot(data = temperature, mapping = aes(time, SHA)) +\n  # Layer: \"geom_point\" entspricht Punkten in einem Scatterplot\n  geom_point()\nDa ggplot die Eingaben in der Reihenfolge data = und dann mapping = erwartet, können wir diese Spezifizierungen auch weglassen.\nggplot(temperature, aes(time, SHA)) +\n  geom_point()",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Infovis 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Demo.html#long-vs.-wide",
+    "href": "infovis/Infovis1_Demo.html#long-vs.-wide",
+    "title": "Infovis 1: Demo",
+    "section": "Long vs. wide",
+    "text": "Long vs. wide\nWie wir in PrePro 2 bereits erwähnt haben, ist ggplot2 auf long tables ausgelegt. Wir überführen deshalb an dieser Stelle die breite in eine lange Tabelle:\n\ntemperature_long &lt;- pivot_longer(temperature, -time, names_to = \"station\", values_to = \"temp\")\n\nNun wollen wir die Stationen unterschiedlich einfärben. Da wir Variablen definieren wollen, welche Einfluss auf die Grafik haben sollen, gehört diese Information in aes().\n\nggplot(temperature_long, aes(time, temp, colour = station)) +\n  geom_point()\n\n\n\n\n\n\n\n\nWir können noch einen Layer mit Linien hinzufügen:\n\nggplot(temperature_long, aes(time, temp, colour = station)) +\n  geom_point() +\n  geom_line()",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Infovis 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Demo.html#beschriftungen-labels",
+    "href": "infovis/Infovis1_Demo.html#beschriftungen-labels",
+    "title": "Infovis 1: Demo",
+    "section": "Beschriftungen (labels)",
+    "text": "Beschriftungen (labels)\nWeiter können wir die Achsen beschriften und einen Titel hinzufügen. Zudem lasse ich die Punkte (geom_point()) nun weg, da mir diese nicht gefallen.\n\nggplot(temperature_long, aes(time, temp, colour = station)) +\n  geom_line() +\n  labs(\n    x = \"Zeit\",\n    y = \"Temperatur in Grad C°\",\n    title = \"Temperaturdaten Schweiz\",\n    subtitle = \"2001 bis 2002\",\n    color = \"Station\"\n  )",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Infovis 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Demo.html#split-apply-combine",
+    "href": "infovis/Infovis1_Demo.html#split-apply-combine",
+    "title": "Infovis 1: Demo",
+    "section": "Split Apply Combine",
+    "text": "Split Apply Combine\nIm obigen Plot fällt auf, dass stündliche Werte eine zu hohe Auflösung haben, wenn wir die Daten über 2 Jahre visualisieren. Mit Split Apply Combine (PrePro 3) können wir die Auflösung unserer Daten verändern:\n\ntemperature_day &lt;- temperature_long |&gt;\n  mutate(time = as.Date(time))\n\ntemperature_day\n## # A tibble: 35,088 × 3\n##    time       station  temp\n##    &lt;date&gt;     &lt;chr&gt;   &lt;dbl&gt;\n##  1 2000-01-01 SHA       0.2\n##  2 2000-01-01 ZER      -8.8\n##  3 2000-01-01 SHA       0.3\n##  4 2000-01-01 ZER      -8.7\n##  5 2000-01-01 SHA       0.3\n##  6 2000-01-01 ZER      -9  \n##  7 2000-01-01 SHA       0.3\n##  8 2000-01-01 ZER      -8.7\n##  9 2000-01-01 SHA       0.4\n## 10 2000-01-01 ZER      -8.5\n## # ℹ 35,078 more rows\n\ntemperature_day &lt;- temperature_day |&gt;\n  group_by(station, time) |&gt;\n  summarise(temp = mean(temp))\n\ntemperature_day\n## # A tibble: 1,462 × 3\n## # Groups:   station [2]\n##    station time        temp\n##    &lt;chr&gt;   &lt;date&gt;     &lt;dbl&gt;\n##  1 SHA     2000-01-01  1.25\n##  2 SHA     2000-01-02  1.73\n##  3 SHA     2000-01-03  1.59\n##  4 SHA     2000-01-04  1.78\n##  5 SHA     2000-01-05  4.66\n##  6 SHA     2000-01-06  3.49\n##  7 SHA     2000-01-07  3.87\n##  8 SHA     2000-01-08  3.28\n##  9 SHA     2000-01-09  3.24\n## 10 SHA     2000-01-10  3.24\n## # ℹ 1,452 more rows",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Infovis 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Demo.html#xy-achse-anpassen",
+    "href": "infovis/Infovis1_Demo.html#xy-achse-anpassen",
+    "title": "Infovis 1: Demo",
+    "section": "X/Y-Achse anpassen",
+    "text": "X/Y-Achse anpassen\nMan kann auch Einfluss auf die x-/y-Achsen nehmen. Dabei muss man zuerst festlegen, was für ein Achsentyp der Plot hat (vorher hat ggplot eine Annahme auf der Basis der Daten getroffen).\nBei unserer y-Achse handelt es sich um numerische Daten, ggplot nennt diese: scale_y_continuous(). Unter ggplot2.tidyverse.org findet man noch andere x/y-Achsentypen (scale_x_irgenwas bzw. scale_y_irgendwas).\n\nggplot(temperature_day, aes(time, temp, colour = station)) +\n  geom_line() +\n  labs(\n    x = \"Zeit\",\n    y = \"Temperatur in Grad C°\",\n    title = \"Temperaturdaten Schweiz\",\n    subtitle = \"2001 bis 2002\",\n    color = \"Station\"\n  ) +\n  scale_y_continuous(limits = c(-30, 30)) # y-Achsenabschnitt bestimmen\n\n\n\n\n\n\n\n\nDas gleiche Spiel kann man für die x-Achse betreiben. Bei unserer x-Achse handelt es sich ja um Datumsangaben. ggplot nennt diese: scale_x_date().\n\nggplot(temperature_day, aes(time, temp, colour = station)) +\n  geom_line() +\n  labs(\n    x = \"Zeit\",\n    y = \"Temperatur in Grad C°\",\n    title = \"Temperaturdaten Schweiz\",\n    subtitle = \"2001 bis 2002\",\n    color = \"Station\"\n  ) +\n  scale_y_continuous(limits = c(-30, 30)) +\n  scale_x_date(\n    date_breaks = \"3 months\",\n    date_labels = \"%b\"\n  )",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Infovis 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Demo.html#facets-small-multiples",
+    "href": "infovis/Infovis1_Demo.html#facets-small-multiples",
+    "title": "Infovis 1: Demo",
+    "section": "Facets / Small Multiples",
+    "text": "Facets / Small Multiples\nSehr praktisch sind auch die Funktionen für “Small multiples”. Dies erreicht man mit facet_wrap() (oder facet_grid(), mehr dazu später). Man muss mit einem Tilde-Symbol “~” nur festlegen, welche Variable für das Aufteilen des Plots in kleinere Subplots verantwortlich sein soll.\n\nggplot(temperature_day, aes(time, temp, colour = station)) +\n  geom_line() +\n  labs(\n    x = \"Zeit\",\n    y = \"Temperatur in Grad C°\",\n    title = \"Temperaturdaten Schweiz\",\n    subtitle = \"2001 bis 2002\",\n    color = \"Station\"\n  ) +\n  scale_y_continuous(limits = c(-30, 30)) +\n  scale_x_date(\n    date_breaks = \"3 months\",\n    date_labels = \"%b\"\n  ) +\n  facet_wrap(~station)\n\n\n\n\n\n\n\n\nAuch facet_wrap kann man auf seine Bedürfnisse anpassen: Beispielweise kann man mit ncol = die Anzahl facets pro Zeile bestimmen.\nZudem brauchen wir die Legende nicht mehr, da der Stationsnamen über jedem Facet steht. Ich setze deshalb theme(legend.position=\"none\")\n\nggplot(temperature_day, aes(time, temp, colour = station)) +\n  geom_line() +\n  labs(\n    x = \"Zeit\",\n    y = \"Temperatur in Grad C°\",\n    title = \"Temperaturdaten Schweiz\",\n    subtitle = \"2001 bis 2002\"\n  ) +\n  scale_y_continuous(limits = c(-30, 30)) +\n  scale_x_date(\n    date_breaks = \"3 months\",\n    date_labels = \"%b\"\n  ) +\n  facet_wrap(~station, ncol = 1) +\n  theme(legend.position = \"none\")",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Infovis 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Demo.html#plot-exportieren",
+    "href": "infovis/Infovis1_Demo.html#plot-exportieren",
+    "title": "Infovis 1: Demo",
+    "section": "Plot exportieren",
+    "text": "Plot exportieren\nFolgendermassen kann ich den letzten Plot als png-File abspeichern:\n\nggsave(filename = \"plot.png\")",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Infovis 1: Demo</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html",
+    "href": "infovis/Infovis1_Uebung.html",
+    "title": "Infovis 1: Übung",
+    "section": "",
+    "text": "Aufgabe 1\nIn dieser Übung geht es darum, die Grafiken aus dem Blog-post Kovic (2014) zu rekonstruieren. Der urspüngliche Blogpost ist nicht mehr verfügbar, wir haben deshalb eine Kopie auf folgender Website gehostet:\nhttps://researchmethods-zhaw.github.io/blog.tagesanzeiger.ch/\nSchau dir die Grafiken in dem Blogpost durch. Freundlicherweise wurden im Blogbeitrag die ggplot2 Standardeinstellungen benutzt, was die Rekonstruktion relativ einfach macht. Die Links im Text verweisen auf die Originalgrafik, die eingebetteten Plots sind meine eigenen Rekonstruktionen.\nImportiere als erstes den Datensatz tagi_data_kanton.csv.\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot und dem tagi_data_kanton.csv Datensatz:\nTipp:\nMusterlösung\n# Lösung zu Aufgabe 1\n\nlibrary(\"ggplot2\")\nplot1 &lt;- ggplot(kanton, aes(auslanderanteil, ja_anteil)) +\n  geom_point() +\n  coord_fixed(1) +\n  scale_y_continuous(breaks = c(0, 0.1, 0.3, 0.5, 0.7), limits = c(0, 0.7)) +\n  scale_x_continuous(breaks = c(0, 0.1, 0.3, 0.5, 0.7), limits = c(0, 0.7)) +\n  labs(y = \"Anteil Ja-Stimmen\", x = \"Ausländeranteil\")\n\nplot1",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-1",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-1",
+    "title": "Infovis 1: Übung",
+    "section": "",
+    "text": "Nutze ggplot(kanton, aes(auslanderanteil, ja_anteil)), um den ggplot zu initiieren. Füge danach einen Punkte-Layer hinzu (geom_point())\nNutze coord_fixed(), um die beiden Achsen in ein fixes Verhältnis zu setzen (1:1).\nOptional:\n\nSetze die Achsen Start- und Endwerte mittels scale_y_continuous bzw. scale_x_continuous.\nSetze analog Kovic (2014) die breaks (0.0, 0.1…0.7) manuell (innerhalb scale_*_continuous)\nNutze labs() für die Beschriftung der Achsen",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-2",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-2",
+    "title": "Infovis 1: Übung",
+    "section": "Aufgabe 2",
+    "text": "Aufgabe 2\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot:\nTipp:\n\nNutze geom_smooth\n\n\n\nMusterlösung\n# Lösung zu Aufgabe 2\n\nplot1 +\n  geom_smooth()",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-3",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-3",
+    "title": "Infovis 1: Übung",
+    "section": "Aufgabe 3",
+    "text": "Aufgabe 3\nImportiere die Gemeindedaten tagi_data_gemeinden.csv.\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:\nTipp:\n\nNutze geom_point()\nNutze labs()\nNutze coord_fixed()\n\n\n\nMusterlösung\n# Lösung zu Aufgabe 3\n\ngemeinde &lt;- read_delim(\"datasets/infovis/tagi_data_gemeinden.csv\", \",\")\n\nplot2 &lt;- ggplot(gemeinde, aes(anteil_ausl, anteil_ja)) +\n  geom_point() +\n  labs(x = \"Ausländeranteil\", y = \"Anteil Ja-Stimmen\") +\n  coord_fixed(1) +\n  lims(x = c(0, 1), y = c(0, 1))\n\nplot2",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-4",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-4",
+    "title": "Infovis 1: Übung",
+    "section": "Aufgabe 4",
+    "text": "Aufgabe 4\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:\nTipp:\n\nNutze geom_smooth\n\n\n\nMusterlösung\n# Lösung zu Aufgabe 4\n\nplot2 +\n  geom_smooth()",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-5",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-5",
+    "title": "Infovis 1: Übung",
+    "section": "Aufgabe 5",
+    "text": "Aufgabe 5\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:\nTipp:\n\nNutze facet_wrap um einen Plot pro Kanton darzustellen.\n\n\n\nMusterlösung\n# Lösung zu Aufgabe 5\n\nplot3 &lt;- plot2 +\n  facet_wrap(~kanton)\nplot3",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-6",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-6",
+    "title": "Infovis 1: Übung",
+    "section": "Aufgabe 6",
+    "text": "Aufgabe 6\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:\nTipp:\n\nNutze geom_smooth\n\n\n\nMusterlösung\n# Lösung zu Aufgabe 6\n\nplot3 +\n  geom_smooth()",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-7",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-7",
+    "title": "Infovis 1: Übung",
+    "section": "Aufgabe 7",
+    "text": "Aufgabe 7\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:\nTipp:\n\nNutze facet_wrap\n\n\n\nMusterlösung\n# Lösung zu Aufgabe 7\n\nplot4 &lt;- plot2 +\n  facet_wrap(~quantile)\nplot4",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Uebung.html#aufgabe-8",
+    "href": "infovis/Infovis1_Uebung.html#aufgabe-8",
+    "title": "Infovis 1: Übung",
+    "section": "Aufgabe 8",
+    "text": "Aufgabe 8\nRekonstruiere folgenden Plot aus Kovic (2014) mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:\nTipp:\n\nNutze geom_smooth\n\n\n\nMusterlösung\n# Lösung zu Aufgabe 8\n\nplot4 +\n  geom_smooth()\n\n\n\n\n\n\n\n\n\n\n\n\n\nKovic, Marko. 2014. „Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?“ Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Infovis 1: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis1_Script_eda.html",
+    "href": "infovis/Infovis1_Script_eda.html",
+    "title": "Infovis 1: Script EDA",
+    "section": "",
+    "text": "library(\"ggplot2\")\nlibrary(\"dplyr\")\nlibrary(\"scales\")\n\n# create some data about age and height of people\npeople &lt;- data.frame(\n  ID = c(1:30),\n  age = c(\n    5.0, 7.0, 6.5, 9.0, 8.0, 5.0, 8.6, 7.5, 9.0, 6.0,\n    63.5, 65.7, 57.6, 98.6, 76.5, 78.0, 93.4, 77.5, 256.6, 512.3,\n    15.5, 18.6, 18.5, 22.8, 28.5, 39.5, 55.9, 50.3, 31.9, 41.3\n  ),\n  height = c(\n    0.85, 0.93, 1.1, 1.25, 1.33, 1.17, 1.32, 0.82, 0.89, 1.13,\n    1.62, 1.87, 1.67, 1.76, 1.56, 1.71, 1.65, 1.55, 1.87, 1.69,\n    1.49, 1.68, 1.41, 1.55, 1.84, 1.69, 0.85, 1.65, 1.94, 1.80\n  ),\n  weight = c(\n    45.5, 54.3, 76.5, 60.4, 43.4, 36.4, 50.3, 27.8, 34.7, 47.6,\n    84.3, 90.4, 76.5, 55.6, 54.3, 83.2, 80.7, 55.6, 87.6, 69.5,\n    48.0, 55.6, 47.6, 60.5, 54.3, 59.5, 34.5, 55.4, 100.4, 110.3\n  )\n)\n\n# build a scatterplot for a first inspection\nggplot(people, aes(x = age, y = height)) +\n  geom_point()\n\n\n\n\n\n\n\n\n\nggplot(people, aes(x = age, y = height)) +\n  geom_point() +\n  scale_y_continuous(limits = c(0.75, 2))\n\n\n\n\n\n\n\n# Go to help page: http://docs.ggplot2.org/current/ -&gt; Search for icon of fit-line\n# http://docs.ggplot2.org/current/geom_smooth.html\n\n\n# build a scatterplot for a first inspection, with regression line\nggplot(people, aes(x = age, y = height)) +\n  geom_point() +\n  scale_y_continuous(limits = c(0, 2.0)) +\n  geom_smooth()\n\n\n\n\n\n\n\n\n\n# stem and leaf plot\nstem(people$height)\n## \n##   The decimal point is 1 digit(s) to the left of the |\n## \n##    8 | 25593\n##   10 | 037\n##   12 | 523\n##   14 | 19556\n##   16 | 255789916\n##   18 | 04774\nstem(people$height, scale = 2)\n## \n##   The decimal point is 1 digit(s) to the left of the |\n## \n##    8 | 2559\n##    9 | 3\n##   10 | \n##   11 | 037\n##   12 | 5\n##   13 | 23\n##   14 | 19\n##   15 | 556\n##   16 | 2557899\n##   17 | 16\n##   18 | 0477\n##   19 | 4\n\n\n# explore the two variables with box-whiskerplots\nsummary(people$age)\n##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n##    5.00    8.70   30.20   59.14   65.15  512.30\nboxplot(people$age)\n\n\n\n\n\n\n\n\n\nsummary(people$height)\n##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n##   0.820   1.190   1.555   1.455   1.690   1.940\nboxplot(people$height)\n\n\n\n\n\n\n\n\n\n# explore data with a histgram\nggplot(people, aes(x = age)) +\n  geom_histogram(binwidth = 20)\n\n\n\n\n\n\n\n\n\ndensity(x = people$height)\n## \n## Call:\n##  density.default(x = people$height)\n## \n## Data: people$height (30 obs.);   Bandwidth 'bw' = 0.1576\n## \n##        x                y           \n##  Min.   :0.3472   Min.   :0.001577  \n##  1st Qu.:0.8636   1st Qu.:0.102659  \n##  Median :1.3800   Median :0.510260  \n##  Mean   :1.3800   Mean   :0.483081  \n##  3rd Qu.:1.8964   3rd Qu.:0.721733  \n##  Max.   :2.4128   Max.   :1.215724\n\n# re-expression: use log or sqrt axes\n#\n# Find here guideline about scaling axes\n# http://www.cookbook-r.com/Graphs/Axes_(ggplot2)/\n# http://docs.ggplot2.org/0.9.3.1/scale_continuous.html\n\n\n# logarithmic axis: respond to skewness in the data, e.g. log10\nggplot(people, aes(x = age, y = height)) +\n  geom_point() +\n  scale_y_continuous(limits = c(0, 2.0)) +\n  geom_smooth() +\n  scale_x_log10()\n\n\n\n\n\n\n\n\n\n# outliers: Remove very small and very old people\n\npeopleClean &lt;- people |&gt;\n  filter(ID != 27) |&gt; # Diese Person war zu klein.\n  filter(age &lt; 100) # Fehler in der Erhebung des Alters\n\n\nggplot(peopleClean, aes(x = age)) +\n  geom_histogram(binwidth = 10)\n\n\n\n\n\n\n\n\n\nggplot(peopleClean, aes(x = age, y = height)) +\n  geom_point() +\n  scale_y_continuous(limits = c(0, 2.0)) +\n  geom_smooth()\n\n\n\n\n\n\n\n\n\n# with custom binwidth\nggplot(peopleClean, aes(x = age)) +\n  geom_histogram(binwidth = 10) +\n  theme_bw() # specifying the theme\n\n\n\n\n\n\n\n\n\n# quadratic axis\nggplot(peopleClean, aes(x = age, y = height)) +\n  geom_point() +\n  scale_y_continuous(limits = c(0, 2.0)) +\n  geom_smooth(method = \"lm\", fill = \"lightblue\", size = 0.5, alpha = 0.5) +\n  scale_x_sqrt()\n\n\n\n\n\n\n\n\n\n# filter \"teenies\": No trend\nfilter(peopleClean, age &lt; 15) |&gt;\n  ggplot(aes(x = age, y = height)) +\n  geom_point() +\n  scale_y_continuous(limits = c(0, 2.0)) +\n  geom_smooth(method = \"lm\", fill = \"lightblue\", size = 0.5, alpha = 0.5)\n\n\n\n\n\n\n\n\n\n# filter \"teenies\": No trend\npeopleClean |&gt;\n  filter(age &gt; 55) |&gt;\n  ggplot(aes(x = age, y = height)) +\n  geom_point() +\n  scale_y_continuous(limits = c(0, 2.0)) +\n  geom_smooth(method = \"lm\", fill = \"lightblue\", size = 0.5, alpha = 0.5)\n\n\n\n\n\n\n\n\n\n# Onwards towards multidimensional data\n\n# Finally, make a scatterplot matrix\npairs(peopleClean[, 2:4], panel = panel.smooth)\n\n\n\n\n\n\n\n\n\npairs(peopleClean[, 2:4], panel = panel.smooth)",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Infovis 1: Script EDA</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_ggplot_Themes.html",
+    "href": "infovis/Infovis2_ggplot_Themes.html",
+    "title": "Infovis 2: ggplot Themes",
+    "section": "",
+    "text": "In der letzten Übung haben wir das Package ggplot2 genutzt, um unsere Daten zu visualisieren. Dabei haben wir die Standardeinsellung für das Kreieren der Plots genutzt. In diesem Abschnitt wirst du nun lernen, wie du Plots indviduell mit sogenannten Themes anpassen kannst.\nWir starten noch einmal mit einem Plot aus Infovis 1: Übung:\n\np &lt;- ggplot(temperature_long, aes(time, temp, colour = station)) +\n  geom_line() +\n  labs(\n    x = \"Zeit\",\n    y = \"Temperatur in Grad C°\",\n    title = \"Temperaturdaten Schweiz\",\n    subtitle = \"2001 bis 2002\",\n    color = \"Station\"\n  )\np\n\n\n\n\n\n\n\n\nNun wollen wir mit einer von ggplot2 zur Verfügung gestellten Theme anpassen. Wir benutzen hier theme_classic(), weitere Themes findet ihr hier.\n\np2 &lt;- p + theme_classic()\np2\n\n\n\n\n\n\n\n\nIn einem letzten Schritt werden nun einzelne Elemente wie z.B. die Achsenbeschriftung oder die Titelgrösse angepasst:\n\nmytheme &lt;- \n  theme_classic()  +\n  theme(axis.line = element_line(linewidth = 0.6, color = \"black\"), \n        axis.text = element_text(size = 11, color = \"black\"), \n        axis.title = element_text(size = 13, color = \"black\"), \n        axis.ticks = element_line(linewidth = 0.6, color = \"black\"), \n        axis.ticks.length = unit(0.2, \"cm\"),\n        axis.title.y = element_text(vjust = +2),\n        axis.title.x = element_text(vjust = -2),\n        plot.title = element_text(hjust = 0.5, size = 13),\n        plot.subtitle = element_text(hjust = 0.5, size = 10),\n        plot.margin = margin(t = 4, r = 6, b = 6, l = 8, unit = \"pt\") \n        \n  )",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Infovis 2: ggplot Themes</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Quarto.html",
+    "href": "infovis/Infovis2_Quarto.html",
+    "title": "Infovis 2: Quarto",
+    "section": "",
+    "text": "Was ist Quarto?\nIn diesem Abschnitten\n🔍 Was ist Quarto?\nQuarto ist ein sogenanntes „literate programming“-Tool, das es erlaubt, Text, Code und Visualisierungen in einem Dokument zu kombinieren und es als Ausgabeformate wie PDF, HTML, Word, PowerPoint, Reveal.js-Präsentationen, Webseiten und mehr zu konvertieren.\n🎯 Wozu ist Quarto nützlich?\nQuarto ist besonders hilfreich für:\n✅ Vorteile gegenüber anderen Tools",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Infovis 2: Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Quarto.html#was-ist-quarto",
+    "href": "infovis/Infovis2_Quarto.html#was-ist-quarto",
+    "title": "Infovis 2: Quarto",
+    "section": "",
+    "text": "Reproduzierbare Forschung: Kombiniert Code und Ergebnisse direkt im Dokument.\nBerichte und Dokumentation: Erstellt automatisch aktualisierte Reports mit Datenanalysen.\nPräsentationen: Erstellt interaktive Folien mit eingebettetem Code und Visualisierungen.\nWebseiten und Blogs: Baut wissenschaftliche Webseiten oder persönliche Blogs mit integriertem Code.\nMultilinguale Unterstützung: Nutzt verschiedene Programmiersprachen im selben Dokument.\n\n\n\nSprache-unabhängig: Funktioniert mit mehreren Programmiersprachen.\nEinheitliches System: Ein Tool für viele Formate.\nOpen Source: Frei verfügbar und aktiv weiterentwickelt.\nIntegration mit Jupyter und RStudio: Nahtlose Nutzung in bekannten Umgebungen.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Infovis 2: Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Quarto.html#wie-ist-ein-quarto-dokument-aufgebaut",
+    "href": "infovis/Infovis2_Quarto.html#wie-ist-ein-quarto-dokument-aufgebaut",
+    "title": "Infovis 2: Quarto",
+    "section": "Wie ist ein Quarto-Dokument aufgebaut?",
+    "text": "Wie ist ein Quarto-Dokument aufgebaut?\nEin Quarto Dokument hat grob drei Elemente: (1) Den Header bzw. die Metadaten, (2) die Code Chunks und (3) die Textbereiche\n\nDer Header wird beim Erstellen des Dokumentes bereits erstellt. Beim format könnt ihr definieren, wie am Ende eurer Dokument gerendert werden soll. Möglich sind u.a. HTML, PDF und MS Word. Für diesen Kurs zentral sind die Formate typst bzw. pdf für Mac-User.\n---\ntitle: \"Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?\"\nformat: typst\nexecute: \n  error: true\necho: false\nwarning: false\n---\n\n\n\n\n\n\n\nHinweis\n\n\n\nUm den Header müsst ihr euch nicht kümmern, den werden wir hier in der Übung wie auch an der praktischen Prüfung vorgeben.\n\n\n\nDer Code wird in sogenannten Code Chunks geschrieben. Eine neue Zelle fügt ihr ein, indem ihr Ctrl+Shift+I drückt. Falls in der eckigen Klammer nicht r stehen sollte, müsst ihr das in diesem Fall anpassen.\nZwischen die Code Chunks kommt eurer Text. Titel werden mit # davor gesetzt.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Infovis 2: Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Quarto.html#was-ist-bei-einem-quarto-dokument-zu-beachten",
+    "href": "infovis/Infovis2_Quarto.html#was-ist-bei-einem-quarto-dokument-zu-beachten",
+    "title": "Infovis 2: Quarto",
+    "section": "Was ist bei einem Quarto-Dokument zu beachten?",
+    "text": "Was ist bei einem Quarto-Dokument zu beachten?\nDer Code läuft von oben bis unten durch, und zwar unabhängig davon, welche Libraries und Variablen ihr in eurer Environment habt. Das bedeutet, dass alle Libraries zuoberst im Skript geladen werden müssen. Eine Variable, welche weiter unten im Skript verwendet wird, muss vorher explizit im Skript definiert werden.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Infovis 2: Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A_neu.html",
+    "href": "infovis/Infovis2_Uebung_A_neu.html",
+    "title": "Infovis 2: Übung",
+    "section": "",
+    "text": "Aufgabe 1\nIn der Übung von Infovis 1: Übung habt ihr bereits die Grafiken aus dem Blog-post von Kovic (2014) rekonstruiert. Nun sollt ihr den Blog-post auf einfach Art und Weise mithilfe von Quarto erstellen. Wer darüber hinaus mehr über Quarto lernen möchte, findet unter Wickham, Çetinkaya-Rundel, und Grolemund (2023) (Kapitel Quarto) sowie auf der Quarto Webseite mehr darüber.\nErstelle ein neues RStudio-Projekt und kopiere das Quarto-File Infovis2_Uebung.qmd aus dem Unterlagenordner in denselben Ordner wie das RStudio-Projekt. Öffne danach das Projekt und das Quarto-File.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Infovis 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-2",
+    "href": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-2",
+    "title": "Infovis 2: Übung",
+    "section": "Aufgabe 2",
+    "text": "Aufgabe 2\nFüge nun in deinem Quarto-File mit Ctr+Alt+I ein neuer Code-Chunk (grau eingefärbt) ein. Kopiere nun deinen Code aus der Übung Infovis 1 in diesen Code-Chunk. Kontrolliere die relativen Pfade.\n\n\n\n\n\n\nHinweis\n\n\n\nMac-User müssen evtl. im sogenannten Yaml-Header (erster Teil des Quarto-Skriptes) das Format von typst auf pdf ändern.\n\n\nDrücke nun auf Render.\n\nSchau dir das kreierte PDF an. Gibt es in deinem Dokument Error-Warnungen? Wenn ja, schau dir deinen Code noch einmal genauer an.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Infovis 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-3",
+    "href": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-3",
+    "title": "Infovis 2: Übung",
+    "section": "Aufgabe 3",
+    "text": "Aufgabe 3\nZum einen ist Quarto nicht nur nützlich, Code einfach in ein anderes Format wie PDF zu kompilieren. Quarto ist auch geeignet, neben Code auch viel Text einzufügen. In einem R-Skript müssen Kommentare immer mit Hashtags auskommentiert werden. Mit Quarto geht das viel einfacher:\nPositioniere dein Cursor in dein Code-Chunk und drücke wieder Ctr+Alt+I. Der Code-Chunk sollte sich nun in zwei Teile aufgeteilt haben, dazwischen ist es nun weiss.\nIn diesem weissen Bereich wollen wir dem nächsten Abschnitt einen Titel geben. Dazu braucht es in Quarto neben dem eigentlich Titel, z.B. wie bei Kovic (2014) Kantonsebene, ein # davor. Schreibe also: # Kantonsebene\nFüge danach einen Text ohne Hashtag ein und rendere das Dokument noch einmal. Schau dir wiederum den Output an.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Infovis 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-4",
+    "href": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-4",
+    "title": "Infovis 2: Übung",
+    "section": "Aufgabe 4",
+    "text": "Aufgabe 4\nFüge nun dem Quarto-Dokument weitere Texte und Titel analog zu Kovic (2014) hinzu. Deinen Code aus Infovis 1: Übung muss du jedoch nicht erweitern. Füge jedoch für die ggplots ein eigenes Theme analog zu Infovis 2: ggplot Themes hinzu.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Infovis 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-5",
+    "href": "infovis/Infovis2_Uebung_A_neu.html#aufgabe-5",
+    "title": "Infovis 2: Übung",
+    "section": "Aufgabe 5",
+    "text": "Aufgabe 5\nZippe nun deine Ordner mit dem RStudio-Projekt, dem Quarto-File und dem PDF-Output und gib es auf Moodle ab.\n\n\n\n\nKovic, Marko. 2014. „Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?“ Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. R for data science. \" O’Reilly Media, Inc.\". https://r4ds.hadley.nz/.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Infovis 2: Übung</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html",
+    "href": "infovis/Infovis2_Uebung_A.html",
+    "title": "Infovis 2: Übung optional",
+    "section": "",
+    "text": "Aufgabe 1\nFür die heutige Übung brauchst du den Datensatz temperature_2005.csv. Dabei handelt es sich wieder um Teperaturwerte verschiedener Stationen, diesmal aus dem Jahr 2005. Das Datum ist so formatiert, dass R (isbesondere read_delim) es korrekt als datetime erkennen und als POSIXct einlesen sollte.\nMache aus der wide table eine long table, die wie folgt aussieht.\ntime\nstation\ntemperature\n\n\n\n\n2005-01-01\nALT\n1.3\n\n\n2005-01-01\nBUS\n1.5\n\n\n2005-01-01\nGVE\n1.1\n\n\n2005-01-01\nINT\n0.2\n\n\n2005-01-01\nOTL\n2.2\n\n\n2005-01-01\nLUG\n1.7\nImportiere anschliessend den Datensatz temperature_2005_metadata.csv und verbinde die beiden Datensätze mit einem left_join via station (bzw. stn).",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-2",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-2",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 2",
+    "text": "Aufgabe 2\nErstelle ein Scatterplot (time vs. temperature), wobei die Punkte aufgrund ihrer Meereshöhe eingefärbt werden sollen. Tiefe Werte sollen dabei blau eingefärbt werden und hohe Werte rot (scale_color_gradient). Verkleinere die Punkte, um übermässiges Überplotten der Punkten zu vermeiden (size =). Weiter sollen auf der x-Achse im Abstand von 3 Monaten der jeweilige Monat vermerkt sein (date_breaks bzw. date_labels von scale_x_datetime()).",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-3",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-3",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 3",
+    "text": "Aufgabe 3\nErstelle eine Zusatzvariabel Date mit dem Datum der jeweiligen Messung ( mit as.Date). Nutze diese Spalte, um die Tagesmitteltemperatur pro Station zu berechnen (mit summarise()).\nUm die Metadaten (Name, Meereshoehe, x, y) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber auch schwerer zu verstehen) kannst du diese Variabeln innerhalb deines group_by verwenden.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-4",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-4",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 4",
+    "text": "Aufgabe 4\nWiederhole nun den Plot aus der ersten Aufgabe mit den aggregierten Daten aus der vorherigen Aufgabe. Um die labels korrekt zu setzen, musst du scale_x_datetime mit scale_x_date ersetzen.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-5",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-5",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 5",
+    "text": "Aufgabe 5\nFüge am obigen Plot eine schwarze, gestrichelte Trendlinie hinzu.",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-6",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-6",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 6",
+    "text": "Aufgabe 6\nPositioniere die Legende oberhalb des Plots (nutze dazu theme() mit legend.position).",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-7-optional-fortgeschritten",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-7-optional-fortgeschritten",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 7 (optional, fortgeschritten)",
+    "text": "Aufgabe 7 (optional, fortgeschritten)\nFüge den Temperaturwerten auf der y-Ache ein °C hinzu (siehe unten und studiere diesen Tipp zur Hilfe).",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-8",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-8",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 8",
+    "text": "Aufgabe 8\nJetzt verlassen wir den Scatterplot und machen einen Boxplot mit den Temperaturdaten. Färbe die Boxplots wieder in Abhängigkeit der Meereshöhe ein.\n\nBeachte den Unterschied zwischen colour = und fill =\nBeachte den Unterschied zwischen facet_wrap() und facet_grid()\nfacet_grid() braucht übrigens noch einen Punkt (.) zur Tilde (~).\nBeachte den Unterschied zwischen “.~” und “~.” bei facet_grid()\nverschiebe nach Bedarf die Legende",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-9",
+    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-9",
+    "title": "Infovis 2: Übung optional",
+    "section": "Aufgabe 9",
+    "text": "Aufgabe 9\nAls letzter wichtiger Plottyp noch zwei Übungen zum Histogramm. Erstelle ein Histogramm geom_histogram() mit den Temperaturwerten. Teile dazu die Stationen in verschiedene Höhenlagen ein (Tieflage [&lt; 400 m], Mittellage [400 - 600 m] und Hochlage [&gt; 600 m]). Vergleiche die Verteilung der Temperaturwerte in den verschiedenen Lagen mit einem Histogramm.\nTip: Nutze cut um die Stationen in die drei Gruppen aufzuteilen",
+    "crumbs": [
+      "InfoVis",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
+    ]
+  },
+  {
+    "objectID": "References.html",
+    "href": "References.html",
+    "title": "Literaturverzeichnis",
+    "section": "",
+    "text": "Kovic, Marko. 2014. “Je Weniger Ausländer, Desto Mehr Ja-Stimmen?\nWirklich?” Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.\n\n\nWickham, Hadley, Mine Çetinkaya-Rundel, and Garrett Grolemund. 2023.\nR for Data Science. \" O’Reilly Media, Inc.\". https://r4ds.hadley.nz/.\n\n\nWickham, Hadley, and Garrett Grolemund. 2017. R for Data\nScience. O’Reilly. https://ebookcentral.proquest.com/lib/zhaw/detail.action?docID=4770093.",
+    "crumbs": [
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Literaturverzeichnis</span>"
+    ]
   }
 ]
