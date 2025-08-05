@@ -3,7 +3,7 @@ lesson: InfoVis1
 thema: "Plots & Facets"
 ---
 
-# Infovis 1: Demo A
+# Infovis 1: Demo
 
 ```{r}
 library("readr")

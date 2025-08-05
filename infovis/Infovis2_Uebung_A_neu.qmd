@@ -1,0 +1,69 @@
+---
+lesson: InfoVis2
+thema: Quarto
+execute: 
+  echo: true   # set to true to show musterlösung
+  output: true
+code-fold: true
+code-summary: "Musterlösung"
+knitr:
+  opts_chunk: 
+    collapse: true
+---
+
+
+# Infovis 2: Übung
+
+In der Übung von @sec-infovis1 habt ihr bereits die Grafiken aus dem Blog-post von @kovic2014 rekonstruiert. Nun sollt ihr den Blog-post auf einfach Art und Weise mithilfe von Quarto erstellen. Wer darüber hinaus mehr über Quarto lernen möchte, findet unter @wickham2023 ([Kapitel Quarto](https://r4ds.hadley.nz/quarto)) sowie auf der [Quarto Webseite](https://quarto.org/docs/get-started/hello/rstudio.html) mehr darüber.
+
+
+::: {.callout-important}
+In der praktischen Prüfung werdet ihr euren Code ebenfalls mit Quarto erstellen und als PDF kompilieren.
+:::
+
+
+## Aufgabe 1
+
+Erstelle ein neues RStudio-Projekt und kopiere das Quarto-File *Infovis2_Uebung.qmd* aus dem [Unterlagenordner](https://moodle.zhaw.ch/mod/resource/view.php?id=1664149) in denselben Ordner wie das RStudio-Projekt. Öffne danach das Projekt und das Quarto-File.
+
+
+## Aufgabe 2
+
+Füge nun in deinem Quarto-File mit Ctr+Alt+I ein neuer Code-Chunk (grau eingefärbt) ein. Kopiere nun deinen Code aus der Übung Infovis 1 in diesen Code-Chunk. Kontrolliere die relativen Pfade.
+
+::: {.callout-note}
+Mac-User müssen evtl. im sogenannten Yaml-Header (erster Teil des Quarto-Skriptes) das Format von ***typst*** auf ***pdf*** ändern.
+:::
+
+Drücke nun auf ***Render***.
+
+![](figures/render.png)
+
+Schau dir das kreierte PDF an. Gibt es in deinem Dokument Error-Warnungen? Wenn ja, schau dir deinen Code noch einmal genauer an.
+
+
+## Aufgabe 3
+
+Zum einen ist Quarto nicht nur nützlich, Code einfach in ein anderes Format wie PDF zu kompilieren. Quarto ist auch geeignet, neben Code auch viel Text einzufügen. In einem  R-Skript müssen Kommentare immer mit Hashtags auskommentiert werden. Mit Quarto geht das viel einfacher:
+
+Positioniere dein Cursor in dein Code-Chunk und drücke wieder Ctr+Alt+I. Der Code-Chunk sollte sich nun in zwei Teile aufgeteilt haben, dazwischen ist es nun weiss.
+
+In diesem weissen Bereich wollen wir dem nächsten Abschnitt einen Titel geben. Dazu braucht es in Quarto neben dem eigentlich Titel, z.B. wie bei @kovic2014 *Kantonsebene*, ein # davor. Schreibe also:
+*# Kantonsebene*
+
+Füge danach einen Text ohne Hashtag ein und rendere das Dokument noch einmal. Schau dir wiederum den Output an.
+
+
+## Aufgabe 4
+
+Füge nun dem Quarto-Dokument weitere Texte und Titel analog zu @kovic2014 hinzu. Deinen Code aus @sec-infovis1 muss du jedoch nicht erweitern. Füge jedoch für die ggplots ein eigenes Theme analog zu @sec-themse hinzu.
+
+
+## Aufgabe 5
+
+Zippe nun deine Ordner mit dem RStudio-Projekt, dem Quarto-File und dem PDF-Output und gib es auf Moodle ab.
+
+
+
+
+

@@ -1,0 +1,75 @@
+---
+lesson: InfoVis2
+thema: Quarto
+execute: 
+  echo: true   # set to true to show musterlösung
+  output: true
+code-fold: true
+code-summary: "Musterlösung"
+knitr:
+  opts_chunk: 
+    collapse: true
+---
+
+
+# Infovis 2: Quarto
+
+In diesem Abschnitten 
+
+## Was ist Quarto?
+
+🔍 Was ist Quarto?
+
+Quarto ist ein sogenanntes „literate programming“-Tool, das es erlaubt, Text, Code und Visualisierungen in einem Dokument zu kombinieren und es als Ausgabeformate wie PDF, HTML, Word, PowerPoint, Reveal.js-Präsentationen, Webseiten und mehr zu konvertieren.
+
+
+🎯 Wozu ist Quarto nützlich?
+
+Quarto ist besonders hilfreich für:
+
+- Reproduzierbare Forschung: Kombiniert Code und Ergebnisse direkt im Dokument.
+- Berichte und Dokumentation: Erstellt automatisch aktualisierte Reports mit Datenanalysen.
+- Präsentationen: Erstellt interaktive Folien mit eingebettetem Code und Visualisierungen.
+- Webseiten und Blogs: Baut wissenschaftliche Webseiten oder persönliche Blogs mit integriertem Code.
+- Multilinguale Unterstützung: Nutzt verschiedene Programmiersprachen im selben Dokument.
+
+
+✅ Vorteile gegenüber anderen Tools
+
+- Sprache-unabhängig: Funktioniert mit mehreren Programmiersprachen.
+- Einheitliches System: Ein Tool für viele Formate.
+- Open Source: Frei verfügbar und aktiv weiterentwickelt.
+- Integration mit Jupyter und RStudio: Nahtlose Nutzung in bekannten Umgebungen.
+
+
+
+## Wie ist ein Quarto-Dokument aufgebaut?
+
+Ein Quarto Dokument hat grob drei Elemente: (1) Den Header bzw. die Metadaten, (2) die Code Chunks und (3) die Textbereiche 
+
+1. Der Header wird beim Erstellen des Dokumentes bereits erstellt. Beim `format` könnt ihr definieren, wie am Ende eurer Dokument *gerendert* werden soll. Möglich sind u.a. HTML, PDF und MS Word. Für diesen Kurs zentral sind die Formate *typst* bzw. *pdf* für Mac-User.
+
+    ```bash
+    ---
+    title: "Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?"
+    format: typst
+    execute: 
+      error: true
+    echo: false
+    warning: false
+    ---
+    ```
+    
+::: {.callout-note}
+  Um den Header müsst ihr euch nicht kümmern, den werden wir hier in der Übung wie auch an der praktischen Prüfung vorgeben.
+:::   
+
+2. Der Code wird in sogenannten *Code Chunks* geschrieben. Eine neue Zelle fügt ihr ein, indem ihr `Ctrl+Shift+I` drückt. Falls in der eckigen Klammer nicht *r* stehen sollte, müsst ihr das in diesem Fall anpassen.
+
+3. Zwischen die Code Chunks kommt eurer Text. Titel werden mit *#* davor gesetzt.
+
+
+## Was ist bei einem Quarto-Dokument zu beachten?
+
+Der Code läuft von oben bis unten durch, und zwar unabhängig davon, welche Libraries und Variablen ihr in eurer Environment habt. Das bedeutet, dass alle Libraries zuoberst im Skript geladen werden müssen. Eine Variable, welche weiter unten im Skript verwendet wird, muss vorher explizit im Skript definiert werden.
+

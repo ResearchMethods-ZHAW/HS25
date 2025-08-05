@@ -2,8 +2,8 @@
 lesson: InfoVis2
 thema: Vertiefung ggplot
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true
+  echo: false   # set to true to show musterlösung
+  output: false
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -12,14 +12,9 @@ knitr:
 ---
 
 
-# Infovis 2: Übung A
+# Infovis 2: Übung optional
 
 Für die heutige Übung brauchst du den Datensatz *temperature_2005.csv*. Dabei handelt es sich wieder um Teperaturwerte verschiedener Stationen, diesmal aus dem Jahr 2005. Das Datum ist so formatiert, dass `R` (isbesondere `read_delim`) es korrekt als `datetime` erkennen und als `POSIXct` einlesen sollte.
-
-
-Gleichzeitig wollen wir euch heute Quarto näher bringen. Wir werden dafür Quarto im Unterricht demonstieren. Zudem kann man in @wickham2023 ([Kapitel Quarto](https://r4ds.hadley.nz/quarto)) sowie auf der [Quarto Webseite](https://quarto.org/docs/get-started/hello/rstudio.html) mehr über Quarto erfahren.
-
-
 
 
 ```{r}

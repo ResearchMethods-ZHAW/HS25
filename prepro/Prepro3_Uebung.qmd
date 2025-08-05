@@ -15,9 +15,9 @@ knitr:
 
 ## Aufgabe 1
 
-Gegeben sei ein Datensatz *sensors_combined.csv*, mit den Temperaturwerten von drei verschiedenen Sensoren. Importiere ihn als csv in R (als `sensors_combined`). 
+Gegeben sei ein Datensatz *sensors_combined.csv* mit den Temperaturwerten von drei verschiedenen Sensoren. Importiere ihn als csv in R (als `sensors_combined`). 
 
-Formatiere die `Datetime` Spalte in `POSIXct` um. Verwende dazu die Funktion `as.POSIXct` (lies mit `?strftime()` nochmal nach, wie du das spezifische Format (die "Schablone") festlegen kannst.
+Formatiere die `Datetime` Spalte in `POSIXct` um. Verwende dazu die Funktion `as.POSIXct` (lies mit `?strftime()` nochmal nach, wie du das spezifische Format (die "Schablone") festlegen kannst).
 
 ```{r}
 library("readr")
@@ -80,7 +80,6 @@ sensors_long |>
   summarise(temp_mean = mean(value, na.rm = TRUE))
 ```
 
-
 ## Aufgabe 5
 
 Importiere die Datei *sensor_fail.csv* in `R`.
@@ -111,7 +110,7 @@ knitr::kable(sensor_fail)
 
 ## Aufgabe 6
 
-Warum spielt es eine Rolle, ob `0` oder `NA` erfasst wird? Berechne die Mittlere der Temperatur / Feuchtigkeit nach der Korrektur. 
+Warum spielt es eine Rolle, ob `0` oder `NA` erfasst wird? Berechne den Mittelwert der Temperatur / Feuchtigkeit nach der Korrektur. 
 
 
 ```{r}
@@ -123,7 +122,6 @@ mean(sensor_fail$Temp)
 # NA-Werte aus der Berechnung entfernt.
 mean(sensor_fail$Temp_correct, na.rm = TRUE)
 ```
-
 
 ## Aufgabe 7
 

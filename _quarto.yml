@@ -48,25 +48,27 @@ book:
     - part: PrePro.qmd
       chapters:
       - prepro/Prepro1_Vorbereitung.qmd
-      # - --
-      # - prepro/Prepro1_Demo.qmd
-      # - prepro/Prepro1_Uebung.qmd
-      # - --
-      # - prepro/Prepro2_Demo.qmd
-      # - prepro/Prepro2_Uebung_A.qmd
-      # - --
-      # - prepro/Prepro3_Demo.qmd
-      # - prepro/Prepro3_Uebung.qmd
-    # - part: InfoVis.qmd
-    #   chapters:
-    #   - infovis/Infovis1_Vorbereitung.qmd
-    #   - --
-    #   - infovis/Infovis1_Demo.qmd
-    #   - infovis/Infovis1_Uebung.qmd
-    #   - infovis/Infovis1_Script_eda.qmd
-    #   - --
-    #   - infovis/Infovis2_Uebung_A.qmd
-    #   - infovis/Infovis2_Uebung_B.qmd
+      - --
+      - prepro/Prepro1_Demo.qmd
+      - prepro/Prepro1_Uebung.qmd
+      - --
+      - prepro/Prepro2_Demo.qmd
+      - prepro/Prepro2_Uebung_A.qmd
+      - --
+      - prepro/Prepro3_Demo.qmd
+      - prepro/Prepro3_Uebung.qmd
+    - part: InfoVis.qmd
+      chapters:
+      - infovis/Infovis1_Vorbereitung.qmd
+      - --
+      - infovis/Infovis1_Demo.qmd
+      - infovis/Infovis1_Uebung.qmd
+      - infovis/Infovis1_Script_eda.qmd
+      - --
+      - infovis/Infovis2_ggplot_Themes.qmd
+      - infovis/Infovis2_Quarto.qmd
+      - infovis/Infovis2_Uebung_A_neu.qmd
+      - infovis/Infovis2_Uebung_A.qmd
     # - part: Statistik.qmd
     #   chapters:
     #   - statistik/Statistik0_Vorbereitung.qmd
