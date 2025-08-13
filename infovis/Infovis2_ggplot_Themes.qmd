@@ -78,6 +78,7 @@ mytheme <-
 
 ```{r}
 #| output: true
+#| echo: true
 
 p3 <- p + mytheme
 p3
