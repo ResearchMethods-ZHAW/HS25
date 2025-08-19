@@ -30,7 +30,7 @@ Es gibt eine Vielzahl an möglichen Methoden zur Erfassung der Besuchszahlen. Au
 
 ## Grundlagen
 
-Die Geräte werden gemeinsam auf dem Campus Grüntal platziert. 
+Die Geräte werden gemeinsam auf dem Campus Grüntal besichtigt. 
 
 Datenschutz ist ein wichtiges Thema. Die eingesetzten Geräte erfassen keine Personendaten, sondern nur Bewegungen. Es handelt sich um Pyroelektrische Infrarotsensoren, welche auf den Temperaturunterschied reagieren, wenn sich eine Person vor der Linse bewegt. Insofern handelt es sich, vereinfacht gesagt, um Bewegungsmelder.
 
@@ -48,7 +48,7 @@ Oftmals möchte man direkt mit den Auswertungen in R beginnen, weiss aber selbst
 
 - Überlegt euch mögliche Darstellungsformen für __1. die Anzahl Passagen pro Richtung und Standort__, __2. den Verlauf der Zählungen pro Tag über die gesamte Untersuchungsdauer__ und __3. die Unterschiede Werktag und Wochenende__ am untersuchten Standort.
 
-- __Skizziert eure Ideen__ mittels Stift und Papier (oder digital) in Kleingruppen.
+- __Skizziert eure Ideen__ mittels Stift und Papier (oder digital).
 
 - Individuelle Besprechung der Ideen und anschliessende Umsetzung in R.
  
@@ -190,4 +190,4 @@ pie(slieces,
 ```
 
 
-__--> Erklärt dem Plenum nächste Woche was ihr gemacht habt, was eure Daten zeigen und präsentiert eure Daratellungen. __
+__--> Erklärt dem Plenum nächste Woche was ihr gemacht habt, was eure Daten zeigen und präsentiert eure Darstellungen. __
