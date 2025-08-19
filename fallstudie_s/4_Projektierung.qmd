@@ -2,7 +2,7 @@
 lesson: Projekt
 thema: Projekt Fallstudie erstellen
 execute: 
-  echo: true   # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
   output: false
 code-fold: false # set false to show all code
 code-summary: "Musterlösung"

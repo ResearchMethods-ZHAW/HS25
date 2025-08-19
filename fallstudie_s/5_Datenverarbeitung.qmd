@@ -2,7 +2,7 @@
 lesson: Datenvorverarbeitung
 thema: Daten so aufbereiten, dass Analysen durchgeführt werden können
 execute: 
-  echo: true   # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
   output: false
 code-fold: true # set false to show all code
 code-summary: "Musterlösung"
