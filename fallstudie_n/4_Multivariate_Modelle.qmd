@@ -118,7 +118,7 @@ round(stat.desc(DF_mod_day[5:12], basic = F, norm = T),3)
 
 ggplot(DF_mod_day, aes(slope)) +
   geom_histogram(aes(y = after_stat(density)), color = "black", fill = "white") +
-  stat_function(fun = dnorm, args = list(mean = mean(DF_mod_day$slope, na.rm = T), sd = sd(DF_mod_day$slope, na.rm = T)), color = "black", linewidth = 1)
+  stat_function(fun = dnorm, args = list(mean = mean(DF_mod_day$slope, na.rm = TRUE), sd = sd(DF_mod_day$slope, na.rm = T)), color = "black", linewidth = 1)
 ```
 
 ```{r}
