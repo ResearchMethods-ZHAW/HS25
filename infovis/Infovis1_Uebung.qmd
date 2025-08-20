@@ -19,7 +19,7 @@ In dieser Übung geht es darum, die Grafiken aus dem Blog-post @kovic2014 zu rek
 
 Schau dir die Grafiken in dem Blogpost durch. Freundlicherweise wurden im Blogbeitrag die `ggplot2`-Standardeinstellungen benutzt, was die Rekonstruktion relativ einfach macht.
 
-Importiere als erstes die Datensätze `tagi_data_kanton.csv` und `tagi_data_gemeinden.csv`.
+<!-- Importiere als erstes die Datensätze `tagi_data_kanton.csv` und `tagi_data_gemeinden.csv`. -->
 
 ```{r}
 #| echo: true
