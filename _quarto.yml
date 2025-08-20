@@ -64,11 +64,11 @@ book:
       - infovis/Infovis1_Demo.qmd
       - infovis/Infovis1_Uebung.qmd
       - infovis/Infovis1_Script_eda.qmd
+      - infovis/Infovis1_Kovic_2014.qmd
       - --
-      - infovis/Infovis2_ggplot_Themes.qmd
       - infovis/Infovis2_Quarto.qmd
-      - infovis/Infovis2_Uebung_A_neu.qmd
       - infovis/Infovis2_Uebung_A.qmd
+      - infovis/Infovis2_Uebung_B.qmd
     # - part: Statistik.qmd
     #   chapters:
     #   - statistik/Statistik0_Vorbereitung.qmd
