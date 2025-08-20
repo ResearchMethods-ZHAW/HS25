@@ -30,10 +30,10 @@ knitr::kable(head(temperature))
 
 ## Ggplot2
 
-In `ggplot` wird durch den Befehl `ggplot()` initiiert. Hier wird einerseits der Datensatz festgelegt, auf dem der Plot beruht (`data = `), sowie die Variablen innerhalb des Datensatzes, die Einfluss auf den Plot ausüben (`mapping = aes()`). 
+In `ggplot` wird mit dem Befehl `ggplot()` initiiert. Hier wird einerseits der Datensatz festgelegt, auf dem der Plot beruht (`data = `), sowie die Variablen innerhalb des Datensatzes, die Einfluss auf den Plot ausüben (`mapping = aes()`). 
 
 ```{r}
-# Datensatz: "temperature" | Beeinflussende Variabeln: "time" und "temp"
+# Datensatz: "temperature" | Beeinflussende Variablen: "time" und "temp"
 ggplot(data = temperature, mapping = aes(time, SHA))
 ```
 
@@ -86,7 +86,7 @@ ggplot(temperature_long, aes(time, temp, colour = station)) +
   geom_line() +
   labs(
     x = "Zeit",
-    y = "Temperatur in Grad C°",
+    y = "Temperatur in °C",
     title = "Temperaturdaten Schweiz",
     subtitle = "2001 bis 2002",
     color = "Station"
@@ -114,14 +114,14 @@ temperature_day
 
 Man kann auch Einfluss auf die x-/y-Achsen nehmen. Dabei muss man zuerst festlegen, was für ein Achsentyp der Plot hat (vorher hat `ggplot` eine Annahme auf der Basis der Daten getroffen). 
 
-Bei unserer y-Achse handelt es sich um numerische Daten, `ggplot` nennt diese: `scale_y_continuous()`. Unter [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/reference/#section-scales) findet man noch andere x/y-Achsentypen (`scale_x_irgenwas` bzw. `scale_y_irgendwas`).
+Bei unserer y-Achse handelt es sich um numerische Daten, `ggplot` nennt diese: `scale_y_continuous()`. Unter [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/reference/#section-scales) findet man noch andere x/y-Achsentypen (`scale_x_irgendetwas` bzw. `scale_y_irgendetwas`).
 
 ```{r}
 ggplot(temperature_day, aes(time, temp, colour = station)) +
   geom_line() +
   labs(
     x = "Zeit",
-    y = "Temperatur in Grad C°",
+    y = "Temperatur in °C",
     title = "Temperaturdaten Schweiz",
     subtitle = "2001 bis 2002",
     color = "Station"
@@ -138,7 +138,7 @@ ggplot(temperature_day, aes(time, temp, colour = station)) +
   geom_line() +
   labs(
     x = "Zeit",
-    y = "Temperatur in Grad C°",
+    y = "Temperatur in °C",
     title = "Temperaturdaten Schweiz",
     subtitle = "2001 bis 2002",
     color = "Station"
@@ -160,7 +160,7 @@ ggplot(temperature_day, aes(time, temp, colour = station)) +
   geom_line() +
   labs(
     x = "Zeit",
-    y = "Temperatur in Grad C°",
+    y = "Temperatur in °C",
     title = "Temperaturdaten Schweiz",
     subtitle = "2001 bis 2002",
     color = "Station"
@@ -173,16 +173,16 @@ ggplot(temperature_day, aes(time, temp, colour = station)) +
   facet_wrap(~station)
 ```
 
-Auch `facet_wrap` kann man auf seine Bedürfnisse anpassen: Beispielweise kann man mit `ncol = ` die Anzahl facets pro Zeile bestimmen. 
+Auch `facet_wrap` kann man auf seine Bedürfnisse anpassen: Beispielweise kann man mit `ncol = ` die Anzahl Facets pro Zeile bestimmen. 
 
-Zudem brauchen wir die Legende nicht mehr, da der Stationsnamen über jedem Facet steht. Ich setze deshalb `theme(legend.position="none")` 
+Zudem brauchen wir die Legende nicht mehr, da der Stationsname über jedem Facet steht. Ich setze deshalb `theme(legend.position="none")` 
 
 ```{r}
 p <- ggplot(temperature_day, aes(time, temp, colour = station)) +
   geom_line() +
   labs(
     x = "Zeit",
-    y = "Temperatur in Grad C°",
+    y = "Temperatur in °C",
     title = "Temperaturdaten Schweiz",
     subtitle = "2001 bis 2002"
   ) +
@@ -201,10 +201,10 @@ p
 ## Themes
 
 
-Bisher haben wir die Standardeinstellung für das Kreieren der Plots genutzt. In diesem Abschnitt zeigen wir, wie du Plots indviduell mit sogenannten ***Themes*** anpassen kannst.
+Bisher haben wir die Standardeinstellung für das Kreieren der Plots genutzt. In diesem Abschnitt zeigen wir, wie du Plots individuell mit sogenannten ***Themes*** anpassen kannst.
 
 
-Nun wollen wir mit einer von *ggplot2* zur Verfügung gestellten Theme anpassen. Wir benutzen hier *theme_classic()*, weitere Themes findet ihr [hier](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+Nun wollen wir mit einer von *ggplot2* zur Verfügung gestellte Theme anpassen. Wir benutzen hier *theme_classic()*, weitere Themes findet ihr [hier](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 
 ```{r}
@@ -240,7 +240,7 @@ p + mytheme
 
 ## Plot exportieren
 
-Folgendermassen kann ich den letzten Plot als png-File abspeichern:
+Folgendermassen kann ich den letzten Plot als PNG-Datei abspeichern:
 
 ```{r}
 #| eval: false

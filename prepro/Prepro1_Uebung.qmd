@@ -21,13 +21,13 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 ## Arbeiten mit RStudio "Project"
 
-Wir empfehlen die Verwendung von "Projects" innerhalb von RStudio. RStudio legt für jedes Projekt dann einen Ordner an, in welches die Projekt-Datei abgelegt wird (Dateiendung `.Rproj`). Sollen innerhalb des Projekts dann R-Skripts geladen oder erzeugt werden, werden diese dann auch im angelegten Ordner abgelegt. Mehr zu RStudio Projects findet ihr [hier](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).
+Wir empfehlen die Verwendung von "Projects" innerhalb von RStudio. RStudio legt für jedes Projekt dann einen Ordner an, in welchem die Projekt-Datei abgelegt wird (Dateiendung `.Rproj`). Sollen innerhalb des Projekts dann R-Skripts geladen oder erzeugt werden, werden diese dann auch im angelegten Ordner abgelegt. Mehr zu RStudio Projects findet ihr [hier](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).
 
 
 
 Das Verwenden von Projects bringt verschiedene Vorteile, wie zum Beispiel:
 
--   Festlegen der Working Directory ohne die Verwendung des expliziten Pfades (`setwd()`). Das ist sinnvoll, da sich dieser Pfad ändern kann (Zusammenarbeit mit anderen Usern, Ausführung des Scripts zu einem späteren Zeitpunkt)
+-   Festlegen der Working Directory ohne die Verwendung des expliziten Pfads (`setwd()`). Das ist sinnvoll, da sich dieser Pfad ändern kann (Zusammenarbeit mit anderen Usern, Ausführung des Scripts zu einem späteren Zeitpunkt)
 -   Automatisches Zwischenspeichern geöffneter Scripts und Wiederherstellung der geöffneten Scripts bei der nächsten Session
 -   Festlegen verschiedener projektspezifischer Optionen
 -   Verwendung von Versionsverwaltungssystemen (z.B. *git*)
@@ -67,7 +67,7 @@ knitr::kable(df)
 
 ## Aufgabe 2
 
-Was für Daten*typen* wurden in der letzten Aufgabe automatisch angenommen? Ermittle diese mit `str()` und prüfe, ob diese sinnvoll sind und wandle um wo nötig.
+Was für Datentypen wurden in der letzten Aufgabe automatisch angenommen? Ermittle diese mit `str()` und prüfe, ob diese sinnvoll sind und wandle um wo nötig.
 
 ```{r}
 str(df)
@@ -102,10 +102,10 @@ knitr::kable(df)
 
 ## Aufgabe 4
 
-Auf Moodle findest du ein Zip-File mit dem Namen *prepro.zip*. Lade das File herunter und entpacke es **in deinem Projektordner**. Importiere die Datei `weather.csv`. Falls du dafür das RStudio GUI verwendest, speichere den Import-Befehl in deinem R-Script ab. Bitte verwende einen relativen Pfad (also kein Pfad, der mit `C:/`, `~/` o.ä. beginnt).)
+Auf Moodle findest du ein Zip-File mit dem Namen *prepro.zip*. Lade das File herunter und entpacke es **in deinem Projektordner**. Importiere die Datei `weather.csv`. Falls du dafür das RStudio GUI verwendest, speichere den Import-Befehl in deinem R-Script ab. Bitte verwende einen relativen Pfad (also kein Pfad, der mit `C:/`, `~/` o.ä. beginnt).
 
 :::{#nte-readr .callout-note}
-Wir nutzen `readr`, um csvs zu importieren, und verwenden die Funktion `read_delim` (mit *underscore*) als alternative zu `read.csv` oder `read.delim` (mit *Punkt*). Das ist eine persönliche Präferenz[^readr], es ist euch überlassen, welche Funktion ihr verwendet. Beachtet, dass die beiden Funktionen leicht andere Parameter erwarten.
+Wir nutzen `readr`, um CSV-Dateien zu importieren, und verwenden die Funktion `read_delim` (mit *underscore*) als alternative zu `read.csv` oder `read.delim` (mit *Punkt*). Das ist eine persönliche Präferenz[^readr], es ist euch überlassen, welche Funktion ihr verwendet. Beachtet, dass die beiden Funktionen leicht andere Parameter erwarten.
 :::
 
 [^readr]: Vorteile von `read_delim` gegenüber `read.csv`: <https://stackoverflow.com/a/60374974/4139249>
@@ -139,11 +139,11 @@ Schau dir die Rückmeldung von `read_delim()` an. Sind die Daten korrekt interpr
 
 ## Aufgabe 6
 
-Die Spalte `time` ist eine Datum/Zeitangabe im Format JJJJMMTTHH (siehe *meta.txt*). Damit R dies als Datum-/Zeitangabe erkennt, müssen wir die Spalte in einem R-Format (`POSIXct`) einlesen und dabei R mitteilen, wie sie aktuell formatiert ist. Lies die Spalte mit `as.POSIXct()` ein und spezifiziere sowohl `format` wie auch `tz`.
+Die Spalte `time` ist eine Datum/Zeitangabe im Format `JJJJMMTTHH` (siehe *meta.txt*). Damit R dies als Datum-/Zeitangabe erkennt, müssen wir die Spalte in einem R-Format (`POSIXct`) einlesen und dabei R mitteilen, wie sie aktuell formatiert ist. Lies die Spalte mit `as.POSIXct()` ein und spezifiziere sowohl `format` wie auch `tz`.
 
 :::{.callout-tip}
-- Wenn keine Zeitzone festgelegt wird, trifft `as.POSIXct()` eine Annahme (basierend auf `Sys.timezone()`). In unserem Fall handelt es sich aber um Werte in UTC (siehe *metadata.csv*)
-- `as.POSIXct` erwartet `character`: Wenn du eine Fehlermeldung hast die `'origin' must be supplied` (o.ä) heisst, hast du der Funktion vermutlich einen `Numeric` übergeben.
+- Wenn keine Zeitzone festgelegt wird, trifft `as.POSIXct()` eine Annahme (basierend auf `Sys.timezone()`). In unserem Fall handelt es sich aber um Werte in UTC (siehe `metadata.csv`)
+- `as.POSIXct` erwartet `character`: Wenn du eine Fehlermeldung hast, die `'origin' must be supplied` (o.ä) heisst, hast du der Funktion vermutlich einen `Numeric` übergeben.
 :::
 
 ```{r}

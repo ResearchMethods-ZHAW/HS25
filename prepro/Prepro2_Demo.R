@@ -5,7 +5,7 @@ library("magrittr")
 
 out <- as.numeric(temperature)      # 1. Konvertierung in Numeric
 out <- subtract(out, 32)            # 2. Subtraktion von 32
-out <- multiply_by(out, 5/9)        # 3. Multiplikation mit 9/5
+out <- multiply_by(out, 5/9)        # 3. Multiplikation mit 5/9
 out <- mean(out)                    # 4. Berechnung des Mittelwertes
 
 out
@@ -15,7 +15,7 @@ out <- mean(multiply_by(subtract(as.numeric(temperature), 32), 5/9))
 temperature |>                  
   as.numeric() |>               # 1. Konvertierung in Numeric
   subtract(32) |>               # 2. Subtraktion von 32
-  multiply_by(5/9) |>           # 3. Multiplikation mit 9/5
+  multiply_by(5/9) |>           # 3. Multiplikation mit 5/9
   mean()                        # 4. Berechnung des Mittelwertes
 
 studierende <- data.frame(

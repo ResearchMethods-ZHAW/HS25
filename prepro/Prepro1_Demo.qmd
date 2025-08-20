@@ -23,7 +23,7 @@ Unter die Kategorie `numeric` fallen in R zwei Datentypen:
 
 ##### Doubles
 
-Folgendermassen wird eine Fliesskommazahl einer Variabel zuweisen:
+Folgendermassen wird eine Fliesskommazahl einer Variable zugewiesen:
 
 ```{r}
 x <- 10.3
@@ -67,7 +67,7 @@ is.integer(c)
 
 #### Logische Abfragen
 
-Wird auch auch als boolesch (Eng. **boolean**) bezeichnet.
+Wird auch als boolesch (Eng. **boolean**) bezeichnet.
 
 ```{r}
 3 > 6
@@ -118,19 +118,19 @@ wochentage
 wochentage_fac
 ```
 
-Wie man oben sieht, unterscheiden sich `character vectors` und `factors` v.a. dadurch, dass letztere über sogenannte `levels` verfügt. Diese `levels` entsprechen den eindeutigen Werten.
+Wie man oben sieht, unterscheiden sich `character vectors` und `factors` v.a. dadurch, dass letztere über sogenannte `levels` verfügen. Diese `levels` entsprechen den eindeutigen Werten.
 
 :::{.callout-note collapse=true}
 
 ## Hinweis (optional)
 
-Bei den `levels` fällt auf, dass die Reihenfolge der Wohentag alphabetisch sortiert ist. Eine Ordnung kann in der Funktion `factor` (nicht `as.factor`) mit dem Argument `ordered = TRUE` festgelegt werden, dabei kann die Reihenfolge der Werte im Argument `levels =` explizit festgelegt werden. In der Praxis ist dies vor allem bei Visualisierungen von Bedeutung.
+Bei den `levels` fällt auf, dass die Reihenfolge der Wochentage alphabetisch sortiert ist. Eine Ordnung kann in der Funktion `factor` (nicht `as.factor`) mit dem Argument `ordered = TRUE` festgelegt werden, dabei kann die Reihenfolge der Werte im Argument `levels =` explizit festgelegt werden. In der Praxis ist dies vor allem bei Visualisierungen von Bedeutung.
 
 ```{r}
 factor(wochentage, levels = c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"), ordered = TRUE)
 ```
 
-Beachtet das `<`-Zeichen zwischen den Levels!
+Beachte das `<`-Zeichen zwischen den Levels!
 
 
 :::
@@ -159,7 +159,7 @@ as.POSIXct(datum, format = "%d.%m.%Y %H:%M")
 datum2 <- as.POSIXct(datum, format = "%d.%m.%Y %H:%M")
 ```
 
-Beachtet, dass im obigen Beispiel R automatisch eine Zeitzone angenommen hat (`CEST`). R geht davon aus, dass die Zeitzone der **System Timezone** (`Sys.timezone()`) entspricht.
+Beachte, dass im obigen Beispiel R automatisch eine Zeitzone angenommen hat, (`CEST`). R geht davon aus, dass die Zeitzone der **System Timezone** (`Sys.timezone()`) entspricht.
 
 Um nun aus dem Datum wieder spezifische Bestandteile zu extrahieren, kann man theoretisch die gleichen Codes nochmal verwenden.
 
@@ -185,7 +185,7 @@ month(datum2, label = TRUE, abbr = FALSE)
 
 ### Vectors
 
-Mit `c()` können [eine Reihe von Werten vom gleichen Datentyp]{.underline} einer Variabel zugewiesen werden (als `vector`). 
+Mit `c()` können [eine Reihe von Werten vom gleichen Datentyp]{.underline} einer Variable zugewiesen werden (als `vector`). 
 
 ```{r}
 vec <- c(10, 20, 33, 42, 54, 66, 77)
@@ -215,7 +215,7 @@ mylist2
 ```
 
 
-### Data Frames und Conveniance Variabeln
+### Data Frames und Convenience Variablen
 
 Wenn jeder Eintrag einer Liste gleich lang ist, kann diese Liste auch als Tabelle verstanden werden. Idealerweise sind die Elemente benannt, welche dann als Spaltennamen verwendet werden können.
 
@@ -251,7 +251,7 @@ df$Einwohner <- c(400000, 200000, 175000, 14000, 130000)
 df$Einwohner <- as.integer(df$Einwohner)
 ```
 
-In der obigen `data.frame` wurde die Spalte `Einwohner` als Fliesskommazahl abgespeichert. Dies ist zwar nicht tragisch, aber da wir wissen, dass es sich hier sicher um Ganzzahlen handelt, können wir das korrigieren. Wichtiger ist aber, dass wir die Ankunftszeit (Spalte `Ankunft`) von einem `Factor` in ein Zeitformat (`POSIXct`) umwandeln.
+In der obigen `data.frame` wurde die Spalte `Einwohner` als Fliesskommazahl abgespeichert. Das ist zwar nicht tragisch, aber da wir wissen, dass es sich hier sicher um Ganzzahlen handelt, können wir das korrigieren. Wichtiger ist aber, dass wir die Ankunftszeit (Spalte `Ankunft`) von einem `Factor` in ein Zeitformat (`POSIXct`) umwandeln.
 
 ```{r}
 

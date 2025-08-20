@@ -10,7 +10,7 @@ knitr:
 
 ## Piping {#sec-piping}
 
-Gegeben ist ein *character vector* (`temperature`) mit Temperaturwerten in Farenheit. Das Ziel ist es, die mittlere Temperatur in Grad Celsius zu berechnen. 
+Gegeben ist ein *character vector* (`temperature`) mit Temperaturwerten in Fahrenheit. Das Ziel ist es, die mittlere Temperatur in Grad Celsius zu berechnen. 
 
 $$°C = (F - 32) \times \frac{5}{9}$$
 
@@ -20,7 +20,7 @@ temperature <- c("111", "150", "123")
 
 ```
 
-Um einen character vector in nummern umzuwandeln, brauchen wir die Funktion `as.numeric`. Für die Subtraktion und Multiplikation brauchen wir zur Veranschaulichung die entsprechenden Funktionen `subtract` und `multiply_by` aus der library `magrittr`.
+Um einen character vector in Zahlen umzuwandeln, brauchen wir die Funktion `as.numeric`. Für die Subtraktion und Multiplikation brauchen wir zur Veranschaulichung die entsprechenden Funktionen `subtract` und `multiply_by` aus der Library `magrittr`.
 
 Übersetzt in `R`-Code entsteht folgende Operation:
 
@@ -29,25 +29,25 @@ library("magrittr")
 
 out <- as.numeric(temperature)      # 1. Konvertierung in Numeric
 out <- subtract(out, 32)            # 2. Subtraktion von 32
-out <- multiply_by(out, 5/9)        # 3. Multiplikation mit 9/5
+out <- multiply_by(out, 5/9)        # 3. Multiplikation mit 5/9
 out <- mean(out)                    # 4. Berechnung des Mittelwertes
 
 out
 ```
 
-Möchte man das zwischenspeichern vermeiden, ensteht ein Komplexe, unleserliche Operation
+Möchte man das Zwischenspeichern vermeiden, entsteht eine komplexe, unleserliche Operation
 
 ```{r}
 out <- mean(multiply_by(subtract(as.numeric(temperature), 32), 5/9))
 ```
 
-Um den Code sowohl leserlich zu halten, wie auch auf das Abspeichern von Zwischenergebnissen zu vermeiden, kann das Piping verwendet werden: *Mit "piping" wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.*
+Um den Code sowohl leserlich zu halten, als auch das Abspeichern von Zwischenergebnissen zu vermeiden, kann Piping verwendet werden: *Mit "piping" wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.*
 
 ```{r}
 temperature |>                  
   as.numeric() |>               # 1. Konvertierung in Numeric
   subtract(32) |>               # 2. Subtraktion von 32
-  multiply_by(5/9) |>           # 3. Multiplikation mit 9/5
+  multiply_by(5/9) |>           # 3. Multiplikation mit 5/9
   mean()                        # 4. Berechnung des Mittelwertes
 ```
 
@@ -55,7 +55,7 @@ temperature |>
 - der `|>` Pipe Operator wurde erst in R `4.1` eingeführt
 - Neben dem *base R* Pipe Operator existiert im Package `magrittr` ein sehr ähnlicher[^pipe] Pipe Operator: `%>%`
 - Die Tastenkombination <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> in RStudio fügt einen Pipe Operator ein. 
-- Welcher Pipe Operator `|>` oder `%>%` mit der obigen Tastenkombination eingeführt wird, kann über die RStudio Settings `Tools` → `Global Options` → `Code` → Häckchen setzen bei `Use nativ pipe operator`
+- Welcher Pipe Operator `|>` oder `%>%` mit der obigen Tastenkombination eingefügt wird, kann über die RStudio Settings `Tools` → `Global Options` → `Code` → Häkchen setzen bei `Use native pipe operator`
 - Wir verwenden die base-R Pipe `|>` 
 :::
 

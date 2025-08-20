@@ -13,13 +13,13 @@ knitr:
 
 # Infovis 1: Übung {#sec-infovis1}
 
-In dieser Übung geht es darum, die Grafiken aus dem Blog-post @kovic2014 zu rekonstruieren. Der urspüngliche Blogpost ist nicht mehr verfügbar, wir haben deshalb eine Kopie hier gehostet: 
+In dieser Übung geht es darum, die Grafiken aus dem Blog-post @kovic2014 zu rekonstruieren. Der ursprüngliche Blogpost ist nicht mehr verfügbar, wir haben deshalb eine Kopie hier gehostet: 
 
 @sec-kovic2014
 
-Schau dir die Grafiken in dem Blogpost durch. Freundlicherweise wurden im Blogbeitrag die `ggplot2` Standardeinstellungen benutzt, was die Rekonstruktion relativ einfach macht.
+Schau dir die Grafiken in dem Blogpost durch. Freundlicherweise wurden im Blogbeitrag die `ggplot2`-Standardeinstellungen benutzt, was die Rekonstruktion relativ einfach macht.
 
-Importiere als erstes die Datensätze `tagi_data_kanton.csv` und `gemeinde`.
+Importiere als erstes die Datensätze `tagi_data_kanton.csv` und `tagi_data_gemeinden.csv`.
 
 ```{r}
 #| echo: true
@@ -38,10 +38,10 @@ Rekonstruiere @fig-kantone aus @kovic2014 mithilfe von ggplot und dem Datensatz 
 Tipp:
 
 - Nutze `ggplot(kanton, aes(auslanderanteil, ja_anteil))`, um den ggplot zu initiieren. Füge danach einen Punkte-Layer hinzu (`geom_point()`)
-- Nutze `coord_fixed()`, um die beiden Achsen in ein fixes Verhältnis zu setzen (1:1).
+- Nutze `coord_fixed()`, um die beiden Achsen in ein festes Verhältnis zu setzen (1:1).
 - Optional: 
   - Setze die Achsen Start- und Endwerte mittels `scale_y_continuous` bzw. `scale_x_continuous`.
-  - Setze analog @kovic2014 die `breaks` (0.0, 0.1...0.7) manuell (innerhalb `scale_*_continuous`)
+  - Setze analog zu @kovic2014 die `breaks` (0.0, 0.1...0.7) manuell (innerhalb `scale_*_continuous`)
   - Nutze `labs()` für die Beschriftung der Achsen
 
 ```{r}
@@ -112,7 +112,7 @@ plot2 +
 
 Rekonstruiere @fig-gemeinden-x-kantone mithilfe des Datensatzes `gemeinde`:
 
-Tipp: Nutze `facet_wrap` um einen Plot pro Kanton darzustellen.
+Tipp: Nutze `facet_wrap()` um einen Plot pro Kanton darzustellen.
 
 ```{r}
 
@@ -128,7 +128,7 @@ plot3
 
 Rekonstruiere @fig-gemeinden-x-kantone-loess mithilfe von ggplot und dem Datensatz `gemeinde`: 
 
-Tipp: Nutze `geom_smooth`
+Tipp: Nutze `geom_smooth()`
 
 ```{r}
 
@@ -142,7 +142,7 @@ plot3 +
 
 ## Aufgabe 7
 
-Rekonstruiere @fig-gmeinden-x-quantile des Datensatzes `gemeinde`:
+Rekonstruiere @fig-gemeinden-x-quantile des Datensatzes `gemeinde`:
 
 Tipp: Nutze `facet_wrap`
 
@@ -158,9 +158,9 @@ plot4
 
 ## Aufgabe 8
 
-Rekonstruiere @fig-gmeinden-x-quantile-loess mithilfe des Datensatzes `gemeinde`:
+Rekonstruiere @fig-gemeinden-x-quantile-loess mithilfe des Datensatzes `gemeinde`:
 
-Tipp: Nutze `geom_smooth`
+Tipp: Nutze `geom_smooth()`
 
 ```{r}
 

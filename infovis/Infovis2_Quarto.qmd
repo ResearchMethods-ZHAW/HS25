@@ -14,14 +14,14 @@ knitr:
 
 # Infovis 2: Demo
 
-In @sec-infovis1 habt ihr die Grafiken aus dem Beitrag von @kovic2014 rekontruiert. Stellt euch nun vor, ihr wärt Marco Kovic und würdet den Bericht schreiben. Der klassische Weg wäre hier:
+In @sec-infovis1 habt ihr die Grafiken aus dem Beitrag von @kovic2014 rekonstruiert. Stellt euch nun vor, ihr wärt Marco Kovic und würdet den Bericht schreiben. Der klassische Weg wäre hier:
 
 1. Grafik in R erstellen
 2. Grafik exportieren
 3. In Word importieren
 4. Grafik in Word mit Prosa ergänzen
 
-So weit, so gut. Allerdings gibt es auch die Möglichkeit, Grafiken innerhalb von R mit Prosa zu versehen und so die Schritte 2 und 3 zu vermeiden. Dieses Herangehensweise ist unter dem Begriff *Computational Notebook* bekannt und wird in R mit dem Tool *Quarto* (nachfolger von RMarkdown) umgesetzt. 
+So weit, so gut. Allerdings gibt es auch die Möglichkeit, Grafiken innerhalb von R mit Prosa zu versehen und so die Schritte 2 und 3 zu vermeiden. Diese Herangehensweise ist unter dem Begriff `Computational Notebook` bekannt und wird in R mit dem Tool *Quarto* (Nachfolger von RMarkdown) umgesetzt. 
 
 ## Basics
 
@@ -44,25 +44,25 @@ ggplot(kanton, aes(auslanderanteil, ja_anteil)) +
 Zu beachten gilt:
 
 - R-Code muss sich innerhalb von einem sogenannten *Chunk* befinden:
-  - welche durch jeweils drei *backticks* (vor und nach dem *Chunk*) begrenzt wird
+  - welche durch jeweils drei *Backticks* (vor und nach dem *Chunk*) begrenzt wird
   - wo die Programmiersprache innerhalb von geschweiften Klammern festgehalten wird
-- Fliesstext wird ausserhalb des Code Chunks plaziert und muss nicht speziell gekennzeichnet werden.
+- Fliesstext wird ausserhalb des Code-Chunks platziert und muss nicht speziell gekennzeichnet werden.
 
 
-Sobald das Quarto Dokument Kompliert wird, wird der Text und der Code-Output beispielsweise in einem PDF zusammengeführt. 
+Sobald das Quarto Dokument kompiliert wird, wird der Text und der Code-Output beispielsweise in einem PDF zusammengeführt. 
 
 :::{.callout-important}
 R-Scripts bilden die Basis von Programmieren mit R. Diese werden meist iterativ entwickelt, und nach Abschluss der Entwicklung sollten diese von der ersten Zeile bis zur letzten ohne Fehler ausführbar sein. 
 
 Das Kompilieren von einem Quarto-Dokument funktioniert genau so: Der Code wird von der ersten bis zur letzten Zeile [in einer neuen Session]{.underline} ausgeführt. Dies bildet den perfekten Test für die Lauffähigkeit des Codes. 
 
-Wir setzen Quarto an der Prüfung ein, damit wir nachvollziehen können wie der Code in eurer Umgebung ausgeführt wurde. **Das Beherrschen von Quarto ist somit Prüfungsrelevant.**
+Wir setzen Quarto an der Prüfung ein, damit wir nachvollziehen können, wie der Code in eurer Umgebung ausgeführt wurde. **Das Beherrschen von Quarto ist somit Prüfungsrelevant.**
 :::
 
 
 ## YAML Header
 
-Ein Quarto Dokument verfügt meistens über einen sogenannten YAML header, wo Metadaten über das Script gespeichert werden. Dieser Header ist fakultativ sehr sinnvoll. Im Blogbeitrag @kovic2014 könnte der Header folgendermassen aussehen:
+Ein Quarto Dokument verfügt meistens über einen sogenannten YAML header, wo Metadaten über das Script gespeichert werden. Dieser Header ist fakultativ, aber sehr sinnvoll. Im Blogbeitrag @kovic2014 könnte der Header folgendermassen aussehen:
 
 ```{.yaml}
 ---
@@ -73,11 +73,11 @@ execute:
 ---
 ```
 
-Hier eine Erklärung zu den YAML Einträgen
+Hier eine Erklärung zu den YAML-Einträgen:
 
 - `title`: Der Titel des Dokuments
 - `format`: Das Output Format. `html` produziert eine Website. Es sind viele verschiedene Outputs möglich, wie beispielsweise PDF, docx oder Powerpoint.
-- `execute`: Hier werden Optionen zum Code festgehalten werden
+- `execute`: Hier werden Optionen zum Code festgehalten
   - `echo`: Soll der R-Code im Output dargestellt werden?
 
 
