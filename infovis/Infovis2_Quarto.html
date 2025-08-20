@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Infovis 2: Quarto – Research Methods HS25</title>
+<title>Infovis 2: Demo – Research Methods HS25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,22 +85,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../infovis/Infovis2_Uebung_A_neu.html" rel="next">
-<link href="../infovis/Infovis2_ggplot_Themes.html" rel="prev">
+<link href="../infovis/Infovis2_Uebung_A.html" rel="next">
+<link href="../infovis/Infovis1_Kovic_2014.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-9b8f6782e2cd455891acfb332edb59df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-09dc92c35ed4dbf50aa7677cec3c00d7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -284,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Quarto.html"><span class="chapter-title">Infovis 2: Quarto</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Quarto.html"><span class="chapter-title">Infovis 2: Demo</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -299,7 +320,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Research Methods HS25</a> 
@@ -405,25 +427,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../infovis/Infovis1_Script_eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 1: Script EDA</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infovis/Infovis1_Kovic_2014.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 1: Blogbeitrag Kovic</span></a>
+  </div>
+</li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_ggplot_Themes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: ggplot Themes</span></a>
+  <a href="../infovis/Infovis2_Quarto.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Infovis 2: Demo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Quarto.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Infovis 2: Quarto</span></a>
+  <a href="../infovis/Infovis2_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Uebung_A_neu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung</span></a>
+  <a href="../infovis/Infovis2_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung optional</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fallstudie S</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung optional</span></a>
+  <a href="../fallstudie_s/0_Vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/1_Einführung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einführung</span></a>
   </div>
 </li>
       </ul>
@@ -443,9 +487,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#was-ist-quarto" id="toc-was-ist-quarto" class="nav-link active" data-scroll-target="#was-ist-quarto">Was ist Quarto?</a></li>
-  <li><a href="#wie-ist-ein-quarto-dokument-aufgebaut" id="toc-wie-ist-ein-quarto-dokument-aufgebaut" class="nav-link" data-scroll-target="#wie-ist-ein-quarto-dokument-aufgebaut">Wie ist ein Quarto-Dokument aufgebaut?</a></li>
-  <li><a href="#was-ist-bei-einem-quarto-dokument-zu-beachten" id="toc-was-ist-bei-einem-quarto-dokument-zu-beachten" class="nav-link" data-scroll-target="#was-ist-bei-einem-quarto-dokument-zu-beachten">Was ist bei einem Quarto-Dokument zu beachten?</a></li>
+  <li><a href="#basics" id="toc-basics" class="nav-link active" data-scroll-target="#basics">Basics</a></li>
+  <li><a href="#yaml-header" id="toc-yaml-header" class="nav-link" data-scroll-target="#yaml-header">YAML Header</a></li>
+  <li><a href="#rstudio-einstellungen" id="toc-rstudio-einstellungen" class="nav-link" data-scroll-target="#rstudio-einstellungen">RStudio Einstellungen</a></li>
   </ul>
 </nav>
     </div>
@@ -453,9 +497,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Quarto.html"><span class="chapter-title">Infovis 2: Quarto</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Quarto.html"><span class="chapter-title">Infovis 2: Demo</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Infovis 2: Quarto</span></h1>
+<h1 class="title"><span class="chapter-title">Infovis 2: Demo</span></h1>
 </div>
 
 
@@ -472,65 +516,123 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In diesem Abschnitten</p>
-<section id="was-ist-quarto" class="level2">
-<h2 class="anchored" data-anchor-id="was-ist-quarto">Was ist Quarto?</h2>
-<p>🔍 Was ist Quarto?</p>
-<p>Quarto ist ein sogenanntes „literate programming“-Tool, das es erlaubt, Text, Code und Visualisierungen in einem Dokument zu kombinieren und es als Ausgabeformate wie PDF, HTML, Word, PowerPoint, Reveal.js-Präsentationen, Webseiten und mehr zu konvertieren.</p>
-<p>🎯 Wozu ist Quarto nützlich?</p>
-<p>Quarto ist besonders hilfreich für:</p>
-<ul>
-<li>Reproduzierbare Forschung: Kombiniert Code und Ergebnisse direkt im Dokument.</li>
-<li>Berichte und Dokumentation: Erstellt automatisch aktualisierte Reports mit Datenanalysen.</li>
-<li>Präsentationen: Erstellt interaktive Folien mit eingebettetem Code und Visualisierungen.</li>
-<li>Webseiten und Blogs: Baut wissenschaftliche Webseiten oder persönliche Blogs mit integriertem Code.</li>
-<li>Multilinguale Unterstützung: Nutzt verschiedene Programmiersprachen im selben Dokument.</li>
-</ul>
-<p>✅ Vorteile gegenüber anderen Tools</p>
-<ul>
-<li>Sprache-unabhängig: Funktioniert mit mehreren Programmiersprachen.</li>
-<li>Einheitliches System: Ein Tool für viele Formate.</li>
-<li>Open Source: Frei verfügbar und aktiv weiterentwickelt.</li>
-<li>Integration mit Jupyter und RStudio: Nahtlose Nutzung in bekannten Umgebungen.</li>
-</ul>
-</section>
-<section id="wie-ist-ein-quarto-dokument-aufgebaut" class="level2">
-<h2 class="anchored" data-anchor-id="wie-ist-ein-quarto-dokument-aufgebaut">Wie ist ein Quarto-Dokument aufgebaut?</h2>
-<p>Ein Quarto Dokument hat grob drei Elemente: (1) Den Header bzw. die Metadaten, (2) die Code Chunks und (3) die Textbereiche</p>
+<p>In <a href="Infovis1_Uebung.html" class="quarto-xref"><span>Infovis 1: Übung</span></a> habt ihr die Grafiken aus dem Beitrag von <span class="citation" data-cites="kovic2014">Kovic (<a href="../References.html#ref-kovic2014" role="doc-biblioref">2014</a>)</span> rekonstruiert. Stellt euch nun vor, ihr wärt Marco Kovic und würdet den Bericht schreiben. Der klassische Weg wäre hier:</p>
 <ol type="1">
-<li><p>Der Header wird beim Erstellen des Dokumentes bereits erstellt. Beim <code>format</code> könnt ihr definieren, wie am Ende eurer Dokument <em>gerendert</em> werden soll. Möglich sind u.a. HTML, PDF und MS Word. Für diesen Kurs zentral sind die Formate <em>typst</em> bzw. <em>pdf</em> für Mac-User.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span> typst</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">execute:</span> </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">error:</span> true</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">echo:</span> false</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">warning:</span> false</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
+<li>Grafik in R erstellen</li>
+<li>Grafik exportieren</li>
+<li>In Word importieren</li>
+<li>Grafik in Word mit Prosa ergänzen</li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>So weit, so gut. Allerdings gibt es auch die Möglichkeit, Grafiken innerhalb von R mit Prosa zu versehen und so die Schritte 2 und 3 zu vermeiden. Diese Herangehensweise ist unter dem Begriff <code>Computational Notebook</code> bekannt und wird in R mit dem Tool <em>Quarto</em> (Nachfolger von RMarkdown) umgesetzt.</p>
+<section id="basics" class="level2">
+<h2 class="anchored" data-anchor-id="basics">Basics</h2>
+<p>In einem Quarto Dokument kann man Computer Code (z.B. R-Code) mit menschlicher Sprache (Fliesstext) verbinden. Am Beispiel von <span class="citation" data-cites="kovic2014">Kovic (<a href="../References.html#ref-kovic2014" role="doc-biblioref">2014</a>)</span> sieht das folgendermassen aus:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Als erste Annäherung bietet sich ein Blick auf das Verhältnis von Ausländer- </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>und Ja-Anteil auf Ebene der Kantone an:</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kanton, <span class="fu">aes</span>(auslanderanteil, ja_anteil)) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Anteil Ja-Stimmen"</span>, <span class="at">x =</span> <span class="st">"Ausländeranteil"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Zu beachten gilt:</p>
+<ul>
+<li>R-Code muss sich innerhalb von einem sogenannten <em>Chunk</em> befinden:
+<ul>
+<li>welche durch jeweils drei <em>Backticks</em> (vor und nach dem <em>Chunk</em>) begrenzt wird</li>
+<li>wo die Programmiersprache innerhalb von geschweiften Klammern festgehalten wird</li>
+</ul></li>
+<li>Fliesstext wird ausserhalb des Code-Chunks platziert und muss nicht speziell gekennzeichnet werden.</li>
+</ul>
+<p>Sobald das Quarto Dokument kompiliert wird, wird der Text und der Code-Output beispielsweise in einem PDF zusammengeführt.</p>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hinweis
+Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Um den Header müsst ihr euch nicht kümmern, den werden wir hier in der Übung wie auch an der praktischen Prüfung vorgeben.</p>
+<p>R-Scripts bilden die Basis von Programmieren mit R. Diese werden meist iterativ entwickelt, und nach Abschluss der Entwicklung sollten diese von der ersten Zeile bis zur letzten ohne Fehler ausführbar sein.</p>
+<p>Das Kompilieren von einem Quarto-Dokument funktioniert genau so: Der Code wird von der ersten bis zur letzten Zeile <u>in einer neuen Session</u> ausgeführt. Dies bildet den perfekten Test für die Lauffähigkeit des Codes.</p>
+<p>Wir setzen Quarto an der Prüfung ein, damit wir nachvollziehen können, wie der Code in eurer Umgebung ausgeführt wurde. <strong>Das Beherrschen von Quarto ist somit Prüfungsrelevant.</strong></p>
 </div>
 </div>
-<ol start="2" type="1">
-<li><p>Der Code wird in sogenannten <em>Code Chunks</em> geschrieben. Eine neue Zelle fügt ihr ein, indem ihr <code>Ctrl+Shift+I</code> drückt. Falls in der eckigen Klammer nicht <em>r</em> stehen sollte, müsst ihr das in diesem Fall anpassen.</p></li>
-<li><p>Zwischen die Code Chunks kommt eurer Text. Titel werden mit <em>#</em> davor gesetzt.</p></li>
-</ol>
 </section>
-<section id="was-ist-bei-einem-quarto-dokument-zu-beachten" class="level2">
-<h2 class="anchored" data-anchor-id="was-ist-bei-einem-quarto-dokument-zu-beachten">Was ist bei einem Quarto-Dokument zu beachten?</h2>
-<p>Der Code läuft von oben bis unten durch, und zwar unabhängig davon, welche Libraries und Variablen ihr in eurer Environment habt. Das bedeutet, dass alle Libraries zuoberst im Skript geladen werden müssen. Eine Variable, welche weiter unten im Skript verwendet wird, muss vorher explizit im Skript definiert werden.</p>
+<section id="yaml-header" class="level2">
+<h2 class="anchored" data-anchor-id="yaml-header">YAML Header</h2>
+<p>Ein Quarto Dokument verfügt meistens über einen sogenannten YAML header, wo Metadaten über das Script gespeichert werden. Dieser Header ist fakultativ, aber sehr sinnvoll. Im Blogbeitrag <span class="citation" data-cites="kovic2014">Kovic (<a href="../References.html#ref-kovic2014" role="doc-biblioref">2014</a>)</span> könnte der Header folgendermassen aussehen:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Hier eine Erklärung zu den YAML-Einträgen:</p>
+<ul>
+<li><code>title</code>: Der Titel des Dokuments</li>
+<li><code>format</code>: Das Output Format. <code>html</code> produziert eine Website. Es sind viele verschiedene Outputs möglich, wie beispielsweise PDF, docx oder Powerpoint.</li>
+<li><code>execute</code>: Hier werden Optionen zum Code festgehalten
+<ul>
+<li><code>echo</code>: Soll der R-Code im Output dargestellt werden?</li>
+</ul></li>
+</ul>
+</section>
+<section id="rstudio-einstellungen" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-einstellungen">RStudio Einstellungen</h2>
+<p>Wir empfehlen folgende Einstellungen, um die Verwendung von Quarto zu vereinfachen:</p>
+<p>Unter Tools → Global Options → Abschnitt <em>RMarkdown</em></p>
+<ul>
+<li>Show Output Preview in: <u>Viewer Pane</u></li>
+<li>Show equation and image previews: <u>Never</u></li>
+</ul>
+<!--
 
 
+## Wie ist ein Quarto-Dokument aufgebaut?
+
+Ein Quarto Dokument hat grob drei Elemente: (1) Den Header bzw. die Metadaten, (2) die Code Chunks und (3) die Textbereiche 
+
+1. Der Header wird beim Erstellen des Dokumentes bereits erstellt. Beim `format` könnt ihr definieren, wie am Ende eurer Dokument *gerendert* werden soll. Möglich sind u.a. HTML, PDF und MS Word. Für diesen Kurs zentral sind die Formate *typst* bzw. *pdf* für Mac-User.
+
+    ```bash
+    ---
+    title: "Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?"
+    format: typst
+    execute: 
+      error: true
+    echo: false
+    warning: false
+    ---
+    ```
+    
+::: {.callout-note}
+  Um den Header müsst ihr euch nicht kümmern, den werden wir hier in der Übung wie auch an der praktischen Prüfung vorgeben.
+:::   
+
+2. Der Code wird in sogenannten *Code Chunks* geschrieben. Eine neue Zelle fügt ihr ein, indem ihr `Ctrl+Shift+I` drückt. Falls in der eckigen Klammer nicht *r* stehen sollte, müsst ihr das in diesem Fall anpassen.
+
+3. Zwischen die Code Chunks kommt eurer Text. Titel werden mit *#* davor gesetzt.
+
+
+## Was ist bei einem Quarto-Dokument zu beachten?
+
+Der Code läuft von oben bis unten durch, und zwar unabhängig davon, welche Libraries und Variablen ihr in eurer Environment habt. Das bedeutet, dass alle Libraries zuoberst im Skript geladen werden müssen. Eine Variable, welche weiter unten im Skript verwendet wird, muss vorher explizit im Skript definiert werden.
+
+
+-->
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-kovic2014" class="csl-entry" role="listitem">
+Kovic, Marko. 2014. <span>„Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?“</span> <em>Tagesanzeiger Datenblog</em>. <a href="https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich">https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -999,12 +1101,12 @@ Hinweis
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../infovis/Infovis2_ggplot_Themes.html" class="pagination-link" aria-label="Infovis 2: ggplot Themes">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Infovis 2: ggplot Themes</span></span>
+      <a href="../infovis/Infovis1_Kovic_2014.html" class="pagination-link" aria-label="Infovis 1: Blogbeitrag Kovic">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Infovis 1: Blogbeitrag Kovic</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../infovis/Infovis2_Uebung_A_neu.html" class="pagination-link" aria-label="Infovis 2: Übung">
+      <a href="../infovis/Infovis2_Uebung_A.html" class="pagination-link" aria-label="Infovis 2: Übung">
         <span class="nav-page-text"><span class="chapter-title">Infovis 2: Übung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

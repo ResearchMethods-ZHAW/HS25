@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Infovis 2: Übung optional – Research Methods HS25</title>
+<title>Infovis 2: Übung – Research Methods HS25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -65,22 +85,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../References.html" rel="next">
-<link href="../infovis/Infovis2_Uebung_A_neu.html" rel="prev">
+<link href="../infovis/Infovis2_Uebung_B.html" rel="next">
+<link href="../infovis/Infovis2_Quarto.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-9b8f6782e2cd455891acfb332edb59df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-09dc92c35ed4dbf50aa7677cec3c00d7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -284,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Uebung_A.html"><span class="chapter-title">Infovis 2: Übung optional</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Uebung_A.html"><span class="chapter-title">Infovis 2: Übung</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -299,7 +320,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Research Methods HS25</a> 
@@ -405,25 +427,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="../infovis/Infovis1_Script_eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 1: Script EDA</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infovis/Infovis1_Kovic_2014.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 1: Blogbeitrag Kovic</span></a>
+  </div>
+</li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_ggplot_Themes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: ggplot Themes</span></a>
+  <a href="../infovis/Infovis2_Quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Demo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Quarto</span></a>
+  <a href="../infovis/Infovis2_Uebung_A.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Infovis 2: Übung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Uebung_A_neu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung</span></a>
+  <a href="../infovis/Infovis2_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung optional</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fallstudie S</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Uebung_A.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Infovis 2: Übung optional</span></a>
+  <a href="../fallstudie_s/0_Vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/1_Einführung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einführung</span></a>
   </div>
 </li>
       </ul>
@@ -449,9 +493,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#aufgabe-4" id="toc-aufgabe-4" class="nav-link" data-scroll-target="#aufgabe-4">Aufgabe 4</a></li>
   <li><a href="#aufgabe-5" id="toc-aufgabe-5" class="nav-link" data-scroll-target="#aufgabe-5">Aufgabe 5</a></li>
   <li><a href="#aufgabe-6" id="toc-aufgabe-6" class="nav-link" data-scroll-target="#aufgabe-6">Aufgabe 6</a></li>
-  <li><a href="#aufgabe-7-optional-fortgeschritten" id="toc-aufgabe-7-optional-fortgeschritten" class="nav-link" data-scroll-target="#aufgabe-7-optional-fortgeschritten">Aufgabe 7 (optional, fortgeschritten)</a></li>
+  <li><a href="#aufgabe-7-optional" id="toc-aufgabe-7-optional" class="nav-link" data-scroll-target="#aufgabe-7-optional">Aufgabe 7 (Optional)</a></li>
   <li><a href="#aufgabe-8" id="toc-aufgabe-8" class="nav-link" data-scroll-target="#aufgabe-8">Aufgabe 8</a></li>
-  <li><a href="#aufgabe-9" id="toc-aufgabe-9" class="nav-link" data-scroll-target="#aufgabe-9">Aufgabe 9</a></li>
+  <li><a href="#abgabe" id="toc-abgabe" class="nav-link" data-scroll-target="#abgabe">Abgabe</a></li>
   </ul>
 </nav>
     </div>
@@ -459,9 +503,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Uebung_A.html"><span class="chapter-title">Infovis 2: Übung optional</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../InfoVis.html">InfoVis</a></li><li class="breadcrumb-item"><a href="../infovis/Infovis2_Uebung_A.html"><span class="chapter-title">Infovis 2: Übung</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Infovis 2: Übung optional</span></h1>
+<h1 class="title"><span class="chapter-title">Infovis 2: Übung</span></h1>
 </div>
 
 
@@ -478,166 +522,133 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Für die heutige Übung brauchst du den Datensatz <em>temperature_2005.csv</em>. Dabei handelt es sich wieder um Teperaturwerte verschiedener Stationen, diesmal aus dem Jahr 2005. Das Datum ist so formatiert, dass <code>R</code> (isbesondere <code>read_delim</code>) es korrekt als <code>datetime</code> erkennen und als <code>POSIXct</code> einlesen sollte.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/infovis/temperature_2005.csv"</span>, <span class="st">","</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In der Übung von <a href="Infovis1_Uebung.html" class="quarto-xref"><span>Infovis 1: Übung</span></a> habt ihr bereits die Grafiken aus dem Blogbeitrag von <span class="citation" data-cites="kovic2014">Kovic (<a href="../References.html#ref-kovic2014" role="doc-biblioref">2014</a>)</span> rekonstruiert. Nun werden wir die Grafiken mit dem Fliesstext aus dem Beitrag ergänzen und daraus einen PDF-Bericht machen.</p>
+<!-- Wer darüber hinaus mehr über Quarto lernen möchte, findet unter @wickham2023 ([Kapitel Quarto](https://r4ds.hadley.nz/quarto)) sowie auf der [Quarto Webseite](https://quarto.org/docs/get-started/hello/rstudio.html) mehr darüber. -->
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wie erwähnt werdet ihr in der praktischen Prüfung euren Code ebenfalls mit Quarto erstellen und als PDF kompilieren.</p>
+</div>
 </div>
 <section id="aufgabe-1" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
-<p>Mache aus der <em>wide table</em> eine <em>long table</em>, die wie folgt aussieht.</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">time</th>
-<th style="text-align: left;">station</th>
-<th style="text-align: right;">temperature</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">2005-01-01</td>
-<td style="text-align: left;">ALT</td>
-<td style="text-align: right;">1.3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2005-01-01</td>
-<td style="text-align: left;">BUS</td>
-<td style="text-align: right;">1.5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2005-01-01</td>
-<td style="text-align: left;">GVE</td>
-<td style="text-align: right;">1.1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2005-01-01</td>
-<td style="text-align: left;">INT</td>
-<td style="text-align: right;">0.2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2005-01-01</td>
-<td style="text-align: left;">OTL</td>
-<td style="text-align: right;">2.2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2005-01-01</td>
-<td style="text-align: left;">LUG</td>
-<td style="text-align: right;">1.7</td>
-</tr>
-</tbody>
-</table>
+<p>Öffne das RStudio-Projekt von letzter Woche (<a href="Infovis1_Uebung.html" class="quarto-xref"><span>Infovis 1: Übung</span></a>) und erstelle ein neues Quarto File (File → New File → Quarto Document).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Wichtig
 </div>
 </div>
-<p>Importiere anschliessend den Datensatz <em>temperature_2005_metadata.csv</em> und verbinde die beiden Datensätze mit einem <code>left_join</code> via <code>station</code> (bzw. <code>stn</code>).</p>
+<div class="callout-body-container callout-body">
+<p>Entferne dabei das Häkchen bei <em>Use visual markdown editor</em>.</p>
+</div>
+</div>
+<p>Ersetze den Standard YAML Header mit folgendem Header (achte auf die drei Minuszeichen <code>-</code>):</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> typst</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">error</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">echo</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">warning</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><code>format: typst</code>: Dies erstellt ein PDF mit der Software <a href="https://typst.app">typst</a>.</li>
+<li><code>execute</code>:
+<ul>
+<li><code>error: true</code>: Falls der R Code einen Error produziert, wird diese Meldung ins Dokument integriert (mit <code>false</code> würde der Prozess abgebrochen werden)</li>
+<li><code>echo: false</code>: Der Code wird im PDF nicht sichtbar sein</li>
+<li><code>warning: false</code>: Warnmeldungen werden im PDF nicht sichtbar sein</li>
+</ul></li>
+</ul>
 </section>
 <section id="aufgabe-2" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h2>
-<p>Erstelle ein Scatterplot (<code>time</code> vs.&nbsp;<code>temperature</code>), wobei die Punkte aufgrund ihrer Meereshöhe eingefärbt werden sollen. Tiefe Werte sollen dabei blau eingefärbt werden und hohe Werte rot (<code>scale_color_gradient</code>). Verkleinere die Punkte, um übermässiges Überplotten der Punkten zu vermeiden (<code>size =</code>). Weiter sollen auf der x-Achse im Abstand von 3 Monaten der jeweilige Monat vermerkt sein (<code>date_breaks</code> bzw. <code>date_labels</code> von <code>scale_x_datetime()</code>).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_A_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p>Füge dem Dokument etwas Fliesstext hinzu. Beispielsweise den Einleitungstext aus <a href="@sec-kovic2014">dem Blogbeitrag</a>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="an">Kurz nach der Abstimmung zur Zuwanderungsinitiative hiess es:</span><span class="co"> Bezirke mit </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>geringem Ausländeranteil stimmten dem SVP-Begehren eher zu. Hält der Befund </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>einer tieferen Analyse stand? Marco Kovic vom IPMZ der Uni Zürich hat genau </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>hingeschaut.</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Klicke nun auf <strong><em>Render</em></strong> (<a href="#fig-render" class="quarto-xref">Abbildung&nbsp;<span>14.1</span></a>). Schau dir das erstellte PDF an. Falls kein PDF erstellt wurde: Versuche mal im YAML Header <code>typst</code> mit <code>pdf</code> zu ersetzen. Wenn das Problem damit gelöst ist, wären wir froh um eine entsprechende Info.</p>
+<div id="fig-render" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-render-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/render.png" id="fig-render" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-render-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;14.1
+</figcaption>
 </figure>
-</div>
-</div>
 </div>
 </section>
 <section id="aufgabe-3" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-3">Aufgabe 3</h2>
-<p>Erstelle eine Zusatzvariabel <code>Date</code> mit dem Datum der jeweiligen Messung ( mit <code>as.Date</code>). Nutze diese Spalte, um die Tagesmitteltemperatur pro Station zu berechnen (mit <code>summarise()</code>).</p>
-<p>Um die Metadaten (<code>Name</code>, <code>Meereshoehe</code>, <code>x</code>, <code>y</code>) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber auch schwerer zu verstehen) kannst du diese Variabeln innerhalb deines <code>group_by</code> verwenden.</p>
+<p>Füge nun in deinem Quarto-File mit <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> einen neuen Code-Chunk ein. Kopiere nun die ersten paar Zeilen Code aus der Übung Infovis 1 in diesen Code-Chunk. Rendere das Dokument erneut. Wird nach wie vor ein PDF produziert? Wenn ja, kannst du die restlichen Code-Zeilen aus der letzten Übung aus dem R-Skript in das Quarto Dokument kopieren.</p>
+<p>Rendere das Dokument erneut und schau dir den Output an.</p>
 </section>
 <section id="aufgabe-4" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-4">Aufgabe 4</h2>
-<p>Wiederhole nun den Plot aus der ersten Aufgabe mit den aggregierten Daten aus der vorherigen Aufgabe. Um die labels korrekt zu setzen, musst du <code>scale_x_datetime</code> mit <code>scale_x_date</code> ersetzen.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_A_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Stelle sicher, dass nach jedem Plot ein neuer Chunk beginnt. Am einfachsten positionierst du dafür deinen Cursor zur Stelle wo du einen neuen Chunk beginnen möchtest, und führst erneut die Tastenkombination <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> aus.</p>
+<p>Rendere das Dokument erneut und schau dir den Output an. Er sollte sich nicht verändert haben.</p>
 </section>
 <section id="aufgabe-5" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-5">Aufgabe 5</h2>
-<p>Füge am obigen Plot eine schwarze, gestrichelte Trendlinie hinzu.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_A_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<p>Ergänze das Quarto Dokument nun mit dem restlichen Fliesstext aus <span class="citation" data-cites="kovic2014">Kovic (<a href="../References.html#ref-kovic2014" role="doc-biblioref">2014</a>)</span>. Stelle sicher, dass an folgenden Stellen immer eine leere Zeile besteht:</p>
+<ul>
+<li>zwischen Absätzen</li>
+<li>vor und nach Überschriften</li>
+<li>vor und nach Code-Chunks</li>
+</ul>
+<p>Rendere das Dokument erneut und schau dir den Output an.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Statt das Dokument immer wieder manuell zu rendern, kann auch die Option <em>Render on Save</em> (siehe <a href="#fig-render" class="quarto-xref">Abbildung&nbsp;<span>14.1</span></a>) aktiviert werden.</p>
 </div>
 </div>
 </section>
 <section id="aufgabe-6" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-6">Aufgabe 6</h2>
-<p>Positioniere die Legende oberhalb des Plots (nutze dazu <code>theme()</code> mit <code>legend.position</code>).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_A_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Nun formatieren wir den Fliesstext mit etwas Markdown Syntax. Stelle zu diesem Zweck jeder Überschrift (<em>Kantonsebene</em>, <em>Gemeindeebene</em> etc.) zwei <code>#</code> Zeichen voran. Also so:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Kantonsebene</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="aufgabe-7-optional-fortgeschritten" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-7-optional-fortgeschritten">Aufgabe 7 (optional, fortgeschritten)</h2>
-<p>Füge den Temperaturwerten auf der y-Ache ein <code>°C</code> hinzu (siehe unten und studiere <a href="https://stackoverflow.com/a/35967126/4139249">diesen Tipp</a> zur Hilfe).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_A_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="aufgabe-7-optional" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-7-optional">Aufgabe 7 (Optional)</h2>
+<p>Markdown Syntax ermöglicht das Formatieren von Fliesstext mit einer sogenannten <em>Markup</em> Sprache. Du kannst beispielsweise Text Kursiv oder Fett rendern lassen. Versuche ein paar Varianten aus, die Syntax ist <a href="https://quarto.org/docs/authoring/markdown-basics.html#text-formatting">hier</a> gut beschrieben.</p>
 </section>
 <section id="aufgabe-8" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-8">Aufgabe 8</h2>
-<p>Jetzt verlassen wir den Scatterplot und machen einen Boxplot mit den Temperaturdaten. Färbe die Boxplots wieder in Abhängigkeit der Meereshöhe ein.</p>
-<ul>
-<li>Beachte den Unterschied zwischen <code>colour =</code> und <code>fill =</code></li>
-<li>Beachte den Unterschied zwischen <code>facet_wrap()</code> und <code>facet_grid()</code></li>
-<li><code>facet_grid()</code> braucht übrigens noch einen Punkt (<code>.</code>) zur Tilde (<code>~</code>).</li>
-<li>Beachte den Unterschied zwischen “<code>.~</code>” und “<code>~.</code>” bei <code>facet_grid()</code></li>
-<li>verschiebe nach Bedarf die Legende</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_A_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<p>Um die Nützlichkeit von Quarto zu illustrieren ändern wir jetzt den Theme aller Plots mit einer einzigen Zeile Code. Füge folgende Zeile <em>vor</em> dem ersten Plot hinzu:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_classic</span>())</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Rendere das Dokument erneut und schau dir den Output an.</p>
 </section>
-<section id="aufgabe-9" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-9">Aufgabe 9</h2>
-<p>Als letzter wichtiger Plottyp noch zwei Übungen zum Histogramm. Erstelle ein Histogramm <code>geom_histogram()</code> mit den Temperaturwerten. Teile dazu die Stationen in verschiedene Höhenlagen ein (Tieflage [&lt; 400 m], Mittellage [400 - 600 m] und Hochlage [&gt; 600 m]). Vergleiche die Verteilung der Temperaturwerte in den verschiedenen Lagen mit einem Histogramm.</p>
-<p>Tip: Nutze <code>cut</code> um die Stationen in die drei Gruppen aufzuteilen</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_A_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<section id="abgabe" class="level2">
+<h2 class="anchored" data-anchor-id="abgabe">Abgabe</h2>
+<p>Zippe nun deinen Ordner mit dem RStudio-Projekt, dem Quarto-File und dem PDF-Output und gib es auf Moodle ab.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-kovic2014" class="csl-entry" role="listitem">
+Kovic, Marko. 2014. <span>„Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?“</span> <em>Tagesanzeiger Datenblog</em>. <a href="https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich">https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1106,13 +1117,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../infovis/Infovis2_Uebung_A_neu.html" class="pagination-link" aria-label="Infovis 2: Übung">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Infovis 2: Übung</span></span>
+      <a href="../infovis/Infovis2_Quarto.html" class="pagination-link" aria-label="Infovis 2: Demo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Infovis 2: Demo</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../References.html" class="pagination-link" aria-label="Literaturverzeichnis">
-        <span class="nav-page-text"><span class="chapter-title">Literaturverzeichnis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../infovis/Infovis2_Uebung_B.html" class="pagination-link" aria-label="Infovis 2: Übung optional">
+        <span class="nav-page-text"><span class="chapter-title">Infovis 2: Übung optional</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
