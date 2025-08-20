@@ -2,8 +2,8 @@
 lesson: InfoVis1
 thema: Plots & Facets
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true
+  echo: false   # set to true to show musterlösung
+  output: false
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -13,13 +13,13 @@ knitr:
 
 # Infovis 1: Übung {#sec-infovis1}
 
-In dieser Übung geht es darum, die Grafiken aus dem Blog-post @kovic2014 zu rekonstruieren. Der urspüngliche Blogpost ist nicht mehr verfügbar, wir haben deshalb eine Kopie auf folgender Website gehostet: 
+In dieser Übung geht es darum, die Grafiken aus dem Blog-post @kovic2014 zu rekonstruieren. Der urspüngliche Blogpost ist nicht mehr verfügbar, wir haben deshalb eine Kopie hier gehostet: 
 
-<https://researchmethods-zhaw.github.io/blog.tagesanzeiger.ch/>
+@sec-kovic2014
 
-Schau dir die Grafiken in dem Blogpost durch. Freundlicherweise wurden im Blogbeitrag die `ggplot2` Standardeinstellungen benutzt, was die Rekonstruktion relativ einfach macht. Die Links im Text verweisen auf die Originalgrafik, die eingebetteten Plots sind meine eigenen Rekonstruktionen. 
+Schau dir die Grafiken in dem Blogpost durch. Freundlicherweise wurden im Blogbeitrag die `ggplot2` Standardeinstellungen benutzt, was die Rekonstruktion relativ einfach macht.
 
-Importiere als erstes den Datensatz *tagi_data_kanton.csv*.
+Importiere als erstes die Datensätze `tagi_data_kanton.csv` und `gemeinde`.
 
 ```{r}
 #| echo: true
@@ -28,11 +28,12 @@ Importiere als erstes den Datensatz *tagi_data_kanton.csv*.
 library("readr")
 
 kanton <- read_delim("datasets/infovis/tagi_data_kantone.csv", ",")
+gemeinde <- read_delim("datasets/infovis/tagi_data_gemeinden.csv", ",")
 ```
 
-## Aufgabe 1
+## Aufgabe 1 {#sec-infovis1-aufgabe-1}
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot und dem tagi_data_kanton.csv Datensatz:
+Rekonstruiere @fig-kantone aus @kovic2014 mithilfe von ggplot und dem Datensatz `kanton`:
 
 Tipp:
 
@@ -44,7 +45,7 @@ Tipp:
   - Nutze `labs()` für die Beschriftung der Achsen
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 1
 
@@ -61,14 +62,12 @@ plot1
 
 ## Aufgabe 2
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot:
+Rekonstruiere @fig-kantone-loess aus @kovic2014 mithilfe von ggplot:
 
-Tipp:
-
-- Nutze `geom_smooth`
+Tipp: Nutze `geom_smooth()`
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 2
 
@@ -78,22 +77,14 @@ plot1 +
 
 ## Aufgabe 3
 
-Importiere die Gemeindedaten *tagi_data_gemeinden.csv*.
+Rekonstruiere @fig-gemeinden  mithilfe des Datensatzes `gemeinde`.
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:
-
-Tipp:
-
-- Nutze `geom_point()` 
-- Nutze `labs()`
-- Nutze `coord_fixed()` 
+Tipp: `geom_point()`, `labs()` und `coord_fixed()` 
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 3
-
-gemeinde <- read_delim("datasets/infovis/tagi_data_gemeinden.csv", ",")
 
 plot2 <- ggplot(gemeinde, aes(anteil_ausl, anteil_ja)) +
   geom_point() +
@@ -106,14 +97,10 @@ plot2
 
 ## Aufgabe 4
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:
-
-Tipp:
-
-- Nutze `geom_smooth`
+Rekonstruiere @fig-gemeinden-gam mit dem Datensatz `gemeinde`.
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 4
 
@@ -123,14 +110,12 @@ plot2 +
 
 ## Aufgabe 5
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:
+Rekonstruiere @fig-gemeinden-x-kantone mithilfe des Datensatzes `gemeinde`:
 
-Tipp:
-
-- Nutze `facet_wrap` um einen Plot pro Kanton darzustellen.
+Tipp: Nutze `facet_wrap` um einen Plot pro Kanton darzustellen.
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 5
 
@@ -141,14 +126,12 @@ plot3
 
 ## Aufgabe 6
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:
+Rekonstruiere @fig-gemeinden-x-kantone-loess mithilfe von ggplot und dem Datensatz `gemeinde`: 
 
-Tipp:
-
-- Nutze `geom_smooth`
+Tipp: Nutze `geom_smooth`
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 6
 
@@ -159,14 +142,12 @@ plot3 +
 
 ## Aufgabe 7
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:
+Rekonstruiere @fig-gmeinden-x-quantile des Datensatzes `gemeinde`:
 
-Tipp:
-
-- Nutze `facet_wrap`
+Tipp: Nutze `facet_wrap`
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 7
 
@@ -177,14 +158,12 @@ plot4
 
 ## Aufgabe 8
 
-Rekonstruiere folgenden Plot aus @kovic2014 mithilfe von ggplot und dem tagi_data_gemeinden.csv Datensatz:
+Rekonstruiere @fig-gmeinden-x-quantile-loess mithilfe des Datensatzes `gemeinde`:
 
-Tipp:
-
-- Nutze `geom_smooth`
+Tipp: Nutze `geom_smooth`
 
 ```{r}
-#| output: true
+
 
 # Lösung zu Aufgabe 8
 

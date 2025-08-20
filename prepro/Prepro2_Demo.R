@@ -1,50 +1,22 @@
-diary <- c(
-  "The temperature is 310° Kelvin",
-  "The temperature is 322° Kelvin",
-  "The temperature is 410° Kelvin"
-)
+temperature <- c("111", "150", "123")
 
-diary
 
-# Wenn die Buchstaben einzelne _Elemente_ eines Vektors wären, würden wir diese
-# folgendermassen subsetten:
+library("magrittr")
 
-charvec1 <- c("a", "b", "c", "d", "e", "f", "g", "h")
-charvec1[4:6]
+out <- as.numeric(temperature)      # 1. Konvertierung in Numeric
+out <- subtract(out, 32)            # 2. Subtraktion von 32
+out <- multiply_by(out, 5/9)        # 3. Multiplikation mit 9/5
+out <- mean(out)                    # 4. Berechnung des Mittelwertes
 
-# Aber wenn diese in einem einzigen character gespeichert sind, brauchen wir substr:
-charvec2 <- "abcdefgh"
-substr(charvec2, 4, 6)
+out
 
-subtrahieren <- function(minuend, subtrahend) {
-  minuend - subtrahend
-}
+out <- mean(multiply_by(subtract(as.numeric(temperature), 32), 5/9))
 
-subtrahieren(10, 4)
-
-output <- mean(subtrahieren(as.numeric(substr(diary, 20, 22)), 273.15))
-#                                             \_1_/
-#                                      \________2__________/
-#                           \___________________3___________/
-#              \________________________________4__________________/
-#         \_____________________________________5____________________/
-
-# 1. Nimm diary
-# 2. Extrahiere auf jeder Zeile die Werte 20 bis 22
-# 3. Konvertiere "character" zu "numeric"
-# 4. Subtrahiere 273.15
-# 5. Berechne den Mittlwert
-
-temp <- substr(diary, 20, 22)      # 2
-temp <- as.numeric(temp)           # 3
-temp <- subtrahieren(temp, 273.15) # 4
-output <- mean(temp)               # 5
-
-diary |>                  # 1
-  substr(20, 22) |>       # 2
-  as.numeric() |>         # 3
-  subtrahieren(273.15) |> # 4
-  mean()                  # 5
+temperature |>                  
+  as.numeric() |>               # 1. Konvertierung in Numeric
+  subtract(32) |>               # 2. Subtraktion von 32
+  multiply_by(5/9) |>           # 3. Multiplikation mit 9/5
+  mean()                        # 4. Berechnung des Mittelwertes
 
 studierende <- data.frame(
   Matrikel_Nr = c(100002, 100003, 200003),

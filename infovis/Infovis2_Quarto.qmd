@@ -12,35 +12,88 @@ knitr:
 ---
 
 
-# Infovis 2: Quarto
+# Infovis 2: Demo
 
-In diesem Abschnitten 
+In @sec-infovis1 habt ihr die Grafiken aus dem Beitrag von @kovic2014 rekontruiert. Stellt euch nun vor, ihr wärt Marco Kovic und würdet den Bericht schreiben. Der klassische Weg wäre hier:
 
-## Was ist Quarto?
+1. Grafik in R erstellen
+2. Grafik exportieren
+3. In Word importieren
+4. Grafik in Word mit Prosa ergänzen
 
-🔍 Was ist Quarto?
+So weit, so gut. Allerdings gibt es auch die Möglichkeit, Grafiken innerhalb von R mit Prosa zu versehen und so die Schritte 2 und 3 zu vermeiden. Dieses Herangehensweise ist unter dem Begriff *Computational Notebook* bekannt und wird in R mit dem Tool *Quarto* (nachfolger von RMarkdown) umgesetzt. 
 
-Quarto ist ein sogenanntes „literate programming“-Tool, das es erlaubt, Text, Code und Visualisierungen in einem Dokument zu kombinieren und es als Ausgabeformate wie PDF, HTML, Word, PowerPoint, Reveal.js-Präsentationen, Webseiten und mehr zu konvertieren.
+## Basics
+
+In einem Quarto Dokument kann man Computer Code (z.B. R-Code) mit menschlicher Sprache (Fliesstext) verbinden. Am Beispiel von @kovic2014 sieht das folgendermassen aus:
+
+````{.markdown}
+
+Als erste Annäherung bietet sich ein Blick auf das Verhältnis von Ausländer- 
+und Ja-Anteil auf Ebene der Kantone an:
+
+```{{r}}
+ggplot(kanton, aes(auslanderanteil, ja_anteil)) +
+  geom_point() +
+  coord_fixed(1) +
+  labs(y = "Anteil Ja-Stimmen", x = "Ausländeranteil")
+
+```
+````
+
+Zu beachten gilt:
+
+- R-Code muss sich innerhalb von einem sogenannten *Chunk* befinden:
+  - welche durch jeweils drei *backticks* (vor und nach dem *Chunk*) begrenzt wird
+  - wo die Programmiersprache innerhalb von geschweiften Klammern festgehalten wird
+- Fliesstext wird ausserhalb des Code Chunks plaziert und muss nicht speziell gekennzeichnet werden.
 
 
-🎯 Wozu ist Quarto nützlich?
+Sobald das Quarto Dokument Kompliert wird, wird der Text und der Code-Output beispielsweise in einem PDF zusammengeführt. 
 
-Quarto ist besonders hilfreich für:
+:::{.callout-important}
+R-Scripts bilden die Basis von Programmieren mit R. Diese werden meist iterativ entwickelt, und nach Abschluss der Entwicklung sollten diese von der ersten Zeile bis zur letzten ohne Fehler ausführbar sein. 
 
-- Reproduzierbare Forschung: Kombiniert Code und Ergebnisse direkt im Dokument.
-- Berichte und Dokumentation: Erstellt automatisch aktualisierte Reports mit Datenanalysen.
-- Präsentationen: Erstellt interaktive Folien mit eingebettetem Code und Visualisierungen.
-- Webseiten und Blogs: Baut wissenschaftliche Webseiten oder persönliche Blogs mit integriertem Code.
-- Multilinguale Unterstützung: Nutzt verschiedene Programmiersprachen im selben Dokument.
+Das Kompilieren von einem Quarto-Dokument funktioniert genau so: Der Code wird von der ersten bis zur letzten Zeile [in einer neuen Session]{.underline} ausgeführt. Dies bildet den perfekten Test für die Lauffähigkeit des Codes. 
+
+Wir setzen Quarto an der Prüfung ein, damit wir nachvollziehen können wie der Code in eurer Umgebung ausgeführt wurde. **Das Beherrschen von Quarto ist somit Prüfungsrelevant.**
+:::
 
 
-✅ Vorteile gegenüber anderen Tools
+## YAML Header
 
-- Sprache-unabhängig: Funktioniert mit mehreren Programmiersprachen.
-- Einheitliches System: Ein Tool für viele Formate.
-- Open Source: Frei verfügbar und aktiv weiterentwickelt.
-- Integration mit Jupyter und RStudio: Nahtlose Nutzung in bekannten Umgebungen.
+Ein Quarto Dokument verfügt meistens über einen sogenannten YAML header, wo Metadaten über das Script gespeichert werden. Dieser Header ist fakultativ sehr sinnvoll. Im Blogbeitrag @kovic2014 könnte der Header folgendermassen aussehen:
 
+```{.yaml}
+---
+title: "Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?"
+format: html
+execute: 
+  echo: false
+---
+```
+
+Hier eine Erklärung zu den YAML Einträgen
+
+- `title`: Der Titel des Dokuments
+- `format`: Das Output Format. `html` produziert eine Website. Es sind viele verschiedene Outputs möglich, wie beispielsweise PDF, docx oder Powerpoint.
+- `execute`: Hier werden Optionen zum Code festgehalten werden
+  - `echo`: Soll der R-Code im Output dargestellt werden?
+
+
+## RStudio Einstellungen
+
+Wir empfehlen folgende Einstellungen, um die Verwendung von Quarto zu vereinfachen:
+
+Unter Tools → Global Options  → Abschnitt *RMarkdown*
+
+- Show Output Preview in: [Viewer Pane]{.underline}
+- Show equation and image previews: [Never]{.underline}
+
+
+
+
+<!--
 
 
 ## Wie ist ein Quarto-Dokument aufgebaut?
@@ -73,3 +126,5 @@ Ein Quarto Dokument hat grob drei Elemente: (1) Den Header bzw. die Metadaten, (
 
 Der Code läuft von oben bis unten durch, und zwar unabhängig davon, welche Libraries und Variablen ihr in eurer Environment habt. Das bedeutet, dass alle Libraries zuoberst im Skript geladen werden müssen. Eine Variable, welche weiter unten im Skript verwendet wird, muss vorher explizit im Skript definiert werden.
 
+
+-->

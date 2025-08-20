@@ -8,81 +8,47 @@ knitr:
 
 # Prepro 2: Demo
 
-## Piping
+## Piping {#sec-piping}
 
-Gegeben ist ein character string (`diary`). Wir wollen aus diesem Text die Temperaturangabe aus dem String extrahieren, danach den Wert von Kelvin in Celsius nach der folgenden Formel umwandeln und zum Schluss den Mittelwert über all diese Werte berechnen.
+Gegeben ist ein *character vector* (`temperature`) mit Temperaturwerten in Farenheit. Das Ziel ist es, die mittlere Temperatur in Grad Celsius zu berechnen. 
 
-$$°C = K - 273.15$$
+$$°C = (F - 32) \times \frac{5}{9}$$
 
-
-```{r}
-diary <- c(
-  "The temperature is 310° Kelvin",
-  "The temperature is 322° Kelvin",
-  "The temperature is 410° Kelvin"
-)
-
-diary
-```
-
-Dazu brauchen wir die Funktion `substr()`, welche aus einem `character` einen Teil "raus schnipseln" kann.
 
 ```{r}
-# Wenn die Buchstaben einzelne _Elemente_ eines Vektors wären, würden wir diese
-# folgendermassen subsetten:
+temperature <- c("111", "150", "123")
 
-charvec1 <- c("a", "b", "c", "d", "e", "f", "g", "h")
-charvec1[4:6]
-
-# Aber wenn diese in einem einzigen character gespeichert sind, brauchen wir substr:
-charvec2 <- "abcdefgh"
-substr(charvec2, 4, 6)
 ```
 
-Zudem nutzen wir eine Hilfsfunktion `subtrahieren`, welche zwei Werte annimmt, den `minuend` und den `subtrahend`:
-
-```{r}
-subtrahieren <- function(minuend, subtrahend) {
-  minuend - subtrahend
-}
-
-subtrahieren(10, 4)
-```
+Um einen character vector in nummern umzuwandeln, brauchen wir die Funktion `as.numeric`. Für die Subtraktion und Multiplikation brauchen wir zur Veranschaulichung die entsprechenden Funktionen `subtract` und `multiply_by` aus der library `magrittr`.
 
 Übersetzt in `R`-Code entsteht folgende Operation:
 
 ```{r}
-output <- mean(subtrahieren(as.numeric(substr(diary, 20, 22)), 273.15))
-#                                             \_1_/
-#                                      \________2__________/
-#                           \___________________3___________/
-#              \________________________________4__________________/
-#         \_____________________________________5____________________/
+library("magrittr")
 
-# 1. Nimm diary
-# 2. Extrahiere auf jeder Zeile die Werte 20 bis 22
-# 3. Konvertiere "character" zu "numeric"
-# 4. Subtrahiere 273.15
-# 5. Berechne den Mittlwert
+out <- as.numeric(temperature)      # 1. Konvertierung in Numeric
+out <- subtract(out, 32)            # 2. Subtraktion von 32
+out <- multiply_by(out, 5/9)        # 3. Multiplikation mit 9/5
+out <- mean(out)                    # 4. Berechnung des Mittelwertes
+
+out
 ```
 
-Die ganze Operation liest sich etwas leichter, wenn diese sequentiell notiert wird:
+Möchte man das zwischenspeichern vermeiden, ensteht ein Komplexe, unleserliche Operation
 
 ```{r}
-temp <- substr(diary, 20, 22)      # 2
-temp <- as.numeric(temp)           # 3
-temp <- subtrahieren(temp, 273.15) # 4
-output <- mean(temp)               # 5
+out <- mean(multiply_by(subtract(as.numeric(temperature), 32), 5/9))
 ```
 
-Umständlich ist dabei einfach, dass die Zwischenresultate immer abgespeichert und in der darauf folgenden Operation wieder abgerufen werden müssen. Hier kommt "piping" ins Spiel: *Mit "piping" wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.*
+Um den Code sowohl leserlich zu halten, wie auch auf das Abspeichern von Zwischenergebnissen zu vermeiden, kann das Piping verwendet werden: *Mit "piping" wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.*
 
 ```{r}
-diary |>                  # 1
-  substr(20, 22) |>       # 2
-  as.numeric() |>         # 3
-  subtrahieren(273.15) |> # 4
-  mean()                  # 5
+temperature |>                  
+  as.numeric() |>               # 1. Konvertierung in Numeric
+  subtract(32) |>               # 2. Subtraktion von 32
+  multiply_by(5/9) |>           # 3. Multiplikation mit 9/5
+  mean()                        # 4. Berechnung des Mittelwertes
 ```
 
 :::{.callout-important}
@@ -90,7 +56,7 @@ diary |>                  # 1
 - Neben dem *base R* Pipe Operator existiert im Package `magrittr` ein sehr ähnlicher[^pipe] Pipe Operator: `%>%`
 - Die Tastenkombination <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> in RStudio fügt einen Pipe Operator ein. 
 - Welcher Pipe Operator `|>` oder `%>%` mit der obigen Tastenkombination eingeführt wird, kann über die RStudio Settings `Tools` → `Global Options` → `Code` → Häckchen setzen bei `Use nativ pipe operator`
-- Wir empfehlen die base-R Pipe `|>` zu verwenden
+- Wir verwenden die base-R Pipe `|>` 
 :::
 
 [^pipe]: siehe <https://stackoverflow.com/q/67633022/4139249>

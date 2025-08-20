@@ -17,25 +17,18 @@ a <- as.integer(z)
 is.numeric(a)
 is.integer(a)
 
+# Das L steht für Long Integer
 c <- 8L
-is.numeric(c)
 is.integer(c)
 
-typeof(a)
-
-is.numeric(a)
-is.integer(a)
-
-e <- 3
-f <- 6
-
-e > f
+3 > 6
 
 
 sonnig <- TRUE
 trocken <- FALSE
 
-sonnig & !trocken
+# ist es sonnig und trocken?
+sonnig & trocken
 
 s <- as.character(3.14)
 s
@@ -77,17 +70,19 @@ strftime(datum2, format = "%B") # extrahiert den Monat mit Namen (ausgeschrieben
 
 library("lubridate")
 
-month(datum2) # extrahiert den Monat als Zahl
-month(datum2, label = TRUE, abbr = TRUE) # extrahiert den Monat mit Namen (abgekürzt)
-month(datum2, label = TRUE, abbr = FALSE) # extrahiert den Monat mit Namen (ausgeschrieben)
+# extrahiert den Monat als Zahl
+month(datum2) 
+# extrahiert den Monat mit Namen (abgekürzt)
+month(datum2, label = TRUE, abbr = TRUE) 
+# extrahiert den Monat mit Namen (ausgeschrieben)
+month(datum2, label = TRUE, abbr = FALSE) 
 
 vec <- c(10, 20, 33, 42, 54, 66, 77)
 vec
+
+# Mit eckigen Klammern können einzelne oder mehrere Werte extrahiert werden
 vec[5]
 vec[2:4]
-
-vec2 <- vec[2:4]
-
 
 mylist <- list("q", TRUE, 3.14)
 
@@ -123,8 +118,6 @@ df$Ankunft
 df$Ankunft_stunde <- hour(df$Ankunft)
 
 df$Ankunft_stunde
-
-df$Groesse <- "keine Angabe"
 
 df$Groesse[df$Einwohner > 300000] <- "gross"
 df$Groesse[df$Einwohner <= 300000 & df$Einwohner > 150000] <- "mittel"

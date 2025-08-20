@@ -2,8 +2,8 @@
 lesson: InfoVis2
 thema: Vertiefung ggplot
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true
+  echo: false   # set to true to show musterlösung
+  output: false
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -14,155 +14,163 @@ knitr:
 
 # Infovis 2: Übung optional
 
-In dieser Übung bauen wir einige etwas unübliche Plots aus der Vorlesung nach. Dafür verwenden wir Datensätze, die in R bereits integriert sind. Eine Liste dieser Datensätze findet man [hier](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html) oder mit der Hilfe `?datasets`.
+Für die heutige Übung brauchst du den Datensatz *temperature_2005.csv*. Dabei handelt es sich wieder um Teperaturwerte verschiedener Stationen, diesmal aus dem Jahr 2005. Das Datum ist so formatiert, dass `R` (insbesondere `read_delim`) es korrekt als `datetime` erkennen und als `POSIXct` einlesen sollte.
 
-Dazu verwenden wir nach wie vor `ggplot2`, aber mit einigen Tricks.
 
 ```{r}
 #| echo: true
 #| code-fold: false
-
-
+library("readr")
+temperature <- read_delim("datasets/infovis/temperature_2005.csv", ",")
 ```
 
-## Aufgabe 1: Parallel coordinate plots
+## Aufgabe 1
 
-Erstelle einen [parallel coordinate plot](https://en.wikipedia.org/wiki/Parallel_coordinates). Dafür eignet sich der integrierte Datensatz [`mtcars`](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html). Extrahiere die Fahrzeugnamen mit `rownames_to_column`. 
-
-Zudem müssen die Werte jeweiles auf eine gemeinsame Skala normalisiert werden. Hierfür kannst du die Funktion `scales::rescale` verwenden.
+Mache aus der *wide table* eine *long table*, die wie folgt aussieht. 
 
 ```{r}
+#| output: true
 
 library("tidyr")
-mtcars2 <- mtcars |>
-  tibble::rownames_to_column("car") |>
-  pivot_longer(-car)
+temperature_long <- pivot_longer(temperature, -time, names_to = "station", values_to = "temperature")
+
+knitr::kable(head(temperature_long))
+```
+
+Importiere anschliessend den Datensatz *temperature_2005_metadata.csv* und verbinde die beiden Datensätze mit einem `left_join` via `station` (bzw. `stn`). 
+
+```{r}
+metadata <- read_delim("datasets/infovis/temperature_2005_metadata.csv", ",")
 
 library("dplyr")
-mtcars2 <- mtcars2 |>
-  group_by(name) |>
-  mutate(value_scaled = scales::rescale(value))
+
+temperature_long <- left_join(temperature_long, metadata, by = c(station = "stn"))
 ```
 
-```{r}
-#| echo: false
-#| purl: false
+## Aufgabe 2
 
-knitr::kable(head(mtcars))
-```
-
-So sieht der fertige Plot aus:
+Erstelle ein Scatterplot (`time` vs. `temperature`), wobei die Punkte aufgrund ihrer Meereshöhe eingefärbt werden sollen. Tiefe Werte sollen dabei blau eingefärbt werden und hohe Werte rot (`scale_color_gradient`). Verkleinere die Punkte, um übermässiges Überplotten der Punkten zu vermeiden (`size =`). Weiter sollen auf der x-Achse im Abstand von 3 Monaten der jeweilige Monat vermerkt sein (`date_breaks` bzw. `date_labels` von `scale_x_datetime()`).
 
 ```{r}
 #| output: true
 
-mtcars2 <- mtcars2 |>
-  group_by(car) |>
-  mutate(gear = value[name == "gear"])
-
+# Musterlösung
 library("ggplot2")
-
-ggplot(mtcars2, aes(name, value_scaled, group = car, color = factor(gear))) +
-  geom_point() +
-  geom_line() +
-  theme_minimal() +
-  theme(legend.position = "none", axis.title.y = element_blank())
+ggplot(temperature_long, aes(time, temperature, color = Meereshoehe)) +
+  geom_point(size = 0.5) +
+  labs(x = "", y = "Temperatur in ° Celsius") +
+  scale_x_datetime(date_breaks = "3 months", date_labels = "%b") +
+  scale_color_gradient(low = "blue", high = "red")
 ```
 
-## Aufgabe 2: Polar Plot mit Biber Daten
+## Aufgabe 3
 
-Polar Plots eignen sich unter anderem für Daten, die zyklischer Natur sind, wie zum Beispiel zeitlich geprägte Daten (Tages-, Wochen-, oder Jahresrhythmen). Aus den Beispiels-Datensätzen  habe ich zwei Datensätze gefunden, die zeitlich geprägt sind:
+Erstelle eine Zusatzvariabel `Date` mit dem Datum der jeweiligen Messung ( mit `as.Date`). Nutze diese Spalte, um die Tagesmitteltemperatur pro Station zu berechnen (mit `summarise()`). 
 
-- [`beaver1` und `beaver2`](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/beavers.html)
-- [`AirPassenger`](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/AirPassengers.html)
-
-Beide Datensätze müssen noch etwas umgeformt werden, bevor wir sie für einen Radialplot verwenden können. In Aufgabe 2 verwenden wir die Biber-Datensätze, in der nächsten Aufgabe (3) die Passagier-Daten.
-
-Wenn wir die Daten von beiden Bibern verwenden wollen, müssen wir diese noch zusammenfügen.
+Um die Metadaten  (`Name`, `Meereshoehe`, `x`, `y`) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber auch schwerer zu verstehen) kannst du diese Variabeln innerhalb deines `group_by` verwenden.
 
 ```{r}
-beaver1_new <- beaver1 |>
-  mutate(beaver = "nr1")
-
-beaver2_new <- beaver2 |>
-  mutate(beaver = "nr2")
-
-beaver_new <- rbind(beaver1_new, beaver2_new)
+temperature_long <- temperature_long |>
+  mutate(time = as.Date(time)) |>
+  group_by(time, station, Name, Meereshoehe, x, y) |>
+  summarise(temperature = mean(temperature))
 ```
 
-Zudem müssen wir die Zeitangabe noch anpassen: Gemäss der [Datenbeschreibung](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/beavers.html) handelt es sich bei der Zeitangabe um ein sehr programmier-unfreundliches Format. 3:30 wird als "0330" notiert. Wir müssen diese Zeitangabe, noch in ein Dezimalsystem umwandeln.
+## Aufgabe 4
 
-```{r}
-beaver_new <- beaver_new |>
-  mutate(
-    hour_dec = (time / 100) %/% 1, # Ganze Stunden (mittels ganzzaliger Division)
-    min_dec = (time / 100) %% 1 / 0.6, # Dezimalminuten (15 min wird zu 0.25, via Modulo)
-    hour_min_dec = hour_dec + min_dec # Dezimal-Zeitangabe (03:30 wird zu 3.5)
-  )
-```
-
-So sieht der fertige Plot aus:
+Wiederhole nun den Plot aus der ersten Aufgabe mit den aggregierten Daten aus der vorherigen Aufgabe. Um die labels korrekt zu setzen, musst du `scale_x_datetime` mit `scale_x_date` ersetzen. 
 
 ```{r}
 #| output: true
 
-# Lösung Aufgabe 2
-
-beaver_new |>
-  ggplot(aes(hour_min_dec, temp, color = beaver)) +
-  geom_point() +
-  scale_x_continuous(breaks = seq(0, 23, 2)) +
-  coord_polar() +
-  theme_minimal() +
-  theme(axis.title = element_blank())
+p <- ggplot(temperature_long, aes(time, temperature, color = Meereshoehe)) +
+  geom_point(size = 0.5) +
+  labs(x = "", y = "Temperatur in ° Celsius") +
+  scale_x_date(date_breaks = "3 months", date_labels = "%b") +
+  scale_color_gradient(low = "blue", high = "red")
+p
 ```
 
-## Aufgabe 3: Raster Visualisierung mit Flugpassagieren
+## Aufgabe 5
 
-Analog Aufgabe 2, dieses Mal mit dem Datensatz [`AirPassengers`](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/AirPassengers.html)
-
-`AirPassengers` kommt in einem Format daher, das ich selbst noch gar nicht kannte. Es sieht zwar aus wie ein `data.frame` oder eine `matrix`, ist aber von der Klasse [`ts`](https://stat.ethz.ch/R-manual/R-devel/library/stats/html/ts.html).
-
-```{r}
-AirPassengers
-
-class(AirPassengers)
-```
-
-Damit wir den Datensatz verwenden können, müssen wir ihn zuerst in eine `matrix` umwandeln. Wie das geht habe ich [hier](https://stackoverflow.com/a/5332664/4139249) erfahren.
-
-```{r}
-AirPassengers2 <- tapply(AirPassengers, list(year = floor(time(AirPassengers)), month = month.abb[cycle(AirPassengers)]), c)
-
-AirPassengers2
-```
-
-Aus der `matrix` muss noch ein Dataframe her, zudem müssen wir aus der breiten Tabelle eine lange Tabelle machen.
-
-```{r}
-AirPassengers3 <- AirPassengers2 |>
-  as.data.frame() |>
-  tibble::rownames_to_column("year") |>
-  pivot_longer(-year, names_to = "month", values_to = "n") |>
-  mutate(
-    # ich nutze einen billigen Trick um ausgeschriebene Monate in Nummern umzuwandeln
-    month = factor(month, levels = month.abb, ordered = T),
-    month_numb = as.integer(month),
-    year = as.integer(year)
-  )
-```
-
-So sieht der fertige Plot aus: 
+Füge am obigen Plot eine schwarze, gestrichelte Trendlinie hinzu.
 
 ```{r}
 #| output: true
 
-ggplot(AirPassengers3, aes(month, year, fill = n)) +
-  geom_raster() +
-  scale_y_reverse() +
-  scale_fill_viridis_c(guide = guide_colourbar(barwidth = 15, title.position = "top")) +
-  theme_minimal() +
-  labs(fill = "Anzahl Passagiere") +
-  coord_equal() +
-  theme(axis.title = element_blank(), legend.position = "bottom")
+# Musterlösung
+p <- p +
+  stat_smooth(colour = "black", lty = 2)
+p
+```
+
+## Aufgabe 6
+
+Positioniere die Legende oberhalb des Plots (nutze dazu `theme()` mit `legend.position`). 
+
+```{r}
+#| output: true
+
+# Musterlösung
+p <- p +
+  theme(legend.position = "top")
+p
+```
+
+## Aufgabe 7 (optional, fortgeschritten)
+
+Füge den Temperaturwerten auf der y-Ache ein `°C` hinzu (siehe unten und studiere [diesen Tipp](https://stackoverflow.com/a/35967126/4139249) zur Hilfe). 
+
+```{r}
+#| output: true
+
+# Musterlösung
+p <- p +
+  scale_y_continuous(labels = function(x) paste0(x, "°C")) +
+  labs(x = "Kalenderwoche", y = "Temperatur")
+p
+```
+
+## Aufgabe 8
+
+Jetzt verlassen wir den Scatterplot und machen einen Boxplot mit den Temperaturdaten. Färbe die Boxplots wieder in Abhängigkeit der Meereshöhe ein. 
+
+- Beachte den Unterschied zwischen `colour =` und `fill =`
+- Beachte den Unterschied zwischen `facet_wrap()` und `facet_grid()`
+- `facet_grid()` braucht übrigens noch einen Punkt (`.`) zur Tilde (`~`). 
+- Beachte den Unterschied zwischen "`.~`" und "`~.`" bei `facet_grid()`
+- verschiebe nach Bedarf die Legende
+
+```{r}
+#| output: true
+
+# Musterlösung
+library("lubridate")
+temperature_long <- mutate(temperature_long, monat = month(time, label = T, abbr = F))
+
+ggplot(temperature_long, aes(monat, temperature, fill = Meereshoehe)) +
+  geom_boxplot() +
+  labs(x = "Station", y = "Temperatur") +
+  facet_wrap(~station) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+## Aufgabe 9
+
+Als letzter wichtiger Plottyp noch zwei Übungen zum Histogramm. Erstelle ein Histogramm `geom_histogram()` mit den Temperaturwerten. Teile dazu die  Stationen in verschiedene Höhenlagen ein (Tieflage [< 400 m], Mittellage [400 - 600 m] und Hochlage [> 600 m]). Vergleiche die Verteilung der Temperaturwerte in den verschiedenen Lagen mit einem Histogramm. 
+
+Tip: Nutze `cut` um die Stationen in die drei Gruppen aufzuteilen
+
+```{r}
+#| output: true
+
+# Musterlösung
+temperature_long <- temperature_long |>
+  mutate(lage = cut(Meereshoehe, c(0, 400, 600, 1000), labels = c("Tieflage", "Mittellage", "Hochlage")))
+
+ggplot(temperature_long, aes(temperature)) +
+  geom_histogram() +
+  facet_grid(~lage) +
+  labs(x = "Lage", y = "Temperatur") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```

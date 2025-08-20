@@ -178,7 +178,7 @@ Auch `facet_wrap` kann man auf seine Bedürfnisse anpassen: Beispielweise kann m
 Zudem brauchen wir die Legende nicht mehr, da der Stationsnamen über jedem Facet steht. Ich setze deshalb `theme(legend.position="none")` 
 
 ```{r}
-ggplot(temperature_day, aes(time, temp, colour = station)) +
+p <- ggplot(temperature_day, aes(time, temp, colour = station)) +
   geom_line() +
   labs(
     x = "Zeit",
@@ -193,7 +193,50 @@ ggplot(temperature_day, aes(time, temp, colour = station)) +
   ) +
   facet_wrap(~station, ncol = 1) +
   theme(legend.position = "none")
+
+
+p
 ```
+
+## Themes
+
+
+Bisher haben wir die Standardeinstellung für das Kreieren der Plots genutzt. In diesem Abschnitt zeigen wir, wie du Plots indviduell mit sogenannten ***Themes*** anpassen kannst.
+
+
+Nun wollen wir mit einer von *ggplot2* zur Verfügung gestellten Theme anpassen. Wir benutzen hier *theme_classic()*, weitere Themes findet ihr [hier](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+
+
+```{r}
+p + theme_classic()
+```
+
+Fast alle Aspekte eines Plots kann man aber auch noch selbst anpassen. Jürgen Dengler und sein Team empfehlen folgende Anpassungen:
+
+```{r}
+mytheme <- 
+  theme_classic()  +
+  theme(axis.line = element_line(linewidth = 0.6, color = "black"), 
+        axis.text = element_text(size = 11, color = "black"), 
+        axis.title = element_text(size = 13, color = "black"), 
+        axis.ticks = element_line(linewidth = 0.6, color = "black"), 
+        axis.ticks.length = unit(0.2, "cm"),
+        axis.title.y = element_text(vjust = +2),
+        axis.title.x = element_text(vjust = -2),
+        plot.title = element_text(hjust = 0.5, size = 13),
+        plot.subtitle = element_text(hjust = 0.5, size = 10),
+        plot.margin = margin(t = 4, r = 6, b = 6, l = 8, unit = "pt") 
+        
+  )
+```
+
+```{r}
+p + mytheme
+```
+
+
+
+
 
 ## Plot exportieren
 

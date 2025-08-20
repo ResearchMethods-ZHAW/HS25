@@ -18,12 +18,12 @@ Diese Demo kann [hier](Prepro1_Demo.R) heruntergeladen werden (Rechtsklick → s
 
 Unter die Kategorie `numeric` fallen in R zwei Datentypen:
 
--   `double`: Gleitkommazahl (z.B. 10.3, 7.3)
+-   `double`: Fliesskommazahl (z.B. 10.3, 7.3)
 -   `integer`: Ganzzahl (z.B. 10, 7)
 
 ##### Doubles
 
-Folgendermassen wird eine Gleitkommazahl einer Variabel zuweisen:
+Folgendermassen wird eine Fliesskommazahl einer Variabel zuweisen:
 
 ```{r}
 x <- 10.3
@@ -59,18 +59,10 @@ a <- as.integer(z)
 is.numeric(a)
 is.integer(a)
 
+# Das L steht für Long Integer
 c <- 8L
-is.numeric(c)
 is.integer(c)
 ```
-
-```{r}
-typeof(a)
-
-is.numeric(a)
-is.integer(a)
-```
-
 
 
 #### Logische Abfragen
@@ -78,16 +70,14 @@ is.integer(a)
 Wird auch auch als boolesch (Eng. **boolean**) bezeichnet.
 
 ```{r}
-e <- 3
-f <- 6
-
-e > f
+3 > 6
 
 
 sonnig <- TRUE
 trocken <- FALSE
 
-sonnig & !trocken
+# ist es sonnig und trocken?
+sonnig & trocken
 ```
 
 
@@ -130,9 +120,11 @@ wochentage_fac
 
 Wie man oben sieht, unterscheiden sich `character vectors` und `factors` v.a. dadurch, dass letztere über sogenannte `levels` verfügt. Diese `levels` entsprechen den eindeutigen Werten.
 
-Zudem fällt auf, dass die Reihenfolge der Wohentag alphabetisch sortiert ist. Eine Ordnung kann man mit dem Befehl `ordered = T` festlegen, dabei muss die Reihenfolge der Werte im Argument `levels =` explizit festgehalten werden[^ordered].
+:::{.callout-note collapse=true}
 
-[^ordered]: `ordered = T` kann nur bei der Funktion `factor()` spezifiziert werden, nicht bei `as.factor()`. Ansonsten sind `factor()` und `as.factor()` sehr ähnlich.
+## Hinweis (optional)
+
+Bei den `levels` fällt auf, dass die Reihenfolge der Wohentag alphabetisch sortiert ist. Eine Ordnung kann in der Funktion `factor` (nicht `as.factor`) mit dem Argument `ordered = TRUE` festgelegt werden, dabei kann die Reihenfolge der Werte im Argument `levels =` explizit festgelegt werden. In der Praxis ist dies vor allem bei Visualisierungen von Bedeutung.
 
 ```{r}
 factor(wochentage, levels = c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"), ordered = TRUE)
@@ -140,6 +132,8 @@ factor(wochentage, levels = c("Montag", "Dienstag", "Mittwoch", "Donnerstag", "F
 
 Beachtet das `<`-Zeichen zwischen den Levels!
 
+
+:::
 
 #### Zeit/Datum
 
@@ -175,36 +169,38 @@ strftime(datum2, format = "%b") # extrahiert den Monat mit Namen (abgekürzt)
 strftime(datum2, format = "%B") # extrahiert den Monat mit Namen (ausgeschrieben)
 ```
 
-Einfacher sind an dieser Stelle aber die Functions aus lubridate:
+Für das Extrahieren empfehlen wir aber die entsprechenden Funktionen aus `lubridate`:
 
 ```{r}
 library("lubridate")
 
-month(datum2) # extrahiert den Monat als Zahl
-month(datum2, label = TRUE, abbr = TRUE) # extrahiert den Monat mit Namen (abgekürzt)
-month(datum2, label = TRUE, abbr = FALSE) # extrahiert den Monat mit Namen (ausgeschrieben)
+# extrahiert den Monat als Zahl
+month(datum2) 
+# extrahiert den Monat mit Namen (abgekürzt)
+month(datum2, label = TRUE, abbr = TRUE) 
+# extrahiert den Monat mit Namen (ausgeschrieben)
+month(datum2, label = TRUE, abbr = FALSE) 
 ```
 
 
 ### Vectors
 
-Mit `c()` können eine Reihe von Werten vom gleichen Datentyp einer Variabel zugewiesen werden (als `vector`). 
+Mit `c()` können [eine Reihe von Werten vom gleichen Datentyp]{.underline} einer Variabel zugewiesen werden (als `vector`). 
 
 ```{r}
 vec <- c(10, 20, 33, 42, 54, 66, 77)
 vec
+
+# Mit eckigen Klammern können einzelne oder mehrere Werte extrahiert werden
 vec[5]
 vec[2:4]
-
-vec2 <- vec[2:4]
 ```
 
 ### Lists
 
-Eine `list` ist eine Sammlung von Objekten, die nicht unbedingt vom gleichen Datentyp sein müssen.
+Eine `list` ist eine Sammlung von Objekten, die nicht vom gleichen Datentyp sein müssen.
 
 ```{r}
-
 mylist <- list("q", TRUE, 3.14)
 ```
 
@@ -277,8 +273,6 @@ df$Ankunft_stunde
 Oder aber, wir teilen die Städte in gross, mittel und klein ein.
 
 ```{r}
-df$Groesse <- "keine Angabe"
-
 df$Groesse[df$Einwohner > 300000] <- "gross"
 df$Groesse[df$Einwohner <= 300000 & df$Einwohner > 150000] <- "mittel"
 df$Groesse[df$Einwohner <= 150000] <- "klein"
