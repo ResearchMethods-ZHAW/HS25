@@ -41,7 +41,7 @@ Möchte man das Zwischenspeichern vermeiden, entsteht eine komplexe, unleserlich
 out <- mean(multiply_by(subtract(as.numeric(temperature), 32), 5/9))
 ```
 
-Um den Code sowohl leserlich zu halten, als auch das Abspeichern von Zwischenergebnissen zu vermeiden, kann Piping verwendet werden: *Mit "piping" wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.*
+Um den Code sowohl leserlich zu halten als auch das Abspeichern von Zwischenergebnissen zu vermeiden, kann Piping verwendet werden: *Mit "piping" wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.*
 
 ```{r}
 temperature |>                  

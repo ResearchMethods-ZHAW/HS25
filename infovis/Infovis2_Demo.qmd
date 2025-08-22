@@ -1,14 +1,6 @@
 ---
 lesson: InfoVis2
-thema: Quarto
-execute: 
-  echo: true   # set to true to show musterlösung
-  output: true
-code-fold: true
-code-summary: "Musterlösung"
-knitr:
-  opts_chunk: 
-    collapse: true
+thema: "Quarto"
 ---
 
 
@@ -21,11 +13,11 @@ In @sec-infovis1 habt ihr die Grafiken aus dem Beitrag von @kovic2014 rekonstrui
 3. In Word importieren
 4. Grafik in Word mit Prosa ergänzen
 
-So weit, so gut. Allerdings gibt es auch die Möglichkeit, Grafiken innerhalb von R mit Prosa zu versehen und so die Schritte 2 und 3 zu vermeiden. Diese Herangehensweise ist unter dem Begriff `Computational Notebook` bekannt und wird in R mit dem Tool *Quarto* (Nachfolger von RMarkdown) umgesetzt. 
+So weit, so gut. Allerdings gibt es auch die Möglichkeit, Grafiken innerhalb von R mit Prosa zu versehen und so die Schritte 2-4 zu vermeiden. Diese Herangehensweise ist unter dem Begriff `Computational Notebook` bekannt und wird in R mit dem Tool *Quarto* (Nachfolger von RMarkdown) umgesetzt. 
 
 ## Basics
 
-In einem Quarto Dokument kann man Computer Code (z.B. R-Code) mit menschlicher Sprache (Fliesstext) verbinden. Am Beispiel von @kovic2014 sieht das folgendermassen aus:
+In einem Quarto-Dokument kann Computer Code (z.B. R-Code) mit menschlicher Sprache (Fliesstext) verbunden werden. Am Beispiel von @kovic2014 sieht das folgendermassen aus:
 
 ````{.markdown}
 
@@ -43,26 +35,27 @@ ggplot(kanton, aes(auslanderanteil, ja_anteil)) +
 
 Zu beachten gilt:
 
-- R-Code muss sich innerhalb von einem sogenannten *Chunk* befinden:
-  - welche durch jeweils drei *Backticks* (vor und nach dem *Chunk*) begrenzt wird
-  - wo die Programmiersprache innerhalb von geschweiften Klammern festgehalten wird
+- R-Code muss sich innerhalb von einem sogenannten *Chunk* befinden...
+  - ..., welcher durch jeweils drei *Backticks* (vor und nach dem *Chunk*) begrenzt wird und...
+  - ... wo die Programmiersprache innerhalb von geschweiften Klammern festgehalten wird.
 - Fliesstext wird ausserhalb des Code-Chunks platziert und muss nicht speziell gekennzeichnet werden.
 
 
-Sobald das Quarto Dokument kompiliert wird, wird der Text und der Code-Output beispielsweise in einem PDF zusammengeführt. 
+Sobald das Quarto-Dokument kompiliert wird, wird der Text und der Code-Output beispielsweise in einem PDF zusammengeführt. 
 
 :::{.callout-important}
-R-Scripts bilden die Basis von Programmieren mit R. Diese werden meist iterativ entwickelt, und nach Abschluss der Entwicklung sollten diese von der ersten Zeile bis zur letzten ohne Fehler ausführbar sein. 
+## Sehr, sehr wichtig!
+R-Scripts bilden die Basis von Programmieren mit R. Diese werden meist iterativ entwickelt und nach Abschluss der Entwicklung sollten diese von der ersten bis zur letzten Zeile ohne Fehler ausführbar sein. 
 
-Das Kompilieren von einem Quarto-Dokument funktioniert genau so: Der Code wird von der ersten bis zur letzten Zeile [in einer neuen Session]{.underline} ausgeführt. Dies bildet den perfekten Test für die Lauffähigkeit des Codes. 
+Das Kompilieren von einem Quarto-Dokument funktioniert genau so: Der Code wird von der ersten bis zur letzten Zeile [in einer neuen Session]{.underline} (Libraries müssen in einem Quarto-Dokument also explizit geladen werden!) ausgeführt. Dies bildet den perfekten Test für die Lauffähigkeit des Codes. 
 
-Wir setzen Quarto an der Prüfung ein, damit wir nachvollziehen können, wie der Code in eurer Umgebung ausgeführt wurde. **Das Beherrschen von Quarto ist somit Prüfungsrelevant.**
+Wir setzen Quarto an der Prüfung ein, damit wir nachvollziehen können, wie der Code in eurer Umgebung ausgeführt wurde. **Das Beherrschen von Quarto ist somit prüfungsrelevant.**
 :::
 
 
 ## YAML Header
 
-Ein Quarto Dokument verfügt meistens über einen sogenannten YAML header, wo Metadaten über das Script gespeichert werden. Dieser Header ist fakultativ, aber sehr sinnvoll. Im Blogbeitrag @kovic2014 könnte der Header folgendermassen aussehen:
+Ein Quarto-Dokument verfügt meistens über einen sogenannten YAML header, wo Metadaten über das Script gespeichert werden. Dieser Header ist fakultativ, aber sehr sinnvoll. Im Blogbeitrag @kovic2014 könnte der Header folgendermassen ausgesehen haben:
 
 ```{.yaml}
 ---

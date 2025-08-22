@@ -30,7 +30,7 @@ knitr::kable(head(temperature))
 
 ## Ggplot2
 
-In `ggplot` wird mit dem Befehl `ggplot()` initiiert. Hier wird einerseits der Datensatz festgelegt, auf dem der Plot beruht (`data = `), sowie die Variablen innerhalb des Datensatzes, die Einfluss auf den Plot ausüben (`mapping = aes()`). 
+Ein `ggplot` wird mit dem Befehl `ggplot()` initiiert. Hier wird einerseits der Datensatz festgelegt, auf dem der Plot beruht (`data = `), sowie die Variablen innerhalb des Datensatzes, die Einfluss auf den Plot ausüben (`mapping = aes()`). 
 
 ```{r}
 # Datensatz: "temperature" | Beeinflussende Variablen: "time" und "temp"
@@ -204,14 +204,14 @@ p
 Bisher haben wir die Standardeinstellung für das Kreieren der Plots genutzt. In diesem Abschnitt zeigen wir, wie du Plots individuell mit sogenannten ***Themes*** anpassen kannst.
 
 
-Nun wollen wir mit einer von *ggplot2* zur Verfügung gestellte Theme anpassen. Wir benutzen hier *theme_classic()*, weitere Themes findet ihr [hier](https://ggplot2.tidyverse.org/reference/ggtheme.html).
+Nun wollen wir mit einer von *ggplot2* zur Verfügung gestellten Theme unseren Plot anpassen. Wir benutzen hier *theme_classic()*, weitere Themes findet ihr [hier](https://ggplot2.tidyverse.org/reference/ggtheme.html).
 
 
 ```{r}
 p + theme_classic()
 ```
 
-Fast alle Aspekte eines Plots kann man aber auch noch selbst anpassen. Jürgen Dengler und sein Team empfehlen folgende Anpassungen:
+Fast alle Aspekte eines Plots können auch individuell angepasst werden. Jürgen Dengler und sein Team empfehlen folgende Anpassungen:
 
 ```{r}
 mytheme <- 
@@ -236,11 +236,9 @@ p + mytheme
 
 
 
-
-
 ## Plot exportieren
 
-Folgendermassen kann ich den letzten Plot als PNG-Datei abspeichern:
+Folgendermassen könnt ihr den letzten Plot als PNG-Datei abspeichern:
 
 ```{r}
 #| eval: false
