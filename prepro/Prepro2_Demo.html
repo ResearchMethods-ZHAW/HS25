@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.19">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,19 +69,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../prepro/Prepro1_Uebung.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-09dc92c35ed4dbf50aa7677cec3c00d7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-9b8f6782e2cd455891acfb332edb59df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -124,7 +123,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+      if (mathElements[i].tagName == "SPAN") {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -329,8 +328,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Research Methods HS25</a> 
@@ -444,7 +442,7 @@ window.Quarto = {
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Demo</span></a>
+  <a href="../infovis/Infovis2_Demo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Demo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -529,12 +527,12 @@ window.Quarto = {
 <p>Gegeben ist ein <em>character vector</em> (<code>temperature</code>) mit Temperaturwerten in Fahrenheit. Das Ziel ist es, die mittlere Temperatur in Grad Celsius zu berechnen.</p>
 <p><span class="math display">\[°C = (F - 32) \times \frac{5}{9}\]</span></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"111"</span>, <span class="st">"150"</span>, <span class="st">"123"</span>)</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"111"</span>, <span class="st">"150"</span>, <span class="st">"123"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Um einen character vector in Zahlen umzuwandeln, brauchen wir die Funktion <code>as.numeric</code>. Für die Subtraktion und Multiplikation brauchen wir zur Veranschaulichung die entsprechenden Funktionen <code>subtract</code> und <code>multiply_by</code> aus der Library <code>magrittr</code>.</p>
 <p>Übersetzt in <code>R</code>-Code entsteht folgende Operation:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"magrittr"</span>)</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"magrittr"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(temperature)      <span class="co"># 1. Konvertierung in Numeric</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">subtract</span>(out, <span class="dv">32</span>)            <span class="co"># 2. Subtraktion von 32</span></span>
@@ -542,20 +540,20 @@ window.Quarto = {
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">mean</span>(out)                    <span class="co"># 4. Berechnung des Mittelwertes</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>out</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 53.33333</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 53.33333</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Möchte man das Zwischenspeichern vermeiden, entsteht eine komplexe, unleserliche Operation</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">multiply_by</span>(<span class="fu">subtract</span>(<span class="fu">as.numeric</span>(temperature), <span class="dv">32</span>), <span class="dv">5</span><span class="sc">/</span><span class="dv">9</span>))</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">multiply_by</span>(<span class="fu">subtract</span>(<span class="fu">as.numeric</span>(temperature), <span class="dv">32</span>), <span class="dv">5</span><span class="sc">/</span><span class="dv">9</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Um den Code sowohl leserlich zu halten, als auch das Abspeichern von Zwischenergebnissen zu vermeiden, kann Piping verwendet werden: <em>Mit “piping” wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.</em></p>
+<p>Um den Code sowohl leserlich zu halten als auch das Abspeichern von Zwischenergebnissen zu vermeiden, kann Piping verwendet werden: <em>Mit “piping” wird der Output der einen Funktion der erste Parameter der darauf folgenden Funktion.</em></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="sc">|&gt;</span>                  </span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>temperature <span class="sc">|&gt;</span>                  </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="sc">|&gt;</span>               <span class="co"># 1. Konvertierung in Numeric</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">subtract</span>(<span class="dv">32</span>) <span class="sc">|&gt;</span>               <span class="co"># 2. Subtraktion von 32</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">multiply_by</span>(<span class="dv">5</span><span class="sc">/</span><span class="dv">9</span>) <span class="sc">|&gt;</span>           <span class="co"># 3. Multiplikation mit 5/9</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>()                        <span class="co"># 4. Berechnung des Mittelwertes</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 53.33333</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 53.33333</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -580,7 +578,7 @@ Wichtig
 <section id="joins" class="level2">
 <h2 class="anchored" data-anchor-id="joins">Joins</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>studierende <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>studierende <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Matrikel_Nr =</span> <span class="fu">c</span>(<span class="dv">100002</span>, <span class="dv">100003</span>, <span class="dv">200003</span>),</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Studi =</span> <span class="fu">c</span>(<span class="st">"Patrick"</span>, <span class="st">"Manuela"</span>, <span class="st">"Eva"</span>),</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">PLZ =</span> <span class="fu">c</span>(<span class="dv">8006</span>, <span class="dv">8001</span>, <span class="dv">8820</span>)</span>
@@ -602,10 +600,10 @@ Wichtig
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 8003    Zürich</span></span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 8006    Zürich</span></span>
 <span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 8810    Horgen</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 8820 Wädenswil</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 8820 Wädenswil</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load library</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(studierende, ortschaften, <span class="at">by =</span> <span class="st">"PLZ"</span>)</span>
@@ -632,10 +630,10 @@ Wichtig
 <span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 2      100003 Manuela 8001      &lt;NA&gt;</span></span>
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 3      200003     Eva 8820 Wädenswil</span></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 4          NA    &lt;NA&gt; 8003    Zürich</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="do">## 5          NA    &lt;NA&gt; 8810    Horgen</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="do">## 5          NA    &lt;NA&gt; 8810    Horgen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>studierende <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>studierende <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Matrikel_Nr =</span> <span class="fu">c</span>(<span class="dv">100002</span>, <span class="dv">100003</span>, <span class="dv">200003</span>),</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Studi =</span> <span class="fu">c</span>(<span class="st">"Patrick"</span>, <span class="st">"Manuela"</span>, <span class="st">"Pascal"</span>),</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Wohnort =</span> <span class="fu">c</span>(<span class="dv">8006</span>, <span class="dv">8001</span>, <span class="dv">8006</span>)</span>
@@ -645,7 +643,7 @@ Wichtig
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   Matrikel_Nr   Studi Wohnort Ortsname</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      100002 Patrick    8006   Zürich</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 2      100003 Manuela    8001     &lt;NA&gt;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 3      200003  Pascal    8006   Zürich</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 3      200003  Pascal    8006   Zürich</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
