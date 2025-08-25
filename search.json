@@ -847,7 +847,7 @@
     "href": "infovis/Infovis2_Uebung_A.html#aufgabe-6",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 6",
-    "text": "Aufgabe 6\nNun formatieren wir den Fliesstext mit etwas Markdown Syntax. Stelle zu diesem Zweck jeder Überschrift (Kantonsebene, Gemeindeebene etc.) zwei # Zeichen voran. Also so:\n## Kantonsebene",
+    "text": "Aufgabe 6\nNun formatieren wir den Fliesstext mit etwas Markdown Syntax. Stelle zu diesem Zweck jeder Überschrift (Kantonsebene, Gemeindeebene etc.) zwei # Zeichen voran. Also so:\n## Kantonsebene\n\n...text\n\n## Gemeindeebene\n\n... text",
     "crumbs": [
       "InfoVis",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Infovis 2: Übung</span>"
@@ -879,8 +879,8 @@
     "objectID": "infovis/Infovis2_Uebung_A.html#abgabe",
     "href": "infovis/Infovis2_Uebung_A.html#abgabe",
     "title": "Infovis 2: Übung",
-    "section": "Abgabe",
-    "text": "Abgabe\nZippe nun deinen Ordner mit dem RStudio-Projekt, dem Quarto-File und dem PDF-Output und gib es auf Moodle ab.\n\n\n\n\nKovic, Marko. 2014. „Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?“ Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.",
+    "section": "⚠ Abgabe",
+    "text": "⚠ Abgabe\n\n\n\n\n\n\nWichtig\n\n\n\nZippe nun deinen Projektordner (mit dem Quarto-File und dem PDF-Output) und gib es auf Moodle ab.\n\n\n\n\n\n\nKovic, Marko. 2014. „Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?“ Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.",
     "crumbs": [
       "InfoVis",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Infovis 2: Übung</span>"
@@ -898,8 +898,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-2",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-2",
+    "objectID": "infovis/Infovis2_Uebung_B.html#sec-infovis2-scatterplot",
+    "href": "infovis/Infovis2_Uebung_B.html#sec-infovis2-scatterplot",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 2",
     "text": "Aufgabe 2\nErstelle ein Scatterplot (time vs. temperature), wobei die Punkte aufgrund ihrer Meereshöhe eingefärbt werden sollen. Tiefe Werte sollen dabei blau eingefärbt werden und hohe Werte rot (scale_color_gradient). Verkleinere die Punkte, um übermässiges Überplotten der Punkte zu vermeiden (size =). Weiter sollen auf der x-Achse im Abstand von 3 Monaten der jeweilige Monat vermerkt sein (date_breaks bzw. date_labels von scale_x_datetime()).",
@@ -909,11 +909,11 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-3",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-3",
+    "objectID": "infovis/Infovis2_Uebung_B.html#sec-infovis2-aggregate",
+    "href": "infovis/Infovis2_Uebung_B.html#sec-infovis2-aggregate",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 3",
-    "text": "Aufgabe 3\nErstelle eine Zusatzvariable Date mit dem Datum der jeweiligen Messung ( mit as.Date). Nutze diese Spalte, um die Tagesmitteltemperatur pro Station zu berechnen (mit summarise()).\nUm die Metadaten (Name, Meereshoehe, x, y) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber auch schwerer zu verstehen) kannst du diese Variablen innerhalb deines group_by verwenden.",
+    "text": "Aufgabe 3\nErstelle eine Zusatzvariable Date mit dem Datum der jeweiligen Messung ( mit as.Date). Nutze diese Spalte, um die Tagesmitteltemperatur pro Station zu berechnen (mit summarise()).\nUm die Metadaten (Name, Meereshoehe, x, y) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber weniger intuitiv) kannst du diese Variablen innerhalb deines group_by verwenden.",
     "crumbs": [
       "InfoVis",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
@@ -924,7 +924,7 @@
     "href": "infovis/Infovis2_Uebung_B.html#aufgabe-4",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 4",
-    "text": "Aufgabe 4\nWiederhole nun den Plot aus der zweiten Aufgabe mit den aggregierten Daten aus der vorherigen Aufgabe. Um die labels korrekt zu setzen, musst du scale_x_datetime mit scale_x_date ersetzen.",
+    "text": "Aufgabe 4\nWiederhole nun den Plot aus Aufgabe 2 mit den aggregierten Daten aus Aufgabe 3. Um die labels korrekt zu setzen, musst du scale_x_datetime mit scale_x_date ersetzen.",
     "crumbs": [
       "InfoVis",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
@@ -947,39 +947,6 @@
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 6",
     "text": "Aufgabe 6\nPositioniere die Legende oberhalb des Plots (nutze dazu theme() mit legend.position).",
-    "crumbs": [
-      "InfoVis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
-    ]
-  },
-  {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-7-optional-fortgeschritten",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-7-optional-fortgeschritten",
-    "title": "Infovis 2: Übung optional",
-    "section": "Aufgabe 7 (optional, fortgeschritten)",
-    "text": "Aufgabe 7 (optional, fortgeschritten)\nFüge den Temperaturwerten auf der y-Achse ein °C hinzu (siehe unten und studiere diesen Tipp zur Hilfe).",
-    "crumbs": [
-      "InfoVis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
-    ]
-  },
-  {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-8",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-8",
-    "title": "Infovis 2: Übung optional",
-    "section": "Aufgabe 8",
-    "text": "Aufgabe 8\nJetzt verlassen wir den Scatterplot und machen einen Boxplot mit den Temperaturdaten. Färbe die Boxplots wieder in Abhängigkeit der Meereshöhe ein.\n\nBeachte den Unterschied zwischen colour = und fill =\nBeachte den Unterschied zwischen facet_wrap() und facet_grid()\nfacet_grid() braucht übrigens noch einen Punkt (.) zur Tilde (~).\nBeachte den Unterschied zwischen “.~” und “~.” bei facet_grid()\nverschiebe nach Bedarf die Legende",
-    "crumbs": [
-      "InfoVis",
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
-    ]
-  },
-  {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-9",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-9",
-    "title": "Infovis 2: Übung optional",
-    "section": "Aufgabe 9",
-    "text": "Aufgabe 9\nAls letzter wichtiger Plottyp noch zwei Übungen zum Histogramm. Erstelle ein Histogramm geom_histogram() mit den Temperaturwerten. Teile dazu die Stationen in verschiedene Höhenlagen ein (Tieflage [&lt; 400 m], Mittellage [400 - 600 m] und Hochlage [&gt; 600 m]). Vergleiche die Verteilung der Temperaturwerte in den verschiedenen Lagen mit einem Histogramm.\nTipp: Nutze cut um die Stationen in die drei Gruppen aufzuteilen",
     "crumbs": [
       "InfoVis",
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Infovis 2: Übung optional</span>"
