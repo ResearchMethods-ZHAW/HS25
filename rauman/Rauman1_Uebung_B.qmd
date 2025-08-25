@@ -2,8 +2,8 @@
 lesson: RaumAn1
 thema: Spatial Joins
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -41,7 +41,7 @@ In evalq((function (..., call. = TRUE, immediate. = FALSE, noBreaks. = FALSE,  :
   automatically selected the first layer in a data source containing more than one.
 ```
 
-Diese Warnmeldung weist darauf hin, dass das Geopackage `gruental.gpkg` mehrere Layers (rep. Datensätze) enthält und nur der erste Layer importiert wurde. Bringe mit dem Befehl `st_layers` die Layer-Namen in Erfahrung und nutze diese im Anschluss in `read_sf` (als Argument `layer = `), um die layers einzeln zu importieren und in Variablen zu speichern (z.B. als Variable `wiesen` und `baeume`).
+Diese Warnmeldung weist darauf hin, dass das Geopackage `gruental.gpkg` mehrere Layers (rep. Datensätze) enthält und nur der erste Layer importiert wurde. Bringe mit dem Befehl `st_layers` die Layer-Namen in Erfahrung und nutze diese im Anschluss in `read_sf` (als Argument `layer = `), um die Layers einzeln zu importieren und in Variablen zu speichern (z.B. als Variable `wiesen` und `baeume`).
 
 ```{r}
 st_layers("datasets/rauman/gruental.gpkg")
@@ -76,7 +76,7 @@ ggplot(wiesen) +
 
 ## Aufgabe 3:  Spatial Join mit Punkten {#sec-spatial-join-points}
 
-Wir wollen nun für jeden *Baum* wissen, ob er sich in einer Wiese befindet oder nicht. Dazu nutzen wir die GIS-Technik *Spatial Join*, die in der Vorlesung beschrieben wurde. In `sf` können wir Spatial Joins mit der Funktion `st_join` durchführen, dabei gibt es nur `left` sowie `inner`-Joins (vgl. PrePro 1 & 2). So müssen die Punkte "Links" also an erster Stelle aufgeführt werden, da wir ja Attribute *an* die Punkte anheften wollen.
+Wir wollen nun für jeden *Baum* wissen, ob er sich in einer Wiese befindet oder nicht. Dazu nutzen wir die GIS-Technik *Spatial Join*, die in der Vorlesung beschrieben wurde. In `sf` können wir Spatial Joins mit der Funktion `st_join` durchführen, dabei gibt es nur `left` sowie `inner`-Joins (vgl. PrePro 2 & 3). So müssen die Punkte "Links" also an erster Stelle aufgeführt werden, da wir ja Attribute *an* die Punkte anheften wollen.
 
 Beachte, dass der Output eine neue Spalte `flaechen_typ` aufweist. Diese ist leer (`NA`), wenn sich der entsprechende Baum nicht in einer Wiese befindet. Wie viele Bäume befinden sich in einer Wiese, wie viele nicht?
 

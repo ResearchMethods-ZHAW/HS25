@@ -2,8 +2,8 @@
 lesson: RaumAn5
 thema: Multi-Criteria Evaluation (MCE)
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -15,7 +15,7 @@ knitr:
 
 In der letzten Übung (Übung A) haben wir die potentielle Standorte für Windkraftanlagen hinsichtlich zweier Distanzkriterien bewertet. In dieser Übung (Übung B) schliessen wir die Multikriterien-Evaluation ab, indem wir:
 
-1. folgende Kriterien mitberücksichtigen: Windgeschwindigkeit und Hangneigung
+1. Windgeschwindigkeit und Hangneigung mitberücksichtigen
 2. die *Ausschlusskriterien* vom Resultat ausschliessen
 
 Für Punkt 1 müssen wir zusätzliche Daten einlesen, die im Rasterformat daherkommen. Punkt 2 beruht im Wesentlichen auf Daten, die wir bereits verwendet haben.

@@ -2,8 +2,8 @@
 lesson: RaumAn5
 thema: Multi-Criteria Evaluation (MCE)
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -80,7 +80,7 @@ library("ggplot2")
 
 ## Aufgabe 1: Vektor Daten laden und anzeigen
 
-Betrachte das File *windkraft_geodata.gpkg* (siehe @tbl-mce-data). Dieses beinhaltet alle Vektordaten, die für die Bearbeitung der Multikriterien-Evaluation benötigt wird (Bewohnte Flächen, Nationale Schutzgebiete, Seeflächen, Strassen, Waldgebiete sowie die Kantonsgrenze von Schwyz). Die Namen der verfügbaren Listen können Sie mit `sf::st_layers()` ermitteln.
+Betrachte das File *windkraft_geodata.gpkg* (siehe @tbl-mce-data). Dieses beinhaltet alle Vektordaten, die für die Bearbeitung der Multikriterien-Evaluation benötigt wird (bewohnte Flächen, nationale Schutzgebiete, Seeflächen, Strassen, Waldgebiete sowie die Kantonsgrenze von Schwyz). Die Namen der verfügbaren Listen könnt Ihr mit `sf::st_layers()` ermitteln.
 
 Importiere die benötigten Vektordatensätze und exploriere die Daten. Zur Visualisierung könnt ihr die Funktionen `plot` oder die Packages `tmap` oder `ggplot2` verwenden.
 
@@ -115,7 +115,7 @@ strassen_raster <- rasterize(strassen, template)
 strassen_dist <- distance(strassen_raster)
 ```
 
-Nutze der obige Code, um den Strassen-Datensatz zu rasterisieren und die Distanz zur Strassen mit der Funktion `distance()` zu berechnen. Plausibilisiere den Output, indem du ihn visualisierst.
+Nutze den obigen Code, um den Strassen-Datensatz zu rasterisieren und die Distanz zu Strassen mit der Funktion `distance()` zu berechnen. Plausibilisiere den Output, indem du ihn visualisierst.
 
 ```{r}
 #| output: true
@@ -150,13 +150,13 @@ plot(schutzgebiete_dist)
 
 Jetzt haben wir die Distanzen zu den relevanten Gebieten berechnet. Nun müssen wir diese Distanzen bewerten. Dafür teilen wir die kontinuierlichen Distanzwerte in diskrete Kategorien ein. Wir verwenden für die Aufgabe folgende Einteilung aus der @tbl-bewerungstabelle-distanz.
 
-Um die Klassifizierung durchzuführen, brauchen wir die Function `classify()`. Wie wir aus der Dokumentation der Funktion (mit `?classify`) entnehmen können, gibt es verschiedene Wege, wie wir einen Raster reklassifizieren können (siehe Beschreibung für das Argument `rcl`).  Eine sehr explizite Variante ist, dass wir für `rcl` eine Matrix mit 3 Spalten verwenden. Diese drei Spalten stellen *from*, *to* und *becomes* dar. 
+Um die Klassifizierung durchzuführen, brauchen wir die Function `classify()`. Wie wir aus der Dokumentation der Funktion (mit `?classify`) entnehmen können, gibt es verschiedene Wege, wie wir einen Raster reklassifizieren können (siehe Beschreibung für das Argument `rcl`).  Eine sehr explizite Variante ist, dass wir für `rcl` eine Matrix mit drei Spalten verwenden. Diese drei Spalten stellen *from*, *to* und *becomes* dar. 
 
 Wir könnten diese Tabelle in einem Spreadsheet-Programm schreiben und in R einlesen. Alternativ können wir sie auch "von Hand" in R erstellen. Um in R tabellarische Daten zu schreiben, empfehlen wir die Funktion `tribble()`, welche eine sehr anschauliche Art bietet, Tabellen in R zu generieren. Da `classify` eine Matrix als Input will, müssen wir unser data.frame noch in eine Matrix umwandeln.
 
 ```{r}
 #| output: true
-#| fig-cap: Beispiel Distanzklassen anhand der Strassen
+#| fig-cap: Beispiel Distanzklassen der Strassen
 
 strassen_klassen <- tribble(
   ~von, ~bis, ~zu,
@@ -193,7 +193,7 @@ tm_shape(strassen_classify) +
   tm_lines()
 ```
 
-Bewerte auf die gleiche Art die Distanz zu den Schutzgebieten. Wir nutzen die Schwellenwerte, wie sie in der nachstehenden Tabelle ersichtlich ist (@tbl-bewerungstabelle-distanz). Du kannst diese aber frei wählen.
+Bewerte auf die gleiche Art die Distanz zu den Schutzgebieten. Wir nutzen die Schwellenwerte, wie sie in der nachstehenden Tabelle ersichtlich sind (@tbl-bewerungstabelle-distanz). Du kannst diese aber frei wählen.
 
 ```{r}
 schutzgebiete_klassen <- tribble(
@@ -263,7 +263,7 @@ tm_shape(overlay_prelim_1) +
 
 ## Aufgabe 6: Weighted Raster Overlay {#sec-raster-overlay1b}
 
-Im obigen Raster-Overlay haben wir alle Kriterien gleich stark gewichtet. Wir können aber auch eine gewichtete Verschneidung durchführen: Wenn wir beispielsweise die Distanz zu den Strassen stärker gewichten wollen als die Distanz zu den Schutzgebieten. Auch das ist sehr einfach:
+Im obigen Raster-Overlay haben wir alle Kriterien gleich stark gewichtet. Wir können aber auch eine gewichtete Verschneidung durchführen, wenn wir beispielsweise die Distanz zu den Strassen stärker gewichten wollen als die Distanz zu den Schutzgebieten. Auch das ist sehr einfach:
 
 ```{r}
 #| output: true
