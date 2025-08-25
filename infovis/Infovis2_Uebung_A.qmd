@@ -101,8 +101,13 @@ Nun formatieren wir den Fliesstext mit etwas Markdown Syntax. Stelle zu diesem Z
 
 ```{.markdown}
 ## Kantonsebene
-```
 
+...text
+
+## Gemeindeebene
+
+... text
+```
 
  
 ## Aufgabe 7 (Optional)
@@ -120,9 +125,11 @@ theme_set(theme_classic())
 Rendere das Dokument erneut und schau dir den Output an.
 
 
-## Abgabe 
+## ⚠ Abgabe 
 
-Zippe nun deinen Ordner mit dem RStudio-Projekt, dem Quarto-File und dem PDF-Output und gib es auf Moodle ab.
+:::{.callout-important}
+Zippe nun deinen Projektordner (mit dem Quarto-File und dem PDF-Output) und gib es auf Moodle ab.
+:::
 
 
 
