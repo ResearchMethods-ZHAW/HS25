@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Prepro 3: Übung – Research Methods HS25</title>
+<title>Monitoring – Research Methods HS25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../InfoVis.html" rel="next">
-<link href="../prepro/Prepro3_Demo.html" rel="prev">
+<link href="../fallstudie_s/3_Aufgabenstellung_WPZ.html" rel="next">
+<link href="../fallstudie_s/1_Einführung.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -249,7 +284,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PrePro.html">Pre-Processing</a></li><li class="breadcrumb-item"><a href="../prepro/Prepro3_Uebung.html"><span class="chapter-title">Prepro 3: Übung</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../fallstudie_s/0_Vorbereitung.html">Fallstudie S</a></li><li class="breadcrumb-item"><a href="../fallstudie_s/2_Besuchermonitoring.html"><span class="chapter-title">Monitoring</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -295,11 +330,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="../PrePro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pre-Processing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../prepro/Prepro1_Vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
@@ -335,7 +370,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../prepro/Prepro3_Uebung.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Prepro 3: Übung</span></a>
+  <a href="../prepro/Prepro3_Uebung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Prepro 3: Übung</span></a>
   </div>
 </li>
       </ul>
@@ -370,109 +405,38 @@ ul.task-list li input[type="checkbox"] {
   <a href="../infovis/Infovis1_Script_eda.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 1: Script EDA</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis1_Kovic_2014.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 1: Blogbeitrag Kovic</span></a>
-  </div>
-</li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Demo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Demo</span></a>
+  <a href="../infovis/Infovis2_ggplot_Themes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: ggplot Themes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung</span></a>
+  <a href="../infovis/Infovis2_Quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Quarto</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung optional</span></a>
+  <a href="../infovis/Infovis2_Uebung_A_neu.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../infovis/Infovis2_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Übung optional</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../RaumAn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Räumliche Analysen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman0_Vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
-  </div>
-</li>
-          <li class="px-0"><hr class="sidebar-divider hi "></li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman1_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 1: Übung A</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman1_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 1: Übung B</span></a>
-  </div>
-</li>
-          <li class="px-0"><hr class="sidebar-divider hi "></li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman2_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 2: Übung A</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman2_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 2: Übung B</span></a>
-  </div>
-</li>
-          <li class="px-0"><hr class="sidebar-divider hi "></li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman3_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 3: Übung A</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman3_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 3: Übung B</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman3_Uebung_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 3: Übung C (Optional)</span></a>
-  </div>
-</li>
-          <li class="px-0"><hr class="sidebar-divider hi "></li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman4_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 4: Übung</span></a>
-  </div>
-</li>
-          <li class="px-0"><hr class="sidebar-divider hi "></li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman5_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 5: Übung A</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rauman/Rauman5_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 5: Übung B</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Fallstudie S</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fallstudie_s/0_Vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
@@ -482,6 +446,23 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fallstudie_s/1_Einführung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/2_Besuchermonitoring.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Monitoring</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/3_Aufgabenstellung_WPZ.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aufgabenstellung Abschlussbericht</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/4_Projektierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Projek erstellen</span></a>
   </div>
 </li>
       </ul>
@@ -501,16 +482,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1">Aufgabe 1</a></li>
-  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2">Aufgabe 2</a></li>
-  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3">Aufgabe 3</a></li>
-  <li><a href="#aufgabe-4" id="toc-aufgabe-4" class="nav-link" data-scroll-target="#aufgabe-4">Aufgabe 4</a></li>
-  <li><a href="#aufgabe-5" id="toc-aufgabe-5" class="nav-link" data-scroll-target="#aufgabe-5">Aufgabe 5</a></li>
-  <li><a href="#aufgabe-6" id="toc-aufgabe-6" class="nav-link" data-scroll-target="#aufgabe-6">Aufgabe 6</a></li>
-  <li><a href="#aufgabe-7" id="toc-aufgabe-7" class="nav-link" data-scroll-target="#aufgabe-7">Aufgabe 7</a></li>
-  <li><a href="#aufgabe-8" id="toc-aufgabe-8" class="nav-link" data-scroll-target="#aufgabe-8">Aufgabe 8</a></li>
-  <li><a href="#aufgabe-9" id="toc-aufgabe-9" class="nav-link" data-scroll-target="#aufgabe-9">Aufgabe 9</a></li>
-  <li><a href="#aufgabe-10" id="toc-aufgabe-10" class="nav-link" data-scroll-target="#aufgabe-10">Aufgabe 10</a></li>
+  <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung">Einführung</a></li>
+  <li><a href="#ziele" id="toc-ziele" class="nav-link" data-scroll-target="#ziele">Ziele</a></li>
+  <li><a href="#grundlagen" id="toc-grundlagen" class="nav-link" data-scroll-target="#grundlagen">Grundlagen</a></li>
+  <li><a href="#auswertung" id="toc-auswertung" class="nav-link" data-scroll-target="#auswertung">Auswertung</a>
+  <ul class="collapse">
+  <li><a href="#aufgabe-1-vorarbeiten" id="toc-aufgabe-1-vorarbeiten" class="nav-link" data-scroll-target="#aufgabe-1-vorarbeiten">Aufgabe 1: Vorarbeiten</a></li>
+  <li><a href="#aufgabe-2-darstellung-in-r" id="toc-aufgabe-2-darstellung-in-r" class="nav-link" data-scroll-target="#aufgabe-2-darstellung-in-r">Aufgabe 2: Darstellung in R</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -518,9 +497,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PrePro.html">Pre-Processing</a></li><li class="breadcrumb-item"><a href="../prepro/Prepro3_Uebung.html"><span class="chapter-title">Prepro 3: Übung</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../fallstudie_s/0_Vorbereitung.html">Fallstudie S</a></li><li class="breadcrumb-item"><a href="../fallstudie_s/2_Besuchermonitoring.html"><span class="chapter-title">Monitoring</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Prepro 3: Übung</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">Monitoring</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li></ul></div></div>
 </div>
 
 
@@ -537,187 +516,195 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="aufgabe-1" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
-<p>Gegeben sei ein Datensatz <em>sensors_combined.csv</em> mit den Temperaturwerten von drei verschiedenen Sensoren. Importiere ihn als csv in R (als <code>sensors_combined</code>).</p>
-<p>Formatiere die <code>Datetime</code> Spalte in <code>POSIXct</code> um. Verwende dazu die Funktion <code>as.POSIXct</code> (lies mit <code>?strftime()</code> nochmal nach, wie du das spezifische Format (die “Schablone”) festlegen kannst).</p>
+<section id="einführung" class="level2">
+<h2 class="anchored" data-anchor-id="einführung">Einführung</h2>
+<p>Es gibt eine Vielzahl an möglichen Methoden zur Erfassung der Besuchszahlen. Automatische Zählgeräte bieten die Möglichkeit, lange und durchgehende Zeitreihen zu erfassen. Inputs dazu, wie diese ausgewertet werden können, erhält ihr in dieser Aufgabe.</p>
+<p><img src="images/gruental.jpg" class="img-fluid" style="width:50.0%"></p>
 </section>
-<section id="aufgabe-2" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h2>
-<p>Überführe die Tabelle in ein <em>langes</em> Format (verwende dazu die Funktion <code>pivot_longer</code> aus <code>tidyr</code>) und speichere den output als <code>sensors_long</code>.</p>
-<p>Tipp:</p>
+<section id="ziele" class="level2">
+<h2 class="anchored" data-anchor-id="ziele">Ziele</h2>
+<ol type="1">
+<li><p>Ihr könnt das eingesetzte Zählgerät installieren und kennt die Vor- und Nachteile verschiedener Methoden.</p></li>
+<li><p>Ihr könnt die generierten Daten explorativ und deskriptiv auswerten.</p></li>
+</ol>
+</section>
+<section id="grundlagen" class="level2">
+<h2 class="anchored" data-anchor-id="grundlagen">Grundlagen</h2>
+<p>Die Geräte werden gemeinsam auf dem Campus Grüntal platziert.</p>
+<p>Datenschutz ist ein wichtiges Thema. Die eingesetzten Geräte erfassen keine Personendaten, sondern nur Bewegungen. Es handelt sich um Pyroelektrische Infrarotsensoren, welche auf den Temperaturunterschied reagieren, wenn sich eine Person vor der Linse bewegt. Insofern handelt es sich, vereinfacht gesagt, um Bewegungsmelder.</p>
+</section>
+<section id="auswertung" class="level1">
+<h1>Auswertung</h1>
+<p><strong>Bearbeitung NACH den Felderhebungen</strong></p>
+<section id="aufgabe-1-vorarbeiten" class="level3">
+<h3 class="anchored" data-anchor-id="aufgabe-1-vorarbeiten">Aufgabe 1: Vorarbeiten</h3>
+<p>Oftmals möchte man direkt mit den Auswertungen in R beginnen, weiss aber selbst noch nicht genau, was eigentlich dargestellt werden soll. Darum macht es Sinn, einen Schritt zurückzutreten und sich zuerst konzeptionell zu überlegen, was mit den Daten eigentlich dargestellt werden soll.</p>
 <ul>
-<li>im Argument <code>cols</code> kannst du entweder die Spalten auflisten, die “pivotiert” werden sollen.</li>
-<li>Alternativ kannst du (mit vorangestelltem Minuszeichen, <code>-</code>) die Spalte bezeichnen, die <em>nicht</em> pivotiert werden soll.</li>
-<li>In beiden Fällen musst du die Spalten weder mit Anführungs- und Schlusszeichen noch mit dem <code>$</code>-Zeichen versehen.</li>
+<li><p>Überlegt euch mögliche Darstellungsformen für <strong>1. die Anzahl Passagen pro Richtung und Standort</strong>, <strong>2. den Verlauf der Zählungen pro Tag über die gesamte Untersuchungsdauer</strong> und <strong>3. die Unterschiede Werktag und Wochenende</strong> am untersuchten Standort.</p></li>
+<li><p><strong>Skizziert eure Ideen</strong> mittels Stift und Papier (oder digital) in Kleingruppen.</p></li>
+<li><p>Individuelle Besprechung der Ideen und anschliessende Umsetzung in R.</p></li>
 </ul>
 </section>
-<section id="aufgabe-3" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-3">Aufgabe 3</h2>
-<p>Gruppiere <code>sensors_long</code> nach der neuen Spalte, wo die Sensor-Information enthalten ist (default: <code>name</code>) mit <code>group_by</code> und berechne den Mittelwert der Temperatur pro Sensor (<code>summarise</code>). Hinweis: Beide Funktionen sind Teil des Packages <code>dplyr</code>.</p>
-<p>Der Output sieht folgendermassen aus:</p>
+<section id="aufgabe-2-darstellung-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="aufgabe-2-darstellung-in-r">Aufgabe 2: Darstellung in R</h3>
+<p>R bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz zur Hand und visualisiert eure Ideen mit R.</p>
+<p>Untenstehend sind einige Ideen zur Umsetzung:</p>
+<section id="daten-einlesen-und-vorbereiten" class="level4">
+<h4 class="anchored" data-anchor-id="daten-einlesen-und-vorbereiten">Daten einlesen und Vorbereiten</h4>
 <div class="cell">
-<pre><code>## # A tibble: 3 × 2
-##   name    temp_mean
-##   &lt;chr&gt;       &lt;dbl&gt;
-## 1 sensor1      14.7
-## 2 sensor2      12.0
-## 3 sensor3      14.4</code></pre>
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## benötigte Bibliothek laden</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># zuerst muss diese installiert sein. folgende Zeile müsst ihr nur das erste Mal ausführen</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readr")</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># WENN installiert, DANN laden</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>) <span class="co"># zum Einlesen von .csv-Dateien mit read_delim</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Datensatz einlesen</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># dabei speichere ich ihn gleich als Variable ab.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>outdoor <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/fallstudie_s/Felderhebungen/Besuchszahlen_Gruental.csv"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Datum und Uhrzeit</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># das Datum und die Uhrzeit sind in einer Spalte gespeichert. </span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># R liest das als "Buchstaben" ein. Wir definieren es als Datum mit as.POSIXct aus base R</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># dies ist eine mächtige Funktion, welche auch im späteren Verlauf der Fallstudie noch</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># eine wichtige Rolle spielen wird. </span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Damit sie funktioniert, ist es wichtig, dass das Format so eingegeben wird, </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># wie es im .csv ersichtlich ist.</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>outdoor<span class="sc">$</span>DatumUhrzeit <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(outdoor<span class="sc">$</span>DatumUhrzeit, <span class="at">format =</span> <span class="st">"%d.%m.%Y %H:%M"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># d = Tag</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># m = Monat</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Y = Jahr</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># H = Stunde</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># M = Minute</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># prüfen des Aufaus Datensaz</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(outdoor)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># hat es im Datensatz noch fehlende Werte?</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(outdoor)) <span class="co"># Falls "0", dann gibt es keine NA's im Datendatz</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="co"># falls es noch NA hat, dann müssen diese entfernt werden</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>outdoor <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(outdoor)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="aufgabe-4" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-4">Aufgabe 4</h2>
-<p>Erstelle für <code>sensors_long</code> eine neue <em>convenience</em> Variabel <code>month</code>, welche den Monat beinhaltet (Tipp: verwende dazu die Funktion <code>month</code> aus <code>lubridate</code>). Gruppiere nun nach <code>month</code> <em>und</em> Sensor und berechne den Mittelwert der Temperatur.</p>
-</section>
-<section id="aufgabe-5" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-5">Aufgabe 5</h2>
-<p>Importiere die Datei <em>sensor_fail.csv</em> in <code>R</code>.</p>
-<p><code>sensor_fail.csv</code> hat eine Variabel <code>SensorStatus</code>: <code>1</code> bedeutet der Sensor misst, <code>0</code> bedeutet der Sensor misst nicht. Fälschlicherweise wurde auch dann der Messwert <code>Temp = 0</code> erfasst, wenn <code>Sensorstatus = 0</code>. Richtig wäre hier <code>NA</code> (not available). Korrigiere den Datensatz entsprechend.</p>
+<section id="anzahl-passagen-pro-richtung-und-standort" class="level4">
+<h4 class="anchored" data-anchor-id="anzahl-passagen-pro-richtung-und-standort">1. Anzahl Passagen pro Richtung und Standort</h4>
 <div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Sensor</th>
-<th style="text-align: right;">Temp</th>
-<th style="text-align: right;">Hum_%</th>
-<th style="text-align: left;">Datetime</th>
-<th style="text-align: right;">SensorStatus</th>
-<th style="text-align: right;">Temp_correct</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Sen102</td>
-<td style="text-align: right;">0.6</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">16102017_1800</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sen102</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: left;">17102017_1800</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sen102</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: left;">18102017_1800</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sen102</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">86</td>
-<td style="text-align: left;">19102017_1800</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sen102</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">23102017_1800</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sen102</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">24102017_1800</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sen102</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: left;">25102017_1800</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.0</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sen103</td>
-<td style="text-align: right;">-0.3</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: left;">26102017_1800</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Sen103</td>
-<td style="text-align: right;">-0.7</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">27102017_1800</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.7</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Sen103</td>
-<td style="text-align: right;">-1.2</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">28102017_1800</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-1.2</td>
-</tr>
-</tbody>
-</table>
-</div>
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Berechnen der Anzahl Passagen, pro Richtung</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(outdoor<span class="sc">$</span>IN)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Wiederholung von diesem Befehl für die weiteren Standorte / Richtungen</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Berechnung der Anzahl Passagen pro Standort insgesamt</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># in der Funktion sum können weitere Operationen ausgeführt werden</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(outdoor<span class="sc">$</span>IN <span class="sc">+</span> outdoor<span class="sc">$</span>OUT)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
-<section id="aufgabe-6" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-6">Aufgabe 6</h2>
-<p>Warum spielt es eine Rolle, ob <code>0</code> oder <code>NA</code> erfasst wird? Berechne den Mittelwert der Temperatur / Feuchtigkeit nach der Korrektur.</p>
-</section>
-<section id="aufgabe-7" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-7">Aufgabe 7</h2>
-<p>Lade jetzt nochmal den Datensatz <em>weather.csv</em> (Quelle MeteoSchweiz) herunter und importiere ihn als CSV mit den korrekten Spaltentypen (<code>stn</code> als <code>factor</code>, <code>time</code> als <code>POSIXct</code>, <code>tre200h0</code> als <code>double</code>).</p>
-</section>
-<section id="aufgabe-8" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-8">Aufgabe 8</h2>
-<p>Erstelle nun eine <em>convenience Variable</em> für die Kalenderwoche pro Messung (<code>lubridate::week</code>). Berechne im Anschluss den Mittelwert der Temperatur pro Kalenderwoche.</p>
-<p>Visualisiere im Anschluss das Resultat:</p>
-<p><img src="Prepro3_Uebung_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
-</section>
-<section id="aufgabe-9" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-9">Aufgabe 9</h2>
-<p>In der vorherigen Aufgabe haben wir den Mittelwert der Temperatur pro Kalenderwoche über <em>alle Jahre</em> (2000 und 2001) berechnet. Wenn wir die Jahre aber miteinander vergleichen wollen, müssen wir das Jahr als zusätzliche <em>convenience Variable</em> erstellen und danach gruppieren. Versuche dies mit den Wetterdaten und visualisiere den Output anschliessend.</p>
+<section id="verlauf-der-zählungen-pro-tag-über-die-gesamte-untersuchungsdauer" class="level4">
+<h4 class="anchored" data-anchor-id="verlauf-der-zählungen-pro-tag-über-die-gesamte-untersuchungsdauer">2. Verlauf der Zählungen pro Tag über die gesamte Untersuchungsdauer</h4>
 <div class="cell">
-<div class="cell-output-display">
-<div id="fig-baseplot-ex7" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-baseplot-ex7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="Prepro3_Uebung_files/figure-html/fig-baseplot-ex7-1.png" class="img-fluid figure-img" width="672">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-baseplot-ex7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;7.1: baseplot mag keine long tables und macht aus den beiden Jahren eine kontinuierliche Linie
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="aufgabe-10" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-10">Aufgabe 10</h2>
-<p>Überführe den Output aus der letzten Übung in eine <em>wide table</em>. Nun lassen sich die beiden Jahre viel besser miteinander vergleichen.</p>
-<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Berechnung der Anzahl Passagen / Tag</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># zuerst müssen wir noch das Datum in einer eigenen Spalte speichern</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>outdoor<span class="sc">$</span>Datum <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(outdoor<span class="sc">$</span>DatumUhrzeit, <span class="at">format=</span><span class="st">"%Y-%m-%d"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># mit Base R</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>outdoor_d <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(IN <span class="sc">+</span> OUT <span class="sc">~</span> Datum, <span class="at">data =</span> outdoor, sum)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(outdoor_d)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"Passagen_pro_Tag"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># oder dann mit der library dplyr aus dem tidyverse universe</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --&gt; das Ergebnis ist dasselbe, der Weg unterscheidet sich. Ich zeige beide Methoden, da wir später </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># sehr viel mit tidyverse arbeiten werden. Die Inputs dazu am morgen folgen aber erst später.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>outdoor_d <span class="ot">&lt;-</span> outdoor <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Datum) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Passagen_pro_Tag =</span> <span class="fu">sum</span>(IN <span class="sc">+</span> OUT))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Grafische Darstellung des Verlaufs</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Ich verwende hier eine Funktion, in welcher alle Befehle zusammen durchgeführt werden. </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># So stelle ich sicher, dass die zweite Linie dem ersten, vor mir spezifizierten Plot hinzugefügt wird.</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plot_passages <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># zeige zuerst outdoor, Punkte und Linien</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(outdoor_d<span class="sc">$</span>Datum, outdoor_d<span class="sc">$</span>Passagen_pro_Tag, </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> <span class="st">"b"</span>, </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>, </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"firebrick3"</span>, </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Datum"</span>, </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab =</span> <span class="st">"Anzahl Passagen pro Tag"</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># und eine Legende</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Outdoor"</span>),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>         <span class="at">col=</span><span class="fu">c</span>(<span class="st">"firebrick3"</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># führe die funktion aus</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_passages</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Prepro3_Uebung_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="2_Besuchermonitoring_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section id="unterschiede-werktag-und-wochenende" class="level4">
+<h4 class="anchored" data-anchor-id="unterschiede-werktag-und-wochenende">3. Unterschiede Werktag und Wochenende</h4>
+<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Hinzufügen des Wochentags aufgrund Datum</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>outdoor_d<span class="sc">$</span>weekday_status <span class="ot">&lt;-</span> <span class="fu">weekdays</span>(outdoor_d<span class="sc">$</span>Datum) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Samstag"</span>, <span class="st">"Sonntag"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Kuchendiagramm der Anzahl Passagen für Werktag und Wochenende</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># erstelle zuerst die einzelnen "Stücke", welche in Diagramm dargestellt werden sollen</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>slieces <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">sum</span>(outdoor_d<span class="sc">$</span>Passagen_pro_Tag[outdoor_d<span class="sc">$</span>weekday_status<span class="sc">==</span><span class="st">"TRUE"</span>]),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sum</span>(outdoor_d<span class="sc">$</span>Passagen_pro_Tag[outdoor_d<span class="sc">$</span>weekday_status<span class="sc">==</span><span class="st">"FALSE"</span>]))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># definiere die lables</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>lbls <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Wochenende"</span>, <span class="st">"Werktag"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># erstelle den Plot</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(slieces, </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> lbls, </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"outdoor"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"firebrick3"</span>, <span class="st">"lightblue"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2_Besuchermonitoring_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>–&gt; Erklärt dem Plenum nächste Woche was ihr gemacht habt, was eure Daten zeigen und präsentiert eure Daratellungen. </strong></p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1186,13 +1173,13 @@ Abbildung&nbsp;7.1: baseplot mag keine long tables und macht aus den beiden Jahr
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../prepro/Prepro3_Demo.html" class="pagination-link" aria-label="Prepro 3: Demo">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Prepro 3: Demo</span></span>
+      <a href="../fallstudie_s/1_Einführung.html" class="pagination-link" aria-label="Einführung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Einführung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../InfoVis.html" class="pagination-link" aria-label="InfoVis">
-        <span class="nav-page-text">InfoVis</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../fallstudie_s/3_Aufgabenstellung_WPZ.html" class="pagination-link" aria-label="Aufgabenstellung Abschlussbericht">
+        <span class="nav-page-text"><span class="chapter-title">Aufgabenstellung Abschlussbericht</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
