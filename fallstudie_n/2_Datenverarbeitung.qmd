@@ -90,6 +90,8 @@ Verschiedene Dinge werden beim Einlesen wohl nicht auf Anhieb funktionieren oder
   - → Befehle mutate und rename, mit pipes (alt: `%>%`, neu: `|>`) in einem Schritt möglich
 
 ```{r}
+#| eval: false
+
 # .#################################################################################
 # 2. DATENVORVERARBEITUNG #####
 # .#################################################################################
@@ -150,17 +152,19 @@ Das Learning daraus ist, dass beim Erfassen und Dokumentieren von Daten aus vers
 Zusammenführen der Teildatensätze zu einem Datensatz
 
 ```{r}
+#| eval: false
 df_gesamt <- bind_rows(df_team1, df_team2, df_team3, df_team4, df_team5)
 ```
 
 ## Aufgabe 3
 
-Verbinden (join) des Datensatzes der Felderhebungen mit dem Datensatz der LIDAR Variablen in den Reh-Kreisen (Aufgabe3_LIDAR_Waldstruktur_Reh_Kreise_241011.csv). 
+Verbinden (join) des Datensatzes der Felderhebungen mit dem Datensatz der LIDAR Variablen in den Reh-Kreisen (Aufgabe3_LIDAR_Waldstruktur_Reh_Kreise_251013.csv). 
 
 **Ziel: ein Datensatz mit allen Kreisen der Felderhebung, angereichert mit den Umweltvariablen Understory und Overstory aus den LIDAR-Daten (DG_us_2022, DG_os_2022) aus dem LIDAR-Waldstruktur-Datensatz.** 
 --> Welche Art von join? Welche Spalten zum Verbinden (join_by()) der Datensätze
 
 ```{r}
+#| eval: false
 df_with_LIDAR <- left_join(df_gesamt, df_lidar, join_by(X == x, Y == y))
 ```
 
@@ -172,6 +176,7 @@ Im LiDAR Datensatz gibt es dieselben Variablen der Waldstruktur aus der LiDAR-Be
 
 
 ```{r}
+#| eval: false
 # .#####################################################################################
 # 4. VISUALISERUNG #####
 # .#####################################################################################
