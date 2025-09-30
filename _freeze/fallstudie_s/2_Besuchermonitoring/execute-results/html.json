@@ -1,0 +1,17 @@
+{
+  "hash": "8e57c7c3e6a3147b25d646fdb005133a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nlesson: Besuchermonitoring\nthema: Felderhebungen Grüental\nexecute: \n  echo: false   # set to true to show musterlösung\n  output: false\ncode-fold: true  # set false to show all code\ncode-summary: \"Musterlösung\"\nknitr:\n  opts_chunk: \n    collapse: true\n---\n\n# Monitoring\n\n\n## Einführung\n\nEs gibt eine Vielzahl an möglichen Methoden zur Erfassung der Besuchszahlen. Automatische Zählgeräte bieten die Möglichkeit, lange und durchgehende Zeitreihen zu erfassen. Inputs dazu, wie diese ausgewertet werden können, erhält ihr in dieser Aufgabe.\n\n![](images/gruental.jpg){width=50%}\n\n\n## Ziele\n\n1. Ihr könnt das eingesetzte Zählgerät installieren und kennt die Vor- und Nachteile verschiedener Methoden.\n\n2. Ihr könnt die generierten Daten explorativ und deskriptiv auswerten.\n\n\n## Grundlagen\n\nDie Geräte werden gemeinsam auf dem Campus Grüntal besichtigt. \n\nDatenschutz ist ein wichtiges Thema. Die eingesetzten Geräte erfassen keine Personendaten, sondern nur Bewegungen. Es handelt sich um Pyroelektrische Infrarotsensoren, welche auf den Temperaturunterschied reagieren, wenn sich eine Person vor der Linse bewegt. Insofern handelt es sich, vereinfacht gesagt, um Bewegungsmelder.\n\n\n# Auswertung\n\n__Bearbeitung NACH den Felderhebungen__\n\n\n\n\n### Aufgabe 1: Vorarbeiten\n\nOftmals möchte man direkt mit den Auswertungen in R beginnen, weiss aber selbst noch nicht genau, was eigentlich dargestellt werden soll. Darum macht es Sinn, einen Schritt zurückzutreten und sich zuerst konzeptionell zu überlegen, was mit den Daten eigentlich dargestellt werden soll.\n\n- Überlegt euch mögliche Darstellungsformen für __1. die Anzahl Passagen pro Richtung und Standort__, __2. den Verlauf der Zählungen pro Tag über die gesamte Untersuchungsdauer__ und __3. die Unterschiede Werktag und Wochenende__ am untersuchten Standort.\n\n- __Skizziert eure Ideen__ mittels Stift und Papier (oder digital).\n\n- Individuelle Besprechung der Ideen und anschliessende Umsetzung in R.\n \n\n### Aufgabe 2: Darstellung in R\n\nR bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz zur Hand und visualisiert eure Ideen mit R. \n\nUntenstehend sind einige Ideen zur Umsetzung:\n\n#### Daten einlesen und Vorbereiten\n\n\n::: {.cell}\n\n:::\n\n\n\n#### 1. Anzahl Passagen pro Richtung und Standort\n\n\n::: {.cell}\n\n:::\n\n\n#### 2. Verlauf der Zählungen pro Tag über die gesamte Untersuchungsdauer\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2_Besuchermonitoring_files/figure-html/unnamed-chunk-3-1.png){width=672}\n:::\n:::\n\n\n\n#### 3. Unterschiede Werktag und Wochenende\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](2_Besuchermonitoring_files/figure-html/unnamed-chunk-4-1.png){width=672}\n:::\n:::\n\n\n\n__--> Erklärt dem Plenum nächste Woche was ihr gemacht habt, was eure Daten zeigen und präsentiert eure Darstellungen. __\n",
+    "supporting": [
+      "2_Besuchermonitoring_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
