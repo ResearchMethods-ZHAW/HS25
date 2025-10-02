@@ -55,7 +55,7 @@ Oftmals möchte man direkt mit den Auswertungen in R beginnen, weiss aber selbst
 
 ### Aufgabe 2: Darstellung in R
 
-R bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz zur Hand und visualisiert eure Ideen mit R. 
+R bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz (siehe Moodle) zur Hand und visualisiert eure Ideen mit R. 
 
 Untenstehend sind einige Ideen zur Umsetzung:
 
