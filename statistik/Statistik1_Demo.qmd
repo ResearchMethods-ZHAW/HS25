@@ -51,7 +51,8 @@ ggplot(blume, aes(x = size)) +
 
 ### Zweiseitiger t-Test
 
-Links der Tilde ("~") steht immer die abhängige Variable, rechts die erklärende(n) Variable(n)
+Links der Tilde ("~") steht immer die abhängige Variable, rechts die 
+erklärende(n) Variable(n)
 
 ```{r}
 # Alternativ kann man die Werte auch direkt in die t.test()-Funktion eingeben:
@@ -83,7 +84,8 @@ t.test(size ~ cultivar, data = blume) # dasselbe wie var.equal = FALSE
 
 ### Gepaarter t-Test
 
-Gepaarter t-Test: erster Wert von a wird mit erstem Wert von b gepaart, zweiter Wert von a mit zweitem von b ect.
+Gepaarter t-Test: erster Wert von a wird mit erstem Wert von b gepaart, 
+zweiter  Wert von a mit zweitem von b ect.
 
 ```{r}
 # für gepaarten t-Test funktioniert Notation "size ~ cultivar" nicht (mehr)
@@ -106,15 +108,18 @@ binom.test(123, 200, p = 0.5)
 ```
 
 
-Alternativ können auch die Anzahl gewählter Manner und Frauen übergeben werden. Die erste Zahl wird als Anzahl der Erfolge definiert die Stichprobengrösse wird autmoatisch ausgerechnet
+Alternativ können auch die Anzahl gewählter Manner und Frauen übergeben werden. 
+Die erste Zahl wird als Anzahl der Erfolge definiert die Stichprobengrösse wird 
+autmoatisch ausgerechnet
 
 ```{r}
 binom.test( c(123, 77), p = 0.5) 
 
-# Entspricht die Anzahl Kandidatinnen (≙ 41 %; Stand 2023) dem Anteil Frauen in der Bevölkerung 
+# Entspricht die Anzahl Kandidatinnen (≙ 41 %; Stand 2023) dem Anteil Frauen 
+# in der Bevölkerung ?
 binom.test( c(2399, 3500), p = 0.5) 
 
-# Entspricht der Anteil gewählter Frauen dem Anteil kandidierender Frauen
+# Entspricht der Anteil gewählter Frauen dem Anteil kandidierender Frauen ?
 binom.test(77, 200, p = 0.407) 
 ```
 
@@ -153,7 +158,8 @@ ggplot(blume, aes(cultivar, size)) +
   theme_classic()
 ```
 
-Definieren von mytheme mit allen gewünschten Settings, das man zu Beginn einer Sitzung einmal laden und dann immer wieder ausführen kann
+Definieren von mytheme mit allen gewünschten Settings, das man zu Beginn einer 
+Sitzung einmal laden und dann immer wieder ausführen kann
 
 ```{r}
 # Eigenes Theme erstellen
@@ -164,7 +170,8 @@ mytheme <-
         axis.title = element_text(size = 15, color = "black"), 
         axis.ticks = element_line(linewidth = 0.8, color = "black"), 
         axis.ticks.length = unit(0.2, "cm"),
-        axis.title.y = element_text(vjust = 2.5)
+        axis.title.y = element_text(vjust = 2.5),
+        plot.margin = margin(t = 5.5, r = 5.5, b = 5.5, l = 7)
         )
 ```
 
@@ -178,7 +185,7 @@ ggplot(blume, aes(cultivar, size)) +
 t_test <- t.test(size ~ cultivar, blume)
 
 ggplot(blume, aes(cultivar, size)) + 
-  geom_boxplot(size = 1, width = 0.5) + 
+  geom_boxplot(color = "black", size = 1, width = 0.5) + 
   labs(x = "Cultivar", y = "Size [cm]") +
   stat_summary(fun = mean, geom = "point", size = 3) +
     annotate("text", x = 2, y = 24,
