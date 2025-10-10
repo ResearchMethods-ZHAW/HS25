@@ -68,9 +68,11 @@ kormoran$Jahreszeit
 ```{r}
 # Explorative Datenanalyse
 # (Check auf Normalverteilung der Residuen und Varianzhomogenitaet)
+library(ggplot2)
+
 ggplot(kormoran, aes( interaction(Jahreszeit, Unterart), Tauchzeit)) +
   geom_boxplot() +
-  theme_classic()
+  theme_bw()
 ```
 
 Wegen der Asymmetrie der Boxen könnte man eine log-Transformation ausprobieren.
@@ -108,7 +110,6 @@ aov_2 <- aov(Tauchzeit ~ Unterart + Jahreszeit, data = kormoran)
 aov_2
 summary(aov_2)
 summary.lm(aov_2)
-
 ```
 
 Im so vereinfachten Modell sind alle verbleibenden Terme signifikant, wir sind also beim „minimal adäquaten Modell“ angelangt
@@ -126,7 +127,7 @@ plot(aov_2)
 ```{r}
 #| eval: false
 
-influence.measures(aov_2) #
+influence.measures(aov_2)
 # kann man sich zusätzlich zum "plot" ansehen, um herauszufinden,
 # ob es evtl. sehr einflussreiche Werte mit Cook's D von 1 oder grösser gibt
 ```
@@ -149,8 +150,7 @@ Da wir keine Interaktion zwischen Unterart und Jahreszeit festgestellt haben, br
 ```{r}
 ggplot(kormoran, aes(x = Unterart, y = Tauchzeit)) +
   geom_boxplot() +
-  theme_classic()
-
+  theme_bw()
 
 library("multcomp")
 letters <- cld(glht(aov_2, linfct = mcp(Jahreszeit = "Tukey")))
@@ -159,7 +159,7 @@ ggplot(kormoran, aes(x = Jahreszeit, y = Tauchzeit)) +
   geom_boxplot() +
   geom_text(aes(x = Jahreszeit, y = max(kormoran$Tauchzeit) + 1.5,
                 label = letters$mcletters$Letters[Jahreszeit])) +
-  theme_classic()
+  theme_bw()
 ```
 
 Jetzt brauchen wir noch die Mittelwerte bzw. Effektgroessen
@@ -179,4 +179,3 @@ kormoran |>
 
 :::
 :::: 
-
