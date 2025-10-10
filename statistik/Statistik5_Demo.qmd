@@ -211,7 +211,7 @@ glm_binomial_2 <- update( glm_binomial, .~.-sex:ldose)
 drop1(glm_binomial_2, test = "Chisq")
 
 # Validate Model
-check_model(glm_binomial_2)
+library(DHARMa)
 set.seed(123)
 simulateResiduals(glm_binomial_2, plot = TRUE, n = 1000)
 
