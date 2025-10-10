@@ -22,6 +22,3 @@ packages <- c("agricolae", "car", "coin", "corrplot", "DHARMa", "doBy", "factoex
 ipak(packages)
 ```
 
-
-
-

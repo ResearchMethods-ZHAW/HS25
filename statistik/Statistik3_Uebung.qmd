@@ -35,6 +35,7 @@ Der Datensatz enthält Informationen über die Sparquoten in 50 Ländern:
 
 Du sollst nun untersuchen, ob und wie Sparquote von den anderen drei Variablen abhängt. Teste für jede erklärende Variable einzeln auf lineare und quadratische Zusammenhänge. Stelle die Ergebnisse grafisch dar und verfasse einen ausformulierten Methoden- und Ergebnisteil.
 
+
 :::: {.content-hidden unless-meta="musterloesung"}
 ::: callout-note
 ## Lösung Übung 3

@@ -22,7 +22,7 @@ library(ggplot2)
 
 ```{r}
 # Datensatz zum Einfluss von Stickstoffdepositionen auf den Pflanzenartenreichtum
-df <- read_delim("datasets/stat/Nitrogen.csv", ";")
+df <- read_delim("datasets/stat/Nitrogen.csv", delim = ";")
 summary(df)
 
 # Plotten der Beziehung
