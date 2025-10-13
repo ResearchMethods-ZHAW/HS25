@@ -2,14 +2,15 @@
 lesson: Besuchermonitoring
 thema: Felderhebungen Grüental
 execute: 
-  echo: false   # set to true to show musterlösung
-  output: false
-code-fold: true  # set false to show all code
+  echo: true   # set to true to show musterlösung
+  output: true
+code-fold: false  # set false to show all code
 code-summary: "Musterlösung"
 knitr:
   opts_chunk: 
     collapse: true
 ---
+
 
 # Monitoring
 
@@ -19,7 +20,6 @@ knitr:
 Es gibt eine Vielzahl an möglichen Methoden zur Erfassung der Besuchszahlen. Automatische Zählgeräte bieten die Möglichkeit, lange und durchgehende Zeitreihen zu erfassen. Inputs dazu, wie diese ausgewertet werden können, erhält ihr in dieser Aufgabe.
 
 ![](images/gruental.jpg){width=50%}
-
 
 ## Ziele
 
@@ -55,7 +55,7 @@ Oftmals möchte man direkt mit den Auswertungen in R beginnen, weiss aber selbst
 
 ### Aufgabe 2: Darstellung in R
 
-R bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz zur Hand und visualisiert eure Ideen mit R. 
+R bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz (siehe Moodle) zur Hand und visualisiert eure Ideen mit R. 
 
 Untenstehend sind einige Ideen zur Umsetzung:
 
@@ -189,5 +189,3 @@ pie(slieces,
     col = c("firebrick3", "lightblue"))
 ```
 
-
-__--> Erklärt dem Plenum nächste Woche was ihr gemacht habt, was eure Daten zeigen und präsentiert eure Darstellungen. __

@@ -2,8 +2,8 @@
 lesson: RaumAn4
 thema: Morans I
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -15,7 +15,7 @@ knitr:
 
 Heute berechnen wir Morans $I$, also ein globales Mass für Autokorrelation, für die Abstimmungsresultate der Zweitwohnungsinitiative. Dieser Wert beschreibt, ob Kantone, die nahe beieinanderliegen, ähnliche Abstimmungswerte haben. Hierfür verwenden wir den Datensatz *zweitwohnungsinitiative.gpkg*.
 
-Das Geopackage beinhaltet 3 Layers (siehe `st_layers(zweitwohnung_kanton)`). In jedem Layer sind die Abstimmungsresultate auf eine andere politische Ebene aggregiert. Wir starten mit der Aggregationsstufe "kanton".
+Das Geopackage beinhaltet drei Layers (siehe `st_layers(zweitwohnung_kanton)`). In jedem Layer sind die Abstimmungsresultate auf eine andere politische Ebene aggregiert. Wir starten mit der Aggregationsstufe "kanton".
 
 ```{r}
 #| echo: true
@@ -56,7 +56,7 @@ $$
 \end{aligned}
 $$ {#eq-morans-i}
 
-<span style="color:#FF0000">Rot</span> markiert entpricht der Summe der gewichtetn Ähnlichkeitsmatrix aus der Vorlesung. Alles <span style="color:#00FFFF">blaue</span> ist relativ trivial und dient lediglich der Normalisierung auf die Werte -1 bis +1. Die Begriffe `zaehler1`, `nenner1` usw. sind die Variablen, die wir in R für die jeweiligen Berechnungen nutzen werden und dienen lediglich der Orientierung. Zudem gilt: 
+<span style="color:#FF0000">Rot</span> markiert entpricht der Summe der gewichteten Ähnlichkeitsmatrix aus der Vorlesung. Alles <span style="color:#00FFFF">blaue</span> ist relativ trivial und dient lediglich der Normalisierung auf die Werte -1 bis +1. Die Begriffe `zaehler1`, `nenner1` usw. sind die Variablen, die wir in R für die jeweiligen Berechnungen nutzen werden und dienen lediglich der Orientierung. Zudem gilt: 
 
 - $n$: Anzahl räumliche Objekte (hier: 26 Kantone)
 - $y$: die untersuchte Variabel (hier: Ja-Anteil in %)

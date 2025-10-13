@@ -18,19 +18,20 @@ knitr:
 
 ```{r}
 # Packete laden
-library("tidyverse")
-library("sjPlot")
-library("car")
 library("lme4")
-library("glmmTMB")
-library("performance")
-library("DHARMa")
 ```
 
+```{r}
+library("readr")
+library("ggplot2")
+```
 
 ## Repeated measurement
 
-Es handelt sich um einen Düngeversuch (Daten aus Lepš & Šmilauer 2020). 18 Pflanzenindividuen wurden zufällig einer von drei Düngevarianten zugewiesen und dabei zu vier Zeitpunkten ihre Wuchshöhe gemessen. Abhängigkeiten sind hier in zwei Aspekten vorhanden: einerseits wurde jedes Pflanzenindividuum mehrfach gemessen, andererseits hat es nur jeweils eine Düngervariante erhalten
+Es handelt sich um einen Düngeversuch (Daten aus Lepš & Šmilauer 2020). 18 Pflanzenindividuen wurden zufällig einer von drei Düngevarianten zugewiesen und 
+dabei zu vier Zeitpunkten ihre Wuchshöhe gemessen. Abhängigkeiten sind hier in 
+zwei Aspekten vorhanden: einerseits wurde jedes Pflanzenindividuum mehrfach 
+gemessen, andererseits hat es nur jeweils eine Düngervariante erhalten
 
 ```{r}
 # Daten laden
@@ -42,45 +43,68 @@ summary(plantf)
 table(plantf$Treatment, plantf$PlantID)
 
 # Mit aov
-pf_eaov <- aov(PlantHeight ~ Treatment * Time  + Error(PlantID), data = plantf)
+pf_eaov <- aov(PlantHeight ~ Treatment * Time + Error(PlantID), data = plantf)
 summary(pf_eaov)
 
 # Als lmm 
+library("glmmTMB")
 pf_lmm <- glmmTMB(PlantHeight ~ Treatment * Time + (1 | PlantID), 
                  family = gaussian, 
                  REML = TRUE,
                  data = plantf)
 
+library("car")
 Anova(pf_lmm)
+
 summary(pf_lmm)
+
+library("performance")
 r2(pf_lmm)
 
 
-
 # Modellvalidierung mit DHARMa
+library("DHARMa")
 set.seed(123)
-simulationOutput <- simulateResiduals(fittedModel = pf_lmm, plot = TRUE, n = 1000)
+simulationOutput <- 
+  simulateResiduals(fittedModel = pf_lmm, plot = TRUE, n = 1000)
 # Plot residuals vs. covariates des models
 plotResiduals(simulationOutput, form = plantf$Time)
 plotResiduals(simulationOutput, form = plantf$Treatment) 
 
 
 # Darstellung (Interaktions Plot)
+
+# Mit funktion sjPlot
+library("sjPlot")
 plot_model(pf_lmm, 
-           type = "pred", pred.type = "re",
+           type = "pred",
            terms = c("Time", "Treatment") ) +
   theme_classic()
+
+
+# oder von Hand
+library("ggeffects")
+pred <- ggpredict(pf_lmm, terms = c("Time", "Treatment")) 
+
+plot(pred) +
+  theme_classic() +
+  theme(plot.title = element_blank())
 ```
 
 
 ## Split-plot Design
 
-Es wurden zufällig fünf Untersuchungsgebiete (sites) ausgewählt, in denen jeweils der gleiche Versuchsblock implementiert wurde, bestehend aus dem Management (treatment) und der Frage, ob wilde Grossherbivoren Zugang zur Fläche hatten (plot type) (Abb. 6.1). Je ein Drittel jeder Untersuchungsfläche (zufällig zugewiesen) blieb gänzlich ungenutzt(U), wurde zu Beginn kontrolliert abgebrannt und danach sich selbst überlassen (B) oder wurde jährlich gemäht (M). Innerhalb jedes Drittels wiederum wurde (zufällig zugewiesen) die Hälfte eingezäunt (F = fenced vs. O = open), um die Beweidung durch Grossherbivoren zu verhindern.
+Es wurden zufällig fünf Untersuchungsgebiete (sites) ausgewählt, in denen 
+jeweils der gleiche Versuchsblock implementiert wurde, bestehend aus dem 
+Management (treatment) und der Frage, ob wilde Grossherbivoren Zugang zur Fläche hatten (plot type) (Abb. 6.1). Je ein Drittel jeder Untersuchungsfläche 
+(zufällig zugewiesen) blieb gänzlich ungenutzt(U), wurde zu Beginn kontrolliert abgebrannt und danach sich selbst überlassen (B) oder wurde jährlich gemäht (M). Innerhalb jedes Drittels wiederum wurde (zufällig zugewiesen) die Hälfte 
+eingezäunt (F = fenced vs. O = open), um die Beweidung durch Grossherbivoren zu verhindern.
 
 
 ```{r}
 # Import Data
-glex <- read_delim("datasets/stat/Riesch_et_al_2020_grassland.csv", delim = ";") |>
+glex <- 
+  read_delim("datasets/stat/Riesch_et_al_2020_grassland.csv", delim = ";") |>
   mutate(across(where(is.character), as.factor))
 
 str(glex)
@@ -88,7 +112,7 @@ glex$year <- as.factor(glex$year)
 summary(glex)
 
 table(glex$site_code, glex$treatment, glex$plot_type, glex$year)
-# balanced Design
+# balanced Design (nicht zwingend nötig für lmm)
 ```
 
 
@@ -129,25 +153,33 @@ r2(lmm_4)
 
 # Modellvalidierung 
 set.seed(123)
-simulationOutput <- simulateResiduals(fittedModel = lmm_4, plot = TRUE, n = 1000)
+simulationOutput <- 
+  simulateResiduals(fittedModel = lmm_4, plot = TRUE, n = 1000)
 # Plot residuals vs. covariates des models
 plotResiduals(simulationOutput, form = glex$year)
 plotResiduals(simulationOutput, form = glex$treatment)
 plotResiduals(simulationOutput, form = glex$plot_type)
 
+#Checkcen ob keine Daten unter 0 gefittet wurden
+
 # Darstellung
-plot_model(lmm_4, 
-           type = "pred", pred.type = "re", 
-           terms = c("year", "treatment", "plot_type") ) +
-  theme_classic()
+library("ggeffects")
+pred_2 <- ggpredict(lmm_4, terms = c("year", "treatment", "plot_type") ) 
+
+plot(pred_2) +
+  theme_classic() +
+  theme(plot.title = element_blank())
 ```
 
 ## Random slope & random intercept
 
-Im folgenden Beispiel wurde bei 18 Versuchspersonen die Wirkung von zunehmenden Schlafentzug auf die Reaktionszeit (in ms) gemessen. Bei jeder Versuchsperson wurde der Effekt an den Tagen 2–9 des Versuchs je einmal gemessen (Tage 0 und 1 sind die Trainingsphase und bleiben daher unberücksichtigt).
+Im folgenden Beispiel wurde bei 18 Versuchspersonen die Wirkung von zunehmenden Schlafentzug auf die Reaktionszeit (in ms) gemessen. Bei jeder Versuchsperson 
+wurde der Effekt an den Tagen 2–9 des Versuchs je einmal gemessen (Tage 0 und 1 
+sind die Trainingsphase und bleiben daher unberücksichtigt).
 
 ```{r}
 # Daten laden
+library(lme4)
 data(sleepstudy)
 ?sleepstudy
 
@@ -166,30 +198,61 @@ ggplot(sleepstudy_2, aes(y = Reaction, x = Days)) +
   geom_smooth(method = "lm", formula = 'y ~ x', se = F, fullrange = T) +
   theme_classic() +
   facet_wrap(~Subject)
+
 ```
 
-Wie man in der Visualisierung sehen kann, unterscheiden sich nicht nur die Intercepts (Reaktionszeit ohne Schlafmangel), sondern der Schlafmangel scheint sich auch unterschiedlich stark auf die Reaktionszeit der Probanden auszuwirken. In diesem Fall ist es daher sinnvoll, nicht nur einen Random Intercept, sondern auch einen Random Slope zu fitten.
+Wie man in der Visualisierung sehen kann, unterscheiden sich nicht nur die 
+Intercepts (Reaktionszeit ohne Schlafmangel), sondern der Schlafmangel scheint 
+sich auch unterschiedlich stark auf die Reaktionszeit der Probanden auszuwirken. 
+In diesem Fall ist es daher sinnvoll, nicht nur einen Random Intercept, sondern 
+auch einen Random Slope zu fitten.
 
 ```{r}
-# Fit model
-lmm_1 <- glmmTMB(Reaction ~ Days + (Days | Subject),
+# Fit models
+
+# Random slope
+lmm_1 <- glmmTMB(Reaction ~ Days + (1 | Subject),
+                 family = gaussian,
+                 REML = FALSE,
+                 data = sleepstudy_2)
+
+# Random slope + random intercept
+lmm_2 <- glmmTMB(Reaction ~ Days + (Days | Subject),
+                 family = gaussian,
+                 REML = FALSE,
+                 data = sleepstudy_2)
+
+# Model vergleich mit AICc
+compare_performance(lmm_1, lmm_2, lmm_5, lmm_4)
+
+
+# Model mit tieferen AICc mit REML refitten
+lmm_3 <- update(lmm_2, REML = TRUE)
+
+lmm_4 <- glmmTMB(Reaction ~ scale(Days) + (Days | Subject),
                  family = gaussian,
                  REML = TRUE,
                  data = sleepstudy_2)
 
-summary(lmm_1)
-r2(lmm_1)
-
 # Modellvalidierung
 set.seed(123)
-simulationOutput <- simulateResiduals(fittedModel = lmm_1, plot = TRUE, n = 1000)
+simulationOutput <- simulateResiduals(fittedModel = lmm_4, plot = TRUE, n = 1000)
 plotResiduals(simulationOutput, form = sleepstudy_2$Days)
 
+# Model resultat
+summary(lmm_3)
+summary(lmm_4)
+
+r2(lmm_3)
+r2(lmm_4)
+
+
 # Visualisierung
-plot_model(lmm_1, 
-           type = "pred", pred.type = "re",
+plot_model(lmm_4, 
+           type = "pred",
            show.data = TRUE) +
   theme_classic()
+
 ```
 
 ## GLMM
@@ -223,6 +286,8 @@ glmm_1 <- glmmTMB(Ecervi ~ scale(Length) * Sex + (1 | Farm),
 
 car::Anova(glmm_1)
 drop1(glmm_1, test = "Chi")
+drop1(glmm_1)
+
 
 summary(glmm_1)
 r2(glmm_1)

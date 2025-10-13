@@ -13,7 +13,6 @@ knitr:
 
 # Einführung
 
-
 ## Hintergrund
 
 Das rund 1100 ha grosse Naturschutzgebiet Wildnispark Zürich Sihlwald, welches im periurbanen Raum südlich von Zürich liegt, gilt seit dem 1. Januar 2010 als erster national anerkannter Naturerlebnispark. Er ist Teil des Wildnisparks Zürich (WPZ) und wichtiges Naherholungsgebiet für die Stadt Zürich.

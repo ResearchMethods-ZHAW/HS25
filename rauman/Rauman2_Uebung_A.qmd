@@ -2,8 +2,8 @@
 lesson: RaumAn2
 thema: Vector Data
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -66,7 +66,7 @@ baeume_20m <- st_buffer(baeume_sample, 20)
 
 ```{r}
 #| output: true
-#| fig-cap: Dargestellt sind die Bäume als Punkte mit einem 20m Puffer, sowie die Wiesen im Hintergrund.
+#| fig-cap: Dargestellt sind die Bäume als Punkte mit einem 20m Puffer sowie die Wiesen im Hintergrund.
 #| label: fig-buffer1
 
 ggplot() +
@@ -77,7 +77,7 @@ ggplot() +
 
 ## Aufgabe 2
 
-Berechnen nun die Schnittmenge aus `baeume_20m` und `wiesen` mit der Funktion `st_intersection` und speichere den Output als `baeume_wiesen`. Exploriere nun `baeume_wiesen`. Was ist passiert? Überprüfe die Anzahl Zeilen pro Datensatz. Haben die sich verändert? Wenn ja, warum?
+Berechnen nun die Schnittmenge aus `baeume_20m` und `wiesen` mit der Funktion `st_intersection` und speichere den Output als `baeume_wiesen`. Exploriere nun `baeume_wiesen`. Was ist passiert? Überprüfe die Anzahl Zeilen pro Datensatz. Haben diese sich verändert? Wenn ja, warum?
 
 ```{r}
 #| output: true
@@ -127,7 +127,7 @@ ggplot() +
 
 ## Aufgabe 5 {#sec-raster-intro1}
 
-Nun habt ihr ein paar Vektoroperationen wie `st_buffer()`, `st_intersection()` und `st_area()` durchgeführt. Gewisse Fragen lassen sich aber besser in der Raster-Welt beantworten. Wollen wir beispielsweise für jeden Punkt im Raum wissen, wie weit der nächstgelegene Baum ist, lässt sich das besser in einem Raster darstellen.
+Nun habt ihr ein paar Vektor-Operationen wie `st_buffer()`, `st_intersection()` und `st_area()` durchgeführt. Gewisse Fragen lassen sich aber besser in der Raster-Welt beantworten. Wollen wir beispielsweise für jeden Punkt im Raum wissen, wie weit der nächstgelegene Baum ist, lässt sich das besser in einem Raster darstellen.
 
 Bevor wir die Frage aber beantworten können, müssen wir den Vektordatensatz in ein Rasterdatensatz konvertieren. Dafür wiederum braucht es ein Raster "Template", damit R in etwa weiss, wie der Raster-Output auszusehen hat. 
 

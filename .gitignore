@@ -32,3 +32,5 @@ datasets/raw
 
 /.quarto/
 
+
+**/*.quarto_ipynb

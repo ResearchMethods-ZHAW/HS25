@@ -13,7 +13,7 @@ knitr:
 
 # Infovis 1: Übung {#sec-infovis1}
 
-In dieser Übung geht es darum, die Grafiken aus dem Blog-post @kovic2014 zu rekonstruieren. Der ursprüngliche Blogpost ist nicht mehr verfügbar, wir haben deshalb eine Kopie hier gehostet: 
+In dieser Übung geht es darum, die Grafiken aus dem Blogpost von @kovic2014 zu rekonstruieren. Der ursprüngliche Blogpost ist nicht mehr verfügbar, wir haben deshalb eine Kopie hier gehostet: 
 
 @sec-kovic2014
 

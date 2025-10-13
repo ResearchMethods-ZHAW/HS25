@@ -2,8 +2,8 @@
 lesson: RaumAn2
 thema: Einführung Rasterdaten
 execute: 
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -13,7 +13,7 @@ knitr:
 
 # Rauman 2: Übung B {#sec-raster-intro}
 
-In [der letzten Übung](#sec-raster-intro1) habt ihr nun eine erste Erfahrung mit Raster Daten gemacht. Dabei haben wir zuerst einen Vektordatensatz rasterisiert. Häufig arbeiten wir aber mit Geodaten, die bereits im Rasterformat erfasst werden. 
+In [der letzten Übung](#sec-raster-intro1) habt ihr nun eine erste Erfahrung mit Rasterdaten gemacht. Dabei haben wir zuerst einen Vektordatensatz rasterisiert. Häufig arbeiten wir aber mit Geodaten, die bereits im Rasterformat erfasst werden. 
 
 ## Aufgabe 1
 
@@ -56,7 +56,7 @@ Um einen schnellen Überblick eines Rasterdatensatz zu erhalten, können wir ein
 plot(dhm_schwyz)
 ```
 
-Leider ist das Verwenden von `Rastern` in ggplot nicht sehr einfach. Da `ggplot` ein universelles Plot-Framework ist, stossen wir schnell an die Grenzen des Möglichen, wenn wir etwas so Spezielles wie Karten erstellen. Mit `plot` können wir zwar sehr schnell plotten, aber auch hier stossen wir schnell an Grenzen.
+Leider ist das Verwenden von Rastern in `ggplot` nicht sehr einfach. Da `ggplot` ein universelles Plot-Framework ist, stossen wir schnell an die Grenzen des Möglichen, wenn wir etwas so Spezielles wie Karten erstellen. Mit `plot` können wir zwar sehr schnell plotten, aber auch hier stossen wir schnell an Grenzen.
 
 Aus diesem Grund werden wir ein neues Plot-Framework einführen, das auf Karten spezialisiert ist und in einem sehr ähnlichen Design wie ggplot gebaut wurde: `tmap`. Laden Sie dieses Paket jetzt in Ihre Session:
 
@@ -70,7 +70,7 @@ library("tmap")
 Genau wie `ggplot` basiert `tmap` auf der Idee von "Ebenen", die durch ein `+` verbunden sind. Jede Ebene hat zwei Komponenten:
 
 - eine Datensatzkomponente, die immer `tm_shape(dataset)` ist (ersetzen Sie `dataset` durch Ihre Variable)
-- eine Geometriekomponente, die beschreibt, wie das vorangegangene `tm_shape()` visualisiert werden soll. Dies kann `tm_dots()` für Punkte, `tm_polygons()` für Polygone, `tm_lines()` für Linien usw. sein. Für Einzelbandraster (was bei `dhm_schwyz` der Fall ist) ist es `tm_raster()`
+- eine Geometriekomponente, die beschreibt, wie das vorangegangene `tm_shape()` visualisiert werden soll. Dies kann `tm_dots()` für Punkte, `tm_polygons()` für Polygone, `tm_lines()` für Linien usw. sein. Für Einzelbandraster (was bei `dhm_schwyz` der Fall ist) ist es `tm_raster()`.
 
 ```{r}
 #| output: true
@@ -94,7 +94,7 @@ tm_shape(dhm_schwyz) +
   tm_raster(col.scale = tm_scale_continuous())
 ```
 
-Das sieht schon ziemlich toll aus, aber vielleicht wollen wir die Standard-Farbpalette ändern. Ein nettes GUI, die einem die Auswahl der Farben erleitern soll, erhält ihr mit dem Befehl `cols4all::c4a_gui()`.
+Das sieht schon ziemlich toll aus, aber vielleicht wollen wir die Standard-Farbpalette ändern. Ein nettes GUI, das einem die Auswahl der Farben erleichtern soll, erhält ihr mit dem Befehl `cols4all::c4a_gui()`.
 
 ```{r}
 #| output: true
@@ -116,6 +116,12 @@ tmap_mode("view") # wechselt auf interakive Plots
 
 tm_shape(dhm_schwyz) +
   tm_raster(col.scale = tm_scale_continuous(values = "brewer.spectral"))
+```
+
+
+```{r}
+#| echo: true
+#| code-fold: false
 
 tmap_mode("plot") # wechselt zurück auf statische Plots
 ```
@@ -156,7 +162,7 @@ Um einen Hillshading Effekt zu erzeugen, berechne zuerst `slope` und `aspect` vo
 
 ```{r}
 #| output: true
-#| fig-cap: Für diese Visualisierung verwende ich `tmap` und als die Farbpalette `values = "matplotlib.cividis"`.
+#| fig-cap: Für diese Visualisierung verwende ich `tmap` und als Farbpalette `values = "matplotlib.cividis"`.
 
 dhm_slope <- terrain(dhm_schwyz, "slope", unit = "radians")
 dhm_aspect <- terrain(dhm_schwyz, "aspect", unit = "radians")

@@ -66,7 +66,7 @@ book:
       - infovis/Infovis1_Script_eda.qmd
       - infovis/Infovis1_Kovic_2014.qmd
       - --
-      - infovis/Infovis2_Quarto.qmd
+      - infovis/Infovis2_Demo.qmd
       - infovis/Infovis2_Uebung_A.qmd
       - infovis/Infovis2_Uebung_B.qmd
     # - part: Statistik.qmd
@@ -88,41 +88,41 @@ book:
     #   - statistik/Statistik7_Uebung.qmd      
     #   - statistik/Statistik8_Demo.qmd
     #   - statistik/Statistik8_Uebung.qmd        
-    # - part: RaumAn.qmd
-    #   chapters:
-    #   - rauman/Rauman0_Vorbereitung.qmd
-    #   - --
-    #   - rauman/Rauman1_Uebung_A.qmd
-    #   - rauman/Rauman1_Uebung_B.qmd
-    #   - --
-    #   - rauman/Rauman2_Uebung_A.qmd
-    #   - rauman/Rauman2_Uebung_B.qmd
-    #   - --
-    #   - rauman/Rauman3_Uebung_A.qmd
-    #   - rauman/Rauman3_Uebung_B.qmd
-    #   - rauman/Rauman3_Uebung_C.qmd
-    #   - --
-    #   - rauman/Rauman4_Uebung_A.qmd
-    #   - --
-    #   - rauman/Rauman5_Uebung_A.qmd
-    #   - rauman/Rauman5_Uebung_B.qmd
+    - part: RaumAn.qmd
+      chapters:
+      - rauman/Rauman0_Vorbereitung.qmd
+      - --
+      - rauman/Rauman1_Uebung_A.qmd
+      - rauman/Rauman1_Uebung_B.qmd
+      - --
+      - rauman/Rauman2_Uebung_A.qmd
+      - rauman/Rauman2_Uebung_B.qmd
+      - --
+      - rauman/Rauman3_Uebung_A.qmd
+      - rauman/Rauman3_Uebung_B.qmd
+      - rauman/Rauman3_Uebung_C.qmd
+      - --
+      - rauman/Rauman4_Uebung_A.qmd
+      - --
+      - rauman/Rauman5_Uebung_A.qmd
+      - rauman/Rauman5_Uebung_B.qmd
     - part: "Fallstudie S"
       chapters:
       - fallstudie_s/0_Vorbereitung.qmd
       - --
       - fallstudie_s/1_Einführung.qmd
-      # - fallstudie_s/2_Besuchermonitoring.qmd
-      # - --
-      # - fallstudie_s/3_Aufgabenstellung_WPZ.qmd
-      # - --
-      # - fallstudie_s/4_Projektierung.qmd
+      - fallstudie_s/2_Besuchermonitoring.qmd
+      - --
+      - fallstudie_s/3_Aufgabenstellung_WPZ.qmd
+      - --
+      - fallstudie_s/4_Projektierung.qmd
     #   - fallstudie_s/5_Datenverarbeitung.qmd
     #   - fallstudie_s/6_Deskriptive_Analysen.qmd
     #   - fallstudie_s/7_Multivariate_Modelle.qmd
-    # - part: "Fallstudie N"
-    #   chapters:
-    #   - fallstudie_n/1_Vorbemerkung.qmd
-    #   - fallstudie_n/2_Datenverarbeitung.qmd
+    - part: "Fallstudie N"
+      chapters:
+      - fallstudie_n/1_Vorbemerkung.qmd
+      - fallstudie_n/2_Datenverarbeitung.qmd
     #   - fallstudie_n/3_Berechnung_Homeranges.qmd
     #   - fallstudie_n/4_Multivariate_Modelle.qmd
     #   - fallstudie_n/5_Variablenselektion.qmd
