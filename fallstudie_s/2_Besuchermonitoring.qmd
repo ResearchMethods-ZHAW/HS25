@@ -3,8 +3,8 @@ lesson: Besuchermonitoring
 thema: Felderhebungen Grüental
 execute: 
   echo: true   # set to true to show musterlösung
-  output: false
-code-fold: true  # set false to show all code
+  output: true
+code-fold: false  # set false to show all code
 code-summary: "Musterlösung"
 knitr:
   opts_chunk: 
