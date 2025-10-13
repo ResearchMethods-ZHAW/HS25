@@ -11,6 +11,7 @@ knitr:
     collapse: true
 ---
 
+
 # Monitoring
 
 
@@ -19,7 +20,6 @@ knitr:
 Es gibt eine Vielzahl an möglichen Methoden zur Erfassung der Besuchszahlen. Automatische Zählgeräte bieten die Möglichkeit, lange und durchgehende Zeitreihen zu erfassen. Inputs dazu, wie diese ausgewertet werden können, erhält ihr in dieser Aufgabe.
 
 ![](images/gruental.jpg){width=50%}
-
 
 ## Ziele
 
@@ -189,5 +189,3 @@ pie(slieces,
     col = c("firebrick3", "lightblue"))
 ```
 
-
-__--> Erklärt dem Plenum nächste Woche was ihr gemacht habt, was eure Daten zeigen und präsentiert eure Darstellungen. __
