@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -604,17 +639,123 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="aufgabe-2-darstellung-in-r" class="level3">
 <h3 class="anchored" data-anchor-id="aufgabe-2-darstellung-in-r">Aufgabe 2: Darstellung in R</h3>
-<p>R bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz zur Hand und visualisiert eure Ideen mit R.</p>
+<p>R bietet sehr viele Optionen zur Analyse und zur Darstellung der Daten. Nehmt bitte den bereitgestellten Datensatz (siehe Moodle) zur Hand und visualisiert eure Ideen mit R.</p>
 <p>Untenstehend sind einige Ideen zur Umsetzung:</p>
 <section id="daten-einlesen-und-vorbereiten" class="level4">
 <h4 class="anchored" data-anchor-id="daten-einlesen-und-vorbereiten">Daten einlesen und Vorbereiten</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## benötigte Bibliothek laden</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># zuerst muss diese installiert sein. folgende Zeile müsst ihr nur das erste Mal ausführen</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readr")</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># WENN installiert, DANN laden</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>) <span class="co"># zum Einlesen von .csv-Dateien mit read_delim</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Datensatz einlesen</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># dabei speichere ich ihn gleich als Variable ab.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>outdoor <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/fallstudie_s/Felderhebungen/Besuchszahlen_Gruental.csv"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Datum und Uhrzeit</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># das Datum und die Uhrzeit sind in einer Spalte gespeichert. </span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># R liest das als "Buchstaben" ein. Wir definieren es als Datum mit as.POSIXct aus base R</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># dies ist eine mächtige Funktion, welche auch im späteren Verlauf der Fallstudie noch</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># eine wichtige Rolle spielen wird. </span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Damit sie funktioniert, ist es wichtig, dass das Format so eingegeben wird, </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># wie es im .csv ersichtlich ist.</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>outdoor<span class="sc">$</span>DatumUhrzeit <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(outdoor<span class="sc">$</span>DatumUhrzeit, <span class="at">format =</span> <span class="st">"%d.%m.%Y %H:%M"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># d = Tag</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># m = Monat</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Y = Jahr</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># H = Stunde</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># M = Minute</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># prüfen des Aufaus Datensaz</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(outdoor)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="do">## spc_tbl_ [312 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ DatumUhrzeit: POSIXct[1:312], format: "2024-10-02 00:00:00" "2024-10-02 01:00:00" ...</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ IN          : num [1:312] 0 0 0 0 0 0 1 0 2 0 ...</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ OUT         : num [1:312] 0 0 0 0 0 0 0 0 6 1 ...</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="do">##  - attr(*, "spec")=</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="do">##   .. cols(</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="do">##   ..   DatumUhrzeit = col_character(),</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="do">##   ..   IN = col_double(),</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="do">##   ..   OUT = col_double()</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="do">##   .. )</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="do">##  - attr(*, "problems")=&lt;externalptr&gt;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co"># hat es im Datensatz noch fehlende Werte?</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(outdoor)) <span class="co"># Falls "0", dann gibt es keine NA's im Datendatz</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 48</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># falls es noch NA hat, dann müssen diese entfernt werden</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>outdoor <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(outdoor)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="anzahl-passagen-pro-richtung-und-standort" class="level4">
 <h4 class="anchored" data-anchor-id="anzahl-passagen-pro-richtung-und-standort">1. Anzahl Passagen pro Richtung und Standort</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Berechnen der Anzahl Passagen, pro Richtung</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(outdoor<span class="sc">$</span>IN)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 612</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Wiederholung von diesem Befehl für die weiteren Standorte / Richtungen</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Berechnung der Anzahl Passagen pro Standort insgesamt</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># in der Funktion sum können weitere Operationen ausgeführt werden</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(outdoor<span class="sc">$</span>IN <span class="sc">+</span> outdoor<span class="sc">$</span>OUT)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1148</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="verlauf-der-zählungen-pro-tag-über-die-gesamte-untersuchungsdauer" class="level4">
 <h4 class="anchored" data-anchor-id="verlauf-der-zählungen-pro-tag-über-die-gesamte-untersuchungsdauer">2. Verlauf der Zählungen pro Tag über die gesamte Untersuchungsdauer</h4>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Berechnung der Anzahl Passagen / Tag</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># zuerst müssen wir noch das Datum in einer eigenen Spalte speichern</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>outdoor<span class="sc">$</span>Datum <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(outdoor<span class="sc">$</span>DatumUhrzeit, <span class="at">format=</span><span class="st">"%Y-%m-%d"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># mit Base R</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>outdoor_d <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(IN <span class="sc">+</span> OUT <span class="sc">~</span> Datum, <span class="at">data =</span> outdoor, sum)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(outdoor_d)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"Passagen_pro_Tag"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># oder dann mit der library dplyr aus dem tidyverse universe</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># --&gt; das Ergebnis ist dasselbe, der Weg unterscheidet sich. Ich zeige beide Methoden, da wir später </span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># sehr viel mit tidyverse arbeiten werden. Die Inputs dazu am morgen folgen aber erst später.</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"dplyr"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>outdoor_d <span class="ot">&lt;-</span> outdoor <span class="sc">%&gt;%</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Datum) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Passagen_pro_Tag =</span> <span class="fu">sum</span>(IN <span class="sc">+</span> OUT))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Grafische Darstellung des Verlaufs</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Ich verwende hier eine Funktion, in welcher alle Befehle zusammen durchgeführt werden. </span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># So stelle ich sicher, dass die zweite Linie dem ersten, vor mir spezifizierten Plot hinzugefügt wird.</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>plot_passages <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># zeige zuerst outdoor, Punkte und Linien</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(outdoor_d<span class="sc">$</span>Datum, outdoor_d<span class="sc">$</span>Passagen_pro_Tag, </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">type =</span> <span class="st">"b"</span>, </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">pch =</span> <span class="dv">19</span>, </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">col =</span> <span class="st">"firebrick3"</span>, </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">xlab =</span> <span class="st">"Datum"</span>, </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">ylab =</span> <span class="st">"Anzahl Passagen pro Tag"</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># und eine Legende</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Outdoor"</span>),</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>         <span class="at">col=</span><span class="fu">c</span>(<span class="st">"firebrick3"</span>), <span class="at">lty =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">cex=</span><span class="fl">0.8</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># führe die funktion aus</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_passages</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -627,6 +768,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="unterschiede-werktag-und-wochenende" class="level4">
 <h4 class="anchored" data-anchor-id="unterschiede-werktag-und-wochenende">3. Unterschiede Werktag und Wochenende</h4>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Hinzufügen des Wochentags aufgrund Datum</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>outdoor_d<span class="sc">$</span>weekday_status <span class="ot">&lt;-</span> <span class="fu">weekdays</span>(outdoor_d<span class="sc">$</span>Datum) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Samstag"</span>, <span class="st">"Sonntag"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Kuchendiagramm der Anzahl Passagen für Werktag und Wochenende</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># erstelle zuerst die einzelnen "Stücke", welche in Diagramm dargestellt werden sollen</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>slieces <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">sum</span>(outdoor_d<span class="sc">$</span>Passagen_pro_Tag[outdoor_d<span class="sc">$</span>weekday_status<span class="sc">==</span><span class="st">"TRUE"</span>]),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>             <span class="fu">sum</span>(outdoor_d<span class="sc">$</span>Passagen_pro_Tag[outdoor_d<span class="sc">$</span>weekday_status<span class="sc">==</span><span class="st">"FALSE"</span>]))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># definiere die lables</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>lbls <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Wochenende"</span>, <span class="st">"Werktag"</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># erstelle den Plot</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(slieces, </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> lbls, </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">main =</span> <span class="st">"outdoor"</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"firebrick3"</span>, <span class="st">"lightblue"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -635,7 +794,6 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p><strong>–&gt; Erklärt dem Plenum nächste Woche was ihr gemacht habt, was eure Daten zeigen und präsentiert eure Darstellungen. </strong></p>
 
 
 </section>
