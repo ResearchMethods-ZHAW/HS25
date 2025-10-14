@@ -128,7 +128,7 @@ Rendere das Dokument erneut und schau dir den Output an.
 ## ⚠ Abgabe 
 
 :::{.callout-important}
-Zippe nun deinen Projektordner (mit dem Quarto-File und dem PDF-Output) und gib es auf Moodle ab.
+Zippe nun deinen Projektordner (mit dem Quarto-File und dem PDF-Output) und gib es auf [Moodle](https://moodle.zhaw.ch/mod/assign/view.php?id=1753877) ab.
 :::
 
 
