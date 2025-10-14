@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.19">
+<meta name="generator" content="quarto-1.7.33">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -34,19 +69,18 @@ ul.task-list li input[type="checkbox"] {
 <link href="../prepro/Prepro1_Demo.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-09dc92c35ed4dbf50aa7677cec3c00d7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-7fb1e60e55bf43cdfa666e432a973b20.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-9b8f6782e2cd455891acfb332edb59df.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -265,8 +299,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
       <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <img src="../images/zhaw_sw_neg.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="../">Research Methods HS25</a> 
@@ -380,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../infovis/Infovis2_Quarto.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Demo</span></a>
+  <a href="../infovis/Infovis2_Demo.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Infovis 2: Demo</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -397,13 +430,84 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Fallstudie S</span></a>
+            <a href="../RaumAn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Räumliche Analysen</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman0_Vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman1_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 1: Übung A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman1_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 1: Übung B</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman2_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 2: Übung A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman2_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 2: Übung B</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman3_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 3: Übung A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman3_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 3: Übung B</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman3_Uebung_C.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 3: Übung C (Optional)</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman4_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 4: Übung</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman5_Uebung_A.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 5: Übung A</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rauman/Rauman5_Uebung_B.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rauman 5: Übung B</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fallstudie S</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fallstudie_s/0_Vorbereitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbereitung</span></a>
@@ -413,6 +517,49 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../fallstudie_s/1_Einführung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einführung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/2_Besuchermonitoring.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Monitoring</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/3_Aufgabenstellung_WPZ.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aufgabenstellung Abschlussbericht</span></a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/4_Projektierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Projek erstellen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_s/5_Datenverarbeitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenverarbeitung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
+ <span class="menu-text">Fallstudie N</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_n/1_Vorbemerkung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vorbemerkung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../fallstudie_n/2_Datenverarbeitung.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Daten(vor)verarbeitung</span></a>
   </div>
 </li>
       </ul>
@@ -450,7 +597,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../PrePro.html">Pre-Processing</a></li><li class="breadcrumb-item"><a href="../prepro/Prepro1_Uebung.html"><span class="chapter-title">PrePro 1: Übung</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">PrePro 1: Übung</span></h1>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-title">PrePro 1: Übung</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li></ul></div></div>
 </div>
 
 
@@ -494,6 +641,18 @@ Wichtig&nbsp;3.1: Prüfungsrelevant
 <section id="aufgabe-1" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-1">Aufgabe 1</h2>
 <p>Erstelle eine <code>data.frame</code> mit nachstehenden Daten.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tierart =</span> <span class="fu">c</span>(<span class="st">"Fuchs"</span>, <span class="st">"Bär"</span>, <span class="st">"Hase"</span>, <span class="st">"Elch"</span>),</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Anzahl =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">3</span>),</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Gewicht =</span> <span class="fu">c</span>(<span class="fl">4.4</span>, <span class="fl">40.3</span>, <span class="fl">1.1</span>, <span class="dv">120</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Geschlecht =</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>, <span class="st">"m"</span>, <span class="st">"m"</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Beschreibung =</span> <span class="fu">c</span>(<span class="st">"Rötlich"</span>, <span class="st">"Braun, gross"</span>, <span class="st">"klein, mit langen Ohren"</span>, <span class="st">"Lange Beine, Schaufelgeweih"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -543,6 +702,23 @@ Wichtig&nbsp;3.1: Prüfungsrelevant
 <section id="aufgabe-2" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h2>
 <p>Was für Datentypen wurden in der letzten Aufgabe automatisch angenommen? Ermittle diese mit <code>str()</code> und prüfe, ob diese sinnvoll sind und wandle um wo nötig.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## 'data.frame':    4 obs. of  5 variables:</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Tierart     : chr  "Fuchs" "Bär" "Hase" "Elch"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Anzahl      : num  2 5 1 3</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Gewicht     : num  4.4 40.3 1.1 120</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Geschlecht  : chr  "m" "f" "m" "m"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Beschreibung: chr  "Rötlich" "Braun, gross" "klein, mit langen Ohren" "Lange Beine, Schaufelgeweih"</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df<span class="sc">$</span>Anzahl)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "double"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Anzahl wurde als `double` interpretiert, ist aber eigentlich ein `integer`.</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Anzahl <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(df<span class="sc">$</span>Anzahl)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="aufgabe-3" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-3">Aufgabe 3</h2>
@@ -552,6 +728,14 @@ Wichtig&nbsp;3.1: Prüfungsrelevant
 <li>mittel: 5 - 100 kg</li>
 <li>schwer: &gt; 100kg</li>
 </ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Gewichtsklasse[df<span class="sc">$</span>Gewicht <span class="sc">&gt;</span> <span class="dv">100</span>] <span class="ot">&lt;-</span> <span class="st">"schwer"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Gewichtsklasse[df<span class="sc">$</span>Gewicht <span class="sc">&lt;=</span> <span class="dv">100</span> <span class="sc">&amp;</span> df<span class="sc">$</span>Gewicht <span class="sc">&gt;</span> <span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">"mittel"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Gewichtsklasse[df<span class="sc">$</span>Gewicht <span class="sc">&lt;=</span> <span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">"leicht"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Das Resultat:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -629,6 +813,15 @@ Hinweis&nbsp;3.1
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"readr"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>wetter <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">"datasets/prepro/weather.csv"</span>, <span class="st">","</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -697,6 +890,13 @@ Hinweis&nbsp;3.1
 <section id="aufgabe-5" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-5">Aufgabe 5</h2>
 <p>Schau dir die Rückmeldung von <code>read_delim()</code> an. Sind die Daten korrekt interpretiert worden?</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Die Spalte 'time' wurde als 'integer' interpretiert. Dabei handelt es</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># sich offensichtlich um Zeitangaben.</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="aufgabe-6" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-6">Aufgabe 6</h2>
@@ -716,6 +916,12 @@ Tipp
 <li><code>as.POSIXct</code> erwartet <code>character</code>: Wenn du eine Fehlermeldung hast, die <code>'origin' must be supplied</code> (o.ä) heisst, hast du der Funktion vermutlich einen <code>Numeric</code> übergeben.</li>
 </ul>
 </div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>wetter<span class="sc">$</span>time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="fu">as.character</span>(wetter<span class="sc">$</span>time), <span class="at">format =</span> <span class="st">"%Y%m%d%H"</span>, <span class="at">tz =</span> <span class="st">"UTC"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -788,6 +994,15 @@ Tipp
 <h2 class="anchored" data-anchor-id="aufgabe-7">Aufgabe 7</h2>
 <p>Erstelle zwei neue Spalten mit Wochentag (Montag, Dienstag, etc) und Kalenderwoche. Verwende dazu die neu erstellte <code>POSIXct</code>-Spalte sowie eine geeignete Funktion aus <code>lubridate</code>.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"lubridate"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>wetter<span class="sc">$</span>wochentag <span class="ot">&lt;-</span> <span class="fu">wday</span>(wetter<span class="sc">$</span>time, <span class="at">label =</span> T)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>wetter<span class="sc">$</span>kw <span class="ot">&lt;-</span> <span class="fu">week</span>(wetter<span class="sc">$</span>time)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <thead>
@@ -804,70 +1019,70 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 00:00:00</td>
 <td style="text-align: right;">-2.6</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 01:00:00</td>
 <td style="text-align: right;">-2.5</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 02:00:00</td>
 <td style="text-align: right;">-3.1</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 03:00:00</td>
 <td style="text-align: right;">-2.4</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 04:00:00</td>
 <td style="text-align: right;">-2.5</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 05:00:00</td>
 <td style="text-align: right;">-3.0</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 06:00:00</td>
 <td style="text-align: right;">-3.7</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 07:00:00</td>
 <td style="text-align: right;">-4.4</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 08:00:00</td>
 <td style="text-align: right;">-4.1</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 09:00:00</td>
 <td style="text-align: right;">-4.1</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 </tr>
 </tbody>
@@ -878,6 +1093,13 @@ Tipp
 <section id="aufgabe-8" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-8">Aufgabe 8</h2>
 <p>Erstelle eine neue Spalte basierend auf den Temperaturwerten mit der Einteilung “kalt” (unter Null Grad) und “warm” (über Null Grad)</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Musterlösung</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wetter<span class="sc">$</span>temp_kat[wetter<span class="sc">$</span>tre200h0 <span class="sc">&gt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="st">"warm"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>wetter<span class="sc">$</span>temp_kat[wetter<span class="sc">$</span>tre200h0 <span class="sc">&lt;=</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="st">"kalt"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -896,7 +1118,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 00:00:00</td>
 <td style="text-align: right;">-2.6</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -904,7 +1126,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 01:00:00</td>
 <td style="text-align: right;">-2.5</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -912,7 +1134,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 02:00:00</td>
 <td style="text-align: right;">-3.1</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -920,7 +1142,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 03:00:00</td>
 <td style="text-align: right;">-2.4</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -928,7 +1150,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 04:00:00</td>
 <td style="text-align: right;">-2.5</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -936,7 +1158,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 05:00:00</td>
 <td style="text-align: right;">-3.0</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -944,7 +1166,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 06:00:00</td>
 <td style="text-align: right;">-3.7</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -952,7 +1174,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 07:00:00</td>
 <td style="text-align: right;">-4.4</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -960,7 +1182,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 08:00:00</td>
 <td style="text-align: right;">-4.1</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
@@ -968,7 +1190,7 @@ Tipp
 <td style="text-align: left;">ABO</td>
 <td style="text-align: left;">2000-01-01 09:00:00</td>
 <td style="text-align: right;">-4.1</td>
-<td style="text-align: left;">Sat</td>
+<td style="text-align: left;">Sa</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">kalt</td>
 </tr>
