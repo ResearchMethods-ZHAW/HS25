@@ -261,7 +261,7 @@ r2(glmm_1)
 ```
 
 ```{r}
-#Modellvalidierung
+# Modellvalidierung
 
 # Area Under the Curve (AUC)
 performance_roc(glmm_1)
@@ -283,7 +283,7 @@ ggplot(pred_3, aes(x, predicted, color = group)) +
   geom_line(linewidth = 1) +
   geom_point(data = DeerEcervi, aes(Length, Ecervi, color = Sex), alpha = 0.5) +
   labs(x = "\n Dear body length [cm]",
-       y = "Predicted probability of Elaphostrongylus cervi infection  \n") +
+       y = "Wahrscheinlichkeiten einer Elaphostrongylus cervi infection \n") +
   theme_classic() +
   theme(plot.title = element_blank())
 ```
