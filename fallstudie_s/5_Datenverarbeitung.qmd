@@ -1,5 +1,5 @@
 ---
-lesson: Datenvorverarbeitung
+lesson: Daten(vor)verarbeitung
 thema: Daten so aufbereiten, dass Analysen durchgeführt werden können
 execute: 
   echo: false   # set to true to show musterlösung
@@ -11,7 +11,7 @@ knitr:
     collapse: true
 ---
 
-# Datenverarbeitung
+# Daten(vor)verarbeitung
 
 ```{r include=FALSE, echo=FALSE}
 # Benoetigte Bibliotheken ####
@@ -60,6 +60,7 @@ KW_end <- isoweek(depo_end)
 # Rule of thumb: Sobald man viele (>5) Objekte mit sehr ähnlichen Namen erstellt, sollte man besser mit Listen oder DataFrames arbeiten
 schulferien <- read_delim("datasets/fallstudie_s/ferien.csv", ",")
 ```
+
 ## Aufgabe 1: Zähldaten
 
 ### 1a)
@@ -68,16 +69,16 @@ Die Projektstruktur steht. Nun können die Daten eingelesen und die nötigen Dat
 
 Lädt die Daten zuerst von Moodle herunter:
 
-- Zähldaten zu eurem Standort (211_sihlwaldstrasse_2017_2024.csv, 502_sihluferweg_2016_2024.csv)
+- Zähldaten zu eurem Standort (211_sihlwaldstrasse_2017_2024.csv, 502_sihluferweg_2016_2024.csv) -> wählt einen aus
 
 - Meteodaten und Legende
 
-Hinweis: Siehe [Einführung] für den Standort der __Zähler 211 und 502__. 
+Hinweis: Siehe [einfuehrung] für den Standort der __Zähler 211 und 502__. 
 
 
 Die Zähldaten des WPZ wurden vorgängig bereinigt (z.B. wurden Stundenwerte entfernt, an denen am Zähler Wartungsarbeiten stattgefunden haben). Das macht es für uns einfach, denn wir können die Daten ohne vorgängige Bereinigung einlesen. Behaltet aber im Hinterkopf, dass die Datenaufbereitung, die Datenbereinigung mit viel Aufwand verbunden ist.
 
-- Lest die Zählaten ein, speichert ihn unter der Variable __depo__ und sichtet den Datensatz (z.B. str(), head(), view() usw.).
+- Lest die Zählaten ein, speichert ihn unter der Variable __depo__ und sichtet den Datensatz (z.B. str(), head(), view() usw.). Ihr könnt den Datensatz in R auch anders benennen. WIchtig sind kurze, "sprechende" Namen für die Variablen.
 
 
 ```{r echo = TRUE, eval=FALSE}
@@ -98,7 +99,7 @@ str(depo)
 
 ### 1b) 
 
-- Nun muss das Datum als solches definiert werden. Ich nutze dazu as.POSIXct(). Welches Format hat das Datum im csv? Das muss im Code angepasst werden.
+- Nun muss das Datum als solches definiert werden. Ich nutze dazu as.POSIXct(), wie schon für die Aufgabe zum Besuchermonitoring Grüntal. Welches Format hat das Datum im csv? Das muss im Code angepasst werden.
 
 ```{r eval=FALSE, echo=TRUE}
 depo <- depo |>
@@ -120,12 +121,12 @@ depo <- depo |>
 
 ### 1c) 
 
-Ihr könnt selbst wählen, ob ihr Fussgänger:innen oder Fahrräder untersuchen wollt (je nachdem ob sie in eurem Datensatz vorhanden sind).
+Ihr könnt selbst wählen, ob ihr Fussgänger:innen oder Fahrräder untersuchen wollt.
 
 - Entfernt die überflüssigen Spalten aus dem Datensatz. Ich schlage vor, dass ihr dafür den Befehl dplyr::select() verwendet.
 - Damit kann man entweder Spalten behalten oder eben auch Spalten entfernen (-c(SPALTENNAMEN)).
 
-Hinweis: mit select() können Spalten gewählt werden, mit filter() Zeilen.
+Hinweis: mit select() können __Spalten__ gewählt werden, mit filter() __Zeilen__.
 
 
 ```{r}
@@ -171,7 +172,9 @@ meteo <- read_delim("datasets/fallstudie_s/order_124839_data.txt", ";")
 
 - Auch hier müssen die Datentypen manuell gesetzt werden. 
 
-Tipp: Das Datum wird als Integer erkannt. Zuerst muss es in Text umgewandelt werden aus dem dann das eigentliche Datum herausgelesen werden kann. Das ist mühsam - darum hier der Code.
+Tipps: 
+- Das Datum wird als Integer erkannt. Zuerst muss es in Text umgewandelt werden aus dem dann das eigentliche Datum herausgelesen werden kann. Das ist mühsam - darum hier der Code.
+- ich nutze hier as.Date() und nicht as.POSIXct. Ersteres ist praktisch nur für das Datum, letzeres für Datetime Objekte.
 
 ```{r echo = TRUE}
 meteo <- mutate(meteo, time = as.Date(as.character(time), "%Y%m%d"))
@@ -179,10 +182,10 @@ meteo <- mutate(meteo, time = as.Date(as.character(time), "%Y%m%d"))
 
 Hinweise:
 
-Die Zeitangaben sind in UTC: 
+Die Zeitangaben bei den Meteodaten sind in UTC: 
 00:40 UTC = 02:40 Sommerzeit = 01:40 Winterzeit, Beispiel: 13 = beinhaltet Messperiode von 12:01 bis 13:00
 
- Da wir mit Tageshöchstwerten oder -summen rechnen, können wir zum Glück ignorieren, dass das nicht mit den Daten der Zählstellen übereinstimmt. Learning: es ist zentral immer die Metadaten zu checken.
+Da wir mit Tageshöchstwerten oder -summen rechnen, können wir zum Glück ignorieren, dass das nicht mit den Daten der Zählstellen übereinstimmt. Learning: es ist zentral immer die Metadaten zu checken.
 
 Was ist eigentlich Niederschlag:
 
@@ -241,9 +244,9 @@ sum(is.na(meteo)) # zeigt die Anzahl NA's im data.frame an
 Jetzt fügen wir viele Convenience Variablen hinzu. Wir brauchen:
 
 1. Wochentag; der Befehl dazu ist __wday()__. Danach als Faktor speichern.
-2. Werktag oder Wochenende, ebebfalls als Faktor. 
+2. Werktag oder Wochenende, ebenfalls als Faktor. 
 
-Der Code dazu könnte so aussehen:
+Der Code dazu könnte in Teilen so aussehen:
 
 ```{r eval=FALSE, echo=TRUE}
   ...|>
@@ -306,7 +309,7 @@ meteo <- meteo |>
 
 Wieder zurück zum depo-Datensazt.
 
-Ich mache den folgenden Punkt nachgelagert zu den voerherigen Convenience Variablen, da zu viele Operationen in einem Schritt auch schon mal etwas durcheinander erzeugen können.
+Ich mache den folgenden Punkt nachgelagert zu den vorherigen Convenience Variablen, da zu viele Operationen in einem Schritt auch schon mal etwas durcheinander erzeugen können.
 
 Phasen der Covid-Pandemie (Code untenstehend). Wir definieren 5 Phasen: 
 
@@ -320,7 +323,7 @@ Phasen der Covid-Pandemie (Code untenstehend). Wir definieren 5 Phasen:
 
 - Später im multivariaten Modell werden die Levels der Variablen per "default" alphabetisch geordnet und die Effektstärken der einzelnen Levels gegenüber dem ersten Level gerechnet. Das macht wenig Sinn, den die Levels sind nicht alphabetisch, sondern gemäss der Liste oben (später mehr dazu). Das passen wir ebenfalls an.
 
-- Hier der Code dazu:
+- Hier der fertige Code dazu:
 
 ```{r echo=TRUE}
 depo <- depo |>
@@ -394,15 +397,12 @@ depo$Fuss_OUT <- as.integer(round(depo$Fuss_OUT, digits = 0))
 
 ### 3d) Tageszeit
 
-Wir setzen den Fokus unserer Untersuchung auf die Veränderung der Besuchszahlen in der Abend- und Morgendämmerung sowie der Nacht. Dafür müssen wir diese tageszeitliche Einteilung der Daten erst machen. Da dies über den Umfang dieser Fallstudie hinaus geht, liefere ich euch hier den Code dazu.
+Wir setzen den Fokus unserer Untersuchung auf die Veränderung der Besuchszahlen in der Abend- und Morgendämmerung sowie der Nacht. Dafür müssen wir diese tageszeitliche Einteilung der Daten erst machen. Da dies über den Umfang dieser Fallstudie hinaus geht, liefere ich euch hier den Code dazu, den ihr kopieren könnt. Beschreibt in eurem Bericht später, dass ihr die Einteilung der Tageszeit gemäss den Dämmerungszeiten in Zürich und gemäss meinem Code gemacht habt.
 
 Die wichtigsten Punkte:
 
 - Die Tageslänge wurde für den Standort Zürich (Zeitzone CET) mit dem Package "suncalc" berechnet. Dabei wurden Sommer- und Winterzeit berücksichtigt.
 - Die Einteilung der Tageszeit beruht auf dem Start und dem Ende der astronomischen Dämmerung sowie der Golden Hour. Der Morgen und der Abend wurden nach dieser Definition berechnet und um je eine Stunde Richtung Tag verlängert. 
-
-- Untenstehenden Code könnt ihr einfach kopieren.
-- Beschreibt in eurem Bericht später, dass ihr die Einteilung der Tageszeit gemäss den Dämmerungszeiten in Zürich und gemäss meinem Code gemacht habt.
 
 Hinweis: damit __case_when()__ funktioniert, müsst ihr  dplyr Version als 1.1.1 oder neuer haben. Das könnt ihr unter "Packages" (neben dem Reiter "Plots", unten rechts) prüfen.
 
@@ -510,7 +510,7 @@ depo_d <- depo_d |>
   mutate(Tage_bis_Neujahr = as.numeric(difftime(ymd(paste0(year(Datum), "-12-31")), Datum, units = "days")))
 ```
 
-- und füge nochmals alle Convenience Variablen gemäss oben ein:
+- und füge nochmals alle Convenience Variablen gemäss oben ein (ihr solltet den Code einfach kopieren können):
 
 ```{r eval=TRUE, echo=TRUE}
 depo_d <- depo_d |>

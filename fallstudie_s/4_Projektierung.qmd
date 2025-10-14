@@ -11,7 +11,7 @@ knitr:
     collapse: true
 ---
 
-# Projek erstellen
+# Projekt erstellen
 
 ## Vorbereitung
 
