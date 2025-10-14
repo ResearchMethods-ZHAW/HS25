@@ -101,12 +101,6 @@ summary(glm_poisson)
 -> Die Outputs von glm_poisson und glm_quasipoisson sind bis auf die p-Werte identisch.
 
 ```{r}
-# evlt rausnehmen da nicht gleich nützlich eifnach wie bei lm
-par(mfrow = c(2, 2))
-plot(glm_quasipoisson, main = "glm_quasipoisson")
-```
-
-```{r}
 ggplot(data = strand, aes(x = Temperatur, y = Besucher)) +
   geom_point() +
   xlim(0, 40) +    
