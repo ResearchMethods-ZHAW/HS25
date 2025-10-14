@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.7.32">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,9 +73,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
@@ -580,14 +580,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#aufgabe-1" id="toc-aufgabe-1" class="nav-link active" data-scroll-target="#aufgabe-1">Aufgabe 1</a></li>
-  <li><a href="#aufgabe-2" id="toc-aufgabe-2" class="nav-link" data-scroll-target="#aufgabe-2">Aufgabe 2</a></li>
-  <li><a href="#aufgabe-3" id="toc-aufgabe-3" class="nav-link" data-scroll-target="#aufgabe-3">Aufgabe 3</a></li>
+  <li><a href="#sec-infovis2-scatterplot" id="toc-sec-infovis2-scatterplot" class="nav-link" data-scroll-target="#sec-infovis2-scatterplot">Aufgabe 2</a></li>
+  <li><a href="#sec-infovis2-aggregate" id="toc-sec-infovis2-aggregate" class="nav-link" data-scroll-target="#sec-infovis2-aggregate">Aufgabe 3</a></li>
   <li><a href="#aufgabe-4" id="toc-aufgabe-4" class="nav-link" data-scroll-target="#aufgabe-4">Aufgabe 4</a></li>
   <li><a href="#aufgabe-5" id="toc-aufgabe-5" class="nav-link" data-scroll-target="#aufgabe-5">Aufgabe 5</a></li>
   <li><a href="#aufgabe-6" id="toc-aufgabe-6" class="nav-link" data-scroll-target="#aufgabe-6">Aufgabe 6</a></li>
-  <li><a href="#aufgabe-7-optional-fortgeschritten" id="toc-aufgabe-7-optional-fortgeschritten" class="nav-link" data-scroll-target="#aufgabe-7-optional-fortgeschritten">Aufgabe 7 (optional, fortgeschritten)</a></li>
-  <li><a href="#aufgabe-8" id="toc-aufgabe-8" class="nav-link" data-scroll-target="#aufgabe-8">Aufgabe 8</a></li>
-  <li><a href="#aufgabe-9" id="toc-aufgabe-9" class="nav-link" data-scroll-target="#aufgabe-9">Aufgabe 9</a></li>
   </ul>
 </nav>
     </div>
@@ -669,8 +666,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Importiere anschliessend den Datensatz <em>temperature_2005_metadata.csv</em> und verbinde die beiden Datensätze mit einem <code>left_join</code> via <code>station</code> (bzw. <code>stn</code>).</p>
 </section>
-<section id="aufgabe-2" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-2">Aufgabe 2</h2>
+<section id="sec-infovis2-scatterplot" class="level2">
+<h2 class="anchored" data-anchor-id="sec-infovis2-scatterplot">Aufgabe 2</h2>
 <p>Erstelle ein Scatterplot (<code>time</code> vs.&nbsp;<code>temperature</code>), wobei die Punkte aufgrund ihrer Meereshöhe eingefärbt werden sollen. Tiefe Werte sollen dabei blau eingefärbt werden und hohe Werte rot (<code>scale_color_gradient</code>). Verkleinere die Punkte, um übermässiges Überplotten der Punkte zu vermeiden (<code>size =</code>). Weiter sollen auf der x-Achse im Abstand von 3 Monaten der jeweilige Monat vermerkt sein (<code>date_breaks</code> bzw. <code>date_labels</code> von <code>scale_x_datetime()</code>).</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -682,14 +679,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="aufgabe-3" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-3">Aufgabe 3</h2>
+<section id="sec-infovis2-aggregate" class="level2">
+<h2 class="anchored" data-anchor-id="sec-infovis2-aggregate">Aufgabe 3</h2>
 <p>Erstelle eine Zusatzvariable <code>Date</code> mit dem Datum der jeweiligen Messung ( mit <code>as.Date</code>). Nutze diese Spalte, um die Tagesmitteltemperatur pro Station zu berechnen (mit <code>summarise()</code>).</p>
-<p>Um die Metadaten (<code>Name</code>, <code>Meereshoehe</code>, <code>x</code>, <code>y</code>) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber auch schwerer zu verstehen) kannst du diese Variablen innerhalb deines <code>group_by</code> verwenden.</p>
+<p>Um die Metadaten (<code>Name</code>, <code>Meereshoehe</code>, <code>x</code>, <code>y</code>) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber weniger intuitiv) kannst du diese Variablen innerhalb deines <code>group_by</code> verwenden.</p>
 </section>
 <section id="aufgabe-4" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-4">Aufgabe 4</h2>
-<p>Wiederhole nun den Plot aus der zweiten Aufgabe mit den aggregierten Daten aus der vorherigen Aufgabe. Um die labels korrekt zu setzen, musst du <code>scale_x_datetime</code> mit <code>scale_x_date</code> ersetzen.</p>
+<p>Wiederhole nun den Plot aus <a href="#sec-infovis2-scatterplot" class="quarto-xref"><span>Aufgabe 2</span></a> mit den aggregierten Daten aus <a href="#sec-infovis2-aggregate" class="quarto-xref"><span>Aufgabe 3</span></a>. Um die labels korrekt zu setzen, musst du <code>scale_x_datetime</code> mit <code>scale_x_date</code> ersetzen.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -725,53 +722,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="aufgabe-7-optional-fortgeschritten" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-7-optional-fortgeschritten">Aufgabe 7 (optional, fortgeschritten)</h2>
-<p>Füge den Temperaturwerten auf der y-Achse ein <code>°C</code> hinzu (siehe unten und studiere <a href="https://stackoverflow.com/a/35967126/4139249">diesen Tipp</a> zur Hilfe).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_B_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="aufgabe-8" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-8">Aufgabe 8</h2>
-<p>Jetzt verlassen wir den Scatterplot und machen einen Boxplot mit den Temperaturdaten. Färbe die Boxplots wieder in Abhängigkeit der Meereshöhe ein.</p>
-<ul>
-<li>Beachte den Unterschied zwischen <code>colour =</code> und <code>fill =</code></li>
-<li>Beachte den Unterschied zwischen <code>facet_wrap()</code> und <code>facet_grid()</code></li>
-<li><code>facet_grid()</code> braucht übrigens noch einen Punkt (<code>.</code>) zur Tilde (<code>~</code>).</li>
-<li>Beachte den Unterschied zwischen “<code>.~</code>” und “<code>~.</code>” bei <code>facet_grid()</code></li>
-<li>verschiebe nach Bedarf die Legende</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_B_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="aufgabe-9" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabe-9">Aufgabe 9</h2>
-<p>Als letzter wichtiger Plottyp noch zwei Übungen zum Histogramm. Erstelle ein Histogramm <code>geom_histogram()</code> mit den Temperaturwerten. Teile dazu die Stationen in verschiedene Höhenlagen ein (Tieflage [&lt; 400 m], Mittellage [400 - 600 m] und Hochlage [&gt; 600 m]). Vergleiche die Verteilung der Temperaturwerte in den verschiedenen Lagen mit einem Histogramm.</p>
-<p>Tipp: Nutze <code>cut</code> um die Stationen in die drei Gruppen aufzuteilen</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Infovis2_Uebung_B_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<!--
+## Aufgabe 7
+
+Jetzt verlassen wir den Scatterplot und machen einen Boxplot mit den Temperaturdaten. Färbe die Boxplots wieder in Abhängigkeit der Meereshöhe ein. 
+
+- Beachte den Unterschied zwischen `colour =` und `fill =`
+- Beachte den Unterschied zwischen `facet_wrap()` und `facet_grid()`
+- `facet_grid()` braucht übrigens noch einen Punkt (`.`) zur Tilde (`~`). 
+- Beachte den Unterschied zwischen "`.~`" und "`~.`" bei `facet_grid()`
+- verschiebe nach Bedarf die Legende
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](Infovis2_Uebung_B_files/figure-html/unnamed-chunk-9-1.png){width=672}
+:::
+:::
+
+
+## Aufgabe 8
+
+Als letzter wichtiger Plottyp noch zwei Übungen zum Histogramm. Erstelle ein Histogramm `geom_histogram()` mit den Temperaturwerten. Teile dazu die  Stationen in verschiedene Höhenlagen ein (Tieflage [< 400 m], Mittellage [400 - 600 m] und Hochlage [> 600 m]). Vergleiche die Verteilung der Temperaturwerte in den verschiedenen Lagen mit einem Histogramm. 
+
+Tipp: Nutze `cut` um die Stationen in die drei Gruppen aufzuteilen
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](Infovis2_Uebung_B_files/figure-html/unnamed-chunk-10-1.png){width=672}
+:::
+:::
+
+-->
 
 
 </section>
