@@ -96,7 +96,7 @@ summary.lm(aov_1)
 ```
 
 ```{r}
-# Modelvalidierung mit Diagnostikplots
+# Modellvalidierung mit Diagnostikplots
 par(mfrow = c(2, 2))
 plot(aov_1)
 ```
@@ -141,6 +141,8 @@ Rechts unten: kein Punkt hat einen problematischen Einfluss (die roten Linien f√
 aov_3 <- aov( log10(Tauchzeit) ~ Unterart + Jahreszeit, data = kormoran)
 aov_3
 summary(aov_3)
+
+par(mfrow = c(2, 2))
 plot(aov_3)
 ```
 
@@ -153,7 +155,7 @@ ggplot(kormoran, aes(x = Unterart, y = Tauchzeit)) +
   theme_bw()
 
 library("multcomp")
-letters <- cld(glht(aov_2, linfct = mcp(Jahreszeit = "Tukey")))
+letters <- cld( glht(aov_2, linfct = mcp(Jahreszeit = "Tukey")))
 
 ggplot(kormoran, aes(x = Jahreszeit, y = Tauchzeit)) +
   geom_boxplot() +

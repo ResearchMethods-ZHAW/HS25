@@ -118,7 +118,7 @@ Da es sich bei Artenzahlen um Zähldaten handelt, müsste man theoretisch
 ein glm mit Poisson-Verteilung rechnen; bei einem Mittelwert, der
 hinreichend von Null verschieden ist (hier: ca. 40), ist eine
 Poisson-Verteilung aber praktisch nicht von einer Normalverteilung zu
-unterscheiden und wir können uns den Aufwand auch sparen).
+unterscheiden und wir können uns den Aufwand auch sparen.
 
 ```{r}
 #| eval: false
@@ -145,7 +145,8 @@ Temperature statt Altitude (weil das der direktere ökologische
 Wirkfaktor ist) und C.org statt N.total zu behalten (weil es in der
 Literatur mehr Daten zum Humusgehalt als zum N-Gehalt gibt, damit eine
 bessere Vergleichbarkeit erzielt wird). Die Aussagen, die wir für die
-beibehaltene Variable erzielen, stehen aber +/- auch für die entfernte.
+beibehaltene Variable erzielen, stehen aber +/- auch für die entfernten 
+Variablen.
 
 ```{r}
 #| include: false

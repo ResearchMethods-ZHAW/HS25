@@ -135,9 +135,6 @@ chisq.test(AGsocks) # Chi-Quadrat-Test nur zum anschauen
 fisher.test(AGsocks) # "Fisher's Exact Test for Count Data"
 ```
 
-### Ergebnisse
-
-In den erhobenen Daten konnte keine signifikante Assoziation zwischen Kantonangehörigkeit (AG, nicht-AG) und Sockenfarbe (weiss, nicht-weiss) festgestellt werden. Der *p*-Wert von Fishers exaktem Test war nur marginal signifikant (*p* = 0.063). Das nicht-signfikante Resultat überrascht auf den ersten Blick, denn der "odds ratio" im Datensatz ist mit 5.9 relativ hoch und 67 % der Aargauer trugen weisse Socken während nur 24 % der Nicht-Aargauer weisse Socken trugen. Doch war der Anteil von nur 6 Aargauer in der nur 35 Männer umfassenden Stichprobe relativ klein, um ein verlässliches Bild der Sockenpräferenzen der Aargauer zu machen. Insofern leuchtet es ein, das bei dieser kleinen und unausgewogenen Stichprobe die "Power" des satistischen Tests (um die Nullhypothese zu verwerfen) relativ klein ist.
 
 
 ## Musterlösung Übung 1.2: t-Test
@@ -149,11 +146,11 @@ $H_0$: Es gibt keinen Unterschied in den Verkaufszahlen zwischen den Basis- und 
 $H_1$: Es gibt einen Unterschied in den Verkaufszahlen zwischen den Basis- und den Interventionswochen.
 
 ```{r}
-# lade Daten
+# Daten laden
 df <- read_delim("datasets/stat/Novanimal_Weeks.csv", delim = ";")
 df # Daten anschauen
 
-# überprüft die Voraussetzungen für einen t-Test
+# Voraussetzungen für einen t-Test prüfen
 ggplot(df, aes(x = condit, y = tot_sold)) + # achtung 0 Punkt fehlt
   geom_boxplot(color = "black", size = 1) +
   geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.6) +
@@ -171,37 +168,6 @@ Auf den ersten Blick scheint es keine starken Abweichungen zu einer Normalvertei
 
 t_test <- t.test(tot_sold ~ condit, data = df)
 t_test
-```
-
-### Methoden
-
-Unser Ziel bestand darin, einen Vergleich der aggregierten Verkaufszahlen zwischen den Interventions- und Basiswochen durchzuführen. Wir gingen davon aus, dass die wöchentlichen Verkaufszahlen unabhängig voneinander sind, weshalb wir die Unterschiede zwischen den Verkaufszahlen pro Woche in den beiden Bedingungen mittels eines t-Tests untersuchten. Obwohl bei der visuellen Prüfung der Modellvoraussetzungen keine schwerwiegenden Verletzungen festgestellt wurden (abgesehen von einem Ausreißer), entschieden wir uns dennoch für einen Welch t-Test. Es sei angemerkt, dass die Gruppengröße mit jeweils n = 6 Wochen eher klein war. Trotzdem erzielten die T-Tests verlässliche Ergebnisse. Für weitere Informationen zu diesem Thema verweisen wir auf die verlinkte [Studie](https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1307&context=pare).
-
-
-
-### Ergebnisse
-
-In den Basiswochen werden wöchentlich mehr Gerichte verkauft als in den Interventionswochen, wie in Abbildung 1 ersichtlich ist. Allerdings ergab der Welch t-Test, dass es keine signifikanten Unterschiede in den wöchentlichen Verkaufszahlen zwischen den beiden Bedingungen (*t*(`r round(t_test$parameter[[1]],digits = 0)`) = `r round(t_test$statistic, digits = 3)` , *p* = `r round(t_test$p.value, digits=3)`). Um die Ergebnisse weiter zu bestätigen, könnte eine $\chi^2$-Test durchgeführt werden, da die Gruppengröße mit n = 6 als eher klein betrachtet werden kann.
-
-```{r}
-#| echo: false
-#| label: fig-ggplot-boxplot-final
-#| fig.cap: Die wöchentlichen Verkaufszahlen für die Interventions- und Basiswochen unterscheiden
-#|   sich nicht signifikant.
-#| out.width: 80%
-
-# zeigt die Ergebnisse mit einer Abbildung
-p <- ggplot(df, aes(x = condit, y = tot_sold)) +
-  geom_boxplot(color = "black", size = 1, width = 0.65) +
-  #geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.5, size = 0.2) +
-  labs(y = "Verkaufte Gerichte pro Woche") +
-    stat_summary(fun = mean, geom = "point", size = 3) +
-  mytheme +
-  theme(axis.title.x = element_blank()
-  )  
-  
-print(p)
-
 ```
 
 :::

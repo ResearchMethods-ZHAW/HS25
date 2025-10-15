@@ -75,12 +75,12 @@ library("car")
 ```
 
 ```{r}
-# lade daten
+# Lade daten
 nova <- read_delim("datasets/stat/novanimal.csv", delim = ";") |>
   mutate(across(where(is.character), as.factor))
 str(nova)
 
-# Die Variable“ccrs” (single campus_card holder) sollte ein facor sein
+# Die Variable“ccrs” (single campus_card holder) sollte ein factor sein
 nova$ccrs <- as.factor(nova$ccrs)
 summary(nova)
 
@@ -99,23 +99,26 @@ glmm_1 <- glmmTMB(meat ~ gender + age_group + member + gender:age_group + gender
 Anova(glmm_1)
 summary(glmm_1)
 
-## erste Interpretation: Geschlecht (Referenzkategorie: Mann) scheint den Fleischkonsum positiv zu beeinflussen, schauen wir ob wir das Model vereinfachen können:
+# erste Interpretation: Geschlecht (Referenzkategorie: Mann) scheint den 
+# Fleischkonsum positiv zu beeinflussen, schauen wir ob wir das Model 
+# vereinfachen können:
 
-# Model optimierung
-drop1(glmm_1, test = "Chi")
+# Modelloptimierung
+drop1(glmm_1, test = "Chisq")
+?drop1
 glmm_2 <- update(glmm_1,~. -gender:age_group)
 
-drop1(glmm_2, test = "Chi")
+drop1(glmm_2, test = "Chisq")
 glmm_3 <- update(glmm_2,~. -gender:member)
 
-drop1(glmm_3, test = "Chi")
+drop1(glmm_3, test = "Chisq")
 glmm_4 <- update(glmm_3,~. -age_group)
 
-drop1(glmm_4, test = "Chi")
+drop1(glmm_4, test = "Chisq")
 ```
 
 ```{r}
-# Modelvalidierung
+# Modellvalidierung
 
 performance_roc(glmm_4)
 
@@ -134,7 +137,7 @@ Anzahl der Beobachtungen (in diesem Fall viele) abhängen).
 
 
 ```{r}
-# Modelresultat
+# Modellergebnisse
 Anova(glmm_4)
 summary(glmm_4)
 

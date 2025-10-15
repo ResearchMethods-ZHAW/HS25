@@ -40,7 +40,7 @@ str(spe)
 summary(spe)
 ```
 
-k-means ist eine lineare Methode und daher nicht für Artdaten geeignet, darum müssen wir unsere Daten transformieren (für die meisten anderen Daten ist die Funktion „scale“, welche jede Variable so skaliert, dass sie einen Mittelwert von 0 und einen Standardabweichungswert von 1 hat, besser geeignet)
+k-means ist eine lineare Methode und daher nicht für Artdaten geeignet .Darum müssen wir unsere Daten transformieren (für die meisten anderen Daten ist die Funktion „scale“, welche jede Variable so skaliert, dass sie einen Mittelwert von 0 und einen Standardabweichungswert von 1 hat), besser geeignet.
 
 
 ```{r}
@@ -63,12 +63,12 @@ fviz_cluster(kmeans_1, main = "", data = spe) +
   theme_classic()
 ```
 
-Wie viele Cluster (Gruppen) sollen definiert werden? Oft haben wir eine Vorstelung über den 
+Wie viele Cluster (Gruppen) sollen definiert werden? Oft haben wir eine Vorstellung über den 
 Range der Anzahl Cluster. Value criterions wie der Simple Structure Index (ssi) können
 eine zusätzliche Hilfe sein, um die geeignete Anzahl von Clustern zu finden.
 
 ```{r}
-# k-means partionierung, 2 bis 10 Gruppen
+# k-means Partionierung, 2 bis 10 Gruppen
 set.seed(123)
 km_cascade <- cascadeKM(spe_norm,  inf.gr = 2, sup.gr = 10, iter = 100, criterion = "ssi")
 km_cascade$results

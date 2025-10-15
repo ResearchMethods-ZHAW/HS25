@@ -15,6 +15,7 @@ knitr:
 ```{r}
 library(readr)
 library(ggplot2)
+library(tibble)
 ```
 
 ## von LMs zu GLMs
@@ -37,7 +38,7 @@ ggplot(strand, aes(Temperatur, Besucher)) +
 lm_strand <- lm(Besucher ~ Temperatur, data = strand)
 summary(lm_strand)
 
-# Modelvalidierung
+# Modellvalidierung
 par(mfrow = c(2, 2))
 plot(lm_strand)
 ```
@@ -68,7 +69,7 @@ glm_poisson <- glm(Besucher ~ Temperatur, family = "poisson", data = strand)
 summary(glm_poisson)
 ```
 
-Rücktranformation der Werte auf die orginale Skale (Hier Exponentialfunktion 
+Rücktransformation der Werte auf die orginale Skala (Hier Exponentialfunktion 
 da family=possion als Link-Funktion den natürlichen Logarithmus (log) verwendet) 
 Besucher = exp(3.50 + 0.11 Temperatur/°C)
 
@@ -137,7 +138,11 @@ summary(glm_logistic)
 # Modeldiagnostik (godness of fit test, wenn nicht signifikant, dann OK)
 1 - pchisq(glm_logistic$deviance, glm_logistic$df.resid)
 
-# Modeldiagnostik mit funktion "DHARMa"
+# Area Under the Curve (AUC)
+library("performance")
+performance_roc(glm_logistic)
+
+# Modelldiagnostik mit funktion "DHARMa"
 library(DHARMa)
 set.seed(123)
 simulateResiduals(fittedModel = glm_logistic, plot = TRUE, n = 1000)
@@ -145,7 +150,7 @@ simulateResiduals(fittedModel = glm_logistic, plot = TRUE, n = 1000)
 
 
 ```{r}
-# Modelresultate
+# Modellergebnis
 
 # pseudo-R²
 r2(glm_logistic)
@@ -159,9 +164,6 @@ exp(glm_logistic$coefficients[2])
 # oder
 library("MASS")
 dose.p(glm_logistic, p = 0.5)
-
-# Area Under the Curve (AUC)
-performance_roc(glm_logistic)
 
 # Plotting
 ggplot(data = bathing, aes(x = temperatur, y = badend)) +
@@ -199,7 +201,7 @@ coef(glm_binomial)
 coef(glm_binom)
 # Das Resultat ist identisch
 
-# Model optimierung
+# Modelloptimierung
 drop1(glm_binomial, test = "Chisq")
 glm_binomial_2 <- update( glm_binomial, .~.-sex:ldose)
 drop1(glm_binomial_2, test = "Chisq")

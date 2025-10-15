@@ -76,7 +76,7 @@ Jetzt brauchen wir noch die Modellgüte (Pseudo-R2):
 r2(glm_1)
 ```
 
-Um zu unser Modell zu interpretieren müssen wir noch in Betracht ziehen, dass 
+Um unser Modell zu interpretieren müssen wir noch in Betracht ziehen, dass 
 wir nicht die Vorkommenswahrscheinlichkeit selbst, sondern logit (Vorkommenswahrscheinlichkeit) modelliert haben. Unser Ergebnis (die beiden Parameterschätzungen von oben, also 3.6061 und -0.2196) muss also zunächst in 
 etwas Interpretierbares übersetzt werden:
 

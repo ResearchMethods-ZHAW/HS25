@@ -16,7 +16,7 @@ Raten von 7 Kriminalitätsformen pro 100000 Einwohner und Jahr für die
 Bundesstaaten der USA
 
 - **(a) Führt eine k-means- Clusteranalyse durch.**
-- **(b) Überlegt bzw testet viele Cluster sinnvoll sind** 
+- **(b) Überlegt bzw testet wieviele Cluster sinnvoll sind** 
 - **(c)** Abschliessend entscheidet euch für eine Clusterung und **vergleicht die erhaltenen Cluster bezüglich der Kriminalitätsformen mittels ANOVA und interpretiert die Cluster entsprechend.**
 
 **Hinweis:**
@@ -73,7 +73,7 @@ summary(crime)
 crimez <- scale(crime)
 ```
 
-„scale“ führt eine Standardisierung (z-Transformation) durch, so dass alle Variablen anschiessen einen Mittelwert von 0 und eine SD von 1 haben. Anschliessend wird das SSI-Kriterium getestet und zwar für Partitionierungen von 2 bis 6 Gruppen (wie viele Gruppen man maximal haben will, muss man pragmatisch nach der jeweiligen Fragestelltung entscheiden).
+„scale“ führt eine Standardisierung (z-Transformation) durch, so dass alle Variablen anschiessend einen Mittelwert von 0 und eine SD von 1 haben. Anschliessend wird das SSI-Kriterium getestet und zwar für Partitionierungen von 2 bis 6 Gruppen (wie viele Gruppen man maximal haben will, muss man pragmatisch nach der jeweiligen Fragestelltung entscheiden).
 
 ```{r}
 library("vegan")
@@ -116,7 +116,7 @@ str(crime_KM4)
 
 Damit die Boxplots und die ANOVA direkt interpretierbar sind, werden für diese, anders als für die Clusterung, die untransformierten Incidenz-Werte verwendet (also crime statt crimez). Die Spalte mit der Clusterzugehörigkeit im Fall von k-means mit 4 Clustern hängt man als Spalte an (Achtung: muss als Faktor definiert werden!).
 
-Anschliessend kann man die 7 ANOVAs rechnen, die Posthoc-Vergleiche durchführen und die zugehörigen Boxplots mit Buchstaben für die homogenen Gruppen erzeugen. Sinnvollerweise gruppiert man die Abbildungen gleich, z. B. je 2 x 2. Das Skript ist hier simple für jede Verbrechensart wiederholt. 
+Anschliessend kann man die 7 ANOVAs rechnen, die Posthoc-Vergleiche durchführen und die zugehörigen Boxplots mit Buchstaben für die homogenen Gruppen erzeugen. Sinnvollerweise gruppiert man die Abbildungen gleich, z. B. je 2 x 2. 
 
 ```{r}
 library("multcomp")
@@ -215,7 +215,7 @@ library(patchwork)
 ```
 
 Die Boxplots erlauben jetzt auch eine Beurteilung der Modelldiagnostik: 
-Die Residuen sind hinreichen normalverteilt (symmetrisch) 
+Die Residuen sind hinreichend normalverteilt (symmetrisch) 
 
 :::
 :::: 
