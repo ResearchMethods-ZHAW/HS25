@@ -12,17 +12,29 @@ musterloesung: true
 
 - Datensatz *crime.csv*
 
-Raten von 7 Kriminalitätsformen pro 100000 Einwohner und Jahr für die Bundesstaaten der USA
+Raten von 7 Kriminalitätsformen pro 100000 Einwohner und Jahr für die 
+Bundesstaaten der USA
 
 - **(a) Führt eine k-means- Clusteranalyse durch.**
 - **(b) Überlegt bzw testet viele Cluster sinnvoll sind** 
 - **(c)** Abschliessend entscheidet euch für eine Clusterung und **vergleicht die erhaltenen Cluster bezüglich der Kriminalitätsformen mittels ANOVA und interpretiert die Cluster entsprechend.**
 
 **Hinweis:**
-Wegen der sehr ungleichen Varianzen muss auf jeden Fall eine Standardisierung stattfinden, damit Distanzen zwischen den verschiedenen Kriminalitätsraten sinnvoll berechnet werden können
+Wegen der sehr ungleichen Varianzen muss auf jeden Fall eine Standardisierung 
+stattfinden, damit Distanzen zwischen den verschiedenen Kriminalitätsraten sinnvoll 
+berechnet werden können
 
-- Bitte erklärt und begründet die einzelnen Schritte, die ihr unternehmt, um zu diesem Ergebnis zu kommen. Dazu erstellt bitte ein mit Quarto generiertes html-Dokument, in das ihr Schritt für Schritt den verwendeten R-Code, die dazu gehörigen Ausgaben von R, eure Interpretation derselben und die sich ergebenden Schlussfolgerungen für das weitere Vorgehen dokumentieren.
-- Formuliert abschliessend einen Methoden- und Ergebnisteil (ggf. incl. adäquaten Abbildungen) zu dieser Untersuchung in der Form einer wissenschaftlichen Arbeit (ausformulierte schriftliche Zusammenfassung, mit je einem Absatz von ca. 60-100 Worten, resp. 3-8 Sätzen für den Methoden- und Ergebnisteil). D. h. alle wichtigen Informationen sollten enthalten sein, unnötige Redundanz dagegen vermieden werden.
+- Bitte erklärt und begründet die einzelnen Schritte, die ihr unternehmt, um zu 
+diesem Ergebnis zu kommen. Dazu erstellt bitte ein mit Quarto generiertes 
+pdf-Dokument, in das ihr Schritt für Schritt den verwendeten R-Code, die dazu 
+gehörigen Ausgaben von R, eure Interpretation derselben und die sich ergebenden 
+Schlussfolgerungen für das weitere Vorgehen dokumentieren.
+- Formuliert abschliessend einen Methoden- und Ergebnisteil 
+(ggf. incl. adäquaten Abbildungen) zu dieser Untersuchung in der Form einer 
+wissenschaftlichen Arbeit (ausformulierte schriftliche Zusammenfassung, mit je 
+einem Absatz von ca. 60-100 Worten, resp. 3-8 Sätzen für den 
+Methoden- und Ergebnisteil). D. h. alle wichtigen Informationen sollten enthalten 
+sein, unnötige Redundanz dagegen vermieden werden.
 - **Zu erstellen sind (a) Ein quarto generiertes html-Dokument mit begründetem Lösungsweg (Kombination aus R-Code, R Output und dessen Interpretation) und (b) ausformulierter Methoden- und Ergebnisteil**
 
 
@@ -41,11 +53,16 @@ Wegen der sehr ungleichen Varianzen muss auf jeden Fall eine Standardisierung st
 
 [Demoscript herunterladen (.qmd)](../purl/Statistik8_Uebung.qmd){.dld}
 
+```{r}
+library("readr")
+library("ggplot2")
+library("tibble")
+```
+
 
 ```{r}
-library("tidyverse")
-
-crime <- read_delim("./datasets/stat/crime.csv", delim = ";", col_names = TRUE) |>
+crime <- 
+  read_delim("./datasets/stat/crime.csv", delim = ";", col_names = TRUE) |>
   column_to_rownames(var = "State")
 
 str(crime)
@@ -83,8 +100,10 @@ kmeans_1$size
 
 #  Clustering-Resultat in Ordinationsplots darstellen
 library(factoextra)
-fviz_cluster(kmeans_1, data = crimez, 
-             ggtheme = theme_classic(), main = "" )
+
+fviz_cluster(kmeans_1, data = crimez) +
+  theme_classic() +
+  theme(plot.title = element_blank())
 
 
 # File für ANOVA (Originaldaten der Vorfälle, nicht die ztransformierten)
@@ -104,7 +123,7 @@ library("multcomp")
 
 aov_Murder <- aov(Murder ~ cluster, data = crime_KM4)
 summary(aov_Murder)
-letters <- cld(glht(aov_Murder, linfct = mcp(cluster = "Tukey")))
+letters <- cld( glht(aov_Murder, linfct = mcp(cluster = "Tukey")))
 cld_letters <- data.frame(cluster = names(letters$mcletters$Letters), 
                           letters = letters$mcletters$Letters)
 f_Murder <-

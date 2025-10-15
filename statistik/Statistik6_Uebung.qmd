@@ -13,9 +13,30 @@ musterloesung: true
 
 ### Hintergrund Daten
 
-Im Forschungsprojekt NOVANIMAL wird u.a. der Frage nachgegangen, was es braucht, damit Menschen freiwillig weniger tierische Produkte konsumieren? Ein interessanter Ansatzpunkt ist die Ausser-Haus-Verpflegung. Gemäss der ersten in den Jahren 2014/2015 durchgeführten nationalen Ernährungserhebung menuCH essen 70 % der Bevölkerung zwischen 18 und 75 Jahren am Mittag auswärts [@bochud2017]. Daher rückt die Gastronomie als zentraler Akteur einer innovativen und nachhaltigen Ernährungswirtschaft ins Blickfeld. Welche Innovationen in der Gastronomie könnten dazu beitragen, den Pro-Kopf-Verbrauch an tierischen Nahrungsmitteln zu senken?
+Im Forschungsprojekt NOVANIMAL wird u.a. der Frage nachgegangen, was es braucht, 
+damit Menschen freiwillig weniger tierische Produkte konsumieren? Ein interessanter 
+Ansatzpunkt ist die Ausser-Haus-Verpflegung. Gemäss der ersten in den Jahren 2014/2015 durchgeführten nationalen Ernährungserhebung menuCH essen 70 % der Bevölkerung 
+zwischen 18 und 75 Jahren am Mittag auswärts [@bochud2017]. Daher rückt die 
+Gastronomie als zentraler Akteur einer innovativen und nachhaltigen 
+Ernährungswirtschaft ins Blickfeld. Welche Innovationen in der Gastronomie 
+könnten dazu beitragen, den Pro-Kopf-Verbrauch an tierischen Nahrungsmitteln 
+zu senken?
 
-Dazu wurde u.a. ein Experiment in zwei Hochschulmensen durchgeführt. Forschungsleitend war die Frage, wie die Gäste dazu bewogen werden können, häufiger vegetarische oder vegane Gerichte zu wählen. Konkret wurde untersucht, wie die Gäste auf ein verändertes Menü-Angebot mit einem höheren Anteil an vegetarischen und veganen Gerichten reagieren. Das Experiment fand während 12 Wochen statt und bestand aus zwei Mensazyklen à 6 Wochen. Über den gesamten Untersuchungszeitraum werden insgesamt 90 verschiedene Gerichte angeboten. In den 6 Referenz- bzw. Basiswochen wurden zwei fleisch- oder fischhaltige Menüs und ein vegetarisches Menü angeboten. In den 6 Interventionswochen wurde das Verhältnis umgekehrt und es wurden ein veganes, ein vegetarisches und ein fleisch- oder fischhaltiges Gericht angeboten. Basis- und Interventionsangebote wechselten wöchentlich ab. Während der gesamten 12 Wochen konnten die Gäste jeweils auf ein Buffet ausweichen und ihre Mahlzeit aus warmen und kalten Komponenten selber zusammenstellen. Die Gerichte wurden über drei vorgegebene Menülinien (F, K, W) randomisiert angeboten.
+Dazu wurde u.a. ein Experiment in zwei Hochschulmensen durchgeführt. 
+Forschungsleitend war die Frage, wie die Gäste dazu bewogen werden können, 
+häufiger vegetarische oder vegane Gerichte zu wählen. Konkret wurde untersucht, 
+wie die Gäste auf ein verändertes Menü-Angebot mit einem höheren Anteil an 
+vegetarischen und veganen Gerichten reagieren. Das Experiment fand während 12 
+Wochen statt und bestand aus zwei Mensazyklen à 6 Wochen. Über den gesamten 
+Untersuchungszeitraum werden insgesamt 90 verschiedene Gerichte angeboten. 
+In den 6 Referenz- bzw. Basiswochen wurden zwei fleisch- oder fischhaltige Menüs 
+und ein vegetarisches Menü angeboten. In den 6 Interventionswochen wurde das 
+Verhältnis umgekehrt und es wurden ein veganes, ein vegetarisches und ein 
+fleisch- oder fischhaltiges Gericht angeboten. Basis- und Interventionsangebote 
+wechselten wöchentlich ab. Während der gesamten 12 Wochen konnten die Gäste 
+jeweils auf ein Buffet ausweichen und ihre Mahlzeit aus warmen und kalten 
+Komponenten selber zusammenstellen. Die Gerichte wurden über drei vorgegebene 
+Menülinien (F, K, W) randomisiert angeboten.
 
 ![Die Abbildung zeigt das Versuchsdesign der ersten 6 Experimentwochen (Kalenderwoche 40 bis 45).](figures/design_experiment.png)
 
@@ -104,9 +125,13 @@ simulationOutput <- simulateResiduals(fittedModel = glmm_4, plot = TRUE, n = 500
 # Plot residuals vs covariates des models
 plotResiduals(simulationOutput, form = nova$gender)
 plotResiduals(simulationOutput, form = nova$member)
-
-# Die formalen Tests zeigen, dass es Probleme gibt. Die visuelle Inspektion zeigt jedoch, dass es überhaupt keine Probleme gibt und die Residiuen beinahe perfekt normalverteilt sind (dies zeigt, dass die Testergebnisse stark von der Anzahl der Beobachtungen (in diesem Fall viele) abhängen).
 ```
+
+Die formalen Tests zeigen, dass es Probleme gibt. Die visuelle Inspektion 
+zeigt jedoch, dass es überhaupt keine Probleme gibt und die Residiuen beinahe 
+perfekt normalverteilt sind (dies zeigt, dass die Testergebnisse stark von der 
+Anzahl der Beobachtungen (in diesem Fall viele) abhängen).
+
 
 ```{r}
 # Modelresultat
@@ -115,7 +140,8 @@ summary(glmm_4)
 
 # Pseudo R^2
 r2(glmm_1)
-# das marginale R^2 (r2m) gibt uns die erklärte Varianz der fixen Effekte: hier 4% (das ist sehr wenig)
+# das marginale R^2 (r2m) gibt uns die erklärte Varianz der fixen Effekte: 
+# hier 4% (das ist sehr wenig)
 # das conditionale R^2 (r2c) gibt uns die erklärte Varianz für das ganze Modell
 # (mit fixen und variablen Effekten): hier 34% 
 ```
@@ -128,12 +154,16 @@ r2(glmm_1)
 estimates <- fixef(glmm_4)
 
 # Berechne Odds Ratios
-odsr <- rbind( 
+odsr <- 
+  rbind( 
   "Mitarbeiterinnen" = exp( estimates$cond["(Intercept)"] ), 
   "Mitarbeiter" = exp( estimates$cond["(Intercept)"] + estimates$cond["genderM"]),
-  "Studentinnen" =  exp( estimates$cond["(Intercept)"] + estimates$cond["memberStudierende"]),
-  "Studenten" = exp( estimates$cond["(Intercept)"] + estimates$cond["genderM"] + estimates$cond["memberStudierende"])
+  "Studentinnen" =  exp( estimates$cond["(Intercept)"] + 
+                           estimates$cond["memberStudierende"]),
+  "Studenten" = exp( estimates$cond["(Intercept)"] + estimates$cond["genderM"] +
+                       estimates$cond["memberStudierende"])
                  )
+
 colnames(odsr) <- c("Odds_ratios")
 odsr <- as.data.frame(odsr)
 ```
