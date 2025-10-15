@@ -168,8 +168,10 @@ global_model <- lm(Species_richness ~
                      Inclination + 
                      Heat_index + 
                      Microrelief + 
+                     Conductivity +
                      Grazing_intensity +
-                     Litter + 
+                     Litter +
+                     Precipitation +            
                      Stones_and_rocks + 
                      Gravel + 
                      Fine_soil + 
@@ -177,7 +179,8 @@ global_model <- lm(Species_richness ~
                      CaCO3 + 
                      C_org + 
                      CN_ratio + 
-                     Temperature, 
+                     Temperature +
+                     Temperature_range,
                    data = stgl)
 ```
 
@@ -202,7 +205,7 @@ allmodels <- dredge(global_model)
 allmodels[1:10]
 ```
 
-Jetzt bekommen wir die besten 10 der insgesamt 8192 möglichen Modelle
+Jetzt bekommen wir die besten 10 der insgesamt 65536 möglichen Modelle
 gelistet mit ihren Parameterschätzungen und ihrem AICc.
 
 Das beste Modell umfasst 5 Parameter (CaCO3, CN.ratio,

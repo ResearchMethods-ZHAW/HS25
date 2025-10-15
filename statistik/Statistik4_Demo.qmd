@@ -178,4 +178,3 @@ summary(avgmodel)$coefficients
 # Confindence intervals
 confint(avgmodel)
 ```
-

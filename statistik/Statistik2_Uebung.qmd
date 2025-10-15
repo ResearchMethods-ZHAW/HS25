@@ -38,7 +38,7 @@ musterloesung: true
 [Demoscript herunterladen (.qmd)](../purl/Statistik2_Uebung.qmd){.dld}
 
 
-- [Lösungstext als Download](Statistik2_Lösung.pdf)
+- [Lösungstext als Download](Statistik2_Loesung.pdf)
 
 ## Kommentierter Lösungsweg
 
