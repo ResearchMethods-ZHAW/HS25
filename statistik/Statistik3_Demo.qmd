@@ -27,7 +27,7 @@ summary(df)
 
 # Plotten der Beziehung
 ggplot(df, aes(N_deposition, Species_richness)) +
-  geom_point() +
+  geom_point()
 ```
 
 ```{r}
@@ -79,10 +79,10 @@ pred <- c(20, 19, 25, 10, 8, 15, 13, 18, 11, 14, 25, 39, 38, 28, 24)
 resp <- c(12, 15, 10, 7, 2, 10, 12, 11, 13, 10, 9, 2, 4, 7, 13) 
 
 # Dataframe erstellen
-data <- data.frame(pred, resp) 
+df_2 <- data.frame(pred, resp) 
 
 # Daten anschauen
-ggplot(data, aes(pred, resp)) +
+ggplot(df_2, aes(pred, resp)) +
   geom_point()
 ```
 
@@ -91,7 +91,7 @@ ggplot(data, aes(pred, resp)) +
 # Modell definieren und anschauen
 
 # Einfaches lineares Modell
-lm_1 <- lm(resp ~ pred) 
+lm_1 <- lm(resp ~ pred, data = df_2) 
 
 # Modell anschauen
 summary(lm_1) 
@@ -105,7 +105,7 @@ kleines Bestimmtheitsmass (adj. R^2^ = 0.07)
 # Polynomische Regression Modell definieren und anschauen 
 
 # lineares Modell mit quadratischem Termsummary
-lm_quad <- lm(resp ~ pred + I(pred^2) ) 
+lm_quad <- lm(resp ~ pred + I(pred^2), data = df_2) 
 
 # lineares Modell mit quadratischem Term anschauen
 summary(lm_quad) 
@@ -121,7 +121,7 @@ summary(lm_quad)
 # Vorhersagen der Modelle generieren
 
 # 100 x-Werte, mit denen man die Modelle "füttern" kann 
-xv <- seq( min(pred), max(pred), length = 100) 
+xv <- seq( min(df_2$pred), max(df_2$pred), length = 100) 
 
 # Vorhersagen des linearen Modells für die y-Werte
 y_lm_1 <- predict(lm_1, data.frame(pred = xv) ) 
@@ -129,19 +129,20 @@ y_lm_1 <- predict(lm_1, data.frame(pred = xv) )
 # Vorhersagen des quadratischen Modells für die y-Werte
 y_lm_quad <- predict(lm_quad, data.frame(pred = xv)) 
 
-ModPred <- data.frame(xv, y_lm1, y_lm_quad)
+ModPred <- data.frame(xv, y_lm_1, y_lm_quad)
 
 # Modellvorhersagen plotten
-ggplot(data, aes(x = pred, y = resp)) +
+ggplot(df_2, aes(x = pred, y = resp)) +
   geom_point() +
-  geom_line(data = ModPred, aes(x = xv, y = y_lm1), 
+  geom_line(data = ModPred, aes(x = xv, y = y_lm_1), 
             color = "red", linetype = "dashed") + 
   geom_line(data = ModPred, aes(x = xv, y = y_lm_quad), color = "blue")
 
 # Mit funktion geom_smooth welche predict im Hintergrund verwendet
-ggplot(data, aes(x = pred, y = resp)) +
+ggplot(df_2, aes(x = pred, y = resp)) +
   geom_point() +
-  geom_smooth(method = "lm", formula = y ~ x, color = "red", se = FALSE) +
+  geom_smooth(method = "lm", formula = y ~ x, color = "red", linetype = "dashed",
+              se = FALSE) +
   geom_smooth(method = "lm", formula = y ~ x + I(x^2), 
               color = "blue", se = FALSE)
 ```

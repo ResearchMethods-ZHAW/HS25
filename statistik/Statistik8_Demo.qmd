@@ -25,6 +25,7 @@ jeweils die Abundanzen von 27 Fischarten (auf einer Skalen von 0 bis 5) erhoben
 wurden. In dieser Demo verwenden wir die Artdaten.
 
 ```{r}
+#| message: false
 library("readr")
 library("ggplot2")
 library("tibble")
@@ -32,6 +33,7 @@ library("tibble")
 
 
 ```{r}
+#| message: false
 # Daten importieren
 spe <- read_delim("./datasets/stat/Doubs_species.csv", delim = ";") |>
   column_to_rownames(var = "Site")

@@ -43,6 +43,7 @@ musterloesung: true
 ## Kommentierter Lösungsweg
 
 ```{r}
+#| message: false
 library("readr")
 
 # Daten laden

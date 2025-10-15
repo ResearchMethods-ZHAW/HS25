@@ -39,6 +39,8 @@ editor:
 : Environmental measures of the vegetation plots in steppe grassland (n
 = 199)
 
+
+
 -   **Ermitteln Sie ein minimal adäquates Modell, das den Artenreichtum
     in den Plots durch die Umweltvariablen erklärt.**
 -   Bitte erklären und begründen Sie die einzelnen Schritte, die Sie
@@ -91,6 +93,7 @@ library(ggplot2)
 ```
 
 ```{r}
+#| message: false
 stgl <- read_delim("datasets/stat/steprasen_ukraine.csv", delim = ";")
 str(stgl)
 ```

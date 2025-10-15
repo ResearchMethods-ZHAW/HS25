@@ -28,6 +28,7 @@ musterloesung: true
 [Demoscript herunterladen (.qmd)](../purl/Statistik7_Uebung.qmd){.dld}
 
 ```{r}
+#| message: false
 # Packete laden
 library("tidyverse")
 library("vegan")

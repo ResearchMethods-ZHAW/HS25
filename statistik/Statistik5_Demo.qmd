@@ -5,7 +5,6 @@ knitr:
     collapse: false
 ---
 
-
 # Statistik 5: Demo
 
 [Demoscript herunterladen (.R)](../purl/Statistik5_Demo.R){.dld}
@@ -233,7 +232,11 @@ ld50_male <-
 2^ld50_male
 
 # Männliche Tiere reagieren wesentlich empfindlicher auf das Insektizid
+```
 
+```{r}
+#| message: false
+#| warning: false
 # Visualisierung
 ggplot(budworm, aes(x = ldose, y = ndead / 20, color = sex)) +
   geom_point() +

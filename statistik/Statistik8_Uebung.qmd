@@ -7,7 +7,6 @@ musterloesung: true
 ---
 
 
-
 # Statistik 8: Übung
 
 - Datensatz *crime.csv*
@@ -54,6 +53,7 @@ sein, unnötige Redundanz dagegen vermieden werden.
 [Demoscript herunterladen (.qmd)](../purl/Statistik8_Uebung.qmd){.dld}
 
 ```{r}
+#| message: false
 library("readr")
 library("ggplot2")
 library("tibble")
@@ -61,6 +61,7 @@ library("tibble")
 
 
 ```{r}
+#| message: false
 crime <- 
   read_delim("./datasets/stat/crime.csv", delim = ";", col_names = TRUE) |>
   column_to_rownames(var = "State")
@@ -84,7 +85,7 @@ km_cascade$results
 km_cascade$partition
 
 # k-means visualisation
-#library("cclust")
+library("cclust")
 plot(km_cascade, sortg = TRUE)
 ```
 

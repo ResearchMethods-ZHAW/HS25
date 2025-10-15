@@ -55,12 +55,16 @@ blume2 <- data.frame("cultivar" = cultivar,
 ggplot(blume2, aes(cultivar, size)) +
   geom_boxplot() +
   stat_summary(fun = mean, geom = "point") 
+```
 
 
 # Kennzahlen der Daten anschauen
-
+```{r}
+#| message: false
 library("dplyr")
+```
 
+```{r}
 blume2 |> 
   group_by(cultivar) |>
   summarise(

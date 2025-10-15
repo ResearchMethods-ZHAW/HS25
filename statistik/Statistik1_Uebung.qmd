@@ -71,6 +71,7 @@ Wurden in den Basis- und Interventionswochen unterschiedlich viele Gerichte verk
 ## Vorebreitung R-Session
 
 ```{r}
+#| message: false
 
 # lade Packages
 library("ggplot2")
@@ -153,13 +154,13 @@ df # Daten anschauen
 # Voraussetzungen für einen t-Test prüfen
 ggplot(df, aes(x = condit, y = tot_sold)) + # achtung 0 Punkt fehlt
   geom_boxplot(color = "black", size = 1) +
-  geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.6) +
+  stat_summary(fun = mean, geom = "point") +
   labs(x = "\nBedingungen", y = "Durchschnittlich verkaufte Gerichte pro Woche\n") +
   mytheme
 ```
 
 Auf den ersten Blick scheint es keine starken Abweichungen zu einer Normalverteilung zu geben resp. es sind keine extremen schiefen Verteilungen ersichtlich
-```
+
 
 ```{r}
 # führt einen t-Tests durch;

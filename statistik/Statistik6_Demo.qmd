@@ -30,12 +30,13 @@ zwei Aspekten vorhanden: einerseits wurde jedes Pflanzenindividuum mehrfach
 gemessen, andererseits hat es nur jeweils eine Düngervariante erhalten.
 
 ```{r}
+#| message: false
 # Daten laden
-library(tidyverse)
-
 plantf <- read_delim("datasets/stat/rm_plants.csv", delim = ";") |>
   mutate( across(where(is.character), as.factor))
+```
 
+```{r}
 str(plantf)
 summary(plantf)
 table(plantf$Treatment, plantf$PlantID)
@@ -68,7 +69,11 @@ simulationOutput <-
 # Plot residuals vs. covariates des models
 plotResiduals(simulationOutput, form = plantf$Time)
 plotResiduals(simulationOutput, form = plantf$Treatment) 
+```
 
+```{r}
+#| message: false
+#| warning: false
 # Darstellung (Interaktions Plot)
 library("ggeffects")
 pred <- ggpredict(pf_lmm, terms = c("Time", "Treatment")) 
@@ -89,11 +94,14 @@ eingezäunt (F = fenced vs. O = open), um die Beweidung durch Grossherbivoren zu
 
 
 ```{r}
+#| message: false
 # Import Data
 glex <- 
   read_delim("datasets/stat/Riesch_et_al_2020_grassland.csv", delim = ";") |>
   mutate(across(where(is.character), as.factor))
+```
 
+```{r}
 str(glex)
 glex$year <- as.factor(glex$year)
 summary(glex)
@@ -118,16 +126,24 @@ lmm_1 <- glmmTMB(SR ~ year * treatment * plot_type +
                REML = FALSE,
                data = glex)
 
+```
 
+```{r}
+#| warning: false
 # Modellselektion mit AICc
 library(MuMIn)
 options(na.action = "na.fail")
 
 allmodels <- dredge(lmm_1)
 allmodels
+```
 
+```{r}
+#| warning: false
 best_model <- get.models(allmodels, delta==0)[[1]]
+```
 
+```{r}
 # Mit REML refitten
 lmm_2 <- update(best_model, REML = TRUE)
 
@@ -150,7 +166,10 @@ simulationOutput <-
 plotResiduals(simulationOutput, form = glex$year)
 plotResiduals(simulationOutput, form = glex$treatment)
 plotResiduals(simulationOutput, form = glex$plot_type)
+```
 
+```{r}
+#| warning: false
 # Darstellung
 library("ggeffects")
 
@@ -237,10 +256,13 @@ Befall von Rothirschen (Cervus elaphus) in spanischen Farmen mit dem Parasiten E
 130 dieser Nematode in Abhängigkeit von Körperlänge und Geschlecht der Hirsche. Erhoben wurden die Daten auf 24 Farmen.
 
 ```{r}
+#| message: false
 # Daten laden und für GLMM aufbereiten
 DeerEcervi <- read_delim("datasets/stat/DeerEcervi.csv", delim = ";") |>
   mutate( across(where(is.character), as.factor))
+```
 
+```{r}
 # Daten anschauen
 str(DeerEcervi)
 summary(DeerEcervi)
@@ -273,6 +295,7 @@ plotResiduals(simulationOutput, form = scale(DeerEcervi$Length) )
 ```
 
 ```{r}
+#| warning: false
 # Visualisierung
 pred_3 <- predict_response(glmm_1, c("Length[all]", "Sex") )
 # mit all werden für mehr Körperlängen Werte predicted was zu smootheren 

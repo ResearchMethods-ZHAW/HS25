@@ -33,11 +33,14 @@ Bitte prüft mit einer logistischen Regression, ob und ggf. wie die Inselform di
 ## Musterlösung Übung 5
 
 ```{r}
-library(readr)
-library(ggplot2)
+#| message: false
+library("readr")
+library("ggplot2")
+library("dplyr")
 ```
 
 ```{r}
+#| message: false
 polis <- read_delim("datasets/stat/polis.csv", delim = ";") |>
   mutate(across(where(is.character), as.factor))
                                      
@@ -73,6 +76,7 @@ Jetzt brauchen wir noch die Modellgüte (Pseudo-R2):
 
 ```{r}
 # Modellgüte (pseudo-R²)
+library("performance")
 r2(glm_1)
 ```
 

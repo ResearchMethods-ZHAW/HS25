@@ -161,7 +161,6 @@ p3 <- ggplot(LifeCycleSavings, aes(x = dpi, y = sr)) +
 
 p1 + p2 + p3 + 
   plot_layout(ncol = 2, nrow = 2)
-
 ```
 :::
 ::::
