@@ -311,7 +311,7 @@
     "href": "prepro/Prepro3_Uebung.html",
     "title": "Prepro 3: Übung",
     "section": "",
-    "text": "Aufgabe 1\nGegeben sei ein Datensatz sensors_combined.csv mit den Temperaturwerten von drei verschiedenen Sensoren. Importiere ihn als csv in R (als sensors_combined).\nFormatiere die Datetime Spalte in POSIXct um. Verwende dazu die Funktion as.POSIXct (lies mit ?strftime() nochmal nach, wie du das spezifische Format (die “Schablone”) festlegen kannst).",
+    "text": "Aufgabe 1\nGegeben sei ein Datensatz sensors_combined.csv mit den Temperaturwerten von drei verschiedenen Sensoren. Importiere ihn als csv in R (als sensors_combined).\nFormatiere die Datetime Spalte in POSIXct um. Verwende dazu die Funktion as.POSIXct (lies mit ?strftime() nochmal nach, wie du das spezifische Format (die “Schablone”) festlegen kannst).\nMusterlösung\nlibrary(\"readr\")\n\nsensors_combined &lt;- read_delim(\"datasets/prepro/sensors_combined.csv\", \",\")\n\nsensors_combined$Datetime &lt;- as.POSIXct(sensors_combined$Datetime, format = \"%d%m%Y_%H%M\")",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -322,7 +322,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-2",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 2",
-    "text": "Aufgabe 2\nÜberführe die Tabelle in ein langes Format (verwende dazu die Funktion pivot_longer aus tidyr) und speichere den output als sensors_long.\nTipp:\n\nim Argument cols kannst du entweder die Spalten auflisten, die “pivotiert” werden sollen.\nAlternativ kannst du (mit vorangestelltem Minuszeichen, -) die Spalte bezeichnen, die nicht pivotiert werden soll.\nIn beiden Fällen musst du die Spalten weder mit Anführungs- und Schlusszeichen noch mit dem $-Zeichen versehen.",
+    "text": "Aufgabe 2\nÜberführe die Tabelle in ein langes Format (verwende dazu die Funktion pivot_longer aus tidyr) und speichere den output als sensors_long.\nTipp:\n\nim Argument cols kannst du entweder die Spalten auflisten, die “pivotiert” werden sollen.\nAlternativ kannst du (mit vorangestelltem Minuszeichen, -) die Spalte bezeichnen, die nicht pivotiert werden soll.\nIn beiden Fällen musst du die Spalten weder mit Anführungs- und Schlusszeichen noch mit dem $-Zeichen versehen.\n\n\n\nMusterlösung\nlibrary(\"tidyr\")\n\n# Variante 1 (Spalten abwählen)\nsensors_long &lt;- pivot_longer(sensors_combined, -Datetime) \n\n# Variante 2 (Spalten anwählen)\nsensors_long &lt;- pivot_longer(sensors_combined, c(sensor1:sensor3))",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -333,7 +333,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-3",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 3",
-    "text": "Aufgabe 3\nGruppiere sensors_long nach der neuen Spalte, wo die Sensor-Information enthalten ist (default: name) mit group_by und berechne den Mittelwert der Temperatur pro Sensor (summarise). Hinweis: Beide Funktionen sind Teil des Packages dplyr.\nDer Output sieht folgendermassen aus:\n\n## # A tibble: 3 × 2\n##   name    temp_mean\n##   &lt;chr&gt;       &lt;dbl&gt;\n## 1 sensor1      14.7\n## 2 sensor2      12.0\n## 3 sensor3      14.4",
+    "text": "Aufgabe 3\nGruppiere sensors_long nach der neuen Spalte, wo die Sensor-Information enthalten ist (default: name) mit group_by und berechne den Mittelwert der Temperatur pro Sensor (summarise). Hinweis: Beide Funktionen sind Teil des Packages dplyr.\nDer Output sieht folgendermassen aus:\n\n\nMusterlösung\nlibrary(\"dplyr\")\n\nsensors_long |&gt;\n  group_by(name) |&gt;\n  summarise(temp_mean = mean(value, na.rm = TRUE))\n## # A tibble: 3 × 2\n##   name    temp_mean\n##   &lt;chr&gt;       &lt;dbl&gt;\n## 1 sensor1      14.7\n## 2 sensor2      12.0\n## 3 sensor3      14.4",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -344,7 +344,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-4",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 4",
-    "text": "Aufgabe 4\nErstelle für sensors_long eine neue convenience Variabel month, welche den Monat beinhaltet (Tipp: verwende dazu die Funktion month aus lubridate). Gruppiere nun nach month und Sensor und berechne den Mittelwert der Temperatur.",
+    "text": "Aufgabe 4\nErstelle für sensors_long eine neue convenience Variabel month, welche den Monat beinhaltet (Tipp: verwende dazu die Funktion month aus lubridate). Gruppiere nun nach month und Sensor und berechne den Mittelwert der Temperatur.\n\n\nMusterlösung\nlibrary(\"lubridate\")\n\nsensors_long |&gt;\n  mutate(month = month(Datetime)) |&gt;\n  group_by(month, name) |&gt;\n  summarise(temp_mean = mean(value, na.rm = TRUE))",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -355,7 +355,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-5",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 5",
-    "text": "Aufgabe 5\nImportiere die Datei sensor_fail.csv in R.\nsensor_fail.csv hat eine Variabel SensorStatus: 1 bedeutet der Sensor misst, 0 bedeutet der Sensor misst nicht. Fälschlicherweise wurde auch dann der Messwert Temp = 0 erfasst, wenn Sensorstatus = 0. Richtig wäre hier NA (not available). Korrigiere den Datensatz entsprechend.\n\n\n\n\n\nSensor\nTemp\nHum_%\nDatetime\nSensorStatus\nTemp_correct\n\n\n\n\nSen102\n0.6\n98\n16102017_1800\n1\n0.6\n\n\nSen102\n0.3\n96\n17102017_1800\n1\n0.3\n\n\nSen102\n0.0\n87\n18102017_1800\n1\n0.0\n\n\nSen102\n0.0\n86\n19102017_1800\n0\nNA\n\n\nSen102\n0.0\n98\n23102017_1800\n0\nNA\n\n\nSen102\n0.0\n98\n24102017_1800\n0\nNA\n\n\nSen102\n0.0\n96\n25102017_1800\n1\n0.0\n\n\nSen103\n-0.3\n87\n26102017_1800\n1\n-0.3\n\n\nSen103\n-0.7\n98\n27102017_1800\n1\n-0.7\n\n\nSen103\n-1.2\n98\n28102017_1800\n1\n-1.2",
+    "text": "Aufgabe 5\nImportiere die Datei sensor_fail.csv in R.\nsensor_fail.csv hat eine Variabel SensorStatus: 1 bedeutet der Sensor misst, 0 bedeutet der Sensor misst nicht. Fälschlicherweise wurde auch dann der Messwert Temp = 0 erfasst, wenn Sensorstatus = 0. Richtig wäre hier NA (not available). Korrigiere den Datensatz entsprechend.\n\n\nMusterlösung\nsensor_fail &lt;- read_delim(\"datasets/prepro/sensor_fail.csv\")\n\n# mit base-R:\nsensor_fail$Temp_correct[sensor_fail$SensorStatus == 0] &lt;- NA\nsensor_fail$Temp_correct[sensor_fail$SensorStatus != 0] &lt;- sensor_fail$Temp #Warnmeldung kann ignoriert werden.\n\n# das gleiche mit dplyr:\nsensor_fail &lt;- sensor_fail |&gt;\n  mutate(Temp_correct = ifelse(SensorStatus == 0, NA, Temp))\n\n\n\n\n\n\n\nSensor\nTemp\nHum_%\nDatetime\nSensorStatus\nTemp_correct\n\n\n\n\nSen102\n0.6\n98\n16102017_1800\n1\n0.6\n\n\nSen102\n0.3\n96\n17102017_1800\n1\n0.3\n\n\nSen102\n0.0\n87\n18102017_1800\n1\n0.0\n\n\nSen102\n0.0\n86\n19102017_1800\n0\nNA\n\n\nSen102\n0.0\n98\n23102017_1800\n0\nNA\n\n\nSen102\n0.0\n98\n24102017_1800\n0\nNA\n\n\nSen102\n0.0\n96\n25102017_1800\n1\n0.0\n\n\nSen103\n-0.3\n87\n26102017_1800\n1\n-0.3\n\n\nSen103\n-0.7\n98\n27102017_1800\n1\n-0.7\n\n\nSen103\n-1.2\n98\n28102017_1800\n1\n-1.2",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -366,7 +366,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-6",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 6",
-    "text": "Aufgabe 6\nWarum spielt es eine Rolle, ob 0 oder NA erfasst wird? Berechne den Mittelwert der Temperatur / Feuchtigkeit nach der Korrektur.",
+    "text": "Aufgabe 6\nWarum spielt es eine Rolle, ob 0 oder NA erfasst wird? Berechne den Mittelwert der Temperatur / Feuchtigkeit nach der Korrektur.\n\n\nMusterlösung\n# Mittelwerte der falschen Sensordaten: 0 fliesst in die Berechnung\n# ein und verfälscht den Mittelwert\nmean(sensor_fail$Temp)\n\n# Mittelwerte der korrigierten Sensordaten: mit na.rm = TRUE werden\n# NA-Werte aus der Berechnung entfernt.\nmean(sensor_fail$Temp_correct, na.rm = TRUE)",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -377,7 +377,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-7",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 7",
-    "text": "Aufgabe 7\nLade jetzt nochmal den Datensatz weather.csv (Quelle MeteoSchweiz) herunter und importiere ihn als CSV mit den korrekten Spaltentypen (stn als factor, time als POSIXct, tre200h0 als double).",
+    "text": "Aufgabe 7\nLade jetzt nochmal den Datensatz weather.csv (Quelle MeteoSchweiz) herunter und importiere ihn als CSV mit den korrekten Spaltentypen (stn als factor, time als POSIXct, tre200h0 als double).\n\n\nMusterlösung\nweather &lt;- read_delim(\"datasets/prepro/weather.csv\")\n\nweather$stn &lt;- as.factor(weather$stn)\n\nweather$time &lt;- as.POSIXct(as.character(weather$time), format = \"%Y%m%d%H\")",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -388,7 +388,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-8",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 8",
-    "text": "Aufgabe 8\nErstelle nun eine convenience Variable für die Kalenderwoche pro Messung (lubridate::week). Berechne im Anschluss den Mittelwert der Temperatur pro Kalenderwoche.\nVisualisiere im Anschluss das Resultat:",
+    "text": "Aufgabe 8\nErstelle nun eine convenience Variable für die Kalenderwoche pro Messung (lubridate::week). Berechne im Anschluss den Mittelwert der Temperatur pro Kalenderwoche.\n\n\nMusterlösung\nweather_summary &lt;- weather |&gt;\n  mutate(week = week(time)) |&gt;\n  group_by(week) |&gt;\n  summarise(\n    temp_mean = mean(tre200h0, na.rm = TRUE)\n  )\n\n\nVisualisiere im Anschluss das Resultat:\n\nMusterlösung\nplot(weather_summary$week, weather_summary$temp_mean, type = \"l\")",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -399,7 +399,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-9",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 9",
-    "text": "Aufgabe 9\nIn der vorherigen Aufgabe haben wir den Mittelwert der Temperatur pro Kalenderwoche über alle Jahre (2000 und 2001) berechnet. Wenn wir die Jahre aber miteinander vergleichen wollen, müssen wir das Jahr als zusätzliche convenience Variable erstellen und danach gruppieren. Versuche dies mit den Wetterdaten und visualisiere den Output anschliessend.\n\n\n\n\n\n\n\n\nAbbildung 7.1: baseplot mag keine long tables und macht aus den beiden Jahren eine kontinuierliche Linie",
+    "text": "Aufgabe 9\nIn der vorherigen Aufgabe haben wir den Mittelwert der Temperatur pro Kalenderwoche über alle Jahre (2000 und 2001) berechnet. Wenn wir die Jahre aber miteinander vergleichen wollen, müssen wir das Jahr als zusätzliche convenience Variable erstellen und danach gruppieren. Versuche dies mit den Wetterdaten und visualisiere den Output anschliessend.\n\n\nMusterlösung\nweather_summary2 &lt;- weather |&gt;\n  mutate(\n    week = week(time),\n    year = year(time)\n    ) |&gt;\n  group_by(year, week) |&gt;\n  summarise(\n    temp_mean = mean(tre200h0, na.rm = TRUE)\n  )\n\n\n\n\nMusterlösung\nplot(weather_summary2$week, weather_summary2$temp_mean, type = \"l\")\n\n\n\n\n\n\n\n\nAbbildung 7.1: baseplot mag keine long tables und macht aus den beiden Jahren eine kontinuierliche Linie",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
@@ -410,7 +410,7 @@
     "href": "prepro/Prepro3_Uebung.html#aufgabe-10",
     "title": "Prepro 3: Übung",
     "section": "Aufgabe 10",
-    "text": "Aufgabe 10\nÜberführe den Output aus der letzten Übung in eine wide table. Nun lassen sich die beiden Jahre viel besser miteinander vergleichen.",
+    "text": "Aufgabe 10\nÜberführe den Output aus der letzten Übung in eine wide table. Nun lassen sich die beiden Jahre viel besser miteinander vergleichen.\n\n\nMusterlösung\nweather_summary2 &lt;- weather_summary2 |&gt;\n  pivot_wider(names_from = year, values_from = temp_mean,names_prefix = \"year\")\n\n\n\n\nMusterlösung\nplot(weather_summary2$week, weather_summary2$year2000, type = \"l\",col = \"blue\")\nlines(weather_summary2$week, weather_summary2$year2001, type = \"l\",col = \"red\")",
     "crumbs": [
       "Pre-Processing",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Prepro 3: Übung</span>"
