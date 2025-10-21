@@ -31,10 +31,16 @@ Der Datensatz enthält Daten zum Vorkommen von Fischarten und den zugehörigen U
 - oxy = Dissolved oxygen (mg L-1)
 - bod = Biological oxygen demand (mg L-1)
 
+```{r}
+#| message: false
+library("readr")
+library("ggplot2")
+library("dplyr")
+library("tibble")
+```
 
 ```{r}
-library("tidyverse")
-
+#| message: false
 # Daten importieren
 env <- read_delim("./datasets/stat/Doubs_env.csv", delim = ";") |>
   column_to_rownames(var = "Site")
@@ -63,7 +69,6 @@ pca_1$rotation
 
 # # Koordinaten Sites im Ordinationsraum (Scores)
 pca_1$x
-
 ```
 
 ```{r}
@@ -91,18 +96,15 @@ fviz_pca_biplot(pca_1,  axes = c(1, 3) )
 # Biplot mit angepasssten Grafikparametern
 # repl = TRUE verhindert die Überlagerung der Textlabels
 fviz_pca_biplot(pca_1, repel = TRUE, 
-                col.var = "red",  col.ind = "black") +
-    ggtitle(NULL) +
-    theme_classic()
-
+                col.var = "red", col.ind = "black") +
+  theme_classic() +
+  theme(plot.title = element_blank())
 
 # Nur Inidviudals (hier Sites)
 fviz_pca_ind(pca_1, repel = TRUE) +
   theme_classic()
 
-
 # Nur Variables (hier Umweltparameter)
 fviz_pca_var(pca_1, repel = TRUE) +
   theme_classic()
 ```
-

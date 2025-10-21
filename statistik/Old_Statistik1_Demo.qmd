@@ -143,3 +143,56 @@ count
 chisq.test(count)
 fisher.test(count)
 ```
+
+
+## Abbildungen mit ggplot2 (eigenes Tehme erstellen)
+
+```{r}
+library("ggplot2")
+
+ggplot(blume, aes(x = cultivar, y = size)) +
+  geom_boxplot()
+
+ggplot(blume, aes(cultivar, size)) +
+  geom_boxplot() +
+  theme_classic()
+```
+
+Definieren von mytheme mit allen gewünschten Settings, das man zu Beginn einer 
+Sitzung einmal laden und dann immer wieder ausführen kann
+
+```{r}
+# Eigenes Theme erstellen
+mytheme <- 
+  theme_classic() + 
+  theme(axis.line = element_line(linewidth = 0.8, color = "black"), 
+        axis.text = element_text(size = 13, color = "black"), 
+        axis.title = element_text(size = 15, color = "black"), 
+        axis.ticks = element_line(linewidth = 0.8, color = "black"), 
+        axis.ticks.length = unit(0.2, "cm"),
+        axis.title.y = element_text(vjust = 2.5),
+        plot.margin = margin(t = 5.5, r = 5.5, b = 5.5, l = 7)
+        )
+```
+
+```{r}
+# Eigenes Theme anwenden
+ggplot(blume, aes(cultivar, size)) + 
+  geom_boxplot() + 
+  mytheme
+
+# Jetzt können wir noch (box)plotspezifische Verbesserungen vornehmen
+t_test <- t.test(size ~ cultivar, blume)
+
+ggplot(blume, aes(cultivar, size)) + 
+  geom_boxplot(color = "black", size = 1, width = 0.5) + 
+  labs(x = "Cultivar", y = "Size [cm]") +
+  stat_summary(fun = mean, geom = "point", size = 3) +
+    annotate("text", x = 2, y = 24,
+             label = paste0("italic(p) == ", round(t_test$p.value, 3)), 
+             parse = TRUE, size = 5) +
+  mytheme +
+  theme(axis.title.x = element_blank()
+  )  
+```
+

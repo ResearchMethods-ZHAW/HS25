@@ -13,13 +13,15 @@ knitr:
 
 -   Datensatz *loyn.csv*
 
+```{r}
+library(readr)
+library(ggplot2)
+```
 
 
 ## Multiple lineare Regression
 
 ```{r}
-library(readr)
-
 loyn <- read_delim("datasets/stat/loyn.csv", delim = ";")
 
 str(loyn)
@@ -32,6 +34,7 @@ summary(loyn)
 # Wir setzen die Schwelle bei |0.7|
 # Korrelationen rechnen details siehe: "?cor"
 cor(loyn[, 2:7]) 
+
 # oder mit Namen der columns resp. variablen
 cor1 <- 
   loyn |>
@@ -42,28 +45,35 @@ cor1 <-
 library("corrplot")
 corrplot.mixed(cor1, lower = "ellipse", upper = "number", order = "AOE")
 
+# Nur Darstellung von variablen über Schwelenwert von 0.7
 cor1[abs(cor1)<0.7] <- 0
 cor1
 ```
 
--> Keine Korrelation ist \>\|0.7\|, so können wir alle Prädiktoren "behalten". Aber es gilt zu beachten, dass GRAZE ziemlich stark \|\>0.6\| mit AGE korreliert ist
+-> Keine Korrelation ist \>\|0.7\|, so können wir alle Prädiktoren "behalten". 
+Aber es gilt zu beachten, dass GRAZE ziemlich stark \|\>0.6\| mit AGE korreliert ist
 
 ```{r}
 # Volles Modell definieren
 names(loyn)
 lm_1 <- lm(ABUND ~ AGE + AREA + DIST + LDIST + GRAZE + ALT, data = loyn)
+```
 
+```{r}
+# Andere Variante, um korrelierte Prädiktoren zu finden 
+# (üblicher Schwellenwert VIF = 5)
+library("car")
+vif(lm_1)
+```
+
+```{r}
+# Modeldiagnostik
 par(mfrow = c(2, 2))
 plot(lm_1)
 ```
 
 -> Plot sieht zwar OK aus, aber mit 6 Prädiktoren für \|\<60\| Beobachtungen ist das Modell wohl "overfitted"
 
-```{r}
-# Andere Variante, um korrelierte Prädiktoren zu finden (üblicher Schwellenwert VIF = 5)
-library("car")
-vif(lm_1)
-```
 
 ### Modellselektion
 
@@ -76,7 +86,8 @@ lm_2 <- lm(ABUND ~ AGE + AREA + DIST  + GRAZE + ALT, data = loyn)
 # oder
 lm_2 <- update(lm_1, ~ . - LDIST) 
 
-# Oben beschriebener Schritt wiederholten bis nur noch signifikante Prädiktoren im Modell sind
+# Oben beschriebener Schritt wiederholen bis nur noch signifikante Prädiktoren 
+# im Modell sind
 drop1(lm_2, test = "F") 
 lm_3 <- update(lm_2, ~ . - DIST)
 
@@ -105,10 +116,13 @@ library("relaimpo")
 
 # Berechnen
 metrics <- calc.relimp(lm_1, type = c("lmg", "first"))
-cbind(I = metrics$lmg, J = metrics$first - metrics$lmg, Total = metrics$first)
+cbind(I = metrics$lmg, 
+      J = metrics$first - metrics$lmg, 
+      Total = metrics$first)
 ```
 
--> auch hier haben AREA und GRAZE die höchsten Werte (und an dritter Stelle AGE, der mit GRAZE am stärksten korreliert ist)
+-> auch hier haben AREA und GRAZE die höchsten Werte (und an dritter Stelle AGE, 
+der mit GRAZE am stärksten korreliert ist)
 
 ### Plot partielle regressionen
 
@@ -120,8 +134,6 @@ lm_graze <- lm(GRAZE ~ AREA, data = loyn)
 abundance_resid <- resid(lm_abund)
 graze_resid <- resid(lm_graze)
 
-library(ggplot2)
-
 ggplot(data = NULL, aes(x = graze_resid, y = abundance_resid)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE, color = "blue") +
@@ -129,11 +141,10 @@ ggplot(data = NULL, aes(x = graze_resid, y = abundance_resid)) +
   theme_minimal()
 
 # Einfacher geht es mit der function avPlots (package "car"). Nachteil ist, dass mit der funktion anders als mit der Methode oben, keine quadratische prädiktoren dargestellt werden können 
- 
 par(mfrow = c(1, 1))
 avPlots(lm_5, ~GRAZE, ask = F)
 
-#Für alle prädktoren im Modell
+#Für alle Prädiktoren im Modell
 avPlots(lm_5, layout = c(1, 2) )
 ```
 
@@ -147,7 +158,9 @@ global_model <- lm(ABUND ~ AGE + AREA + DIST + LDIST + GRAZE + ALT, data = loyn)
 options(na.action = "na.fail")
 allmodels <- dredge(global_model)
 allmodels
-# Wir haben mehre Modelle mit einem delta AICc <2, das heisst wir haben nicht ein eindeutig bestes Modell (welches wir mit der funktion "get.models" selektieren könnten)
+# Wir haben mehre Modelle mit einem delta AICc <2, das heisst wir haben nicht 
+# ein eindeutig bestes Modell (welches wir mit der funktion "get.models" 
+# selektieren könnten)
 
 # Variable importance
 sw(allmodels)
@@ -158,9 +171,10 @@ sw(allmodels)
 # Model averaging
 avgmodel <- model.avg(allmodels)
 summary(avgmodel)
-# Nur Esimates
+
+# Nur Estimates
 summary(avgmodel)$coefficients
+
 # Confindence intervals
 confint(avgmodel)
 ```
-

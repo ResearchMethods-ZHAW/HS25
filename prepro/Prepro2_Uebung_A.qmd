@@ -5,8 +5,8 @@ knitr:
   opts_chunk: 
     collapse: true
 execute: 
-  echo: false   # set to true to show musterlösung
-  output: false
+  echo: true   # set to true to show musterlösung
+  output: true
 code-fold: true
 code-summary: "Musterlösung"
 ---
@@ -93,10 +93,14 @@ Berechne mit der Spalte `month` die Durchschnittstemperatur pro Monat.
 
 
 ```{r}
+# mit base R:
+
 mean(wetter$tre200h0[wetter$month == 1])
 mean(wetter$tre200h0[wetter$month == 2])
 mean(wetter$tre200h0[wetter$month == 3])
 
 # usw. für alle 12 Monate
+
+# kommende Woche lernen wir Split Apply Combine (group_by / summarise)
 ```
 

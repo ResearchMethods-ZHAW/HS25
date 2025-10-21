@@ -416,23 +416,23 @@ depo_m_daytime <- depo_m_daytime |>
 ### 1a)
 
 
-Nachdem wir die Projektstruktur aufgebaut haben und die Daten vorbereitet (inkl. aggregiert) sind, machen wir uns an die deskriptive Analyse. Dies macht immer Sinn. Bevor mach sich an die schliessende Statistik macht, muss man ein "Gefühl" für die Daten bekommen. Dies funktioniert am einfachsten mit explorativen Analysen.
+Nachdem wir die Projektstruktur aufgebaut haben und die Daten vorbereitet (inkl. aggregiert) sind, machen wir uns an die deskriptive Analyse. Bevor mach sich an die schliessende Statistik macht, muss man Trends in den Daten erkennen.
 
 Wir interessieren uns in den Analysen für 5 Zeitabschnitte:
 
-1. von Anfang Untersuchungsperiode bis vor dem 1. Lockdown (pre)
-2. Lockdown 1
-3. Zwischen beiden Lockdowns
-4. Lockdown 2
-5. Ende 2. Lockdown bis Ende Untersuchungsperiode
+1. von Anfang Untersuchungsperiode bis vor dem 1. Lockdown (__pre__)
+2. __Lockdown 1__
+3. Zwischen beiden Lockdowns (__inter__)
+4. __Lockdown 2__
+5. Ende 2. Lockdown bis Ende Untersuchungsperiode (__post__)
 
-Und dabei immer auch für die verschiedenen Tageszeiten (Morgen, Tag, Abend, Nacht).
+Und dabei immer auch für die verschiedenen __Tageszeiten__ (Morgen, Tag, Abend, Nacht).
 
 - Plottet den Verlauf der monatlichen Besuchszahlen an eurer Zählstelle. 
 - Auf der x-Achse steht dabei dabei Jahr und Monat (gespeichert im df _depo_m_), auf der y-Achse die monatlichen Besuchszahlen. 
 - Zeichnet auch die beiden Lockdown ein (Hinweis: rundet das Start- und Enddatum der Lockdowns auf den Monat, da im Plot die monatlichen Zahlen gezeigt werden).
 
-Haltet euch dabei an untenstehenden Plot:
+Haltet euch dabei an untenstehenden Plot (als Inspiration gedacht):
 
 ```{r echo=FALSE, output = TRUE}
 ggplot(depo_m, mapping = aes(Ym, Total, group = 1)) + # group = 1 braucht R, dass aus den Einzelpunkten ein Zusammenhang hergestellt wird
