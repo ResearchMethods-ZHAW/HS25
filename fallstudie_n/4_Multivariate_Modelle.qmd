@@ -1,7 +1,7 @@
 ---
 execute:
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -28,21 +28,22 @@ library("PerformanceAnalytics")
 library("pastecs")
 library("car")
 library("psych")
+library("DHARMa")
 
 options(scipen = 999)
 ```
 
 ## Aufgabe 1
 
-Einlesen des Gesamtdatensatzes für die Multivariate Analyse von Moodle
+Einlesen der Gesamtdatensätze für die Multivariate Analysen von Moodle
 
-1) Sichtung des Datensatzes, der Variablen und der Datentypen
-2) Kontrolle wieviele Rehe in diesem Datensatz enthalten sind
+1) Sichtung der Datensätze, der Variablen und der Datentypen
+2) Kontrolle wieviele Rehe/Rothirsche in den Datensätzen enthalten sind
 
 ```{r}
 #| output: false
 
-DF_mod <- read_delim("datasets/fallstudie_n/Aufgabe4_Datensatz_Habitatnutzung_Modelle_241028.csv", delim = ";")
+DF_mod <- read_delim("datasets/fallstudie_n/Aufgabe4/Aufgabe4_Datensatz_Modelle_Habitatnutzung_Reh_251027.csv", delim = ";")
 
 str(DF_mod)
 
@@ -106,25 +107,10 @@ for (i in 5:12) {
 
 ## Aufgabe 4
 
-Testen eurer erklärenden Variablen auf Normalverteilung (nur kontinuierliche)
+Für jede kontinuierliche Variable: Passe ein binomiales GLM (pres_abs ~ x), berechne Pearson-Residuen und macht Histogramm + Q-Q-Plot (Residuals sollen grob „normal“ wirken). Wenn starke Abweichungen (krummes Histogramm, Q-Q-Punkte weit von der Linie): probiert Transformation, passt das Modell neu und prüft die Residuen nochmal
 
 ```{r}
-# klassischer Weg mit shapiro-wilk (vergl. Stats-Skript der Theorielektionen)
-# mehrere Spalten, verschiedenene statistische Kenngrössen werden angezeigt. Normalverteilung: Wert ganz unten. p>0.05 = ja
 
-round(stat.desc(DF_mod_day[5:12], basic = F, norm = T),3)
-
-# empfohlener Weg
-
-ggplot(DF_mod_day, aes(slope)) +
-  geom_histogram(aes(y = after_stat(density)), color = "black", fill = "white") +
-  stat_function(fun = dnorm, args = list(mean = mean(DF_mod_day$slope, na.rm = TRUE), sd = sd(DF_mod_day$slope, na.rm = T)), color = "black", linewidth = 1)
-```
-
-```{r}
-# Aufgabe 4: die Verteilung bei einem Teildatensatz zu testen reicht,
-# denn die verwendeten Kreise sind die selben am Tag und in der Nacht,
-# nur die Nutzung durch das Reh nicht
 ```
 
 ## Aufgabe 5

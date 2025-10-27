@@ -9,7 +9,7 @@ knitr:
     collapse: true
 ---
 
-# Daten(vor)verarbeitung
+# Pre-Processing
 
 ## Projektaufbau RStudio-Projekte
 
@@ -189,7 +189,7 @@ ggplot(df_with_LIDAR, aes(DG_us_2022, DG_Strauchschicht, color = team)) +
   geom_abline(slope = 100, intercept = 0, linetype = "dashed", color = "red")
 
 
-write_delim(df_with_LIDAR, "datasets/fallstudie_n/df_with_lidar_2024.csv", delim = ";")
+write_delim(df_with_LIDAR, "datasets/fallstudie_n/df_with_lidar_2025.csv", delim = ";")
 ```
 
 ## (Zusatz-)Aufgabe 5
