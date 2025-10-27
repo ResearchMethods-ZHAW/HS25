@@ -143,7 +143,13 @@ lock_2_start_2021 <- as.Date("2020-12-22")
 lock_2_end_2021 <- as.Date("2021-03-01")
 ```
 
-Ebenfalls müssen die erste und letzte Kalenderwoche der Untersuchungsfrist definiert werden. Diese werden bei wochenweisen Analysen ausgeklammert da sie i.d.R. unvollständig sind (das ist ein späterer Arbeitsschritt). Geht wie oben vor. Tipp: der Befehl __isoweek()__ liefert euch die Kalenderwoche.
+Ebenfalls müssen die erste und letzte Kalenderwoche der Untersuchungsfrist definiert werden. Diese werden bei wochenweisen Analysen ausgeklammert da sie i.d.R. unvollständig sind (das ist ein späterer Arbeitsschritt). Geht wie oben vor. Tipp: der Befehl __isoweek()__ liefert euch die Kalenderwoche, im standartisierten ISO-Format.
+
+```{r}
+KW_start <- isoweek(depo_start)
+KW_end <- isoweek(depo_end)
+```
+
 
 Ferienzeiten können einen grossen Einfluss auf das Besucheraufkommen haben. Die relevanten Ferienzeiträume müssen daher bekannt sein (heruntergeladen von https://www.schulferien.org/schweiz/ferien/2020/). 
 
