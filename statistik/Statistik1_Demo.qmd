@@ -22,7 +22,7 @@ knitr:
 # Messwerte von Cultivar Andro
 Messwerte_a <- c(20, 19, 25, 10, 8, 15, 13, 18, 11, 14) 
 
-# Messwerte von Cultivar b
+# Messwerte von Cultivar Bulli
 Messwerte_b <- c(12, 15, 16, 7, 8, 10, 12, 11, 13, 10) 
 
 # Bezeichnug der Cultivare in der Tabelle
@@ -129,7 +129,7 @@ binom.test(77, 200, p = 0.407)
 
 ```{r}
 # Matrix mit Haarfarbe&Augenfarbe-Kombinationen erstellen
-# 38 blond&blau, 14 dunkel&blau, 11 blond&braun, 51 dunkel&braun
+# 38 blond & blau, 14 dunkel & blau, 11 blond & braun, 51 dunkel & braun
 count <- matrix( c(38, 14, 11, 51), nrow = 2)
 count 
 
