@@ -20,7 +20,7 @@ musterloesung: false
 
 **Wichtige Hinweise zur Ausgestaltung:**
 
--   Bitte **erklärt und begründet die einzelnen Schritte,** die ihr unternehmt, um zu eurem Ergebnis zu kommen. Dazu erstellt bitte ein mit Quarto generiertes html-Dokument (oder Word-Dokument), in dem ihr Schritt für Schritt den verwendeten **R-Code**, die dazu gehörigen **Ausgaben von R**, eure **Interpretation** derselben und die sich ergebenden **Schlussfolgerungen** für das weitere Vorgehen dokumentiert.
+-   Bitte **erklärt und begründet die einzelnen Schritte,** die ihr unternehmt, um zu eurem Ergebnis zu kommen. Dazu erstellt bitte ein mit Quarto generiertes pdf-Dokument, in dem ihr Schritt für Schritt den verwendeten **R-Code**, die dazu gehörigen **Ausgaben von R**, eure **Interpretation** derselben und die sich ergebenden **Schlussfolgerungen** für das weitere Vorgehen dokumentiert.
 -   Dieser **Ablauf** sollte insbesondere beinhalten:
     -   Überprüfen der Datenstruktur nach dem Einlesen, welches sind die abhängige(n) und welches die unabängige(n) Variablen etc.
     -   Explorative Datenanalyse, um zu sehen, ob evtl. Dateneingabefehler vorliegen oder Datentransformationen vorgenommen werden sollten
