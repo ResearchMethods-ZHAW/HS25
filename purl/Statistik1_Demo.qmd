@@ -18,58 +18,45 @@ knitr:
 
 ```{r}
 # Je 10 Messwerte für Sorte a und b zu einem Data Frame im long-Format verbinden 
-
-# Messwerte von Cultivar Andro
-Messwerte_a <- c(20, 19, 25, 10, 8, 15, 13, 18, 11, 14) 
-
-# Messwerte von Cultivar Bulli
-Messwerte_b <- c(12, 15, 16, 7, 8, 10, 12, 11, 13, 10) 
-
-# Bezeichnug der Cultivare in der Tabelle
-cultivar <- factor(rep( c("Andro", "Bulli"), each = 10))
-
-# Data frame erstellen 
-blume <- data.frame("cultivar" = cultivar, "size" = c(Messwerte_a, Messwerte_b) ) 
+Messwerte_a <- c(20, 19, 25, 10, 8, 15, 13, 18, 11, 14) # Messwerte von Cultivar a
+Messwerte_b <- c(12, 15, 16, 7, 8, 10, 12, 11, 13, 10) # Messwerte von Cultivar b
+cultivar <- as.factor( c(rep("a", 10), rep("b", 10))) # Bezeichnug der Cultivare in der Tabelle
+blume <- data.frame("cultivar" = cultivar, "size" = c(Messwerte_a, Messwerte_b)) # Data frame erstellen 
 ```
 
 ```{r}
 # Boxplots
+
 library(ggplot2)
 
-ggplot(blume, aes(x = cultivar, y = size)) +
-  geom_boxplot() +
-    stat_summary(fun = mean, geom = "point") # Mittelwerte hinzufügen
+ggplot(blume, aes(x = cultivar, y = size, fill = cultivar)) +
+  geom_boxplot() + # Boxplots
+  geom_dotplot(binaxis = "y", stackdir = "center", alpha = 0.5) # Datenpunkte darstellen
 ```
 
 ```{r}
 # Histogramme
 
-ggplot(blume, aes(x = size)) +
+ggplot(blume, aes(x = size, fill = cultivar)) +
   geom_histogram(binwidth = 2) +
   facet_wrap(~ cultivar)
 ```
 
 ### Zweiseitiger t-Test
 
-Links der Tilde ("~") steht immer die abhängige Variable, rechts die 
-erklärende(n) Variable(n)
-
 ```{r}
-# Alternativ kann man die Werte auch direkt in die t.test()-Funktion eingeben:
+# Links der Tilde ("~") steht immer die abhängige Variable, rechsts die erklärende(n) Variable(n)
+# Alternativ kann man die Werte auch direkt in die t.test()-Funktion eigeben:
 # t.test(Messwerte_a, Messwerte_b)
 
-# Zweiseitig "Test auf a ≠ b" (default)
-t.test(size ~ cultivar, data = blume) 
+t.test(size ~ cultivar, data = blume) # Zweiseitig "Test auf a ≠ b" (default)
 ```
 
 ### Einseitiger t-Test
 
 ```{r}
-# Einseitig "Test auf Andro > Bulli"
-t.test(size ~ cultivar, alternative = "greater",  data = blume)
-
-# Einseitig "Test auf Andro < Bulli"
-t.test(size ~ cultivar, alternative = "less",  data = blume) 
+t.test(size ~ cultivar, alternative = "greater",  data = blume) # Einseitig "Test auf a > b"
+t.test(size ~ cultivar, alternative = "less",  data = blume) # Einseitig "Test auf a < b"
 ```
 
 ### Klassischer t-Test vs. Welch Test
@@ -84,15 +71,11 @@ t.test(size ~ cultivar, data = blume) # dasselbe wie var.equal = FALSE
 
 ### Gepaarter t-Test
 
-Gepaarter t-Test: erster Wert von a wird mit erstem Wert von b gepaart, 
-zweiter  Wert von a mit zweitem von b ect.
-
 ```{r}
-# für gepaarten t-Test funktioniert Notation "size ~ cultivar" nicht (mehr)
+# Gepaarter t-Test: erster Wert von a wird mit erstem Wert von
+# b gepaart, zweiter Wert von a mit zweitem von b ect.
 
-t.test(blume$size[blume$cultivar == "Andro"], 
-       blume$size[blume$cultivar == "Bulli"], 
-       paired = TRUE)
+t.test(Messwerte_a, Messwerte_b, paired = TRUE) # für gepaarten t-Test funktioniert Notation "size ~ cultivar" nicht
 ```
 
 ## Binomialtest
@@ -100,27 +83,9 @@ t.test(blume$size[blume$cultivar == "Andro"],
 In Klammern übergibt man die Anzahl der Erfolge und die Stichprobengrösse
 
 ```{r}
-# Anzahl gewählte Frauen im Nationalrat (≙ 38.5 %; Stand 2023)
-binom.test(77, 200, p = 0.5) 
-
-# Anzahl gewählte Männer im Nationalrat (≙ 61.5 %; Stand 2023)
-binom.test(123, 200, p = 0.5) 
-```
-
-
-Alternativ können auch die Anzahl gewählter Manner und Frauen übergeben werden. 
-Die erste Zahl wird als Anzahl der Erfolge definiert die Stichprobengrösse wird 
-autmoatisch ausgerechnet
-
-```{r}
-binom.test( c(123, 77), p = 0.5) 
-
-# Entspricht die Anzahl Kandidatinnen (≙ 41 %; Stand 2023) dem Anteil Frauen 
-# in der Bevölkerung ?
-binom.test( c(2399, 3500), p = 0.5) 
-
-# Entspricht der Anteil gewählter Frauen dem Anteil kandidierender Frauen ?
-binom.test(77, 200, p = 0.407) 
+binom.test(84, 200) # Anzahl Frauen im Nationalrat (≙ 42.0 %; Stand 2019)
+binom.test(116, 200) # Anzahl Männer im Nationalrat (≙ 58.0 %; Stand 2019)
+binom.test(3, 7) # Anzahl Frauen im Bundesrat (≙ 42.9 %; Stand 2019)
 ```
 
 ## Chi-Quadrat-Test & Fishers Test
@@ -129,15 +94,12 @@ binom.test(77, 200, p = 0.407)
 
 ```{r}
 # Matrix mit Haarfarbe&Augenfarbe-Kombinationen erstellen
-# 38 blond & blau, 14 dunkel & blau, 11 blond & braun, 51 dunkel & braun
-count <- matrix( c(38, 14, 11, 51), nrow = 2)
-count 
-
-# Benennen für Übersicht
-rownames(count) <- c("blond", "dunkel") 
-colnames(count) <- c("blau", "braun")
-
-count
+# 38 blond&blau, 14 dunkel&blau, 11 blond&braun, 51 dunkel&braun
+count <- matrix(c(38, 14, 11, 51), nrow = 2)
+count # Check
+rownames(count) <- c("blond", "dunkel") # Benennen für Übersicht
+colnames(count) <- c("blau", "braun") #  Benennen für Übersicht
+count # Check
 
 # Tests durchführen
 chisq.test(count)
