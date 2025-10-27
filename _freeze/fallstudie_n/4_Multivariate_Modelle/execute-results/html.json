@@ -1,0 +1,17 @@
+{
+  "hash": "fd5ac754a00d0cd3b2fdfd7314688f6a",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\nexecute:\n  echo: false   # set to true to show musterlösung\n  output: false # set to true to show musterlösung\ncode-fold: true\ncode-summary: \"Musterlösung\"\nknitr:\n  opts_chunk: \n    collapse: true\n---\n\n# Multivariate Modelle \n\nEinstieg Multivariate Modelle / Habitatselektionsmodell\n\n## Libraries laden\n\n\n::: {.cell}\n\n```{.r .cell-code  code-fold=\"false\"}\nlibrary(\"sf\")\nlibrary(\"terra\")\nlibrary(\"dplyr\")\nlibrary(\"readr\")\nlibrary(\"ggplot2\")\nlibrary(\"PerformanceAnalytics\")\nlibrary(\"pastecs\")\nlibrary(\"car\")\nlibrary(\"psych\")\nlibrary(\"DHARMa\")\n\noptions(scipen = 999)\n```\n:::\n\n\n## Aufgabe 1\n\nEinlesen der Gesamtdatensätze für die Multivariate Analysen von Moodle\n\n1) Sichtung der Datensätze, der Variablen und der Datentypen\n2) Kontrolle wieviele Rehe/Rothirsche in den Datensätzen enthalten sind\n\n\n::: {.cell}\n\n:::\n\n\n## Aufgabe 2\n\nUnterteilung des Datensatzes in Teildatensätze entsprechend der Tageszeit \n\n\n::: {.cell}\n\n:::\n\n\n## Aufgabe 3\n\nErstellen von Density Plots der Präsenz / Absenz in Abhängigkeit der unabhängigen Variablen. Diese Übung dient einer ersten groben Einschätzung der Wirkung der Umweltvariablen auf die abhängige Variable (Präsenz/Absenz in unserem Fall)\n\n\n::: {.cell}\n\n```{.r .cell-code  code-fold=\"false\"}\n# Ein Satz Density Plots für den Tagesdatensatz und einer für den Nachtdatensatz\n\npar(mfrow = c(3, 3), mar = c(4, 4, 3, 3)) # Vorbereitung Raster für Plots\n\n# innerhalb des for()-loops die Nummern der gewünschten Spalten einstellen\n\nfor (i in 5:12) {\n  dp <- DF_mod_day |> filter(pres_abs == 1) |> pull(i)\n  dp <- density(dp)\n  da <- DF_mod_day |> filter(pres_abs == 0) |> pull(i)\n  da <- density(da)\n  plot(0, 0, type = \"l\",\n    xlim = range(c(dp$x, da$x)),\n    ylim = range(dp$y, da$y),\n    xlab = names(DF_mod_day[i]),\n    ylab = \"Density\"\n  )\n  lines(dp$x, dp$y, col = \"blue\")             # Präsenz = used\n  lines(da$x, da$y, col = \"red\")              # Absenz = available\n}\n```\n:::\n\n\n## Aufgabe 4\n\nFür jede kontinuierliche Variable: ein binomiales GLM fitten (pres_abs ~ x, data = DF_mod_day, family = binomial), Residuen berechnen und ein Histogramm + Q-Q-Plot (Residuen sollen grob „normal“ wirken) plotten. Wenn starke Abweichungen auftreten (krummes Histogramm, Q-Q-Punkte weit von der Linie): Transformationen probieren, das Modell neu fitten und die Residuen nochmal überprüfen. \n\n\n::: {.cell}\n\n:::\n\n\n## Aufgabe 5\n\nExplorative Analysen der Variablen mit Scatterplots / Scatterplotmatrizen \n\n1) Zu Scatterplots und Scatterplotmatrizen gibt es viele verschiedene Funktionen / Packages, schaut im Internet und sucht euch eines welches euch passt.\n2) Testen der Korrelation zwischen den Variablen (Parametrisch oder nicht-parametrische Methode? Ausserdem: gewisse Scatterplotmatrizen zeigen euch die Koeffizenten direkt an)\n\n\n::: {.cell}\n\n:::\n\n",
+    "supporting": [
+      "4_Multivariate_Modelle_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
