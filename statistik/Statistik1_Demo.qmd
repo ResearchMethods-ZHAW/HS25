@@ -17,7 +17,7 @@ knitr:
 ### Daten generieren und anschauen
 
 ```{r}
-# Je 10 Messwerte für Sorte a und b zu einem Data Frame im long-Format verbinden 
+# Je 10 Messwerte für Cultivar a und b zu einem Data Frame im long-Format verbinden 
 
 # Messwerte von Cultivar Andro
 Messwerte_a <- c(20, 19, 25, 10, 8, 15, 13, 18, 11, 14) 
