@@ -9,7 +9,6 @@ musterloesung: false
 # Statistik 1: Übung
 
 
-
 # Anleitung zu den Übungen
 
 **Zu erstellen sind:**
