@@ -9,7 +9,7 @@ knitr:
     collapse: true
 ---
 
-# Daten(vor)verarbeitung
+# Pre-Processing
 
 ## Projektaufbau RStudio-Projekte
 
@@ -27,7 +27,7 @@ Im Kopf des Skripts zuerst immer den Titel des Projekts sowie die Autor:innen de
 
 # .##################################################################################
 # Daten(vor)verarbeitung Fallstudie WPZ  ####
-# Modul Research Methods, HS24. Autor/in ####
+# Modul Research Methods, HS25. Autor/in ####
 # .##################################################################################
 ```
 
@@ -80,7 +80,7 @@ library("purrr")
 ## Daten laden
 Herunterladen der Daten der Feldaufnahmen von Moodle (Aufgabe3_Feldaufnahmen_alle_Gruppen.zip), Einlesen, Sichtung der Datensätze und der Datentypen.
 
-Verschiedene Dinge werden beim Einlesen wohl nicht auf Anhieb funktionieren oder es zeigt sich dann spätestens beim Zusammenfügen zu einem Gesamtdatensatz, dass es Probleme gibt (zB. mit den Datentypen). Versucht wenn möglich diese Dinge jeweils direkt mit R zu lösen, dies ist vorallem bei grösseren Datensätzen extrem hilfreich, damit die Datensätze zu einem sauberen Gesamtdatensatz zusammengefügt werden können.
+Verschiedene Dinge werden beim Einlesen möglicherweise nicht auf Anhieb funktionieren oder es zeigt sich dann spätestens beim Zusammenfügen zu einem Gesamtdatensatz, dass es Probleme gibt (zB. mit den Datentypen). Versucht wenn möglich diese Dinge jeweils direkt mit R zu lösen, dies ist vorallem bei grösseren Datensätzen extrem hilfreich, damit die Datensätze zu einem sauberen Gesamtdatensatz zusammengefügt werden können.
 
 
 ## Aufgabe 1
@@ -144,7 +144,7 @@ df_team5 <- df_team5 |>
 
 ```
 
-Das Learning daraus ist, dass beim Erfassen und Dokumentieren von Daten aus verschiedenen Quellen darauf geachtet werden sollte, dies möglichst einheitlich zu tun (Dateiformate, Spalten, Bezeichnungen, Datentypen, usw.), damit kann man sich einiges an Arbeit ersparen. Hilfreich ist in diesem Zusammenhang immer ein einheitliches Feldprotokoll resp. eine Vorlage für die Erfassung der Daten zu erstellen.
+Beim Erfassen und Dokumentieren von Daten aus verschiedenen Quellen sollte darauf geachtet werden, dass dies möglichst einheitlich passiert (Dateiformate, Spalten, Bezeichnungen, Datentypen, usw.), damit kann man sich einiges an Arbeit ersparen. Hilfreich ist in diesem Zusammenhang immer ein klares und sauberes Feldprotokoll resp. eine Vorlage für die Erfassung der Daten zu erstellen.
 
 
 ## Aufgabe 2
@@ -189,12 +189,12 @@ ggplot(df_with_LIDAR, aes(DG_us_2022, DG_Strauchschicht, color = team)) +
   geom_abline(slope = 100, intercept = 0, linetype = "dashed", color = "red")
 
 
-write_delim(df_with_LIDAR, "datasets/fallstudie_n/df_with_lidar_2024.csv", delim = ";")
+write_delim(df_with_LIDAR, "datasets/fallstudie_n/df_with_lidar_2025.csv", delim = ";")
 ```
 
 ## (Zusatz-)Aufgabe 5
 
 Herunterladen der Felderhebungsdaten von Moodle aus den vergangenen Jahren. Zusammenführen aller Datensätze. Explorative Datenanalyse zu den Veränderungen der Erhebungen ground truth LiDAR über die Zeit und zum Zusammenhang mit den LiDAR-basierten Waldstrukturvariablen aus den zwei Befliegungszeiträumen (2014 und 2022)
 
-!Achtung! es sind nicht alle Jahre gleich viele Teams an den Erhebungen beteiligt gewesen, daher gib es nicht für alle Teams in allen Jahren Daten.
+!Achtung! es sind nicht alle Jahre gleich viele Teams an den Erhebungen beteiligt gewesen, daher gibt es nicht für alle Teams in allen Jahren Daten.
 

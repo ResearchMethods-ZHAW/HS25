@@ -3,7 +3,7 @@ lesson: Statistik 3
 knitr:
   opts_chunk: 
     collapse: false
-musterloesung: true
+musterloesung: false
 ---
 
 # Statistik 3: Übung
@@ -161,7 +161,6 @@ p3 <- ggplot(LifeCycleSavings, aes(x = dpi, y = sr)) +
 
 p1 + p2 + p3 + 
   plot_layout(ncol = 2, nrow = 2)
-
 ```
 :::
 ::::

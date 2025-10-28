@@ -25,4 +25,4 @@ packages <- c("dplyr", "ggplot2", "lubridate", "readr",
 ipak(packages)
 ```
 
-Zudem könnt ihr die Daten für die Übungen auf [Moodle](https://moodle.zhaw.ch/mod/resource/view.php?id=976901) herunterladen.
+Zudem könnt ihr die Daten für die Übungen auf [Moodle](https://moodle.zhaw.ch/course/view.php?id=24871&section=5) herunterladen.

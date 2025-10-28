@@ -19,12 +19,21 @@ knitr:
 
 ### Datenbeschreibung
 
-Der Datensatz enthält Daten zum Vorkommen von Fischarten und den zugehörigen Umweltvariablen im Fluss Doubs (Jura). Es gibt 29 Probestellen (sites), an denen jeweils die Abundanzen von 27 Fischarten (auf einer Skalen von 0 bis 5) erhoben wurden. In dieser Demo verwenden wir die Artdaten.
+Der Datensatz enthält Daten zum Vorkommen von Fischarten und den zugehörigen 
+Umweltvariablen im Fluss Doubs (Jura). Es gibt 29 Probestellen (sites), an denen 
+jeweils die Abundanzen von 27 Fischarten (auf einer Skalen von 0 bis 5) erhoben 
+wurden. In dieser Demo verwenden wir die Artdaten.
+
+```{r}
+#| message: false
+library("readr")
+library("ggplot2")
+library("tibble")
+```
 
 
 ```{r}
-library("tidyverse")
-
+#| message: false
 # Daten importieren
 spe <- read_delim("./datasets/stat/Doubs_species.csv", delim = ";") |>
   column_to_rownames(var = "Site")
@@ -33,7 +42,7 @@ str(spe)
 summary(spe)
 ```
 
-k-means ist eine lineare Methode und daher nicht für Artdaten geeignet, darum müssen wir unsere Daten transformieren (für die meisten anderen Daten ist die Funktion „scale“, welche jede Variable so skaliert, dass sie einen Mittelwert von 0 und einen Standardabweichungswert von 1 hat, besser geeignet)
+k-means ist eine lineare Methode und daher nicht für Artdaten geeignet .Darum müssen wir unsere Daten transformieren (für die meisten anderen Daten ist die Funktion „scale“, welche jede Variable so skaliert, dass sie einen Mittelwert von 0 und einen Standardabweichungswert von 1 hat), besser geeignet.
 
 
 ```{r}
@@ -56,12 +65,12 @@ fviz_cluster(kmeans_1, main = "", data = spe) +
   theme_classic()
 ```
 
-Wie viele Cluster (Gruppen) sollen definiert werden? Oft haben wir eine Vorstelung über den 
+Wie viele Cluster (Gruppen) sollen definiert werden? Oft haben wir eine Vorstellung über den 
 Range der Anzahl Cluster. Value criterions wie der Simple Structure Index (ssi) können
 eine zusätzliche Hilfe sein, um die geeignete Anzahl von Clustern zu finden.
 
 ```{r}
-# k-means partionierung, 2 bis 10 Gruppen
+# k-means Partionierung, 2 bis 10 Gruppen
 set.seed(123)
 km_cascade <- cascadeKM(spe_norm,  inf.gr = 2, sup.gr = 10, iter = 100, criterion = "ssi")
 km_cascade$results
@@ -76,8 +85,9 @@ kmeans_2 <- kmeans(spe_norm, centers = 3, nstart = 100)
 
 
 #  Clustering-Resultat in Ordinationsplots darstellen
-fviz_cluster(kmeans_2, main = "", data = spe) +
-  theme_classic()
+fviz_cluster(kmeans_2, data = spe) +
+  theme_classic() +
+  theme(plot.title = element_blank())
 
 # Resultat intepretieren
 kmeans_2
@@ -114,6 +124,7 @@ sig_letters <- Tukey$groups[order(row.names(Tukey$groups)), ]
 ggplot(spe_2, aes(x = cluster,  y = species_richness)) + 
   geom_boxplot() +
   geom_text(data = sig_letters, 
-            aes(label = groups, x = c(1:3), y = max(spe_2$species_richness) * 1.2)) +
+            aes(label = groups, x = c(1:3), 
+                y = max(spe_2$species_richness) * 1.2)) +
   theme_classic()
 ```

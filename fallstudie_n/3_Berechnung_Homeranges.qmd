@@ -1,7 +1,7 @@
 ---
 execute:
-  echo: true   # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false   # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -37,7 +37,7 @@ Einlesen des Gesamtdatensatzes von Moodle, Sichtung des Datensatzes und der Date
 #| output: false
 
 
-Rehe <- read_delim("datasets/fallstudie_n/Aufgabe3_Homeranges_Rehe_landforst_241011.csv", delim = ";")
+Rehe <- read_delim("datasets/fallstudie_n/Aufgabe3_Homeranges_Rehe_landforst_251021.csv", delim = ";")
 
 str(Rehe)
 ```
@@ -161,7 +161,7 @@ ggplot(hr, aes(color = "red", fill = "red")) +
   )
 ```
 
-Nachbauen des Sampling Grids mit den Kreisen (Wird als Grundlage für Extraktion der Umweltvariablen innerhalb der Homeranges benötigt)
+Nachbauen des Sampling Grids mit den Kreisen (Wurde als Grundlage für die Extraktion der Umweltvariablen innerhalb der Homeranges benötigt)
 
 - Ausdehnung des Grids basiert auf `hr`
 - Cellsize des Grids: 25m
@@ -189,16 +189,16 @@ ggplot(grid_plot, color = "black", fill = NA) +
 
 ## Aufgabe 3
 
-Testen der Variablen der Vegetationsschichten von letzter Woche auf einen linearen Zusammenhang (Korrelation; Funktion cor.test). DG_Baumschicht vs. DG_os / DG_Strauchschicht vs. DG_us aus dem Datensatz df_with_lidar_2024 den wir letzte Woche erstellt haben
+Testen der Variablen der Vegetationsschichten von letzter Woche auf einen linearen Zusammenhang (Korrelation; Funktion cor.test). DG_Baumschicht vs. DG_os / DG_Strauchschicht vs. DG_us aus dem Datensatz df_with_lidar_2025 den wir letzte Woche erstellt haben
 
-**Die Theorie in den Vormittagslektionen zu Korrelation folgt erst ab 29.10.**
+**Die Theorie in den Vormittagslektionen zu Korrelation folgt erst ab 03.11.**
 
 ```{r}
-#| echo: true
 #| code-fold: false
+#| eval: false
 
 
-df_with_lidar <- read_delim("datasets/fallstudie_n/df_with_lidar_2024.csv", delim = ";")
+df_with_lidar <- read_delim("datasets/fallstudie_n/df_with_lidar_2025.csv", delim = ";")
 
 cor.test(~ DG_Strauchschicht + DG_us_2022, data = df_with_lidar, method = "pearson")
 ```

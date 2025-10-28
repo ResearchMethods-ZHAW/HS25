@@ -3,7 +3,7 @@ lesson: Statistik 4
 knitr:
   opts_chunk: 
     collapse: false
-musterloesung: true
+musterloesung: false
 editor: 
   markdown: 
     wrap: 72
@@ -38,6 +38,8 @@ editor:
 
 : Environmental measures of the vegetation plots in steppe grassland (n
 = 199)
+
+
 
 -   **Ermitteln Sie ein minimal adäquates Modell, das den Artenreichtum
     in den Plots durch die Umweltvariablen erklärt.**
@@ -91,6 +93,7 @@ library(ggplot2)
 ```
 
 ```{r}
+#| message: false
 stgl <- read_delim("datasets/stat/steprasen_ukraine.csv", delim = ";")
 str(stgl)
 ```
@@ -118,7 +121,7 @@ Da es sich bei Artenzahlen um Zähldaten handelt, müsste man theoretisch
 ein glm mit Poisson-Verteilung rechnen; bei einem Mittelwert, der
 hinreichend von Null verschieden ist (hier: ca. 40), ist eine
 Poisson-Verteilung aber praktisch nicht von einer Normalverteilung zu
-unterscheiden und wir können uns den Aufwand auch sparen).
+unterscheiden und wir können uns den Aufwand auch sparen.
 
 ```{r}
 #| eval: false
@@ -145,7 +148,8 @@ Temperature statt Altitude (weil das der direktere ökologische
 Wirkfaktor ist) und C.org statt N.total zu behalten (weil es in der
 Literatur mehr Daten zum Humusgehalt als zum N-Gehalt gibt, damit eine
 bessere Vergleichbarkeit erzielt wird). Die Aussagen, die wir für die
-beibehaltene Variable erzielen, stehen aber +/- auch für die entfernte.
+beibehaltene Variable erzielen, stehen aber +/- auch für die entfernten 
+Variablen.
 
 ```{r}
 #| include: false
@@ -164,8 +168,10 @@ global_model <- lm(Species_richness ~
                      Inclination + 
                      Heat_index + 
                      Microrelief + 
+                     Conductivity +
                      Grazing_intensity +
-                     Litter + 
+                     Litter +
+                     Precipitation +            
                      Stones_and_rocks + 
                      Gravel + 
                      Fine_soil + 
@@ -173,7 +179,8 @@ global_model <- lm(Species_richness ~
                      CaCO3 + 
                      C_org + 
                      CN_ratio + 
-                     Temperature, 
+                     Temperature +
+                     Temperature_range,
                    data = stgl)
 ```
 
@@ -198,7 +205,7 @@ allmodels <- dredge(global_model)
 allmodels[1:10]
 ```
 
-Jetzt bekommen wir die besten 10 der insgesamt 8192 möglichen Modelle
+Jetzt bekommen wir die besten 10 der insgesamt 65536 möglichen Modelle
 gelistet mit ihren Parameterschätzungen und ihrem AICc.
 
 Das beste Modell umfasst 5 Parameter (CaCO3, CN.ratio,

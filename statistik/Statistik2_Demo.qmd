@@ -55,12 +55,16 @@ blume2 <- data.frame("cultivar" = cultivar,
 ggplot(blume2, aes(cultivar, size)) +
   geom_boxplot() +
   stat_summary(fun = mean, geom = "point") 
+```
 
 
 # Kennzahlen der Daten anschauen
-
+```{r}
+#| message: false
 library("dplyr")
+```
 
+```{r}
 blume2 |> 
   group_by(cultivar) |>
   summarise(
@@ -99,7 +103,7 @@ posthoc
 labels <- posthoc$groups
 labels$cultivar <- rownames(labels)
 
-#In Plot darstellen
+# In Plot darstellen
 ggplot(blume2, aes(cultivar, size)) +
   geom_boxplot() +
   geom_text(data = labels, aes(x = cultivar, y = 33, label = groups)) +
@@ -142,7 +146,7 @@ summary.lm(aov_4b)
 # Interaktionsplots
 ggplot(blume3, aes(cultivar, size, color = house, group = house)) +
   stat_summary(fun = mean, geom = "point", size = 3) +
-  stat_summary(fun = mean, geom = "line", size = 1) 
+  stat_summary(fun = mean, geom = "line", linewidth = 1) 
 
 ggplot(blume3, aes(house, size, color = cultivar, group = cultivar)) +
   stat_summary(fun = mean, geom = "line", size = 1) +
