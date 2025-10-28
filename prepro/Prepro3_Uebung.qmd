@@ -164,14 +164,14 @@ plot(weather_summary$week, weather_summary$temp_mean, type = "l")
 
 ## Aufgabe 9
 
-In der vorherigen Aufgabe haben wir den Mittelwert der Temperatur pro Kalenderwoche über *alle Jahre* (2000 und 2001) berechnet. Wenn wir die Jahre aber miteinander vergleichen wollen, müssen wir das Jahr als zusätzliche *convenience Variable* erstellen und danach gruppieren. Versuche dies mit den Wetterdaten und visualisiere den Output anschliessend.
+In der vorherigen Aufgabe haben wir den Mittelwert der Temperatur pro Kalenderwoche über *alle Jahre* (2000 und 2001) berechnet. Wenn wir die Jahre aber miteinander vergleichen wollen, müssen wir zuerst nach Jahr, dann nach Woche gruppieren und die Daten aggregieren. Versuche dies mit den Wetterdaten und visualisiere den Output anschliessend.
 
 
 ```{r}
 weather_summary2 <- weather |>
   mutate(
+    year = year(time),
     week = week(time),
-    year = year(time)
     ) |>
   group_by(year, week) |>
   summarise(
@@ -196,12 +196,12 @@ plot(weather_summary2$week, weather_summary2$temp_mean, type = "l")
 
 ```{r}
 weather_summary2 <- weather_summary2 |>
-  pivot_wider(names_from = year, values_from = temp_mean,names_prefix = "year")
+  pivot_wider(names_from = year, values_from = temp_mean)
 ```
 
 ```{r}
 #| output: true
 
-plot(weather_summary2$week, weather_summary2$year2000, type = "l",col = "blue")
-lines(weather_summary2$week, weather_summary2$year2001, type = "l",col = "red")
+plot(weather_summary2$week, weather_summary2$`2000`, type = "l",col = "blue")
+lines(weather_summary2$week, weather_summary2$`2001`, type = "l",col = "red")
 ```
