@@ -5,6 +5,7 @@ knitr:
     collapse: false 
 ---
 
+
 # Statistik 3: Demo
 
 [Demoscript herunterladen (.R)](../purl/Statistik3_Demo.R){.dld}
@@ -55,9 +56,7 @@ lm_1
 lm_2 <- lm(N_deposition ~ Species_richness, data = df) 
 lm_2
  
-anova(lm_1) # ANOVA-Tabelle, 1. Möglichkeit
-summary.aov(lm_1) # ANOVA-Tabelle, 2. Möglichkeit
-summary(lm_1) # Regressionskoeffizienten
+summary(lm_1) 
 
 # Signifikantes Ergebnis visualisieren
 ggplot(df, aes(x = N_deposition, y = Species_richness)) +
