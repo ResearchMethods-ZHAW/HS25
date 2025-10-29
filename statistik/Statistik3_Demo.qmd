@@ -138,7 +138,7 @@ ggplot(df_2, aes(x = pred, y = resp)) +
             color = "red", linetype = "dashed") + 
   geom_line(data = ModPred, aes(x = xv, y = y_lm_quad), color = "blue")
 
-# Mit funktion geom_smooth welche predict im Hintergrund verwendet
+# Mit der funktion geom_smooth welche predict im Hintergrund verwendet
 ggplot(df_2, aes(x = pred, y = resp)) +
   geom_point() +
   geom_smooth(method = "lm", formula = y ~ x, color = "red", linetype = "dashed",

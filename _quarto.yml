@@ -69,17 +69,17 @@ book:
       - infovis/Infovis2_Demo.qmd
       - infovis/Infovis2_Uebung_A.qmd
       - infovis/Infovis2_Uebung_B.qmd
-    # - part: Statistik.qmd
-    #   chapters:
-    #   - statistik/Statistik0_Vorbereitung.qmd
-    #   - statistik/Statistik1_Demo.qmd
-    #   - statistik/Statistik1_Uebung.qmd
-    #   - statistik/Statistik2_Demo.qmd
-    #   - statistik/Statistik2_Uebung.qmd
-    #   - statistik/Statistik3_Demo.qmd
-    #   - statistik/Statistik3_Uebung.qmd      
-    #   - statistik/Statistik4_Demo.qmd
-    #   - statistik/Statistik4_Uebung.qmd      
+    - part: Statistik.qmd
+      chapters:
+      - statistik/Statistik0_Vorbereitung.qmd
+      - statistik/Statistik1_Demo.qmd
+      - statistik/Statistik1_Uebung.qmd
+      - statistik/Statistik2_Demo.qmd
+      - statistik/Statistik2_Uebung.qmd
+      - statistik/Statistik3_Demo.qmd
+      - statistik/Statistik3_Uebung.qmd
+      - statistik/Statistik4_Demo.qmd
+      - statistik/Statistik4_Uebung.qmd
     #   - statistik/Statistik5_Demo.qmd
     #   - statistik/Statistik5_Uebung.qmd      
     #   - statistik/Statistik6_Demo.qmd
@@ -123,8 +123,8 @@ book:
       chapters:
       - fallstudie_n/1_Vorbemerkung.qmd
       - fallstudie_n/2_Datenverarbeitung.qmd
-    #   - fallstudie_n/3_Berechnung_Homeranges.qmd
-    #   - fallstudie_n/4_Multivariate_Modelle.qmd
+      - fallstudie_n/3_Berechnung_Homeranges.qmd
+      - fallstudie_n/4_Multivariate_Modelle.qmd
     #   - fallstudie_n/5_Variablenselektion.qmd
     #   - fallstudie_n/6_Guete_und_Diagnostics.qmd
       #- --
