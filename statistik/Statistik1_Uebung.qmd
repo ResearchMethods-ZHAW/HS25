@@ -3,7 +3,7 @@ lesson: Statistik 1
 knitr:
   opts_chunk: 
     collapse: false
-musterloesung: false
+musterloesung: true
 ---
 
 # Statistik 1: Übung
@@ -65,7 +65,7 @@ Wurden in den Basis- und Interventionswochen unterschiedlich viele Gerichte verk
 
 [Demoscript herunterladen (.qmd)](../purl/Statistik1_Uebung.qmd){.dld}
 
-- [Lösungstext als Download](Statistik1_Lösung.pdf)
+- [Lösungstexte als Download](Statistik1_Lösung.pdf)
 
 ## Vorebreitung R-Session
 
@@ -125,13 +125,11 @@ assocplot(AGsocks)
 Der Assoziationsplot zeigt, dass in den Daten weisse Socken bei den Aargauern 
 überverterten und bei den Nicht-Aargauern untervertreten sind.
 
-Für kleine Erwartungswerte in den Zellen (\< 5) ist der Chi-Quadrat-Test 
-nicht zuverlässig (siehe "Warning message"). Darum wird mit Fishers 
+Für kleine Erwartungswerte in den Zellen (\< 5) ist der Chi-Quadrat-Test nicht zuverlässig. Darum wird mit Fishers 
 exaktem Test gearbeitet.
 
 ```{r}
 # Tests durchführen
-chisq.test(AGsocks) # Chi-Quadrat-Test nur zum anschauen
 fisher.test(AGsocks) # "Fisher's Exact Test for Count Data"
 ```
 
