@@ -129,7 +129,7 @@ str(df_gesamt)
   - → Befehle mutate und rename, mit pipes (alt: `%>%`, neu: `|>`) in einem Schritt möglich
 
 ```{r}
-#| eval: false
+#| eval: true
 
 # .#################################################################################
 # 2. DATENVORVERARBEITUNG #####
@@ -193,7 +193,7 @@ Beim Erfassen und Dokumentieren von Daten aus verschiedenen Quellen sollte darau
 Zusammenführen der Teildatensätze zu einem Datensatz
 
 ```{r}
-#| eval: false
+#| eval: true
 df_gesamt <- bind_rows(df_team1, df_team2, df_team3, df_team4, df_team5)
 ```
 
@@ -205,7 +205,7 @@ Verbinden (join) des Datensatzes der Felderhebungen mit dem Datensatz der LIDAR 
 --> Welche Art von join? Welche Spalten zum Verbinden (join_by()) der Datensätze
 
 ```{r}
-#| eval: false
+#| eval: true
 df_with_LIDAR <- left_join(df_gesamt, df_lidar, join_by(X == x, Y == y))
 ```
 
@@ -217,7 +217,7 @@ Im LiDAR Datensatz gibt es dieselben Variablen der Waldstruktur aus der LiDAR-Be
 
 
 ```{r}
-#| eval: false
+#| eval: true
 # .#####################################################################################
 # 4. VISUALISERUNG #####
 # .#####################################################################################
