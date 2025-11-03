@@ -1392,7 +1392,7 @@
     "href": "rauman/Rauman1_Uebung_B.html#aufgabe-2-datensätze-erkunden",
     "title": "Rauman 1: Übung B",
     "section": "Aufgabe 2: Datensätze erkunden",
-    "text": "Aufgabe 2: Datensätze erkunden\nNimm dir etwas Zeit und erkunde die beiden Datensätze. Nutze dafür auch die Visualisierungsmöglichkeiten von ggplot (insbesondere geom_sf). Du kannst mehrere geom_sf() übereinander lagern, um gleichzeitig mehrere Datensätze darzustellen.\n\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 27.1: Wiesen-Flächen eingefärbt nach Typ\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 27.2: Bäume eingefärbt nach Baumtyp",
+    "text": "Aufgabe 2: Datensätze erkunden\nNimm dir etwas Zeit und erkunde die beiden Datensätze. Nutze dafür auch die Visualisierungsmöglichkeiten von ggplot (insbesondere geom_sf). Du kannst mehrere geom_sf() übereinander lagern, um gleichzeitig mehrere Datensätze darzustellen.\n\n\n\n\n\n\n\n\n\nAbbildung 27.1: Wiesen-Flächen eingefärbt nach Typ\n\n\n\n\n\n\n\n\n\n\n\nAbbildung 27.2: Bäume eingefärbt nach Baumtyp",
     "crumbs": [
       "Räumliche Analysen",
       "<span class='chapter-number'>27</span>  <span class='chapter-title'>Rauman 1: Übung B</span>"
@@ -1634,7 +1634,7 @@
     "href": "rauman/Rauman5_Uebung_A.html#sec-raster-distance",
     "title": "Rauman 5: Übung A",
     "section": "Aufgabe 2: Erschliessung berechnen",
-    "text": "Aufgabe 2: Erschliessung berechnen\nBeginnen wir mit dem Kriterium “Erschliessung”. Wir müssen für den ganzen Kanton Schwyz wissen, wie weit die nächste Strasse entfernt ist. Wie wir bereits in Aufgabe 5 erläutert haben, lässt sich diese Information am besten in einem Raster abbilden.\nAnalog Aufgabe 5 müssen wir hierfür den Vektordatensatz auf der Basis eines Templates in ein Raster konvertieren. Für die Erstellung des Templates verwenden wir an dieser Stelle die Kantonsgrenze vom Kanton Schwyz.\n\n# Template mit der Ausdehnung und dem CRS von kt_schwyz\n# erstellen, und mit einer Auflösung von 250m\ntemplate &lt;- rast(kt_schwyz, resolution = 250)\n\nstrassen_raster &lt;- rasterize(strassen, template)\nstrassen_dist &lt;- distance(strassen_raster)\n\nNutze den obigen Code, um den Strassen-Datensatz zu rasterisieren und die Distanz zu Strassen mit der Funktion distance() zu berechnen. Plausibilisiere den Output, indem du ihn visualisierst.\n\n\n\n\n\n\n\n\n\nDie rasterisierte Form des “Strassen” Datensatzes\n\n\n\n\n\n\n\nDie Distanz zur nächstgelegenen Strasse für jeden Punkt im Kanton Schwyz”\n\n\n\n\n\nFühre nun die gleiche Operation durch, um die Entfernung zu nationalen Schutzgebieten zu ermitteln.\n\n\n\n\n\n\n\n\n\nDie rasterisierte Form des “Schutzgebiete” Datensatzes\n\n\n\n\n\n\n\nDie Distanz zum nächstgelegenen Schutzgebiet für jeden Punkt im Kanton Schwyz”",
+    "text": "Aufgabe 2: Erschliessung berechnen\nBeginnen wir mit dem Kriterium “Erschliessung”. Wir müssen für den ganzen Kanton Schwyz wissen, wie weit die nächste Strasse entfernt ist. Wie wir bereits in Aufgabe 5 erläutert haben, lässt sich diese Information am besten in einem Raster abbilden.\nAnalog Aufgabe 5 müssen wir hierfür den Vektordatensatz auf der Basis eines Templates in ein Raster konvertieren. Für die Erstellung des Templates verwenden wir an dieser Stelle die Kantonsgrenze vom Kanton Schwyz.\n\n# Template mit der Ausdehnung und dem CRS von kt_schwyz\n# erstellen, und mit einer Auflösung von 250m\ntemplate &lt;- rast(kt_schwyz, resolution = 250)\n\nstrassen_raster &lt;- rasterize(strassen, template)\nstrassen_dist &lt;- distance(strassen_raster)\n\nNutze den obigen Code, um den Strassen-Datensatz zu rasterisieren und die Distanz zu Strassen mit der Funktion distance() zu berechnen. Plausibilisiere den Output, indem du ihn visualisierst.\n\n\n\n\n\n\nDie rasterisierte Form des “Strassen” Datensatzes\n\n\n\n\n\n\n\nDie Distanz zur nächstgelegenen Strasse für jeden Punkt im Kanton Schwyz”\n\n\n\n\n\nFühre nun die gleiche Operation durch, um die Entfernung zu nationalen Schutzgebieten zu ermitteln.\n\n\n\n\n\n\nDie rasterisierte Form des “Schutzgebiete” Datensatzes\n\n\n\n\n\n\n\nDie Distanz zum nächstgelegenen Schutzgebiet für jeden Punkt im Kanton Schwyz”",
     "crumbs": [
       "Räumliche Analysen",
       "<span class='chapter-number'>34</span>  <span class='chapter-title'>Rauman 5: Übung A</span>"
@@ -2195,7 +2195,7 @@
     "href": "fallstudie_n/2_Datenverarbeitung.html#daten-laden",
     "title": "Pre-Processing",
     "section": "Daten laden",
-    "text": "Daten laden\nHerunterladen der Daten der Feldaufnahmen von Moodle (Aufgabe3_Feldaufnahmen_alle_Gruppen.zip), Einlesen, Sichtung der Datensätze und der Datentypen.\nVerschiedene Dinge werden beim Einlesen möglicherweise nicht auf Anhieb funktionieren oder es zeigt sich dann spätestens beim Zusammenfügen zu einem Gesamtdatensatz, dass es Probleme gibt (zB. mit den Datentypen). Versucht wenn möglich diese Dinge jeweils direkt mit R zu lösen, dies ist vorallem bei grösseren Datensätzen extrem hilfreich, damit die Datensätze zu einem sauberen Gesamtdatensatz zusammengefügt werden können.",
+    "text": "Daten laden\nHerunterladen der Daten der Feldaufnahmen von Moodle (Aufgabe3_Feldaufnahmen_alle_Gruppen.zip), Einlesen, Sichtung der Datensätze und der Datentypen.\nVerschiedene Dinge werden beim Einlesen möglicherweise nicht auf Anhieb funktionieren oder es zeigt sich dann spätestens beim Zusammenfügen zu einem Gesamtdatensatz, dass es Probleme gibt (zB. mit den Datentypen). Versucht wenn möglich diese Dinge jeweils direkt mit R zu lösen, dies ist vorallem bei grösseren Datensätzen extrem hilfreich, damit die Datensätze zu einem sauberen Gesamtdatensatz zusammengefügt werden können.\n\ndf_team1 &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe3_Feldaufnahmen_alle_Gruppen/Felderhebungen_GruppeTürkis.csv\", delim = \";\") \n\ndf_team2 &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe3_Feldaufnahmen_alle_Gruppen/ReMe_Gr_trh_Gr_2.csv\", delim = \";\")\n\ndf_team3 &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe3_Feldaufnahmen_alle_Gruppen/Felderhebung Gruppe 3 pink.csv\", delim = \";\")\n\ndf_team4 &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe3_Feldaufnahmen_alle_Gruppen/2025_10_07_Felderhebung_Waldstuktur_Team_4_blau.csv\", delim = \";\")\nstr(df_team4)\n## spc_tbl_ [26 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n##  $ Felderhebungen Waldstruktur: TEAM 4 (blau): chr [1:26] \"Kreis (r 12.5)\" \"0\" \"1\" \"2\" ...\n##  $ ...2                                      : chr [1:26] \"x\" \"684825\" \"684800\" \"684800\" ...\n##  $ ...3                                      : chr [1:26] \"y\" \"237125\" \"237075\" \"237400\" ...\n##  $ ...4                                      : chr [1:26] \"Deckungsgrad Rubus sp. [%]\" \"45.00\" \"0.80\" \"93.30\" ...\n##  $ ...5                                      : chr [1:26] \"DG Strauchschicht [%] (0.5-3m)\" \"59.50\" \"22.50\" \"73.30\" ...\n##  $ ...6                                      : chr [1:26] \"DG Baumschicht [%] (ab 3m)\" \"76.80\" \"95.00\" \"48.80\" ...\n##  - attr(*, \"spec\")=\n##   .. cols(\n##   ..   `Felderhebungen Waldstruktur: TEAM 4 (blau)` = col_character(),\n##   ..   ...2 = col_character(),\n##   ..   ...3 = col_character(),\n##   ..   ...4 = col_character(),\n##   ..   ...5 = col_character(),\n##   ..   ...6 = col_character()\n##   .. )\n##  - attr(*, \"problems\")=&lt;externalptr&gt;\n\ndf_team4 &lt;- df_team4 %&gt;% { setNames(.[-1, ], as.character(unlist(.[1, ], use.names = FALSE))) }\n\ndf_team4 &lt;- df_team4 %&gt;% \n  dplyr::mutate(across(everything(), as.numeric))\n\ndf_team5 &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe3_Feldaufnahmen_alle_Gruppen/reme_felderhebung_team_5_violett_20251007.csv\", delim = \";\")\nstr(df_team5)\n## spc_tbl_ [26 × 6] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n##  $ ...1: chr [1:26] \"Kreis (r 12.5m)\" \"0\" \"1\" \"2\" ...\n##  $ ...2: chr [1:26] \"X\" \"684800\" \"684800\" \"684775\" ...\n##  $ ...3: chr [1:26] \"Y\" \"237100\" \"237375\" \"237075\" ...\n##  $ ...4: chr [1:26] \"Deckungsgrad Rubus sp. [%]\" \"2\" \"2\" \"7\" ...\n##  $ ...5: chr [1:26] \"DG Strauchschicht [%] (0.5-3m)\" \"5\" \"5\" \"40\" ...\n##  $ ...6: chr [1:26] \"DG Baumschicht [%] (ab 3m)\" \"90\" \"40\" \"80\" ...\n##  - attr(*, \"spec\")=\n##   .. cols(\n##   ..   ...1 = col_character(),\n##   ..   ...2 = col_character(),\n##   ..   ...3 = col_character(),\n##   ..   ...4 = col_character(),\n##   ..   ...5 = col_character(),\n##   ..   ...6 = col_character()\n##   .. )\n##  - attr(*, \"problems\")=&lt;externalptr&gt;\n\ndf_team5 &lt;- df_team5 %&gt;% { setNames(.[-1, ], as.character(unlist(.[1, ], use.names = FALSE))) }\n\ndf_team5 &lt;- df_team5 %&gt;% \n  dplyr::mutate(across(everything(), as.numeric))\n\n# hier können die Probekreise mit den Angaben zur Anzahl Rehlokalisationen und der\n# LIDAR-basierten Ableitung der Waldstruktur eingelesen werden\n\ndf_lidar &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe3_LIDAR_Waldstruktur_Reh_Kreise_251013.csv\", delim = \";\")\nstr(df_lidar)\n## spc_tbl_ [305 × 7] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n##  $ Anz_reh_lokalisationen: num [1:305] 0 0 0 0 0 0 0 0 0 0 ...\n##  $ x                     : num [1:305] 684900 684900 684900 684900 684875 ...\n##  $ y                     : num [1:305] 237100 237125 237150 237175 237075 ...\n##  $ DG_us_2014            : num [1:305] 0.0903 0.2717 0.468 0.7407 0.1811 ...\n##  $ DG_os_2014            : num [1:305] 0.908 0.959 0.871 0.986 0.86 ...\n##  $ DG_us_2022            : num [1:305] 0.269 0.823 0.936 0.359 0.245 ...\n##  $ DG_os_2022            : num [1:305] 0.945 0.99 0.953 0.997 0.898 ...\n##  - attr(*, \"spec\")=\n##   .. cols(\n##   ..   Anz_reh_lokalisationen = col_double(),\n##   ..   x = col_double(),\n##   ..   y = col_double(),\n##   ..   DG_us_2014 = col_double(),\n##   ..   DG_os_2014 = col_double(),\n##   ..   DG_us_2022 = col_double(),\n##   ..   DG_os_2022 = col_double()\n##   .. )\n##  - attr(*, \"problems\")=&lt;externalptr&gt;\n\n# Die eingelesenen Datensätze anschauen und versuchen zu einem Gesamtdatensatz\n# verbinden. Ist der Output zufriedenstellend?\n\ndf_gesamt &lt;- bind_rows(df_team1, df_team2, df_team3, df_team4, df_team5)\nstr(df_gesamt)\n## spc_tbl_ [125 × 16] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n##  $ Kreis (r 12.5m)               : num [1:125] 0 1 2 3 4 5 6 7 8 9 ...\n##  $ X                             : num [1:125] 684900 684875 684875 684875 684850 ...\n##  $ Y                             : num [1:125] 237175 237125 237175 237250 237225 ...\n##  $ Deckungsgrad Rubus sp. %      : num [1:125] 10 20 8 60 3 0 40 20 20 50 ...\n##  $ DG Strauchschicht % (0.5-3m)  : num [1:125] 10 50 20 40 90 70 50 80 10 15 ...\n##  $ DG Baumschicht % (ab 3m)      : num [1:125] 50 60 70 50 40 50 75 70 80 60 ...\n##  $ Kreis                         : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ DG_Rub                        : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ DG_Str                        : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ DG_Bau                        : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ Deckungsgrad Rubus sp. [%]    : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ DG Strauchschicht [%] (0.5-3m): num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ DG Baumschicht [%] (ab 3m)    : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ Kreis (r 12.5)                : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ x                             : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  $ y                             : num [1:125] NA NA NA NA NA NA NA NA NA NA ...\n##  - attr(*, \"spec\")=\n##   .. cols(\n##   ..   `Kreis (r 12.5m)` = col_double(),\n##   ..   X = col_double(),\n##   ..   Y = col_double(),\n##   ..   `Deckungsgrad Rubus sp. %` = col_double(),\n##   ..   `DG Strauchschicht % (0.5-3m)` = col_double(),\n##   ..   `DG Baumschicht % (ab 3m)` = col_double()\n##   .. )\n##  - attr(*, \"problems\")=&lt;externalptr&gt;",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>45</span>  <span class='chapter-title'>Pre-Processing</span>"
@@ -2206,7 +2206,7 @@
     "href": "fallstudie_n/2_Datenverarbeitung.html#aufgabe-1",
     "title": "Pre-Processing",
     "section": "Aufgabe 1",
-    "text": "Aufgabe 1\n\n1.1 Einfügen zusätzliche Spalte pro Datensatz mit der Gruppenzugehörigkeit (Team1-5)\n1.2 Spaltenumbenennung damit die Bezeichungen in allen Datensätzen gleich sind und der Gesamtdatensatz ohne Probleme zusammengefügt werden kann\n\n→ Befehle mutate und rename, mit pipes (alt: %&gt;%, neu: |&gt;) in einem Schritt möglich\n\n\nBeim Erfassen und Dokumentieren von Daten aus verschiedenen Quellen sollte darauf geachtet werden, dass dies möglichst einheitlich passiert (Dateiformate, Spalten, Bezeichnungen, Datentypen, usw.), damit kann man sich einiges an Arbeit ersparen. Hilfreich ist in diesem Zusammenhang immer ein klares und sauberes Feldprotokoll resp. eine Vorlage für die Erfassung der Daten zu erstellen.",
+    "text": "Aufgabe 1\n\n1.1 Einfügen zusätzliche Spalte pro Datensatz mit der Gruppenzugehörigkeit (Team1-5)\n1.2 Spaltenumbenennung damit die Bezeichungen in allen Datensätzen gleich sind und der Gesamtdatensatz ohne Probleme zusammengefügt werden kann\n\n→ Befehle mutate und rename, mit pipes (alt: %&gt;%, neu: |&gt;) in einem Schritt möglich\n\n\n\n\nMusterlösung\n# .#################################################################################\n# 2. DATENVORVERARBEITUNG #####\n# .#################################################################################\n\ndf_team1 &lt;- df_team1 |&gt;\n  mutate(team = \"team1\") |&gt;\n  rename(\n    KreisID = \"Kreis (r 12.5m)\",\n    DG_Rubus = \"Deckungsgrad Rubus sp. %\",\n    DG_Strauchschicht = \"DG Strauchschicht % (0.5-3m)\",\n    DG_Baumschicht = \"DG Baumschicht % (ab 3m)\"\n  )\n\ndf_team2 &lt;- df_team2 |&gt;\n  mutate(team = \"team2\") |&gt;\n  rename(\n    KreisID = \"Kreis\",\n    DG_Rubus = \"DG_Rub\",\n    DG_Strauchschicht = \"DG_Str\",\n    DG_Baumschicht = \"DG_Bau\"\n  )\n\ndf_team3 &lt;- df_team3 |&gt;\n  mutate(team = \"team3\") |&gt;\n  rename(\n    KreisID = \"Kreis (r 12.5m)\",\n    DG_Rubus = \"Deckungsgrad Rubus sp. [%]\",\n    DG_Strauchschicht = \"DG Strauchschicht [%] (0.5-3m)\",\n    DG_Baumschicht = \"DG Baumschicht [%] (ab 3m)\"\n  )\n\ndf_team4 &lt;- df_team4 |&gt;\n  mutate(team = \"team4\") |&gt;\n  rename(\n    KreisID = \"Kreis (r 12.5)\",\n    X = \"x\",\n    Y = \"y\",\n    DG_Rubus = \"Deckungsgrad Rubus sp. [%]\",\n    DG_Strauchschicht = \"DG Strauchschicht [%] (0.5-3m)\",\n    DG_Baumschicht = \"DG Baumschicht [%] (ab 3m)\"\n  )\n\ndf_team5 &lt;- df_team5 |&gt;\n  mutate(team = \"team5\") |&gt;\n  rename(\n    KreisID = \"Kreis (r 12.5m)\",\n    DG_Rubus = \"Deckungsgrad Rubus sp. [%]\",\n    DG_Strauchschicht = \"DG Strauchschicht [%] (0.5-3m)\",\n    DG_Baumschicht = \"DG Baumschicht [%] (ab 3m)\"\n  )\n\n\nBeim Erfassen und Dokumentieren von Daten aus verschiedenen Quellen sollte darauf geachtet werden, dass dies möglichst einheitlich passiert (Dateiformate, Spalten, Bezeichnungen, Datentypen, usw.), damit kann man sich einiges an Arbeit ersparen. Hilfreich ist in diesem Zusammenhang immer ein klares und sauberes Feldprotokoll resp. eine Vorlage für die Erfassung der Daten zu erstellen.",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>45</span>  <span class='chapter-title'>Pre-Processing</span>"
@@ -2217,7 +2217,7 @@
     "href": "fallstudie_n/2_Datenverarbeitung.html#aufgabe-2",
     "title": "Pre-Processing",
     "section": "Aufgabe 2",
-    "text": "Aufgabe 2\nZusammenführen der Teildatensätze zu einem Datensatz",
+    "text": "Aufgabe 2\nZusammenführen der Teildatensätze zu einem Datensatz\n\n\nMusterlösung\ndf_gesamt &lt;- bind_rows(df_team1, df_team2, df_team3, df_team4, df_team5)",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>45</span>  <span class='chapter-title'>Pre-Processing</span>"
@@ -2228,7 +2228,7 @@
     "href": "fallstudie_n/2_Datenverarbeitung.html#aufgabe-3",
     "title": "Pre-Processing",
     "section": "Aufgabe 3",
-    "text": "Aufgabe 3\nVerbinden (join) des Datensatzes der Felderhebungen mit dem Datensatz der LIDAR Variablen in den Reh-Kreisen (Aufgabe3_LIDAR_Waldstruktur_Reh_Kreise_251013.csv).\nZiel: ein Datensatz mit allen Kreisen der Felderhebung, angereichert mit den Umweltvariablen Understory und Overstory aus den LIDAR-Daten (DG_us_2022, DG_os_2022) aus dem LIDAR-Waldstruktur-Datensatz. –&gt; Welche Art von join? Welche Spalten zum Verbinden (join_by()) der Datensätze",
+    "text": "Aufgabe 3\nVerbinden (join) des Datensatzes der Felderhebungen mit dem Datensatz der LIDAR Variablen in den Reh-Kreisen (Aufgabe3_LIDAR_Waldstruktur_Reh_Kreise_251013.csv).\nZiel: ein Datensatz mit allen Kreisen der Felderhebung, angereichert mit den Umweltvariablen Understory und Overstory aus den LIDAR-Daten (DG_us_2022, DG_os_2022) aus dem LIDAR-Waldstruktur-Datensatz. –&gt; Welche Art von join? Welche Spalten zum Verbinden (join_by()) der Datensätze\n\n\nMusterlösung\ndf_with_LIDAR &lt;- left_join(df_gesamt, df_lidar, join_by(X == x, Y == y))",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>45</span>  <span class='chapter-title'>Pre-Processing</span>"
@@ -2239,7 +2239,7 @@
     "href": "fallstudie_n/2_Datenverarbeitung.html#aufgabe-4",
     "title": "Pre-Processing",
     "section": "Aufgabe 4",
-    "text": "Aufgabe 4\nScatterplot der korrespondondierenden Umweltvariablen aus den Felderhebungen gegen die Umweltvariablen aus den LiDAR-Daten (DG_xy_2022) erstellen (zusätzlich Einfärben der Gruppen und Regressionslinie darüberlegen). Korrelieren die Feldaufnahmen und die LiDAR basierte Waldstruktur?\nIm LiDAR Datensatz gibt es dieselben Variablen der Waldstruktur aus der LiDAR-Befliegung 2014. Ihr könnt untersuchen wie sich diese verändert haben und wie gut oder eben auch nicht sie mit euren Feldaufnahmen übereinstimmen.",
+    "text": "Aufgabe 4\nScatterplot der korrespondondierenden Umweltvariablen aus den Felderhebungen gegen die Umweltvariablen aus den LiDAR-Daten (DG_xy_2022) erstellen (zusätzlich Einfärben der Gruppen und Regressionslinie darüberlegen). Korrelieren die Feldaufnahmen und die LiDAR basierte Waldstruktur?\nIm LiDAR Datensatz gibt es dieselben Variablen der Waldstruktur aus der LiDAR-Befliegung 2014. Ihr könnt untersuchen wie sich diese verändert haben und wie gut oder eben auch nicht sie mit euren Feldaufnahmen übereinstimmen.\n\n\nMusterlösung\n# .#####################################################################################\n# 4. VISUALISERUNG #####\n# .#####################################################################################\n\nggplot(df_with_LIDAR, aes(DG_us_2022, DG_Strauchschicht, color = team)) +\n  geom_point() +\n  stat_smooth(method = \"lm\") +\n  xlim(0, 1) +\n  ylim(0, 100) +\n  geom_abline(slope = 100, intercept = 0, linetype = \"dashed\", color = \"red\")\n\n\n\n\n\n\n\n\n\nMusterlösung\n\n\nwrite_delim(df_with_LIDAR, \"datasets/fallstudie_n/df_with_lidar_2025.csv\", delim = \";\")",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>45</span>  <span class='chapter-title'>Pre-Processing</span>"
@@ -2250,7 +2250,7 @@
     "href": "fallstudie_n/2_Datenverarbeitung.html#zusatz-aufgabe-5",
     "title": "Pre-Processing",
     "section": "(Zusatz-)Aufgabe 5",
-    "text": "(Zusatz-)Aufgabe 5\nHerunterladen der Felderhebungsdaten von Moodle aus den vergangenen Jahren. Zusammenführen aller Datensätze. Explorative Datenanalyse zu den Veränderungen der Erhebungen ground truth LiDAR über die Zeit und zum Zusammenhang mit den LiDAR-basierten Waldstrukturvariablen aus den zwei Befliegungszeiträumen (2014 und 2022)\n!Achtung! es sind nicht alle Jahre gleich viele Teams an den Erhebungen beteiligt gewesen, daher gibt es nicht für alle Teams in allen Jahren Daten.",
+    "text": "(Zusatz-)Aufgabe 5\nHerunterladen der Felderhebungsdaten von Moodle aus den vergangenen Jahren. Zusammenführen aller Datensätze. Explorative Datenanalyse zu den Veränderungen der Erhebungen ground truth LiDAR über die Zeit und zum Zusammenhang mit den LiDAR-basierten Waldstrukturvariablen aus den zwei Befliegungszeiträumen (2014 und 2022)\n!Achtung! es sind nicht alle Jahre gleich viele Teams an den Erhebungen beteiligt gewesen, daher gibt es nicht für alle Teams in allen Jahren Daten.\n\n\nMusterlösung\n\nfiles &lt;- list.files(\"datasets/fallstudie_n/Aufgabe3_Feldaufnahmen_vergangene_Jahre\", pattern = \"*.csv\", full.names = TRUE)\n\n\ndf_ground_truth &lt;- files %&gt;%\n  map_df(~ read_delim(.x, delim = \";\") %&gt;% \n           mutate(Jahr = gsub(\"df_ground_truth_|\\\\.csv$\", \"\", basename(.x))))\n\n\ndf_without_LIDAR &lt;- df_with_LIDAR %&gt;% dplyr::select(KreisID:team) %&gt;% mutate(Jahr = \"2025\")\n\ndf_ground_truth &lt;- bind_rows(df_without_LIDAR, df_ground_truth)\n\ndf_ground_truth_with_LIDAR &lt;- left_join(df_ground_truth, df_lidar, join_by(X == x, Y == y))\n\ndf_ground_truth_with_LIDAR %&gt;%\n  ggplot(aes(KreisID, DG_Strauchschicht, color = as.numeric(Jahr), size = as.numeric(Jahr))) +\n  facet_wrap(~team, ncol = 1) +\n  geom_point() +\n  scale_color_viridis_c(option = \"plasma\") +  \n  scale_size_continuous(range = c(1, 3)) +  \n  labs(color = \"Year\", shape = \"Year\", size = \"Year\") +  \n  theme_minimal()",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>45</span>  <span class='chapter-title'>Pre-Processing</span>"
@@ -2327,7 +2327,7 @@
     "href": "fallstudie_n/4_Multivariate_Modelle.html#aufgabe-1",
     "title": "Multivariate Modelle",
     "section": "Aufgabe 1",
-    "text": "Aufgabe 1\nEinlesen der Gesamtdatensätze für die Multivariate Analysen von Moodle\n\nSichtung der Datensätze, der Variablen und der Datentypen\nKontrolle wieviele Rehe/Rothirsche in den Datensätzen enthalten sind",
+    "text": "Aufgabe 1\nEinlesen der Gesamtdatensätze für die Multivariate Analysen von Moodle\n\nSichtung der Datensätze, der Variablen und der Datentypen\nKontrolle wieviele Rehe/Rothirsche in den Datensätzen enthalten sind\n\n\n\nMusterlösung\nDF_reh &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe_4/Aufgabe4_Datensatz_Modelle_Habitatnutzung_Reh_251027.csv\", delim = \";\")\n\nstr(DF_reh)\n\nclass(DF_reh$time_of_day)\n\ntable(DF_reh$id)\n\nDF_reh |&gt;\n  group_by(id) |&gt;\n  summarize(anzahl = n())\n\nlength(unique(DF_reh$id))",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>47</span>  <span class='chapter-title'>Multivariate Modelle</span>"
@@ -2338,7 +2338,7 @@
     "href": "fallstudie_n/4_Multivariate_Modelle.html#aufgabe-2",
     "title": "Multivariate Modelle",
     "section": "Aufgabe 2",
-    "text": "Aufgabe 2\nUnterteilung des Datensatzes in Teildatensätze entsprechend der Tageszeit",
+    "text": "Aufgabe 2\nUnterteilung des Datensatzes in Teildatensätze entsprechend der Tageszeit\n\n\nMusterlösung\nDF_reh_night &lt;- DF_reh |&gt;\n  filter(time_of_day == \"night\")\n\nDF_reh_day &lt;- DF_reh |&gt;\n  filter(time_of_day == \"day\")",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>47</span>  <span class='chapter-title'>Multivariate Modelle</span>"
@@ -2349,7 +2349,7 @@
     "href": "fallstudie_n/4_Multivariate_Modelle.html#aufgabe-3",
     "title": "Multivariate Modelle",
     "section": "Aufgabe 3",
-    "text": "Aufgabe 3\nErstellen von Density Plots der Präsenz / Absenz in Abhängigkeit der unabhängigen Variablen. Diese Übung dient einer ersten groben Einschätzung der Wirkung der Umweltvariablen auf die abhängige Variable (Präsenz/Absenz in unserem Fall)\n\n# Ein Satz Density Plots für den Tagesdatensatz und einer für den Nachtdatensatz\n\npar(mfrow = c(3, 3), mar = c(4, 4, 3, 3)) # Vorbereitung Raster für Plots\n\n# innerhalb des for()-loops die Nummern der gewünschten Spalten einstellen\n\nfor (i in 5:12) {\n  dp &lt;- DF_mod_day |&gt; filter(pres_abs == 1) |&gt; pull(i)\n  dp &lt;- density(dp)\n  da &lt;- DF_mod_day |&gt; filter(pres_abs == 0) |&gt; pull(i)\n  da &lt;- density(da)\n  plot(0, 0, type = \"l\",\n    xlim = range(c(dp$x, da$x)),\n    ylim = range(dp$y, da$y),\n    xlab = names(DF_mod_day[i]),\n    ylab = \"Density\"\n  )\n  lines(dp$x, dp$y, col = \"blue\")             # Präsenz = used\n  lines(da$x, da$y, col = \"red\")              # Absenz = available\n}",
+    "text": "Aufgabe 3\nErstellen von Density Plots der Präsenz / Absenz in Abhängigkeit der unabhängigen Variablen. Diese Übung dient einer ersten groben Einschätzung der Wirkung der Umweltvariablen auf die abhängige Variable (Präsenz/Absenz in unserem Fall)\n\n# Ein Satz Density Plots für den Tagesdatensatz und einer für den Nachtdatensatz\n\npar(mfrow = c(3, 3), mar = c(4, 4, 3, 3)) # Vorbereitung Raster für Plots\n\n# innerhalb des for()-loops die Nummern der gewünschten Spalten einstellen\n\nfor (i in 5:12) {\n  dp &lt;- DF_reh_day |&gt; filter(pres_abs == 1) |&gt; pull(i)\n  dp &lt;- density(dp)\n  da &lt;- DF_reh_day |&gt; filter(pres_abs == 0) |&gt; pull(i)\n  da &lt;- density(da)\n  plot(0, 0, type = \"l\",\n    xlim = range(c(dp$x, da$x)),\n    ylim = range(dp$y, da$y),\n    xlab = names(DF_reh_day[i]),\n    ylab = \"Density\"\n  )\n  lines(dp$x, dp$y, col = \"blue\")             # Präsenz = used\n  lines(da$x, da$y, col = \"red\")              # Absenz = available\n}",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>47</span>  <span class='chapter-title'>Multivariate Modelle</span>"
@@ -2360,7 +2360,7 @@
     "href": "fallstudie_n/4_Multivariate_Modelle.html#aufgabe-4",
     "title": "Multivariate Modelle",
     "section": "Aufgabe 4",
-    "text": "Aufgabe 4\nFür jede kontinuierliche Variable: ein binomiales GLM fitten (pres_abs ~ x, data = DF_mod_day, family = binomial), Residuen berechnen und ein Histogramm + Q-Q-Plot (Residuen sollen grob „normal“ wirken) plotten. Wenn starke Abweichungen auftreten (krummes Histogramm, Q-Q-Punkte weit von der Linie): Transformationen probieren, das Modell neu fitten und die Residuen nochmal überprüfen.",
+    "text": "Aufgabe 4\nFür jede kontinuierliche Variable: ein binomiales GLM fitten (pres_abs ~ x, data = DF_mod_day, family = binomial), Residuen berechnen und ein Histogramm + Q-Q-Plot (Residuen sollen grob „normal“ wirken) plotten. Wenn starke Abweichungen auftreten (krummes Histogramm, Q-Q-Punkte weit von der Linie): Transformationen probieren, das Modell neu fitten und die Residuen nochmal überprüfen.\n\n\nMusterlösung\n\n# Definition des zu verarbeitenden Teildatensatzes \n\ndata &lt;- DF_reh_day\n\n# Liste mit den zu verarbeitenden kontinuierlichen Variablen\n\nvars &lt;- c(\"slope\",\"topo_pos\",\"dist_road_trails\",\"dist_road_only\",\n          \"dist_sett\",\"forest_prop\",\"us_2014\",\"os_2014\")\n\n# Ausgabe-Datei als PDF\n\nout_pdf &lt;- \"fallstudie_n/glm_DHARMa_checks_DF_reh_day.pdf\"\n\npdf(out_pdf, width = 7, height = 6)\non.exit(dev.off(), add = TRUE)\n\n# Loop über die Variablen\n\nfor (v in vars) {\n  if (!v %in% names(data)) next\n  x &lt;- data[[v]]\n  if (sum(!is.na(x)) &lt; 30 || length(unique(na.omit(x))) &lt; 3) next\n\n  # GLM fitten\n  m   &lt;- glm(as.formula(paste0(\"pres_abs ~ \", v)), data = data, family = binomial)\n\n  # DHARMa Standardseite (QQ + Residuen vs Fitted)\n  sim &lt;- simulateResiduals(m, n = 1000, plot = FALSE)\n\n  plot(sim, main = \"\")                 # Standardtitel ausblenden\n  mtext(v, side = 3, line = 0.5, font = 2)  # eigene Überschrift (nur Variablenname)\n  \n  # Histogramm der Variable\n  par(mfrow = c(1,1), mar = c(4,4,3,1))\n  hist(x, breaks = \"FD\", main = paste(\"Histogramm:\", v), xlab = v)\n\n}",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>47</span>  <span class='chapter-title'>Multivariate Modelle</span>"
@@ -2371,10 +2371,87 @@
     "href": "fallstudie_n/4_Multivariate_Modelle.html#aufgabe-5",
     "title": "Multivariate Modelle",
     "section": "Aufgabe 5",
-    "text": "Aufgabe 5\nExplorative Analysen der Variablen mit Scatterplots / Scatterplotmatrizen\n\nZu Scatterplots und Scatterplotmatrizen gibt es viele verschiedene Funktionen / Packages, schaut im Internet und sucht euch eines welches euch passt.\nTesten der Korrelation zwischen den Variablen (Parametrisch oder nicht-parametrische Methode? Ausserdem: gewisse Scatterplotmatrizen zeigen euch die Koeffizenten direkt an)",
+    "text": "Aufgabe 5\nExplorative Analysen der Variablen mit Scatterplots / Scatterplotmatrizen\n\nZu Scatterplots und Scatterplotmatrizen gibt es viele verschiedene Funktionen / Packages, schaut im Internet und sucht euch eines welches euch passt.\nTesten der Korrelation zwischen den Variablen (Parametrisch oder nicht-parametrische Methode? Ausserdem: gewisse Scatterplotmatrizen zeigen euch die Koeffizenten direkt an)\n\n\n\nMusterlösung\npairs.panels(DF_reh_day[5:12],\n  method = \"pearson\", # correlation method\n  hist.col = \"#00AFBB\",\n  density = TRUE, # show density plots\n  ellipses = TRUE # show correlation ellipses\n)\n\n\n\n\n\n\n\n\n\nMusterlösung\n\n# Die Korrelation bei einem Teildatensatz zu testen reicht,\n# denn die verwendeten Kreise sind die selben am Tag und in der Nacht,\n# nur die Nutzung durch das Reh nicht.",
     "crumbs": [
       "Fallstudie N",
       "<span class='chapter-number'>47</span>  <span class='chapter-title'>Multivariate Modelle</span>"
+    ]
+  },
+  {
+    "objectID": "fallstudie_n/5_Variablenselektion.html",
+    "href": "fallstudie_n/5_Variablenselektion.html",
+    "title": "Variablenselektion Multivariate Modelle",
+    "section": "",
+    "text": "Libraries laden\nlibrary(\"sf\")\nlibrary(\"terra\")\nlibrary(\"dplyr\")\nlibrary(\"readr\")\nlibrary(\"ggplot2\")\nlibrary(\"PerformanceAnalytics\")\nlibrary(\"pastecs\")\nlibrary(\"lme4\")\nlibrary(\"bbmle\")\nlibrary(\"MuMIn\")\nlibrary(\"MASS\")",
+    "crumbs": [
+      "Fallstudie N",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Variablenselektion Multivariate Modelle</span>"
+    ]
+  },
+  {
+    "objectID": "fallstudie_n/5_Variablenselektion.html#variablenselektion",
+    "href": "fallstudie_n/5_Variablenselektion.html#variablenselektion",
+    "title": "Variablenselektion Multivariate Modelle",
+    "section": "Variablenselektion",
+    "text": "Variablenselektion\n→ Vorgehen analog Coppes u. a. (2017)",
+    "crumbs": [
+      "Fallstudie N",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Variablenselektion Multivariate Modelle</span>"
+    ]
+  },
+  {
+    "objectID": "fallstudie_n/5_Variablenselektion.html#aufgabe-1",
+    "href": "fallstudie_n/5_Variablenselektion.html#aufgabe-1",
+    "title": "Variablenselektion Multivariate Modelle",
+    "section": "Aufgabe 1",
+    "text": "Aufgabe 1\nMit dem folgenden Code kann eine simple Korrelationsmatrix aufgebaut werden, vergl. Aufgabe 5 vorangehende Woche\n\nDF_reh &lt;- read_delim(\"datasets/fallstudie_n/Aufgabe_4/Aufgabe4_Datensatz_Modelle_Habitatnutzung_Reh_251027.csv\", delim = \";\")\n\nDF_reh_day &lt;- DF_reh |&gt;\n  filter(time_of_day == \"day\")\n\nround(cor(DF_reh_day[, 5:12], method = \"pearson\"), 2)\n\n# hier kann die Schwelle für die Korrelation gesetzt werden, 0.7 ist eher liberal /\n# 0.5 konservativ\n\ncor &lt;- round(cor(DF_reh_day[, 5:12], method = \"pearson\"), 2)\ncor[abs(cor) &lt; 0.7] &lt;- 0\ncor",
+    "crumbs": [
+      "Fallstudie N",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Variablenselektion Multivariate Modelle</span>"
+    ]
+  },
+  {
+    "objectID": "fallstudie_n/5_Variablenselektion.html#aufgabe-2",
+    "href": "fallstudie_n/5_Variablenselektion.html#aufgabe-2",
+    "title": "Variablenselektion Multivariate Modelle",
+    "section": "Aufgabe 2",
+    "text": "Aufgabe 2\nSkalieren der Variablen, damit ihr Einfluss vergleichbar wird (Befehl scale(); Problem verschiedene Skalen der Variablen (bspw. Neigung in Grad, Distanz in Metern)); Umwandeln der Reh-ID in einen Faktor, damit dieser als Random Factor ins Model eingespiesen werden kann.\n\nDF_reh_day &lt;- DF_reh_day |&gt;\n  mutate(\n    slope_scaled = scale(slope),\n    topo_pos_scaled = scale(topo_pos),\n    us_scaled = scale(us_2014),\n    os_scaled = scale(os_2014),\n    forest_prop_scaled = scale(forest_prop),\n    dist_road_trails_scaled = scale(dist_road_trails),\n    dist_road_only_scaled = scale(dist_road_only),\n    dist_sett_scaled = scale(dist_sett),\n    id = as.factor(id)\n  )",
+    "crumbs": [
+      "Fallstudie N",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Variablenselektion Multivariate Modelle</span>"
+    ]
+  },
+  {
+    "objectID": "fallstudie_n/5_Variablenselektion.html#aufgabe-3",
+    "href": "fallstudie_n/5_Variablenselektion.html#aufgabe-3",
+    "title": "Variablenselektion Multivariate Modelle",
+    "section": "Aufgabe 3",
+    "text": "Aufgabe 3\nSelektion der Variablen in einem univariaten Model\nEin erstes GLMM (Generalized Linear Mixed Effects Modell) aufbauen: Funktion und Modelformel\n\nwichtige Seite auf der man viele Hilfestellungen zu GLMM’s finden kann.\n\n\n# wir werden das package lme4 mit der Funktion glmer verwenden\n\n# die Hilfe von glmer aufrufen: ?glmer\n\n# glmer(formula, data = , family = binomial)\n\n# 1) formula:\n# Abhängige Variable ~ Erklärende Variable + Random Factor\n# In unseren Modellen kontrollieren wir für individuelle Unterschiede bei den Rehen\n# indem wir einen Random Factor definieren =&gt; (1 | id)\n\n# 2) data:\n# euer Datensatz\n\n# 3) family:\n# hier binomial\n\n# warum binomial? Verteilung Daten der abhängigen Variable Präsenz/Absenz\n\nggplot(DF_reh_day, aes(pres_abs)) +\n  geom_histogram()\n\n# --&gt; Binäre Verteilung =&gt; Binomiale Verteilung mit n = 1\n\n# und wie schaut die Verteilung der Daten der abhängigen Variable Nutzungsintensität\n# (nmb, werden wir in diesem Kurs aber nicht genauer anschauen) aus?",
+    "crumbs": [
+      "Fallstudie N",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Variablenselektion Multivariate Modelle</span>"
+    ]
+  },
+  {
+    "objectID": "fallstudie_n/5_Variablenselektion.html#aufgabe-4",
+    "href": "fallstudie_n/5_Variablenselektion.html#aufgabe-4",
+    "title": "Variablenselektion Multivariate Modelle",
+    "section": "Aufgabe 4",
+    "text": "Aufgabe 4\nMit der GLMM Formel bauen wir in einem ersten Schritt eine univariate Variablenselektion auf.\nAls abhängige Variable verwenden wir die Präsenz/Absenz der Rehe in den Kreisen\n\n# Die erklärende Variable in m1 ist die erste Variable der korrelierenden Variablen\n# Die erklärende Variable in m2 ist die zweite Variable der korrelierenden Variablen\n\nmodell_1 &lt;- glmer(Abhaengige_Variable ~ Erklaerende_Variable + (1 | id),\n  data = DF_reh_day,\n  family = binomial\n)\n\nmodell_2 &lt;- glmer(Abhaengige_Variable ~ Erklaerende_Variable + (1 | id),\n  data = DF_reh_day,\n  family = binomial\n)\n\n# mit dieser Funktion können die Modellergebnisse inspiziert werden\nsummary(modell_1)\nsummary(modell_2)\n\n# Mit dieser Funktion kann der Informationgehalt der beiden Modelle gegeneinander\n# abgeschätzt werden\nbbmle::AICtab(modell_1, modell_2)\n\n# tieferer AIC -&gt; besser (AIC = Akaike information criterion)\n\n# ==&gt; dieses Vorgehen muss nun für alle korrelierten Variablen für jeden Teildatensatz\n# (Tag/Nacht) durchgeführt werden, um nur noch nicht (R &lt; 0.7) korrelierte Variablen\n# in das Modell einfliessen zu lassen",
+    "crumbs": [
+      "Fallstudie N",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Variablenselektion Multivariate Modelle</span>"
+    ]
+  },
+  {
+    "objectID": "fallstudie_n/5_Variablenselektion.html#aufgabe-5",
+    "href": "fallstudie_n/5_Variablenselektion.html#aufgabe-5",
+    "title": "Variablenselektion Multivariate Modelle",
+    "section": "Aufgabe 5",
+    "text": "Aufgabe 5\nSelektion der Variablen in einem multivariaten Model\nMit folgendem Code kann eine automatisierte Variablenselektion (dredge-Funktion) und ein Modelaveraging aufgebaut werden (siehe auch Stats-Skript von J.Dengler & Team)\n\n# hier wird die Formel für die dredge-Funktion vorbereitet (die Variablen V1-V6\n# sind jene welche nach der univariaten Variablenselektion noch übrig bleiben)\n\nf &lt;- pres_abs ~\n  V1 +\n  V2 +\n  V3 +\n  V4 +\n  V5 +\n  V6 \n\n# in diesem Befehl kommt der Random-Factor (das Reh) hinzu und es wird eine Formel\n# daraus gemacht\n\nf_dredge &lt;- paste(c(f, \"+ (1 | id)\"), collapse = \" \") |&gt; as.formula()\n\n# Das Modell mit dieser Formel ausführen\n\nm &lt;- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = \"na.fail\")\n\n# Das Modell in die dredge-Funktion einfügen (siehe auch unbedingt ?dredge)\n\nall_m &lt;- dredge(m)\nall_m\n\n# Importance values der einzelnen Variablen (Gibt an, wie bedeutsam eine bestimmte\n# Variable ist, wenn man viele verschiedene Modelle vergleicht (multimodel inference))\n\nsw(all_m)\n\n# Schlussendlich wird ein Modelaverage durchgeführt (Schwellenwert für das delta-AIC = 2)\n\navgmodel &lt;- model.avg(all_m, rank = \"AICc\", subset = delta &lt; 2)\nsummary(avgmodel)\n\n# ==&gt; für den Nachtdatensatz muss der gleiche Prozess der Variablenselektion\n# durchgespielt werden.\n\n\n\n\n\nCoppes, Joy, Judith Ehrlacher, Dominik Thiel, Rudi Suchant, und Veronika Braunisch. 2017. „Outdoor recreation causes effective habitat reduction in capercaillie Tetrao urogallus: a major threat for geographically restricted populations“. Journal of avian biology 48 (12): 1583–94.",
+    "crumbs": [
+      "Fallstudie N",
+      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Variablenselektion Multivariate Modelle</span>"
     ]
   },
   {
@@ -2382,9 +2459,9 @@
     "href": "References.html",
     "title": "Literaturverzeichnis",
     "section": "",
-    "text": "Gilgen, Kurt, and Alma Sartoris. 2010. “Empfehlung Zur Planung von\nWindenergieanlagen: Die Anwendung von Raumplanungsinstrumenten Und\nKriterien Zur Standortwahl.” Eidgenössisches Departement für\nUmwelt, Verkehr, Energie und Kommunikation UVEK.\n\n\nKovic, Marko. 2014. “Je Weniger Ausländer, Desto Mehr Ja-Stimmen?\nWirklich?” Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.\n\n\nLo, Steson, and Sally Andrews. 2015. “To Transform or Not to\nTransform: Using Generalized Linear Mixed Models to Analyse Reaction\nTime Data.” Frontiers in Psychology 6. https://doi.org/10.3389/fpsyg.2015.01171.\n\n\nScherler, Patrick. 2020. “Drivers of Departure and Prospecting in\nDispersing Juvenile Red Kites (Milvus Milvus).” PhD thesis,\nUniversity of Zurich.\n\n\nSchielzeth, Holger, Niels J Dingemanse, Shinichi Nakagawa, David F\nWestneat, Hassen Allegue, Céline Teplitsky, Denis Réale, Ned A\nDochtermann, László Zsolt Garamszegi, and Yimen G Araya-Ajoy. 2020.\n“Robustness of Linear Mixed-Effects Models to Violations of\nDistributional Assumptions.” Methods in Ecology and\nEvolution 11 (9): 1141–52.\n\n\nTegou, Leda-Ioanna, Heracles Polatidis, and Dias A. Haralambopoulos.\n2010. “Environmental Management Framework for Wind Farm Siting:\nMethodology and Case Study.” Journal of Environmental\nManagement 91 (11): 2134–47. https://doi.org/10.1016/j.jenvman.2010.05.010.\n\n\nWickham, Hadley, and Garrett Grolemund. 2017. R for Data\nScience. O’Reilly. https://ebookcentral.proquest.com/lib/zhaw/detail.action?docID=4770093.",
+    "text": "Coppes, Joy, Judith Ehrlacher, Dominik Thiel, Rudi Suchant, and Veronika\nBraunisch. 2017. “Outdoor Recreation Causes Effective Habitat\nReduction in Capercaillie Tetrao Urogallus: A Major Threat for\nGeographically Restricted Populations.” Journal of Avian\nBiology 48 (12): 1583–94.\n\n\nGilgen, Kurt, and Alma Sartoris. 2010. “Empfehlung Zur Planung von\nWindenergieanlagen: Die Anwendung von Raumplanungsinstrumenten Und\nKriterien Zur Standortwahl.” Eidgenössisches Departement für\nUmwelt, Verkehr, Energie und Kommunikation UVEK.\n\n\nKovic, Marko. 2014. “Je Weniger Ausländer, Desto Mehr Ja-Stimmen?\nWirklich?” Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.\n\n\nLo, Steson, and Sally Andrews. 2015. “To Transform or Not to\nTransform: Using Generalized Linear Mixed Models to Analyse Reaction\nTime Data.” Frontiers in Psychology 6. https://doi.org/10.3389/fpsyg.2015.01171.\n\n\nScherler, Patrick. 2020. “Drivers of Departure and Prospecting in\nDispersing Juvenile Red Kites (Milvus Milvus).” PhD thesis,\nUniversity of Zurich.\n\n\nSchielzeth, Holger, Niels J Dingemanse, Shinichi Nakagawa, David F\nWestneat, Hassen Allegue, Céline Teplitsky, Denis Réale, Ned A\nDochtermann, László Zsolt Garamszegi, and Yimen G Araya-Ajoy. 2020.\n“Robustness of Linear Mixed-Effects Models to Violations of\nDistributional Assumptions.” Methods in Ecology and\nEvolution 11 (9): 1141–52.\n\n\nTegou, Leda-Ioanna, Heracles Polatidis, and Dias A. Haralambopoulos.\n2010. “Environmental Management Framework for Wind Farm Siting:\nMethodology and Case Study.” Journal of Environmental\nManagement 91 (11): 2134–47. https://doi.org/10.1016/j.jenvman.2010.05.010.\n\n\nWickham, Hadley, and Garrett Grolemund. 2017. R for Data\nScience. O’Reilly. https://ebookcentral.proquest.com/lib/zhaw/detail.action?docID=4770093.",
     "crumbs": [
-      "<span class='chapter-number'>48</span>  <span class='chapter-title'>Literaturverzeichnis</span>"
+      "<span class='chapter-number'>49</span>  <span class='chapter-title'>Literaturverzeichnis</span>"
     ]
   }
 ]
