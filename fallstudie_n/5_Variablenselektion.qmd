@@ -1,7 +1,7 @@
 ---
 execute:
-  echo: true  # set to true to show musterlösung
-  output: true # set to true to show musterlösung
+  echo: false  # set to true to show musterlösung
+  output: false # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -42,17 +42,17 @@ Mit dem folgenden Code kann eine simple Korrelationsmatrix aufgebaut werden, ver
 #| echo: true
 #| code-fold: false
 
-DF_mod <- read_delim("datasets/fallstudie_n/Aufgabe4_Datensatz_Habitatnutzung_Modelle_241028.csv", delim = ";")
+DF_reh <- read_delim("datasets/fallstudie_n/Aufgabe_4/Aufgabe4_Datensatz_Modelle_Habitatnutzung_Reh_251027.csv", delim = ";")
 
-DF_mod_day <- DF_mod |>
+DF_reh_day <- DF_reh |>
   filter(time_of_day == "day")
 
-round(cor(DF_mod_day[, 5:12], method = "pearson"), 2)
+round(cor(DF_reh_day[, 5:12], method = "pearson"), 2)
 
 # hier kann die Schwelle für die Korrelation gesetzt werden, 0.7 ist eher liberal /
 # 0.5 konservativ
 
-cor <- round(cor(DF_mod_day[, 5:12], method = "pearson"), 2)
+cor <- round(cor(DF_reh_day[, 5:12], method = "pearson"), 2)
 cor[abs(cor) < 0.7] <- 0
 cor
 ```
@@ -66,7 +66,7 @@ Umwandeln der Reh-ID in einen Faktor, damit dieser als Random Factor ins Model e
 #| echo: true
 #| code-fold: false
 
-DF_mod_day <- DF_mod_day |>
+DF_reh_day <- DF_reh_day |>
   mutate(
     slope_scaled = scale(slope),
     topo_pos_scaled = scale(topo_pos),
@@ -111,7 +111,7 @@ Ein erstes GLMM (Generalized Linear Mixed Effects Modell) aufbauen: Funktion und
 
 # warum binomial? Verteilung Daten der abhängigen Variable Präsenz/Absenz
 
-ggplot(DF_mod_day, aes(pres_abs)) +
+ggplot(DF_reh_day, aes(pres_abs)) +
   geom_histogram()
 
 # --> Binäre Verteilung => Binomiale Verteilung mit n = 1
@@ -136,12 +136,12 @@ Mit der GLMM Formel bauen wir in einem ersten Schritt eine univariate Variablens
 # Die erklärende Variable in m2 ist die zweite Variable der korrelierenden Variablen
 
 modell_1 <- glmer(Abhaengige_Variable ~ Erklaerende_Variable + (1 | id),
-  data = DF_mod_day,
+  data = DF_reh_day,
   family = binomial
 )
 
 modell_2 <- glmer(Abhaengige_Variable ~ Erklaerende_Variable + (1 | id),
-  data = DF_mod_day,
+  data = DF_reh_day,
   family = binomial
 )
 
@@ -162,8 +162,8 @@ bbmle::AICtab(modell_1, modell_2)
 
 ```{r}
 
-modell_1 <- glmer(pres_abs ~ dist_road_trails_scaled + (1 | id), data = DF_mod_day, family = binomial)
-modell_2 <- glmer(pres_abs ~ dist_road_only_scaled + (1 | id), data = DF_mod_day, family = binomial)
+modell_1 <- glmer(pres_abs ~ dist_road_trails_scaled + (1 | id), data = DF_reh_day, family = binomial)
+modell_2 <- glmer(pres_abs ~ dist_road_only_scaled + (1 | id), data = DF_reh_day, family = binomial)
 
 summary(modell_1)
 summary(modell_2)
@@ -174,8 +174,8 @@ bbmle::AICtab(modell_1, modell_2)
 # Distanz zu Strassen (dist_road_only) = besser
 
 
-modell_3 <- glmer(pres_abs ~ forest_prop_scaled + (1 | id), data = DF_mod_day, family = binomial)
-modell_4 <- glmer(pres_abs ~ os_scaled + (1 | id), data = DF_mod_day, family = binomial)
+modell_3 <- glmer(pres_abs ~ forest_prop_scaled + (1 | id), data = DF_reh_day, family = binomial)
+modell_4 <- glmer(pres_abs ~ os_scaled + (1 | id), data = DF_reh_day, family = binomial)
 
 summary(modell_3)
 summary(modell_4)
@@ -217,7 +217,7 @@ f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
 
 # Das Modell mit dieser Formel ausführen
 
-m <- glmer(f_dredge, data = DF_mod_day, family = binomial, na.action = "na.fail")
+m <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
 
 # Das Modell in die dredge-Funktion einfügen (siehe auch unbedingt ?dredge)
 
@@ -257,7 +257,7 @@ f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
 
 # Das Modell mit dieser Formel ausführen
 
-m <- glmer(f_dredge, data = DF_mod_day, family = binomial, na.action = "na.fail")
+m <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
 
 # Das Modell in die dredge-Funktion einfügen (siehe auch unbedingt ?dredge)
 
@@ -299,7 +299,7 @@ f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
 
 # Das Modell mit dieser Formel ausführen
 
-m <- glmer(f_dredge, data = DF_mod_day, family = binomial, na.action = "na.fail")
+m <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
 
 car::vif(m)
 mean(car::vif(m))

@@ -1,7 +1,7 @@
 ---
 execute:
-  echo: false   # set to true to show musterlösung
-  output: false # set to true to show musterlösung
+  echo: true   # set to true to show musterlösung
+  output: true # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -43,19 +43,19 @@ Einlesen der Gesamtdatensätze für die Multivariate Analysen von Moodle
 ```{r}
 #| output: false
 
-DF_mod <- read_delim("datasets/fallstudie_n/Aufgabe_4/Aufgabe4_Datensatz_Modelle_Habitatnutzung_Reh_251027.csv", delim = ";")
+DF_reh <- read_delim("datasets/fallstudie_n/Aufgabe_4/Aufgabe4_Datensatz_Modelle_Habitatnutzung_Reh_251027.csv", delim = ";")
 
-str(DF_mod)
+str(DF_reh)
 
-class(DF_mod$time_of_day)
+class(DF_reh$time_of_day)
 
-table(DF_mod$id)
+table(DF_reh$id)
 
-DF_mod |>
+DF_reh |>
   group_by(id) |>
   summarize(anzahl = n())
 
-length(unique(DF_mod$id))
+length(unique(DF_reh$id))
 ```
 
 ## Aufgabe 2
@@ -63,16 +63,12 @@ length(unique(DF_mod$id))
 Unterteilung des Datensatzes in Teildatensätze entsprechend der Tageszeit 
 
 ```{r}
-DF_mod_night <- DF_mod |>
+DF_reh_night <- DF_reh |>
   filter(time_of_day == "night")
 
-DF_mod_day <- DF_mod |>
+DF_reh_day <- DF_reh |>
   filter(time_of_day == "day")
 
-# Kontrolle
-table(DF_mod_night$time_of_day)
-
-table(DF_mod_day$time_of_day)
 ```
 
 ## Aufgabe 3
@@ -90,14 +86,14 @@ par(mfrow = c(3, 3), mar = c(4, 4, 3, 3)) # Vorbereitung Raster für Plots
 # innerhalb des for()-loops die Nummern der gewünschten Spalten einstellen
 
 for (i in 5:12) {
-  dp <- DF_mod_day |> filter(pres_abs == 1) |> pull(i)
+  dp <- DF_reh_day |> filter(pres_abs == 1) |> pull(i)
   dp <- density(dp)
-  da <- DF_mod_day |> filter(pres_abs == 0) |> pull(i)
+  da <- DF_reh_day |> filter(pres_abs == 0) |> pull(i)
   da <- density(da)
   plot(0, 0, type = "l",
     xlim = range(c(dp$x, da$x)),
     ylim = range(dp$y, da$y),
-    xlab = names(DF_mod_day[i]),
+    xlab = names(DF_reh_day[i]),
     ylab = "Density"
   )
   lines(dp$x, dp$y, col = "blue")             # Präsenz = used
@@ -111,7 +107,43 @@ Für jede kontinuierliche Variable: ein binomiales GLM fitten (pres_abs ~ x, dat
 
 ```{r}
 
-m <- glm(pres_abs ~ x, data = DF_mod_day, family = binomial)
+# Definition des zu verarbeitenden Teildatensatzes 
+
+data <- DF_reh_day
+
+# Liste mit den zu verarbeitenden kontinuierlichen Variablen
+
+vars <- c("slope","topo_pos","dist_road_trails","dist_road_only",
+          "dist_sett","forest_prop","us_2014","os_2014")
+
+# Ausgabe-Datei als PDF
+
+out_pdf <- "fallstudie_n/glm_DHARMa_checks_DF_reh_day.pdf"
+
+pdf(out_pdf, width = 7, height = 6)
+on.exit(dev.off(), add = TRUE)
+
+# Loop über die Variablen
+
+for (v in vars) {
+  if (!v %in% names(data)) next
+  x <- data[[v]]
+  if (sum(!is.na(x)) < 30 || length(unique(na.omit(x))) < 3) next
+
+  # GLM fitten
+  m   <- glm(as.formula(paste0("pres_abs ~ ", v)), data = data, family = binomial)
+
+  # DHARMa Standardseite (QQ + Residuen vs Fitted)
+  sim <- simulateResiduals(m, n = 1000, plot = FALSE)
+
+  plot(sim, main = "")                 # Standardtitel ausblenden
+  mtext(v, side = 3, line = 0.5, font = 2)  # eigene Überschrift (nur Variablenname)
+  
+  # Histogramm der Variable
+  par(mfrow = c(1,1), mar = c(4,4,3,1))
+  hist(x, breaks = "FD", main = paste("Histogramm:", v), xlab = v)
+
+}
 
 
 ```
@@ -124,7 +156,7 @@ Explorative Analysen der Variablen mit Scatterplots / Scatterplotmatrizen
 2) Testen der Korrelation zwischen den Variablen (Parametrisch oder nicht-parametrische Methode? Ausserdem: gewisse Scatterplotmatrizen zeigen euch die Koeffizenten direkt an)
 
 ```{r}
-pairs.panels(DF_mod_day[5:12],
+pairs.panels(DF_reh_day[5:12],
   method = "pearson", # correlation method
   hist.col = "#00AFBB",
   density = TRUE, # show density plots
