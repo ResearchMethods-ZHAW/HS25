@@ -53,8 +53,8 @@ lm_1 <- lm(Species_richness ~ N_deposition, data = df)
 lm_1
 
 # zuerst N_deposition dann Species_richness  
-lm_2 <- lm(N_deposition ~ Species_richness, data = df) 
-lm_2
+lm(N_deposition ~ Species_richness, data = df) 
+
  
 summary(lm_1) 
 
@@ -198,3 +198,11 @@ plot(aoc_2)
 
 -> Das ANCOVA-Modell widerspiegelt die Zusammenhänge wie sie aufgrund der 
 grafisch dargestellten Daten zu vermuten sind gut. Die Residual-Plots zeigen 3 Ausreisser (Beobachtungen 27, 34 und 37), welche "aus der Reihe tanzen".
+
+```{r}
+# Visualisierung
+ggplot(compensation, aes(x = Root, y = Fruit, color = Grazing)) +
+  geom_point() +
+  stat_smooth(formula = y ~ x, method = "lm" ) +
+  ylim(0, 125)
+```
