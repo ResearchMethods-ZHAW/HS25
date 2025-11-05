@@ -107,18 +107,21 @@ glex$year <- as.factor(glex$year)
 summary(glex)
 
 table(glex$site_code, glex$treatment, glex$plot_type, glex$year)
-# balanced Design (nicht zwingend nötig für LMM)
 ```
+
+balanced Design (nicht zwingend nötig für LMM)
+
 
 ## LMM with random interecept
 
-```{r}
-# REML = TRUE : (Restricted maximum likelihood) v.s 
-# REML = FALSE: Maximum likelihood (ML) 
-# Bei REML sind die estimates genauer, aber REML sollte nicht für 
-# Modelvergleiche (z.B mit AIcc oder drop1 funktion) benutzt werden
-# Dies ist nur relevant für Gaussian mixed models (LMM) nicht für GLMMs
+REML = TRUE : (Restricted maximum likelihood) v.s 
+REML = FALSE: Maximum likelihood (ML) 
 
+Bei REML sind die estimates genauer, aber REML sollte nicht für 
+Modelvergleiche (z.B mit AIcc oder drop1 funktion) benutzt werden
+Dies ist nur relevant für Gaussian mixed models (LMM) nicht für GLMMs
+
+```{r}
 # 2.1 Model fitten
 lmm_1 <- glmmTMB(SR ~ year * treatment * plot_type + 
                (1| site_code/treatment/plot_type), 
@@ -126,6 +129,20 @@ lmm_1 <- glmmTMB(SR ~ year * treatment * plot_type +
                REML = FALSE,
                data = glex)
 
+```
+
+```{r}
+# Manuelle Modelselektion
+drop1(lmm_1, test = "Chisq")
+
+lmm_2 <- update(lmm_1,~. -year:treatment:plot_type)
+drop1(lmm_2, test = "Chisq")
+
+lmm_3 <- update(lmm_2,~. -treatment:plot_type)
+drop1(lmm_3, test = "Chi")
+
+# Refit with REML
+lmm_4 <- update(lmm_3, REML = TRUE)
 ```
 
 ```{r}
@@ -151,12 +168,14 @@ lmm_2 <- update(best_model, REML = TRUE)
 Anova(lmm_2)
 summary(lmm_2)
 r2(lmm_2)
+```
 
-# Modelvalidierung
+Modelvalidierung
 
-# Wenn wir LMM für Zähldaten wie Anzahl Arten verwenden, sollten wir 
-# sicherstellen das keine Werte <0 predicted werden (ansonsten brauchen wir GLMM  
-# mit poisson Verteilung)
+Wenn wir LMM für Zähldaten wie Anzahl Arten verwenden, sollten wir 
+sicherstellen das keine Werte <0 predicted werden (ansonsten brauchen wir GLMM  
+mit poisson Verteilung)
+```{r}
 sum( fitted(lmm_2) < 0)
 
 set.seed(123)
@@ -293,6 +312,7 @@ simulationOutput <- simulateResiduals(fittedModel = glmm_1, plot = TRUE, n = 100
 plotResiduals(simulationOutput, form = DeerEcervi$Sex)
 plotResiduals(simulationOutput, form = scale(DeerEcervi$Length) )
 ```
+
 
 ```{r}
 #| warning: false
