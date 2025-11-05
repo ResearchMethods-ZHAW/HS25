@@ -5,6 +5,7 @@
 #'     collapse: false 
 #' ---
 #' 
+#' 
 #' # Statistik 4: Demo
 #' 
 #' [Demoscript herunterladen (.R)](../purl/Statistik4_Demo.R){.dld}
@@ -84,18 +85,18 @@ drop1(lm_1, test = "F")
 # Prädiktor mit grösstem p-Wert entfernen
 lm_2 <- lm(ABUND ~ AGE + AREA + DIST  + GRAZE + ALT, data = loyn)
 # oder
-lm_2 <- update(lm_1, ~ . - LDIST) 
+lm_2 <- update(lm_1, ~. - LDIST) 
 
 # Oben beschriebener Schritt wiederholen bis nur noch signifikante Prädiktoren 
 # im Modell sind
 drop1(lm_2, test = "F") 
-lm_3 <- update(lm_2, ~ . - DIST)
+lm_3 <- update(lm_2, ~. - DIST)
 
 drop1(lm_3, test = "F") 
-lm_4 <- update(lm_3, ~ . - ALT)
+lm_4 <- update(lm_3, ~. - ALT)
 
 drop1(lm_4, test = "F") 
-lm_5 <- update(lm_4, ~ . - AGE)
+lm_5 <- update(lm_4, ~. - AGE)
 
 drop1(lm_5, test = "F")
 
@@ -140,7 +141,12 @@ ggplot(data = NULL, aes(x = graze_resid, y = abundance_resid)) +
   labs(x = "Graze | others", y = "Abund | others") +
   theme_minimal()
 
-# Einfacher geht es mit der function avPlots (package "car"). Nachteil ist, dass mit der funktion anders als mit der Methode oben, keine quadratische prädiktoren dargestellt werden können 
+#' 
+#' Einfacher geht es mit der function avPlots (package "car"). Nachteil ist, dass 
+#' mit der funktion anders als mit der Methode oben, keine quadratische prädiktoren 
+#' dargestellt werden können
+#' 
+## -----------------------------------------------------------------------------
 par(mfrow = c(1, 1))
 avPlots(lm_5, ~GRAZE, ask = F)
 
@@ -158,10 +164,13 @@ global_model <- lm(ABUND ~ AGE + AREA + DIST + LDIST + GRAZE + ALT, data = loyn)
 options(na.action = "na.fail")
 allmodels <- dredge(global_model)
 allmodels
-# Wir haben mehre Modelle mit einem delta AICc <2, das heisst wir haben nicht 
-# ein eindeutig bestes Modell (welches wir mit der funktion "get.models" 
-# selektieren könnten)
 
+#' 
+#' Wir haben mehre Modelle mit einem delta AICc <2, das heisst wir haben nicht 
+#' ein eindeutig bestes Modell (welches wir mit der funktion "get.models" 
+#' selektieren könnten)
+#' 
+## -----------------------------------------------------------------------------
 # Variable importance
 sw(allmodels)
 
@@ -177,4 +186,11 @@ summary(avgmodel)$coefficients
 
 # Confindence intervals
 confint(avgmodel)
+
+#' 
+#' 
+## -----------------------------------------------------------------------------
+# Modeldiagnostik
+par(mfrow = c(2, 2))
+plot(global_model)
 
