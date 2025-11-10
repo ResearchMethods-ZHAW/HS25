@@ -70,7 +70,7 @@ summary(glm_poisson)
 ```
 
 Rücktransformation der Werte auf die orginale Skala (Hier Exponentialfunktion 
-da family=possion als Link-Funktion den natürlichen Logarithmus (log) verwendet) 
+da family = possion als Link-Funktion den natürlichen Logarithmus (log) verwendet) 
 Besucher = exp(3.50 + 0.11 Temperatur/°C)
 
 ```{r}
@@ -138,10 +138,6 @@ summary(glm_logistic)
 # Modeldiagnostik (godness of fit test, wenn nicht signifikant, dann OK)
 1 - pchisq(glm_logistic$deviance, glm_logistic$df.resid)
 
-# Area Under the Curve (AUC)
-library("performance")
-performance_roc(glm_logistic)
-
 # Modelldiagnostik mit funktion "DHARMa"
 library(DHARMa)
 set.seed(123)
@@ -151,7 +147,11 @@ simulateResiduals(fittedModel = glm_logistic, plot = TRUE, n = 1000)
 ```{r}
 # Modellergebnis
 
-# pseudo-R²
+# Area Under the Curve (AUC)
+library("performance")
+performance_roc(glm_logistic)
+
+# pseudo-R² (library "performance")
 r2(glm_logistic)
 
 # Steilheit der Beziehung (relative Änderung der odds bei x + 1 vs. x)
