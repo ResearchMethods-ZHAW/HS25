@@ -1,7 +1,7 @@
 ---
 execute:
-  echo: false  # set to true to show musterlösung
-  output: false # set to true to show musterlösung
+  echo: true # set to true to show musterlösung
+  output: true # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -189,9 +189,9 @@ bbmle::AICtab(modell_3, modell_4)
 
 ## Aufgabe 5
 
-**Selektion der Variablen in einem multivariaten Model**
+**Selektion der Variablen in einem multivariaten Model --> Multimodel inference**
 
-Mit folgendem Code kann eine automatisierte Variablenselektion (dredge-Funktion) und ein Modelaveraging aufgebaut werden (siehe auch Stats-Skript von J.Dengler & Team)
+Mit folgendem Code kann eine automatisierte Variablenselektion (dredge-Funktion) und ein Multimodel inference aufgebaut werden (siehe auch Stats-Skript von J.Dengler & Team)
 
 ```{r }
 #| eval: false
@@ -217,28 +217,27 @@ f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
 
 # Das Modell mit dieser Formel ausführen
 
-m <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
+m_reh_day <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
 
 # Das Modell in die dredge-Funktion einfügen (siehe auch unbedingt ?dredge)
 
-all_m <- dredge(m)
-all_m
+all_m_reh_day <- dredge(m_reh_day)
+all_m_reh_day
 
 # Importance values der einzelnen Variablen (Gibt an, wie bedeutsam eine bestimmte
 # Variable ist, wenn man viele verschiedene Modelle vergleicht (multimodel inference))
 
-sw(all_m)
+sw(all_m_reh_day)
 
-# Schlussendlich wird ein Modelaverage durchgeführt (Schwellenwert für das delta-AIC = 2)
+# Schlussendlich kann ein Modelaverage durchgeführt werden (Schwellenwert für das delta-AIC = 2)
 
-avgmodel <- model.avg(all_m, rank = "AICc", subset = delta < 2)
-summary(avgmodel)
+avgmodel_m_reh_day <- model.avg(all_m_reh_day, rank = "AICc", subset = delta < 2)
+summary(avgmodel_m_reh_day)
 
-# ==> für den Nachtdatensatz muss der gleiche Prozess der Variablenselektion
-# durchgespielt werden.
 ```
 
 ```{r}
+
 # hier wird die Formel für die dredge-Funktion vorbereitet (die Variablen V1-V6
 # sind jene welche nach der univariaten Variablenselektion noch übrig bleiben)
 
@@ -257,50 +256,21 @@ f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
 
 # Das Modell mit dieser Formel ausführen
 
-m <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
+m_reh_day <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
 
 # Das Modell in die dredge-Funktion einfügen (siehe auch unbedingt ?dredge)
 
-all_m <- dredge(m)
+all_m_reh_day <- dredge(m_reh_day)
 
 # Importance values der einzelnen Variablen (Gibt an, wie bedeutsam eine bestimmte
 # Variable ist, wenn man viele verschiedene Modelle vergleicht (multimodel inference))
 
-sw(all_m)
+sw(all_m_reh_day)
 
-# Schlussendlich wird ein Modelaverage durchgeführt (Schwellenwert für das delta-AIC = 2)
+# Schlussendlich kann ein Modelaverage durchgeführt werden (Schwellenwert für das delta-AIC = 2)
 
-avgmodel <- model.avg(all_m, rank = "AICc", subset = delta < 2)
-summary(avgmodel)
+avgmodel_m_reh_day <- model.avg(all_m_reh_day, rank = "AICc", subset = delta < 2)
+summary(avgmodel_m_reh_day)
 ```
-```{r}
 
-#| eval: false
-#| error: true
-#| echo: false
 
-# hier wird die Formel für die dredge-Funktion vorbereitet (die Variablen V1-V8
-# sind jene welche nach der univariaten Variablenselektion noch übrig bleiben)
-
-f <- pres_abs ~
-  slope_scaled +
-  topo_pos_scaled +
-  us_scaled +
-  os_scaled +
-  forest_prop_scaled +
-  dist_road_only_scaled +
-  dist_road_trails_scaled +
-  dist_sett_scaled 
-
-# inn diesem Befehl kommt der Random-Factor (das Reh) hinzu und es wird eine Formel
-# daraus gemacht
-
-f_dredge <- paste(c(f, "+ (1 | id)"), collapse = " ") |> as.formula()
-
-# Das Modell mit dieser Formel ausführen
-
-m <- glmer(f_dredge, data = DF_reh_day, family = binomial, na.action = "na.fail")
-
-car::vif(m)
-mean(car::vif(m))
-```
