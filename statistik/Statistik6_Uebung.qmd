@@ -122,7 +122,6 @@ drop1(glmm_4, test = "Chisq")
 
 ```{r}
 # Modellvalidierung
-
 performance_roc(glmm_4)
 
 set.seed(123)

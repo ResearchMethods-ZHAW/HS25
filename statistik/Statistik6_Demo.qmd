@@ -3,6 +3,9 @@ lesson: Statistik6
 knitr:
   opts_chunk: 
     collapse: false
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 # Statistik 6: Demo
@@ -11,10 +14,8 @@ knitr:
 
 [Demoscript herunterladen (.qmd)](../purl/Statistik6_Demo.qmd){.dld}
 
-
 -   Datensatz *rm_plants.csv*
 -   Datensatz *DeerEcervi.csv*
-
 
 ```{r}
 library("readr")
@@ -24,10 +25,12 @@ library("dplyr")
 
 ## Repeated measurement
 
-Es handelt sich um einen Düngeversuch (Daten aus Lepš & Šmilauer 2020). 18 Pflanzenindividuen wurden zufällig einer von drei Düngevarianten zugewiesen und 
-dabei zu vier Zeitpunkten ihre Wuchshöhe gemessen. Abhängigkeiten sind hier in 
-zwei Aspekten vorhanden: einerseits wurde jedes Pflanzenindividuum mehrfach 
-gemessen, andererseits hat es nur jeweils eine Düngervariante erhalten.
+Es handelt sich um einen Düngeversuch (Daten aus Lepš & Šmilauer 2020).
+18 Pflanzenindividuen wurden zufällig einer von drei Düngevarianten
+zugewiesen und dabei zu vier Zeitpunkten ihre Wuchshöhe gemessen.
+Abhängigkeiten sind hier in zwei Aspekten vorhanden: einerseits wurde
+jedes Pflanzenindividuum mehrfach gemessen, andererseits hat es nur
+jeweils eine Düngervariante erhalten.
 
 ```{r}
 #| message: false
@@ -86,12 +89,15 @@ plot(pred) +
 
 ## Split-plot Design
 
-Es wurden zufällig fünf Untersuchungsgebiete (sites) ausgewählt, in denen 
-jeweils der gleiche Versuchsblock implementiert wurde, bestehend aus dem 
-Management (treatment) und der Frage, ob wilde Grossherbivoren Zugang zur Fläche hatten (plot type) (Abb. 6.1). Je ein Drittel jeder Untersuchungsfläche 
-(zufällig zugewiesen) blieb gänzlich ungenutzt(U), wurde zu Beginn kontrolliert abgebrannt und danach sich selbst überlassen (B) oder wurde jährlich gemäht (M). Innerhalb jedes Drittels wiederum wurde (zufällig zugewiesen) die Hälfte 
-eingezäunt (F = fenced vs. O = open), um die Beweidung durch Grossherbivoren zu verhindern.
-
+Es wurden zufällig fünf Untersuchungsgebiete (sites) ausgewählt, in
+denen jeweils der gleiche Versuchsblock implementiert wurde, bestehend
+aus dem Management (treatment) und der Frage, ob wilde Grossherbivoren
+Zugang zur Fläche hatten (plot type) (Abb. 6.1). Je ein Drittel jeder
+Untersuchungsfläche (zufällig zugewiesen) blieb gänzlich ungenutzt(U),
+wurde zu Beginn kontrolliert abgebrannt und danach sich selbst
+überlassen (B) oder wurde jährlich gemäht (M). Innerhalb jedes Drittels
+wiederum wurde (zufällig zugewiesen) die Hälfte eingezäunt (F = fenced
+vs. O = open), um die Beweidung durch Grossherbivoren zu verhindern.
 
 ```{r}
 #| message: false
@@ -111,15 +117,14 @@ table(glex$site_code, glex$treatment, glex$plot_type, glex$year)
 
 balanced Design (nicht zwingend nötig für LMM)
 
-
 ## LMM with random interecept
 
-REML = TRUE : (Restricted maximum likelihood) v.s 
-REML = FALSE: Maximum likelihood (ML) 
+REML = TRUE : (Restricted maximum likelihood) v.s\
+REML = FALSE: Maximum likelihood (ML)
 
-Bei REML sind die estimates genauer, aber REML sollte nicht für 
-Modelvergleiche (z.B mit AIcc oder drop1 funktion) benutzt werden
-Dies ist nur relevant für Gaussian mixed models (LMM) nicht für GLMMs
+Bei REML sind die estimates genauer, aber REML sollte nicht für
+Modelvergleiche (z.B mit AIcc oder drop1 funktion) benutzt werden Dies
+ist nur relevant für Gaussian mixed models (LMM) nicht für GLMMs
 
 ```{r}
 # 2.1 Model fitten
@@ -172,9 +177,11 @@ r2(lmm_2)
 
 Modelvalidierung
 
-Wenn wir LMM für Zähldaten wie Anzahl Arten verwenden, sollten wir 
-sicherstellen das keine Werte <0 predicted werden (ansonsten brauchen wir GLMM  
+Wenn wir LMM für Zähldaten wie Anzahl Arten verwenden, sollten wir
+sicherstellen das keine Werte \<0 predicted werden (ansonsten brauchen
+wir GLMM\
 mit poisson Verteilung)
+
 ```{r}
 sum( fitted(lmm_2) < 0)
 
@@ -201,9 +208,11 @@ plot(pred_2) +
 
 ## Random slope & random intercept
 
-Im folgenden Beispiel wurde bei 18 Versuchspersonen die Wirkung von zunehmenden Schlafentzug auf die Reaktionszeit (in ms) gemessen. Bei jeder Versuchsperson 
-wurde der Effekt an den Tagen 2–9 des Versuchs je einmal gemessen (Tage 0 und 1 
-sind die Trainingsphase und bleiben daher unberücksichtigt).
+Im folgenden Beispiel wurde bei 18 Versuchspersonen die Wirkung von
+zunehmenden Schlafentzug auf die Reaktionszeit (in ms) gemessen. Bei
+jeder Versuchsperson wurde der Effekt an den Tagen 2–9 des Versuchs je
+einmal gemessen (Tage 0 und 1 sind die Trainingsphase und bleiben daher
+unberücksichtigt).
 
 ```{r}
 # Daten laden
@@ -229,11 +238,12 @@ ggplot(sleepstudy_2, aes(y = Reaction, x = Days)) +
 
 ```
 
-Wie man in der Visualisierung sehen kann, unterscheiden sich nicht nur die 
-Intercepts (Reaktionszeit ohne Schlafmangel), sondern der Schlafmangel scheint 
-sich auch unterschiedlich stark auf die Reaktionszeit der Probanden auszuwirken. 
-In diesem Fall ist es daher sinnvoll, nicht nur einen Random Intercept, sondern 
-auch einen Random Slope zu fitten.
+Wie man in der Visualisierung sehen kann, unterscheiden sich nicht nur
+die Intercepts (Reaktionszeit ohne Schlafmangel), sondern der
+Schlafmangel scheint sich auch unterschiedlich stark auf die
+Reaktionszeit der Probanden auszuwirken. In diesem Fall ist es daher
+sinnvoll, nicht nur einen Random Intercept, sondern auch einen Random
+Slope zu fitten.
 
 ```{r}
 # Fit models
@@ -271,8 +281,11 @@ plot( ggpredict(lmm_2) ) +
 
 ## GLMM
 
-Befall von Rothirschen (Cervus elaphus) in spanischen Farmen mit dem Parasiten Elaphostrongylus cervi. Modelliert wird Vorkommen/Nichtvorkommen von L1-Larven
-130 dieser Nematode in Abhängigkeit von Körperlänge und Geschlecht der Hirsche. Erhoben wurden die Daten auf 24 Farmen.
+Befall von Rothirschen (Cervus elaphus) in spanischen Farmen mit dem
+Parasiten Elaphostrongylus cervi. Modelliert wird
+Vorkommen/Nichtvorkommen von L1-Larven 130 dieser Nematode in
+Abhängigkeit von Körperlänge und Geschlecht der Hirsche. Erhoben wurden
+die Daten auf 24 Farmen.
 
 ```{r}
 #| message: false
@@ -288,9 +301,9 @@ summary(DeerEcervi)
 table(DeerEcervi$Farm)
 ```
 
-
 ```{r}
-# Model fitten. Die function "scale" standartisiert die Kontinuierliche variable Hischlänge:
+# Model fitten. Die function "scale" standartisiert die Kontinuierliche variable 
+# Hischlänge:
 # ( DeerEcervi$Length - mean(DeerEcervi$Length)) / sd(DeerEcervi$Length )
 glmm_1 <- glmmTMB(Ecervi ~ scale(Length) * Sex + (1 | Farm), 
                   family = binomial, 
@@ -308,11 +321,11 @@ r2(glmm_1)
 performance_roc(glmm_1)
 
 set.seed(123)
-simulationOutput <- simulateResiduals(fittedModel = glmm_1, plot = TRUE, n = 1000)
+simulationOutput <- 
+  simulateResiduals(fittedModel = glmm_1, plot = TRUE, n = 1000)
 plotResiduals(simulationOutput, form = DeerEcervi$Sex)
 plotResiduals(simulationOutput, form = scale(DeerEcervi$Length) )
 ```
-
 
 ```{r}
 #| warning: false
