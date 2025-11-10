@@ -6,6 +6,7 @@
 #' musterloesung: true
 #' ---
 #' 
+#' 
 #' # Statistik 3: Übung
 #' 
 #' ## Lineare und polynomische Regression
