@@ -231,11 +231,9 @@ Modelle), während ferner Litter, CaCO3, CN_ratio und Grazing_intensity
 in mehr als 50% der relevanten Modelle enthalten sind.
 
 ```{r}
-#| eval: false
-
 # Modelaveraging (Achtung: dauert mit 13 Variablen einige Minuten)
 avgmodel <- model.avg(allmodels)
-summary(avgmodel)
+summary(avgmodel)$coefficients
 ```
 
 Aus dem gemittelten Modell können wir die Richtung der Beziehung

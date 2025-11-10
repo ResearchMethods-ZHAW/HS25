@@ -116,7 +116,6 @@ Diagnose der Modell-Residuen mittels Tests aus dem DHARMa-Package auf verschiede
 - dazu unbedingt die Vignette des DHARMa-Package konsultieren: [Link](https://cran.r-project.org/web/packages/DHARMa/vignettes/DHARMa.html)
 
 ```{r}
-#| eval: false
 #| output: false
 #| echo: true
 #| code-fold: false
@@ -139,6 +138,7 @@ testResiduals(simulationOutput)
 Die häufigsten Probleme sind overdispersion, underdispersion und Zero-Inflation. Wendet die entsprechenden Tests aus dem DHARMA auf euren `simulationOutput` an.
 
 ```{r}
+
 
 # test for dispersion
 
@@ -198,7 +198,6 @@ Graphische Darstellung der Modellresultate
 
 
 ```{r}
-#| eval: false
 #| output: false
 #| echo: true
 #| code-fold: false
@@ -214,7 +213,6 @@ plot_model(m_reh_day, transform = NULL, show.values = TRUE, value.offset = .25)
 In diesem Schritt sollen Vorhersageplots für jede Umweltvariable gemacht werden. Diese "ResponseCurves" visualisieren die vorhergesagte Wahrscheinlichkeit, ob ein Kreis durch ein Reh besetzt ist in Abhängigkeit der erklärenden Variable.
 
 ```{r}
-#| eval: false
 #| output: false
 #| echo: true
 #| code-fold: false
