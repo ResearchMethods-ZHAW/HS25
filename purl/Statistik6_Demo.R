@@ -311,14 +311,14 @@ glmm_1 <- glmmTMB(Ecervi ~ scale(Length) * Sex + (1 | Farm),
 
 Anova(glmm_1)
 summary(glmm_1)
+
+library("performance")
 r2(glmm_1)
+performance_roc(glmm_1)
 
 #' 
 ## -----------------------------------------------------------------------------
 # Modellvalidierung
-
-# Area Under the Curve (AUC)
-performance_roc(glmm_1)
 
 set.seed(123)
 simulationOutput <- 
