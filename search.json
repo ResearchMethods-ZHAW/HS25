@@ -747,8 +747,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html",
-    "href": "infovis/Infovis2_Uebung_A.html",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html",
+    "href": "infovis/Infovis2_Uebung_Quarto.html",
     "title": "Infovis 2: Übung",
     "section": "",
     "text": "Aufgabe 1\nIn der Übung von Infovis 1: Übung habt ihr bereits die Grafiken aus dem Blogbeitrag von Kovic (2014) rekonstruiert. Nun werden wir die Grafiken mit dem Fliesstext aus dem Beitrag ergänzen und daraus einen PDF-Bericht machen.\nÖffne das RStudio-Projekt von letzter Woche (Infovis 1: Übung) und erstelle ein neues Quarto-File (File → New File → Quarto Document).\nErsetze den Standard YAML Header mit folgendem Header (achte auf die drei Minuszeichen -):",
@@ -758,8 +758,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-1",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-1",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-1",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-1",
     "title": "Infovis 2: Übung",
     "section": "",
     "text": "Wichtig\n\n\n\nEntferne dabei das Häkchen bei Use visual markdown editor.\n\n\n\n---\ntitle: \"Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?\"\nformat: typst\nexecute: \n  error: true\n  echo: false\n  warning: false\n---\n\nformat: typst: Dies erstellt ein PDF mit der Software typst.\nexecute:\n\nerror: true: Falls der R Code einen Error produziert, wird diese Meldung ins Dokument integriert (mit false würde der Kompilierungsprozess abgebrochen werden)\necho: false: Der Code wird im PDF nicht sichtbar sein\nwarning: false: Warnmeldungen werden im PDF nicht sichtbar sein",
@@ -769,8 +769,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-2",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-2",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-2",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-2",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 2",
     "text": "Aufgabe 2\nFüge dem Dokument etwas Fliesstext hinzu. Beispielsweise den Einleitungstext aus dem Blogbeitrag:\nKurz nach der Abstimmung zur Zuwanderungsinitiative hiess es: Bezirke mit \ngeringem Ausländeranteil stimmten dem SVP-Begehren eher zu. Hält der Befund \neiner tieferen Analyse stand? Marco Kovic vom IPMZ der Uni Zürich hat genau \nhingeschaut.\nKlicke nun auf Render (Abbildung 14.1). Schau dir das erstellte PDF an. Falls kein PDF erstellt wurde: Versuche mal im YAML Header typst mit pdf zu ersetzen. Wenn das Problem damit gelöst ist, wären wir froh um eine entsprechende Info.\n\n\n\n\n\n\nAbbildung 14.1",
@@ -780,8 +780,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-3",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-3",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-3",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-3",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 3",
     "text": "Aufgabe 3\nFüge nun in deinem Quarto-File mit Ctrl+Alt+I einen neuen Code-Chunk ein. Kopiere nun die ersten paar Zeilen Code aus der Übung Infovis 1 in diesen Code-Chunk. Rendere das Dokument erneut. Wird nach wie vor ein PDF produziert? Wenn ja, kannst du die restlichen Code-Zeilen aus der letzten Übung aus dem R-Skript in das Quarto Dokument kopieren.\nRendere das Dokument erneut und schau dir den Output an.",
@@ -791,8 +791,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-4",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-4",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-4",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-4",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 4",
     "text": "Aufgabe 4\nStelle sicher, dass nach jedem Plot ein neuer Chunk beginnt. Am einfachsten positionierst du dafür deinen Cursor zur Stelle, wo du einen neuen Chunk beginnen möchtest, und führst erneut die Tastenkombination Ctrl+Alt+I aus.\nRendere das Dokument erneut und schau dir den Output an. Er sollte sich nicht verändert haben.",
@@ -802,8 +802,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-5",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-5",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-5",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-5",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 5",
     "text": "Aufgabe 5\nErgänze das Quarto-Dokument nun mit dem restlichen Fliesstext aus Kovic (2014). Stelle sicher, dass an folgenden Stellen immer eine leere Zeile besteht:\n\nzwischen Absätzen\nvor und nach Überschriften\nvor und nach Code-Chunks\n\nRendere das Dokument erneut und schau dir den Output an.\n\n\n\n\n\n\nHinweis\n\n\n\nStatt das Dokument immer wieder manuell zu rendern, kann auch die Option Render on Save (siehe Abbildung 14.1) aktiviert werden.",
@@ -813,8 +813,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-6",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-6",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-6",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-6",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 6",
     "text": "Aufgabe 6\nNun formatieren wir den Fliesstext mit etwas Markdown-Syntax. Stelle zu diesem Zweck jeder Überschrift (Kantonsebene, Gemeindeebene etc.) zwei # Zeichen voran. Also so:\n## Kantonsebene\n\n...text\n\n## Gemeindeebene\n\n... text",
@@ -824,8 +824,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-7-optional",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-7-optional",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-7-optional",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-7-optional",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 7 (Optional)",
     "text": "Aufgabe 7 (Optional)\nMarkdown-Syntax ermöglicht das Formatieren von Fliesstext mit einer sogenannten Markup Sprache. Du kannst beispielsweise Text kursiv oder fett rendern lassen. Versuche ein paar Varianten aus, die Syntax ist hier gut beschrieben.",
@@ -835,8 +835,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#aufgabe-8",
-    "href": "infovis/Infovis2_Uebung_A.html#aufgabe-8",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-8",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#aufgabe-8",
     "title": "Infovis 2: Übung",
     "section": "Aufgabe 8",
     "text": "Aufgabe 8\nUm die Nützlichkeit von Quarto zu illustrieren, ändern wir jetzt den Theme aller Plots mit einer einzigen Zeile Code. Füge folgende Zeile vor dem ersten Plot hinzu:\ntheme_set(theme_classic())\nRendere das Dokument erneut und schau dir den Output an.",
@@ -846,8 +846,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_A.html#abgabe",
-    "href": "infovis/Infovis2_Uebung_A.html#abgabe",
+    "objectID": "infovis/Infovis2_Uebung_Quarto.html#abgabe",
+    "href": "infovis/Infovis2_Uebung_Quarto.html#abgabe",
     "title": "Infovis 2: Übung",
     "section": "⚠ Abgabe",
     "text": "⚠ Abgabe\n\n\n\n\n\n\nWichtig\n\n\n\nZippe nun deinen Projektordner (mit dem Quarto-File und dem PDF-Output) und gib es auf Moodle ab.\n\n\n\n\n\n\nKovic, Marko. 2014. „Je weniger Ausländer, desto mehr Ja-Stimmen? Wirklich?“ Tagesanzeiger Datenblog. https://blog.tagesanzeiger.ch/datenblog/index.php/668/je-weniger-auslaender-desto-mehr-ja-stimmen-wirklich.",
@@ -857,8 +857,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html",
-    "href": "infovis/Infovis2_Uebung_B.html",
+    "objectID": "infovis/Infovis2_Uebung_optional.html",
+    "href": "infovis/Infovis2_Uebung_optional.html",
     "title": "Infovis 2: Übung optional",
     "section": "",
     "text": "Aufgabe 1\nFür die optionale Übung brauchst du den Datensatz temperature_2005.csv. Dabei handelt es sich wieder um Temperaturwerte verschiedener Stationen, diesmal aus dem Jahr 2005. Das Datum ist so formatiert, dass R (insbesondere read_delim) es korrekt als datetime erkennen und als POSIXct einlesen sollte.\nMache aus der wide table eine long table, die wie folgt aussieht.\ntime\nstation\ntemperature\n\n\n\n\n2005-01-01\nALT\n1.3\n\n\n2005-01-01\nBUS\n1.5\n\n\n2005-01-01\nGVE\n1.1\n\n\n2005-01-01\nINT\n0.2\n\n\n2005-01-01\nOTL\n2.2\n\n\n2005-01-01\nLUG\n1.7\nImportiere anschliessend den Datensatz temperature_2005_metadata.csv und verbinde die beiden Datensätze mit einem left_join via station (bzw. stn).",
@@ -868,8 +868,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html#sec-infovis2-scatterplot",
-    "href": "infovis/Infovis2_Uebung_B.html#sec-infovis2-scatterplot",
+    "objectID": "infovis/Infovis2_Uebung_optional.html#sec-infovis2-scatterplot",
+    "href": "infovis/Infovis2_Uebung_optional.html#sec-infovis2-scatterplot",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 2",
     "text": "Aufgabe 2\nErstelle ein Scatterplot (time vs. temperature), wobei die Punkte aufgrund ihrer Meereshöhe eingefärbt werden sollen. Tiefe Werte sollen dabei blau eingefärbt werden und hohe Werte rot (scale_color_gradient). Verkleinere die Punkte, um übermässiges Überplotten der Punkte zu vermeiden (size =). Weiter sollen auf der x-Achse im Abstand von 3 Monaten der jeweilige Monat vermerkt sein (date_breaks bzw. date_labels von scale_x_datetime()).",
@@ -879,8 +879,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html#sec-infovis2-aggregate",
-    "href": "infovis/Infovis2_Uebung_B.html#sec-infovis2-aggregate",
+    "objectID": "infovis/Infovis2_Uebung_optional.html#sec-infovis2-aggregate",
+    "href": "infovis/Infovis2_Uebung_optional.html#sec-infovis2-aggregate",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 3",
     "text": "Aufgabe 3\nErstelle eine Zusatzvariable Date mit dem Datum der jeweiligen Messung ( mit as.Date). Nutze diese Spalte, um die Tagesmitteltemperatur pro Station zu berechnen (mit summarise()).\nUm die Metadaten (Name, Meereshoehe, x, y) nicht zu verlieren, kannst du den Join aus der ersten Übung wieder ausführen. Alternativ (schneller aber weniger intuitiv) kannst du diese Variablen innerhalb deines group_by verwenden.",
@@ -890,8 +890,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-4",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-4",
+    "objectID": "infovis/Infovis2_Uebung_optional.html#aufgabe-4",
+    "href": "infovis/Infovis2_Uebung_optional.html#aufgabe-4",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 4",
     "text": "Aufgabe 4\nWiederhole nun den Plot aus Aufgabe 2 mit den aggregierten Daten aus Aufgabe 3. Um die labels korrekt zu setzen, musst du scale_x_datetime mit scale_x_date ersetzen.",
@@ -901,8 +901,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-5",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-5",
+    "objectID": "infovis/Infovis2_Uebung_optional.html#aufgabe-5",
+    "href": "infovis/Infovis2_Uebung_optional.html#aufgabe-5",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 5",
     "text": "Aufgabe 5\nFüge zum obigen Plot eine schwarze, gestrichelte Trendlinie hinzu.",
@@ -912,8 +912,8 @@
     ]
   },
   {
-    "objectID": "infovis/Infovis2_Uebung_B.html#aufgabe-6",
-    "href": "infovis/Infovis2_Uebung_B.html#aufgabe-6",
+    "objectID": "infovis/Infovis2_Uebung_optional.html#aufgabe-6",
+    "href": "infovis/Infovis2_Uebung_optional.html#aufgabe-6",
     "title": "Infovis 2: Übung optional",
     "section": "Aufgabe 6",
     "text": "Aufgabe 6\nPositioniere die Legende oberhalb des Plots (nutze dazu theme() mit legend.position).",
