@@ -148,6 +148,7 @@ drop1(lmm_3, test = "Chi")
 
 # Refit with REML
 lmm_4 <- update(lmm_3, REML = TRUE)
+Anova(lmm_4)
 
 #' 
 ## -----------------------------------------------------------------------------
@@ -167,12 +168,12 @@ best_model <- get.models(allmodels, delta==0)[[1]]
 #' 
 ## -----------------------------------------------------------------------------
 # Mit REML refitten
-lmm_2 <- update(best_model, REML = TRUE)
+lmm_bm_2 <- update(best_model, REML = TRUE)
 
 # Resultat
-Anova(lmm_2)
-summary(lmm_2)
-r2(lmm_2)
+Anova(lmm_bm_2)
+summary(lmm_bm_2)
+r2(lmm_bm_2)
 
 #' 
 #' Modelvalidierung
@@ -248,7 +249,7 @@ ggplot(sleepstudy_2, aes(y = Reaction, x = Days)) +
 ## -----------------------------------------------------------------------------
 # Fit models
 
-# Random slope
+# Random intercept
 lmm_1 <- glmmTMB(Reaction ~ Days + (1 | Subject),
                  family = gaussian,
                  data = sleepstudy_2)
@@ -265,7 +266,6 @@ AICc(lmm_1, lmm_2)
 # Modellvalidierung
 set.seed(123)
 simulationOutput <- simulateResiduals(fittedModel = lmm_2, plot = TRUE, n = 1000)
-plotResiduals(simulationOutput, form = sleepstudy_2$Days)
 
 # Model resultat
 summary(lmm_2)
