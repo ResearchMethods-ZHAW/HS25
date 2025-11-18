@@ -3,7 +3,7 @@ lesson: Statistik 6
 knitr:
   opts_chunk: 
     collapse: false
-musterloesung: false
+musterloesung: true
 ---
 
 
@@ -91,7 +91,10 @@ summary(nova)
 # sieht euch die Verteilung zwischen Fleisch und  kein Fleisch an,
 # beide Kategorien kommen nicht gleich häufig vor, ist aber nicht tragisch
 table(nova$meat) 
-prop.table( table(nova$meat)) # Werte in Prozent
+# Werte in Prozent
+prop.table( table(nova$meat)) 
+
+table(nova$gender, nova$member, nova$age_group) 
 
 # Definiert das logistische Modell mit ccrs als random intercept und
 # wendet es auf den Datensatz an
@@ -122,8 +125,6 @@ drop1(glmm_4, test = "Chisq")
 
 ```{r}
 # Modellvalidierung
-performance_roc(glmm_4)
-
 set.seed(123)
 simulationOutput <- simulateResiduals(fittedModel = glmm_4, plot = TRUE, n = 500)
 
@@ -149,6 +150,8 @@ r2(glmm_1)
 # hier 4% (das ist sehr wenig)
 # das conditionale R^2 (r2c) gibt uns die erklärte Varianz für das ganze Modell
 # (mit fixen und variablen Effekten): hier 34% 
+
+performance_roc(glmm_4)
 ```
 
 
