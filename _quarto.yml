@@ -67,8 +67,8 @@ book:
       - infovis/Infovis1_Kovic_2014.qmd
       - --
       - infovis/Infovis2_Demo.qmd
-      - infovis/Infovis2_Uebung_A.qmd
-      - infovis/Infovis2_Uebung_B.qmd
+      - infovis/Infovis2_Uebung_Quarto.qmd
+      - infovis/Infovis2_Uebung_optional.qmd
     - part: Statistik.qmd
       chapters:
       - statistik/Statistik0_Vorbereitung.qmd
