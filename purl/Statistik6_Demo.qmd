@@ -8,6 +8,7 @@ editor:
     wrap: 72
 ---
 
+
 # Statistik 6: Demo
 
 [Demoscript herunterladen (.R)](../purl/Statistik6_Demo.R){.dld}
@@ -259,9 +260,8 @@ lmm_2 <- glmmTMB(Reaction ~ Days + (Days | Subject),
                  family = gaussian,
                  data = sleepstudy_2)
 
-# Model vergleich mit AICc (package "MuMIn")
-AICc(lmm_1, lmm_2)
-# Model mit random slope und random intercept hat tieferen AICc
+# Modelle vergleichen
+anova(lmm_1, lmm_2)
 
 # Modellvalidierung
 set.seed(123)
