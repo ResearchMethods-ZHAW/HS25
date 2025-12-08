@@ -2,8 +2,8 @@
 lesson: RaumAn5
 thema: Multi-Criteria Evaluation (MCE)
 execute: 
-  echo: false   # set to true to show musterlösung
-  output: false # set to true to show musterlösung
+  echo: true   # set to true to show musterlösung
+  output: true # set to true to show musterlösung
 code-fold: true
 code-summary: "Musterlösung"
 knitr:
@@ -101,21 +101,31 @@ strassen <- read_sf(gpkg_path, "Strassen") |> st_transform(2056)
 
 Beginnen wir mit dem Kriterium "Erschliessung". Wir müssen für den ganzen Kanton Schwyz wissen, wie weit die nächste Strasse entfernt ist. Wie wir bereits in @sec-raster-intro1 erläutert haben, lässt sich diese Information am besten in einem Raster abbilden.
 
-Analog @sec-raster-intro1 müssen wir hierfür den Vektordatensatz auf der Basis eines Templates in ein Raster konvertieren. Für die Erstellung des Templates verwenden wir an dieser Stelle die Kantonsgrenze vom Kanton Schwyz.
+Analog @sec-raster-intro1 müssen wir hierfür den Vektordatensatz auf der Basis eines Templates in ein Raster konvertieren. Für die Erstellung des Templates könnten wir z.B. die Kantonsgrenze vom Kanton Schwyz verwenden. Dies führt erstaunlicherweise jedoch zu einem unvorhergesehenem Ergebnis: Die Rasterzellengrösse beträgt nicht 250m.
+
 
 ```{r}
+#| output: true
 #| echo: true
 #| code-fold: false
 
 # Template mit der Ausdehnung und dem CRS von kt_schwyz
 # erstellen, und mit einer Auflösung von 250m
-template <- rast(kt_schwyz, resolution = 250)
+template_kt_schwyz <- rast(kt_schwyz, resolution = 250)
+template_kt_schwyz
+```
+
+Besser ist es hier, den Raster dhm250m als Template zu verwenden. Lade *dhm250m.tif* in R ein und rasterisiere basierend darauf den Strassendatensatz. Berechne anschliessend die Distanz zu Strassen mit der Funktion `distance()`. Plausibilisiere den Output, indem du ihn visualisierst.
+
+```{r}
+#| echo: true
+#| code-fold: false
+
+template <- dhm250m <- rast("datasets/rauman/dhm250m.tif")
 
 strassen_raster <- rasterize(strassen, template)
 strassen_dist <- distance(strassen_raster)
 ```
-
-Nutze den obigen Code, um den Strassen-Datensatz zu rasterisieren und die Distanz zu Strassen mit der Funktion `distance()` zu berechnen. Plausibilisiere den Output, indem du ihn visualisierst.
 
 ```{r}
 #| output: true
