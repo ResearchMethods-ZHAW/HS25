@@ -800,7 +800,7 @@ div.csl-indent {
 <p>Für die Berechnung der Density verwenden wir die Funktion <code>density.ppp</code> aus <code>spatstat</code>. Diese Library ist etwas komplex in der Anwendung. Damit wir dieses Verfahren aber dennoch auf unsere Rotmilan-Daten anwenden können, haben wir eine eigene KDE-Funktion erstellt, die wir Euch zur Verfügung stellen.</p>
 <p>Wir ermutigen alle, die dafür Kapazität haben, unsere Funktion eingehend zu studieren und allenfalls ganz auf die Funktion zu verzichten und stattdessen direkt <code>spatstat</code> zu verwenden. Wenn ihr mit unserer Funktion arbeiten möchtet, müsst ihr den unten stehenden Code in euer Skript kopieren und ausführen.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_kde <span class="ot">&lt;-</span> <span class="cf">function</span>(points, cellsize, bandwith, <span class="at">extent =</span> <span class="cn">NULL</span>){</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_kde <span class="ot">&lt;-</span> <span class="cf">function</span>(points, cellsize, bandwidth, <span class="at">extent =</span> <span class="cn">NULL</span>){</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  points_ppp <span class="ot">&lt;-</span> <span class="fu">as.ppp</span>(points) <span class="co"># konvertiert sf &gt; ppp</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -811,7 +811,7 @@ div.csl-indent {
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  } </span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># macht eine Dichteschätzung</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  points_density <span class="ot">&lt;-</span> <span class="fu">density.ppp</span>(<span class="at">x =</span> points_ppp, <span class="at">sigma =</span> bandwith, <span class="at">eps =</span> cellsize)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  points_density <span class="ot">&lt;-</span> <span class="fu">density.ppp</span>(<span class="at">x =</span> points_ppp, <span class="at">sigma =</span> bandwidth, <span class="at">eps =</span> cellsize)</span>
 <span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># konvertiert den Output in ein DataFrame</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  points_density_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(points_density)</span>
@@ -823,12 +823,12 @@ div.csl-indent {
 <ul>
 <li><code>points</code>: Ein Punktdatensatz aus der Class <code>sf</code></li>
 <li><code>cellsize</code>: Die Zellgrösse des Output-Rasters</li>
-<li><code>bandwith</code>: Der Suchradius für die Dichteberechnung</li>
+<li><code>bandwidth</code>: Der Suchradius für die Dichteberechnung</li>
 <li><code>extent</code> (optional): Der Perimeter, in dem die Dichteverteilung berechnet werden soll. Wenn kein Perimeter angegeben wird, wird die “bounding box” von <code>points</code> genutzt.</li>
 </ul>
 <p>Wenn wir nun mit <code>my_kde()</code> die Dichteverteilung berechnen, erhalten wir ein <code>data.frame</code> mit X und Y Koordinaten sowie eine Spalte <code>value</code> zurück. Nutzt diese drei Spalten mit <code>geom_raster()</code>, um eure Daten mit <code>ggplot</code> zu visualisieren (<code>aes(x = X, y = Y, fill = value)</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rotmilan_kde <span class="ot">&lt;-</span> <span class="fu">my_kde</span>(<span class="at">points =</span> rotmilan, <span class="at">cellsize =</span> <span class="dv">1000</span>, <span class="at">bandwith =</span> <span class="dv">10000</span>, <span class="at">extent =</span> schweiz)</span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rotmilan_kde <span class="ot">&lt;-</span> <span class="fu">my_kde</span>(<span class="at">points =</span> rotmilan, <span class="at">cellsize =</span> <span class="dv">1000</span>, <span class="at">bandwidth =</span> <span class="dv">10000</span>, <span class="at">extent =</span> schweiz)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(rotmilan_kde)</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="do">##         x       y        value</span></span>
