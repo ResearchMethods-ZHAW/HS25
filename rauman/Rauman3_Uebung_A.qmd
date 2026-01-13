@@ -64,7 +64,7 @@ Wir ermutigen alle, die dafür Kapazität haben, unsere Funktion eingehend zu st
 #| echo: true
 #| code-fold: false
 
-my_kde <- function(points, cellsize, bandwith, extent = NULL){
+my_kde <- function(points, cellsize, bandwidth, extent = NULL){
   
   points_ppp <- as.ppp(points) # konvertiert sf > ppp
 
@@ -75,7 +75,7 @@ my_kde <- function(points, cellsize, bandwith, extent = NULL){
   } 
 
   # macht eine Dichteschätzung
-  points_density <- density.ppp(x = points_ppp, sigma = bandwith, eps = cellsize)
+  points_density <- density.ppp(x = points_ppp, sigma = bandwidth, eps = cellsize)
 
   # konvertiert den Output in ein DataFrame
   points_density_df <- as.data.frame(points_density)
@@ -88,7 +88,7 @@ Die Parameter der Funktion sollten relativ klar sein:
 
 - `points`: Ein Punktdatensatz aus der Class `sf`
 - `cellsize`: Die Zellgrösse des Output-Rasters
-- `bandwith`: Der Suchradius für die Dichteberechnung
+- `bandwidth`: Der Suchradius für die Dichteberechnung
 - `extent` (optional): Der Perimeter, in dem die Dichteverteilung berechnet werden soll. Wenn kein Perimeter angegeben wird, wird die "bounding box" von `points` genutzt.
 
 Wenn wir nun mit `my_kde()` die Dichteverteilung berechnen, erhalten wir ein `data.frame` mit X und Y Koordinaten sowie eine Spalte `value` zurück. Nutzt diese drei Spalten mit `geom_raster()`, um eure Daten mit `ggplot` zu visualisieren (`aes(x = X, y = Y, fill = value)`. 
@@ -98,7 +98,7 @@ Wenn wir nun mit `my_kde()` die Dichteverteilung berechnen, erhalten wir ein `da
 #| output: true
 #| code-fold: false
 
-rotmilan_kde <- my_kde(points = rotmilan, cellsize = 1000, bandwith = 10000, extent = schweiz)
+rotmilan_kde <- my_kde(points = rotmilan, cellsize = 1000, bandwidth = 10000, extent = schweiz)
 
 head(rotmilan_kde)
 ```
